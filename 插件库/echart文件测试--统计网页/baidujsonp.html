@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GoJSONP</title>
+</head>
+<body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script type="text/javascript">
+var datsa=null;
+    function jsonhandle(data){
+        datsa=data;
+        alert("age:" + data.age + "name:" + data.name);
+    }
+</script>
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var url = "http://api.map.baidu.com/geocoder/v2/?callback=jsonhandle&location=39.983424,116.322987&output=json&pois=1&ak=" + "WqQgeC4x8uBKhnrkUZVs0kDbgtl7eUMM";;
+        var obj = $('<script><\/script>');
+        obj.attr("src",url);
+        $("body").append(obj);
+    });
+</script>
+</body>
+</html>

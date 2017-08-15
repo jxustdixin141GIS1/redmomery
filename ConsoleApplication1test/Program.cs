@@ -38,25 +38,40 @@ namespace ConsoleApplication1test
             //Console.WriteLine("全部修改成功");
             #endregion
             //现在正在使用的代码
-            string path = @"D:\题库系统\redMomery\调试\新建文本文档.txt";
-
-            //开始使用盘古分词进行处理
-            //PanGuC p = new PanGuC();
-            //p.createTimeDircr();
-
-            //redmomery.command.createlog.createlogs(p.example(redmomery.command.createlog.readTextFrompath(path)));
-            //Console.WriteLine();
-
-            //Console.WriteLine("开始进行数据分析和处理");
-            //modelMa ma = new modelMa();
-            //ma.modelmain();
-            //PanGuC p = new PanGuC();
-            //p.createTimeDircr();
+            string path = @"D:\题库系统\github\team\redmomery\插件库\echart文件测试--统计网页\百度城市代码.txt";
+            string contenxt = redmomery.command.createlog.readTextFrompath(path);
+            string[] city = contenxt.Split('\n');
+            Console.Write("程序切割完成");
+            StringBuilder sbuding = new StringBuilder();//进行json格式数据文件的建立
+            StringBuilder citycoding = new StringBuilder();
+            sbuding.Append("[");
+            citycoding.Append("{");
+            for (int i = 0; i < city.Length-1; i++)
+            {
+                string[] temp = city[i].Trim().Split(' ');//出去前后空格，并进行字符串的切分，后面为城市名
+                string[] lnglat = redmomery.command.Geocodingcommand.getGecodingByAddress(temp[1]);
+                Console.Write(i.ToString()); Console.Write("\r");
+                sbuding.Append("{" + temp[0] + ":" + "\"" + temp[1] + "\"" + "}");
+                citycoding.Append( '\'' + temp[1] + "\'" + ":"+"["+lnglat[0]+","+lnglat[1]+"]");
+                if (i < city.Length - 2)
+                {
+                    sbuding.Append(",");
+                    citycoding.Append(",");
+                }
+            }
+            sbuding.Append("]");
+            citycoding.Append("}");
+            redmomery.command.createlog.createtxt(sbuding.ToString(), "cityTocode.json");
+            redmomery.command.createlog.createtxt(citycoding.ToString(), "citycoding.json");
             Console.WriteLine("程序执行完成");
             Console.Read();
             // testgeogecoding();
 
         }
+    }
+    public class staticbydata 
+    {
+         
     }
     //public class PanGuC
     //{
@@ -435,13 +450,19 @@ namespace ConsoleApplication1test
         //这个方法主要是为了进行有坐标解算出地名
         public string getAdressnameByXy(string lng, string lat, string level)
         {
-            string result = new string();
-
+            string result = string.Empty;
+            string url = "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location="+lat+","+lng+"&output=json&pois=1&ak=" + "WqQgeC4x8uBKhnrkUZVs0kDbgtl7eUMM";
             return result;
         }
-
-        //从执行的文件中读取字符串
       
+        //下面这个方法用来生成百度地图城市编码的city名字表，注意为json格式
+        public void createjsonbycityid()
+        { 
+          
+        }
+
+
+
 
         //开始进行模型修改
         public void testgeogecoding()

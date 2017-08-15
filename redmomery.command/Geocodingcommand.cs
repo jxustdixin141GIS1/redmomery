@@ -7,6 +7,11 @@ namespace redmomery.command
 {
       public   class Geocodingcommand
     {
+         /// <summary>
+         /// 
+         /// </summary>
+         /// <param name="nedadresss"></param>
+         /// <returns>lng,lat</returns>
         public static string[] getGecodingByAddress(string nedadresss)
         {
             //获取指定的地址，开始进行查询

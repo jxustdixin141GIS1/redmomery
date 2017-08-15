@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="BBStest.html" />
     <Content Include="disributioncity.html" />
+    <Content Include="effectScatter-map.html" />
     <Content Include="indexupload.html" />
     <Content Include="LBupload.html" />
     <Content Include="redmomeryserver.asmx" />
@@ -659,6 +660,7 @@
     <Content Include="resource\image\lbinfo\J99.jpg" />
     <Content Include="resource\image\tubiao.gif" />
     <Content Include="packages.config" />
+    <Content Include="resource\staticfile\citybaiduinfo.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="resource\js\bbstest.js" />
     <Content Include="resource\js\jquery-1.12.0.min.js" />
