@@ -44,7 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -1703,6 +1705,7 @@
     <Content Include="resource\js\modernizr.custom.js" />
     <Content Include="resource\js\LBUpload.js" />
     <Content Include="resource\js\video.js" />
+    <Content Include="resource\staticfile\citybaiduinfo.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

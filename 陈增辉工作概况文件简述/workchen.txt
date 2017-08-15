@@ -319,7 +319,25 @@ json数组格式：
   {},
   {},
 ]
+16、json文件对应的遍历？
+function getlnglatbycityName(cityname)
+{
+    //这个方法给出对应的json对象
+    for (var og in citylnglat) {
+        if (cityname == og)
+        {
+            var temp = citylnglat[og];
+            var lng = temp[0].toString();
+            var lat = temp[1].toString();
+            var result = '{\"lng\":' + lng + ',\"lat\":' + lat + '}';
+            return JSON.parse(result);
+        }
+    }
 
+}
 
-
+17、数据统计思路？
+  解： 1、从数据库中提取对应的实体对象
+       2、然后，将实体对象中lng，lat带入公式中，
+       3、得到对应的网址，开始进行网页文件解析
 

@@ -77,6 +77,7 @@
     <Content Include="resource\css\cmains.css" />
     <Content Include="resource\css\comment.css" />
     <Content Include="resource\css\style_comment.css" />
+    <Content Include="resource\staticfile\Treatmentdata.js" />
     <Content Include="resource\webjs\dark.js" />
     <Content Include="resource\webjs\echarts.js" />
     <Content Include="resource\image\header-img-comment_03.png" />
