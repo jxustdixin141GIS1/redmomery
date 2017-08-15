@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD72D7C1-227A-40D4-8B3A-B7C16F697A10}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>redmomery.command</RootNamespace>
+    <AssemblyName>redmomery.command</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CustomRuleExample, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\30453\Desktop\PanGu_Release_V2.3.1.0\Release\CustomRuleExample.dll</HintPath>
+    </Reference>
+    <Reference Include="Demo, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\30453\Desktop\PanGu_Release_V2.3.1.0\Release\Demo.exe</HintPath>
+    </Reference>
+    <Reference Include="Demo.vshost, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\30453\Desktop\PanGu_Release_V2.3.1.0\Release\Demo.vshost.exe</HintPath>
+    </Reference>
+    <Reference Include="DictManage, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\30453\Desktop\PanGu_Release_V2.3.1.0\Release\DictManage.exe</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=2.9.2.1, Culture=neutral, PublicKeyToken=402f1553d5c332e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Common\bin\Debug\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\资源-用于内网传输的\Json100r1\Bin\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu">
+      <HintPath>..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Common\bin\Debug\PanGu.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.HighLight">
+      <HintPath>..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Common\bin\Debug\PanGu.HighLight.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.Lucene.Analyzer">
+      <HintPath>..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Common\bin\Debug\PanGu.Lucene.Analyzer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="chinaAndnumConvert.cs" />
+    <Compile Include="ConfigHelper.cs" />
+    <Compile Include="createlog.cs" />
+    <Compile Include="EmailHelper.cs" />
+    <Compile Include="NIPIR_C3.cs" />
+    <Compile Include="Geocodingcommand.cs" />
+    <Compile Include="MailPage.cs" />
+    <Compile Include="MD5Helper.cs" />
+    <Compile Include="PanGuHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializerHelper.cs" />
+    <Compile Include="ValidateCode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Service References\Dictionaries\Dict.dct" />
+    <None Include="Service References\Release\Demo.vshost.exe.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service References\Dictionaries\ChsDoubleName1.txt" />
+    <Content Include="Service References\Dictionaries\ChsDoubleName2.txt" />
+    <Content Include="Service References\Dictionaries\ChsSingleName.txt" />
+    <Content Include="Service References\Dictionaries\Stopword.txt" />
+    <Content Include="Service References\Dictionaries\Synonym.txt" />
+    <Content Include="Service References\Dictionaries\Wildcard.txt" />
+    <Content Include="Service References\license.txt" />
+    <Content Include="Service References\Release\CustomRuleExample.dll" />
+    <Content Include="Service References\Release\CustomRuleExample.pdb" />
+    <Content Include="Service References\Release\Demo.exe" />
+    <Content Include="Service References\Release\Demo.pdb" />
+    <Content Include="Service References\Release\Demo.vshost.exe" />
+    <Content Include="Service References\Release\DictManage.exe" />
+    <Content Include="Service References\Release\DictManage.pdb" />
+    <Content Include="Service References\Release\PanGu.dll" />
+    <Content Include="Service References\Release\PanGu.HighLight.dll" />
+    <Content Include="Service References\Release\PanGu.HighLight.pdb" />
+    <Content Include="Service References\Release\PanGu.pdb" />
+    <Content Include="Service References\Release\PanGu.xml" />
+    <Content Include="Service References\Release\PosDisplayCtrl.dll" />
+    <Content Include="Service References\Release\PosDisplayCtrl.pdb" />
+    <Content Include="Service References\Release\说明.txt" />
+    <Content Include="Service References\许可协议-简体中文参考版.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

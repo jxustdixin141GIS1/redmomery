@@ -1,0 +1,5 @@
+D:\题库系统\redMomery\redMomery.Conn\bin\Debug\redMomery.Conn.dll
+D:\题库系统\redMomery\redMomery.Conn\bin\Debug\redMomery.Conn.pdb
+D:\题库系统\redMomery\redMomery.Conn\obj\Debug\redMomery.Conn.dll
+D:\题库系统\redMomery\redMomery.Conn\obj\Debug\redMomery.Conn.pdb
+D:\题库系统\redMomery\redMomery.Conn\bin\Debug\redMomery.Conn.dll.config

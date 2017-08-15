@@ -1,0 +1,1 @@
+﻿select * from redmemor.dbo.老兵  where LBID='1'

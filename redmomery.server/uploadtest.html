@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>上传文件测试</title>
+    <script src="resource/config.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script type="text/javascript">
+    function doUpload() {
+        var formData = new FormData($("#uploadForm")[0]);
+        $.ajax({
+            url: configUrl+'/redmomeryserver.asmx/UploadFile?jsoncallback=shows',
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            //                    dataType: "jsonp",//问题就在这里，如果用了jsonp，那么后台就接收不到文件流，无法获得文件流，就没办法把文件写入服务器。如果不指定，就是注释掉，虽然ajax提交之后，还是跑到error那里去，但是文件已经是成功写入服务器的了。
+            jsonp: "jsoncallback",
+            success: function (returndata) {
+                var vData = JSON.stringify(returndata);
+                alert(vData);
+            },
+            error: function (returndata) {
+                var vData = JSON.stringify(returndata);
+                alert(vData);
+            }
+        });
+    }
+    </script>
+    
+</head>
+<body>
+    <form id="uploadForm">
+        <p>
+            指定文件名：
+            <input type="text" name="filename" value="" />
+        </p>
+        <p>
+            上传文件：
+            <input type="file" name="file" />
+            </ p>
+            <input type="button" value="上传" onclick="doUpload()" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80ECA235-57F3-44BC-BC8B-E342B5AF909C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>redmomery.DAL</RootNamespace>
+    <AssemblyName>redmomery.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\资源-用于内网传输的\Json100r3\Bin\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ARMY_INFODAL.cs" />
+    <Compile Include="BBSCONTENTSDAL.cs" />
+    <Compile Include="BBSTITLE_TABLEDAL.cs" />
+    <Compile Include="CCBBS_TABLEDAL.cs" />
+    <Compile Include="CTBBS_TABLEDAL.cs" />
+    <Compile Include="DAL_Auto\ARMY_INFODAL.cs" />
+    <Compile Include="DAL_Auto\BBSCONTENTSDAL.cs" />
+    <Compile Include="DAL_Auto\BBSTITLE_TABLEDAL.cs" />
+    <Compile Include="DAL_Auto\CCBBS_TABLEDAL.cs" />
+    <Compile Include="DAL_Auto\CTBBS_TABLEDAL.cs" />
+    <Compile Include="DAL_Auto\FILE_TABLEDAL.cs" />
+    <Compile Include="DAL_Auto\GEN_INFODAL.cs" />
+    <Compile Include="DAL_Auto\LB_INFODAL.cs" />
+    <Compile Include="DAL_Auto\moduleBBS_TableDAL.cs" />
+    <Compile Include="DAL_Auto\PUBLIC_RECORDDAL.cs" />
+    <Compile Include="DAL_Auto\ROOT_INFODAL.cs" />
+    <Compile Include="DAL_Auto\SHAPE_TABLEDAL.cs" />
+    <Compile Include="DAL_Auto\SqlHelper.cs" />
+    <Compile Include="DAL_Auto\sysdiagramsDAL.cs" />
+    <Compile Include="DAL_Auto\USER_INFODAL.cs" />
+    <Compile Include="DAL_Auto\View_CC_UDAL.cs" />
+    <Compile Include="DAL_Auto\View_CT_UDAL.cs" />
+    <Compile Include="DAL_Auto\View_C_CLDAL.cs" />
+    <Compile Include="DAL_Auto\View_m_LDAL.cs" />
+    <Compile Include="DAL_Auto\View_m_TLDAL.cs" />
+    <Compile Include="DAL_Auto\View_T_UDAL.cs" />
+    <Compile Include="DAL_Auto\WAR_INFODAL.cs" />
+    <Compile Include="FILE_TABLEDAL.cs" />
+    <Compile Include="GEN_INFODAL.cs" />
+    <Compile Include="LB_INFODAL.cs" />
+    <Compile Include="moduleBBS_TableDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PUBLIC_RECORDDAL.cs" />
+    <Compile Include="ROOT_INFODAL.cs" />
+    <Compile Include="SHAPE_TABLEDAL.cs" />
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="sysdiagramsDAL.cs" />
+    <Compile Include="USER_INFODAL.cs" />
+    <Compile Include="View_CC_UDAL.cs" />
+    <Compile Include="View_CT_UDAL.cs" />
+    <Compile Include="View_C_CLDAL.cs" />
+    <Compile Include="View_m_LDAL.cs" />
+    <Compile Include="View_m_TLDAL.cs" />
+    <Compile Include="View_T_UDAL.cs" />
+    <Compile Include="WAR_INFODAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DML\redmomery.MDL.csproj">
+      <Project>{7790ec9c-719f-4575-a2ab-b26c9f926284}</Project>
+      <Name>redmomery.MDL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\redmomery.command\redmomery.command.csproj">
+      <Project>{cd72d7c1-227a-40d4-8b3a-b7c16f697a10}</Project>
+      <Name>redmomery.command</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

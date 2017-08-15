@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="redmomeryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ARMY_INFO">
+    <Key>
+      <PropertyRef Name="ARMY_ID" />
+    </Key>
+    <Property Name="ARMY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ARMY_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="ARMY_TIME" Type="datetime" />
+    <Property Name="ARMY_ADDRESS" Type="varchar" MaxLength="100" />
+    <Property Name="ARMY_LOCX" Type="float" />
+    <Property Name="ARMY_LOCY" Type="float" />
+    <Property Name="ARMY_INTRO" Type="text" />
+  </EntityType>
+  <EntityType Name="BBSCONTENTS">
+    <Key>
+      <PropertyRef Name="BSS_ID" />
+    </Key>
+    <Property Name="BSS_ID" Type="int" Nullable="false" />
+    <Property Name="CONNAME" Type="text" />
+    <Property Name="CONREXT" Type="text" />
+    <Property Name="WRITEDATE" Type="datetime" />
+    <Property Name="WRITEID" Type="int" />
+    <Property Name="REPLYID" Type="int" />
+    <Property Name="CRTIME" Type="datetime" />
+    <Property Name="KINDID" Type="int" />
+    <Property Name="KINDNAME" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="GEN_INFO">
+    <Key>
+      <PropertyRef Name="GEN_ID" />
+    </Key>
+    <Property Name="GEN_ID" Type="int" Nullable="false" />
+    <Property Name="GEN_NAME" Type="varchar" MaxLength="20" />
+    <Property Name="GEN_BIRTH" Type="datetime" />
+    <Property Name="GEN_EVTIME" Type="datetime" />
+    <Property Name="GEN_ADDRESS" Type="varchar" MaxLength="100" />
+    <Property Name="GEN_LOCX" Type="float" />
+    <Property Name="GEN_LOCY" Type="float" />
+    <Property Name="GEN_INTRO" Type="text" />
+  </EntityType>
+  <EntityType Name="LB_INFO">
+    <Key>
+      <PropertyRef Name="LB_ID" />
+      <PropertyRef Name="LB_NAME" />
+    </Key>
+    <Property Name="LB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LB_NAME" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LB_SEX" Type="nvarchar" MaxLength="255" />
+    <Property Name="LB_JOB" Type="nvarchar" MaxLength="255" />
+    <Property Name="LB_BIRTHDAY" Type="datetime" />
+    <Property Name="LB_DESIGNATION" Type="text" />
+    <Property Name="LB_ADDRESS" Type="nvarchar" MaxLength="25" />
+    <Property Name="LB_EXPERIENCE" Type="text" />
+    <Property Name="LB_LIFE" Type="nvarchar" MaxLength="255" />
+    <Property Name="LB_LOCX" Type="float" />
+    <Property Name="LB_LOCY" Type="float" />
+    <Property Name="LB_IMGPTH" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PUBLIC_RECORD">
+    <Key>
+      <PropertyRef Name="PUB_ADDRESS" />
+    </Key>
+    <Property Name="PUB_ID" Type="int" />
+    <Property Name="PUB_ADDRESS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IP" Type="varchar" MaxLength="10" />
+    <Property Name="STATE" Type="int" />
+    <Property Name="CREATTIME" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ROOT_INFO">
+    <Key>
+      <PropertyRef Name="ROOT_ID" />
+    </Key>
+    <Property Name="ROOT_ID" Type="int" Nullable="false" />
+    <Property Name="ROOT_NAME" Type="varchar" MaxLength="10" />
+    <Property Name="ROOT_PWD" Type="varchar" MaxLength="20" />
+    <Property Name="REAL_NAME" Type="varchar" MaxLength="10" />
+    <Property Name="TELPHONE" Type="int" />
+    <Property Name="STATUS" Type="int" />
+    <Property Name="CREATTIME" Type="datetime" />
+    <Property Name="UPTIME" Type="datetime" />
+  </EntityType>
+  <EntityType Name="USER_INFO">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="USER_NAME" Type="varchar" MaxLength="20" />
+    <Property Name="USER_SEX" Type="varchar" MaxLength="5" />
+    <Property Name="USER_JOB" Type="varchar" MaxLength="20" />
+    <Property Name="USER_BIRTHDAY" Type="datetime" />
+    <Property Name="USER_ADDRESS" Type="varchar" MaxLength="40" />
+    <Property Name="USER_PHONE" Type="int" />
+    <Property Name="USER_EMEIL" Type="varchar" MaxLength="20" />
+    <Property Name="USER_NETNAME" Type="varchar" MaxLength="30" />
+    <Property Name="USER_PSWD" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="WAR_INFO">
+    <Key>
+      <PropertyRef Name="WAR_ID" />
+    </Key>
+    <Property Name="WAR_ID" Type="int" Nullable="false" />
+    <Property Name="WAR_NAME" Type="varchar" MaxLength="30" />
+    <Property Name="WAR_TIME" Type="datetime" />
+    <Property Name="WAR_ADDRESS" Type="varchar" MaxLength="100" />
+    <Property Name="WAR_LOCX" Type="float" />
+    <Property Name="WAR_LOCY" Type="float" />
+    <Property Name="WAR_INTRO" Type="text" />
+  </EntityType>
+  <EntityType Name="老兵">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LBID" Type="nvarchar" MaxLength="255" />
+    <Property Name="LBname" Type="nvarchar" MaxLength="255" />
+    <Property Name="LBjob" Type="nvarchar" MaxLength="255" />
+    <Property Name="LBsex" Type="nvarchar" MaxLength="255" />
+    <Property Name="LBbirthday" Type="nvarchar" MaxLength="255" />
+    <Property Name="LBdomicile" Type="nvarchar" MaxLength="255" />
+    <Property Name="designation" Type="text" />
+    <Property Name="LBexperience" Type="text" />
+    <Property Name="LBlife" Type="nvarchar" MaxLength="255" />
+    <Property Name="LBPhoto" Type="nvarchar" MaxLength="255" />
+    <Property Name="X" Type="float" />
+    <Property Name="Y" Type="float" />
+  </EntityType>
+  <EntityContainer Name="redmomeryModelStoreContainer">
+    <EntitySet Name="ARMY_INFO" EntityType="Self.ARMY_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BBSCONTENTS" EntityType="Self.BBSCONTENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GEN_INFO" EntityType="Self.GEN_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LB_INFO" EntityType="Self.LB_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PUBLIC_RECORD" EntityType="Self.PUBLIC_RECORD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROOT_INFO" EntityType="Self.ROOT_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_INFO" EntityType="Self.USER_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WAR_INFO" EntityType="Self.WAR_INFO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="老兵" EntityType="Self.老兵" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

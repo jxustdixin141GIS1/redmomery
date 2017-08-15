@@ -1,0 +1,1 @@
+﻿select top 1 * from 老兵 where LBID='2'

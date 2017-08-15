@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="redmomeryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ARMY_INFO">
+    <Key>
+      <PropertyRef Name="ARMY_ID" />
+    </Key>
+    <Property Name="ARMY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ARMY_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ARMY_TIME" Type="DateTime" Precision="3" />
+    <Property Name="ARMY_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ARMY_LOCX" Type="Double" />
+    <Property Name="ARMY_LOCY" Type="Double" />
+    <Property Name="ARMY_INTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BBSCONTENTS">
+    <Key>
+      <PropertyRef Name="BSS_ID" />
+    </Key>
+    <Property Name="BSS_ID" Type="Int32" Nullable="false" />
+    <Property Name="CONNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CONREXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="WRITEDATE" Type="DateTime" Precision="3" />
+    <Property Name="WRITEID" Type="Int32" />
+    <Property Name="REPLYID" Type="Int32" />
+    <Property Name="CRTIME" Type="DateTime" Precision="3" />
+    <Property Name="KINDID" Type="Int32" />
+    <Property Name="KINDNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GEN_INFO">
+    <Key>
+      <PropertyRef Name="GEN_ID" />
+    </Key>
+    <Property Name="GEN_ID" Type="Int32" Nullable="false" />
+    <Property Name="GEN_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="GEN_BIRTH" Type="DateTime" Precision="3" />
+    <Property Name="GEN_EVTIME" Type="DateTime" Precision="3" />
+    <Property Name="GEN_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GEN_LOCX" Type="Double" />
+    <Property Name="GEN_LOCY" Type="Double" />
+    <Property Name="GEN_INTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LB_INFO">
+    <Key>
+      <PropertyRef Name="LB_ID" />
+      <PropertyRef Name="LB_NAME" />
+    </Key>
+    <Property Name="LB_ID" Type="Int32" Nullable="false" />
+    <Property Name="LB_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LB_SEX" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LB_JOB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LB_BIRTHDAY" Type="DateTime" Precision="3" />
+    <Property Name="LB_DESIGNATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LB_ADDRESS" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="LB_EXPERIENCE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LB_LIFE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LB_LOCX" Type="Double" />
+    <Property Name="LB_LOCY" Type="Double" />
+    <Property Name="LB_IMGPTH" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PUBLIC_RECORD">
+    <Key>
+      <PropertyRef Name="PUB_ADDRESS" />
+    </Key>
+    <Property Name="PUB_ID" Type="Int32" />
+    <Property Name="PUB_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="STATE" Type="Int32" />
+    <Property Name="CREATTIME" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ROOT_INFO">
+    <Key>
+      <PropertyRef Name="ROOT_ID" />
+    </Key>
+    <Property Name="ROOT_ID" Type="Int32" Nullable="false" />
+    <Property Name="ROOT_NAME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ROOT_PWD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="REAL_NAME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TELPHONE" Type="Int32" />
+    <Property Name="STATUS" Type="Int32" />
+    <Property Name="CREATTIME" Type="DateTime" Precision="3" />
+    <Property Name="UPTIME" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="USER_INFO">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="Int32" Nullable="false" />
+    <Property Name="USER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="USER_SEX" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="USER_JOB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="USER_BIRTHDAY" Type="DateTime" Precision="3" />
+    <Property Name="USER_ADDRESS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="USER_PHONE" Type="Int32" />
+    <Property Name="USER_EMEIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="USER_NETNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="USER_PSWD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="WAR_INFO">
+    <Key>
+      <PropertyRef Name="WAR_ID" />
+    </Key>
+    <Property Name="WAR_ID" Type="Int32" Nullable="false" />
+    <Property Name="WAR_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="WAR_TIME" Type="DateTime" Precision="3" />
+    <Property Name="WAR_ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="WAR_LOCX" Type="Double" />
+    <Property Name="WAR_LOCY" Type="Double" />
+    <Property Name="WAR_INTRO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="老兵">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LBID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LBname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LBjob" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LBsex" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LBbirthday" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LBdomicile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LBexperience" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LBlife" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LBPhoto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="X" Type="Double" />
+    <Property Name="Y" Type="Double" />
+  </EntityType>
+  <EntityContainer Name="con" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ARMY_INFO" EntityType="Self.ARMY_INFO" />
+    <EntitySet Name="BBSCONTENTS" EntityType="Self.BBSCONTENTS" />
+    <EntitySet Name="GEN_INFO" EntityType="Self.GEN_INFO" />
+    <EntitySet Name="LB_INFO" EntityType="Self.LB_INFO" />
+    <EntitySet Name="PUBLIC_RECORD" EntityType="Self.PUBLIC_RECORD" />
+    <EntitySet Name="ROOT_INFO" EntityType="Self.ROOT_INFO" />
+    <EntitySet Name="USER_INFO" EntityType="Self.USER_INFO" />
+    <EntitySet Name="WAR_INFO" EntityType="Self.WAR_INFO" />
+    <EntitySet Name="老兵" EntityType="Self.老兵" />
+  </EntityContainer>
+</Schema>

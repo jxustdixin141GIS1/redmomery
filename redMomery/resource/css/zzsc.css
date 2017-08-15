@@ -1,0 +1,52 @@
+
+.modal2 {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 60;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition: 200ms ease;
+}
+
+.modal-close-btn {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(../image/close1.png) no-repeat center;
+	width: 18px;
+	height: 18px;
+	padding: 18px;
+	opacity: 0.8;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+.modal-close-btn:hover {
+	opacity: 1;
+}
+.modal2.show {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+.sidebar {
+	left: auto;
+	width: 25%;
+	margin: 0;
+	padding: 0;
+	top:52px;
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	opacity: 1;
+	visibility: visible;
+	overflow:auto;
+	border:#000 solid 1px;
+}
+.sidebar.show {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
