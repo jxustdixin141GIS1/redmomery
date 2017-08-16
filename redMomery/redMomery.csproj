@@ -1810,11 +1810,11 @@
     <Content Include="resource\js\LBUpload.js" />
     <Content Include="resource\js\tribune.js" />
     <Content Include="resource\js\video.js" />
-<<<<<<< HEAD
+
     <Content Include="resource\staticfile\citybaiduinfo.js" />
-=======
+
     <Content Include="resource\js\ZCZX.js" />
->>>>>>> master
+
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
