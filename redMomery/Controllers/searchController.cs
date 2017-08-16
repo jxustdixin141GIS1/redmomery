@@ -14,7 +14,6 @@ namespace redMomery.Controllers
 
         public ActionResult Index()
         {
-            Bing("中国", "www.csdn.net/", 1);
             return View();
         }
          [HttpPost]
