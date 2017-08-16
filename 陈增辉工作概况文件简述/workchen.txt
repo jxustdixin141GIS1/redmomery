@@ -669,7 +669,61 @@ json数组格式：
   {},
 ]
 
+16、如何实现全网搜索？
+ 解：这里使用axms服务，所以传输的数据为xml，
+ 前台代码：
+        function query(selectsite, keyword, pageIndex) {
+            $.post("/redmomeryserver.asmx/Bing", { selectsite: selectsite, keyword: keyword, PageIndex: pageIndex }, function (data) {
+                //由于这个data传输来为xml。需要转换为对应的json文件
+                $("#result").empty();
+                var arrstr = [];
+                for (var i = 0; i < data.childNodes.length; i++) {
+                    for (var j = 0; j < data.childNodes[i].children.length;j++)
+                    {
+                        var temp = data.childNodes[i].children[j].innerHTML;
+                        temp = temp.replace(new RegExp("&lt;", "gm"), '<');//"&lt;", '<');
+                        temp = temp.replace(new RegExp("&gt;", "gm"), ">");//"&gt;", '>');
+                        $("#result").append("<div style='padding-top:10px'><div>" + temp + "</div></div>");
+                    }
+                }
+               
+            });
+        };
 
+后台代码：
+
+    [WebMethod]
+        public List<string> Bing(string keyword, string selectsite, int PageIndex)
+        {
+            JumonyParser jumony = new JumonyParser();
+            //如：
+            var url = "http://cn.bing.com/search?q=" + keyword + "+site:" + selectsite + "&first=" + PageIndex + "1&FORM=PERE";
+            var document = jumony.LoadDocument(url);
+            var list = document.Find("#b_results .b_algo").ToList().Select(t => t.ToString()).ToList();
+
+            var listli = document.Find("li.b_pag nav ul li");
+            if (PageIndex > 0 && listli.Count() == 0)
+                return null;
+
+            if (listli.Count() > 1)
+            {
+                var text = document.Find("li.b_pag nav ul li").Last().InnerText();
+                int npage = -1;
+                if (text == "下一页")
+                {
+                    if (listli.Count() > 1)
+                    {
+                        var num = listli.ToList()[listli.Count() - 2].InnerText();
+                        int.TryParse(num, out npage);
+                    }
+                }
+                else
+                    int.TryParse(text, out npage);
+                if (npage <= PageIndex)
+                    list = null;
+            }
+            return list;// result;
+        }
 
 
 >>>>>>> master
