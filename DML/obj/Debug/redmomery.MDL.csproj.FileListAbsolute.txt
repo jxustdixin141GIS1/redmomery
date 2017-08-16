@@ -18,3 +18,9 @@ D:\题库系统\github\redmomery\DML\bin\Debug\DML.pdb
 D:\题库系统\github\redmomery\DML\obj\Debug\redmomery.MDL.csprojResolveAssemblyReference.cache
 D:\题库系统\github\redmomery\DML\obj\Debug\DML.dll
 D:\题库系统\github\redmomery\DML\obj\Debug\DML.pdb
+D:\题库系统\github\team\redmomery\DML\bin\Debug\DML.dll.config
+D:\题库系统\github\team\redmomery\DML\bin\Debug\DML.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\DML.pdb
+D:\题库系统\github\team\redmomery\DML\obj\Debug\DML.dll
+D:\题库系统\github\team\redmomery\DML\obj\Debug\DML.pdb
+D:\题库系统\github\team\redmomery\DML\obj\Debug\redmomery.MDL.csprojResolveAssemblyReference.cache
