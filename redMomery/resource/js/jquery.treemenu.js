@@ -78,10 +78,22 @@
 
 $(document).ready(function(){
   $("#qiehuan").click(function(){
-  $("#tuceng").toggle();
+      $("#tuceng").show();
   });
+
 });
 
 $(function(){
         $(".tree1").tree1menu({delay:300}).openActive();
-    });
+});
+
+$(function () {
+    $("#map").click(function () {
+        $("#tuceng").hide();
+        return false;
+    })
+    $("#tuceng").click(function () {
+        return false;
+    })
+})
+
