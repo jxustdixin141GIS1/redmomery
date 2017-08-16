@@ -108,6 +108,7 @@ D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.WebPages.
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.dll
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.pdb
+<<<<<<< HEAD
 D:\题库系统\github\team\redmomery\redMomery\bin\Microsoft.SqlServer.Types.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\de\Microsoft.SqlServer.Types.resources.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\es\Microsoft.SqlServer.Types.resources.dll
@@ -119,3 +120,5 @@ D:\题库系统\github\team\redmomery\redMomery\bin\pt\Microsoft.SqlServer.Types
 D:\题库系统\github\team\redmomery\redMomery\bin\ru\Microsoft.SqlServer.Types.resources.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+=======
+>>>>>>> master
