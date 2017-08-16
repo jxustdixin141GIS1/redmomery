@@ -18,6 +18,7 @@ D:\题库系统\github\redmomery\DML\bin\Debug\DML.pdb
 D:\题库系统\github\redmomery\DML\obj\Debug\redmomery.MDL.csprojResolveAssemblyReference.cache
 D:\题库系统\github\redmomery\DML\obj\Debug\DML.dll
 D:\题库系统\github\redmomery\DML\obj\Debug\DML.pdb
+<<<<<<< HEAD
 F:\github\redmomery\DML\obj\Debug\redmomery.MDL.csprojResolveAssemblyReference.cache
 F:\github\redmomery\DML\obj\Debug\DML.dll
 F:\github\redmomery\DML\obj\Debug\DML.pdb
@@ -27,3 +28,11 @@ F:\github\redmomery\DML\bin\Debug\DML.pdb
 F:\github\redmomery\DML\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
 F:\github\redmomery\DML\bin\Debug\Microsoft.SqlServer.Types.dll
 F:\github\redmomery\DML\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
+=======
+D:\题库系统\github\team\redmomery\DML\bin\Debug\DML.dll.config
+D:\题库系统\github\team\redmomery\DML\bin\Debug\DML.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\DML.pdb
+D:\题库系统\github\team\redmomery\DML\obj\Debug\redmomery.MDL.csprojResolveAssemblyReference.cache
+D:\题库系统\github\team\redmomery\DML\obj\Debug\DML.dll
+D:\题库系统\github\team\redmomery\DML\obj\Debug\DML.pdb
+>>>>>>> d80a3d1fac9b2cc38f316903fe8ecb6bda32078a
