@@ -1,4 +1,4 @@
-锘緻{
+@{
     ViewBag.Title = "index";
 }
 
@@ -7,7 +7,7 @@
 <head>
     <meta content="text/html; charset=gb2312" http-equiv="Content-Type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>涓�瀵稿北娌充竴瀵歌</title>
+    <title>一寸山河一寸血</title>
     <link href="~/resource/css/style.css" rel="stylesheet" />
     <link href="~/resource/css/bigvideo.css" rel="stylesheet" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -21,30 +21,30 @@
 
         <div class="button-wrapper">
             <div class="l1">
-                <a href="~/LBbx/LBbx" class="a-btn">
-                    <span class="a-btn-text">鑰佸叺涓嶆溄</span>
-                    <span class="a-btn-slide-text">杩涘叆</span>
+                <a href="~/Views/LB/LB" class="a-btn">
+                    <span class="a-btn-text">老兵不朽</span>
+                    <span class="a-btn-slide-text">进入</span>
                     <span class="a-btn-icon-right"><span></span></span>
                 </a>
             </div>
             <div class="l2">
-                <a href="#" class="a-btn">
-                    <span class="a-btn-text">鎴樺満鍦ㄧ嚎</span>
-                    <span class="a-btn-slide-text">杩涘叆</span>
+                <a href="~/Views/ZCZX/ZCZX" class="a-btn">
+                    <span class="a-btn-text">战场在线</span>
+                    <span class="a-btn-slide-text">进入</span>
                     <span class="a-btn-icon-right"><span></span></span>
                 </a>
             </div>
             <div class="l3">
                 <a href="#" class="a-btn">
-                    <span class="a-btn-text">鎶楁垬绾康</span>
-                    <span class="a-btn-slide-text">杩涘叆</span>
+                    <span class="a-btn-text">抗战纪念</span>
+                    <span class="a-btn-slide-text">进入</span>
                     <span class="a-btn-icon-right"><span></span></span>
                 </a>
             </div>
             <div class="l4">
                 <a href="#" class="a-btn">
-                    <span class="a-btn-text">绯荤粺绠＄悊</span>
-                    <span class="a-btn-slide-text">杩涘叆</span>
+                    <span class="a-btn-text">系统管理</span>
+                    <span class="a-btn-slide-text">进入</span>
                     <span class="a-btn-icon-right"><span></span></span>
                 </a>
             </div>
@@ -58,7 +58,7 @@ $('.banner').css({'height':_height});
 $(function() {
       var BV = new $.BigVideo();
       BV.init();
-      BV.show('image/big_video4.mp4',
+      BV.show('~/resource/image/big_video4.mp4',
         {ambient:true});
     });
     </script>

@@ -45,13 +45,13 @@ textarea,
     visibility: hidden;
 }
 .flex-text-wrap,
-textarea { margin-bottom: 25px }
+textarea { margin-bottom: 25px}
 textarea,
 .flex-text-wrap pre {
     line-height: 1.7;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 100%;
-    padding: 10px 15px;
+    padding: 10px 0px;
     border: 1px solid #c6c8ce;
     width: 100%;
     -webkit-appearance: none;
