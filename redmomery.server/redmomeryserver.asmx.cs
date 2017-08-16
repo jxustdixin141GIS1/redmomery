@@ -287,9 +287,7 @@ namespace testtemp
                 if (npage <= PageIndex)
                     list = null;
             }
-            List<string> result = new List<string>();
-            result.Add(redmomery.Common.SerializerHelper.SerializeToString(list));
-            return result;
+            return list;// result;
         }
     }
 }

@@ -12,14 +12,20 @@
     $(function () {
         var PageIndex;
         function query(selectsite, keyword, pageIndex) {
-            $.post(webserverUrl + "/Bing", { selectsite: selectsite, keyword: keyword, PageIndex: pageIndex }, function (data) {
+            $.post("/redmomeryserver.asmx/Bing", { selectsite: selectsite, keyword: keyword, PageIndex: pageIndex }, function (data) {
                 //由于这个data传输来为xml。需要转换为对应的json文件
-                data = JsonFromXml(data);
                 $("#result").empty();
-                for (var i = 0; i < data[0].length; i++) {
-                    $("#result").append("<div style='padding-top:10px'><div>" +data[0][i]
-                        + "</div></div>");
+                var arrstr = [];
+                for (var i = 0; i < data.childNodes.length; i++) {
+                    for (var j = 0; j < data.childNodes[i].children.length;j++)
+                    {
+                        var temp = data.childNodes[i].children[j].innerHTML;
+                        temp = temp.replace(new RegExp("&lt;", "gm"), '<');//"&lt;", '<');
+                        temp = temp.replace(new RegExp("&gt;", "gm"), ">");//"&gt;", '>');
+                        $("#result").append("<div style='padding-top:10px'><div>" + temp + "</div></div>");
+                    }
                 }
+               
             });
         };
         $("#query").click(function () {
@@ -64,8 +70,8 @@
     </script>
 </head>
 <body>
-    请输入网站 <input type="text" id="selectsite" /><br />
-    请输入关键字 <input type="text" id="keyword" /><br />
+    请输入网站 <input type="text" id="selectsite" value="www.csdn.net" /><br />
+    请输入关键字 <input type="text" id="keyword" value="陈" /><br />
     <input type="button" id="query" value="查询" /><br />
     <div id="result"></div>
     <br /> <input type="button" id="Previous" value="上一页" />
