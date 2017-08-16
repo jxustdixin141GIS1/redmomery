@@ -16,7 +16,10 @@ body{font-family: "Microsoft Yahei";}
 /*----------------------------------------------------------------------------------------------------------*/
 .content{float: left;}
 .flex-text-wrap,pre{margin: 0 !important;}
-.commentAll{width: 500px;padding: 20px;border: 1px solid #ededed;margin: 20px auto;}
+.commentAll{padding: 10px;border: 1px solid #ededed;margin:10px;}
+#BBScomment {
+    margin-top:80px;
+}
 .plBtn{width: 75px;height: 36px;line-height: 36px;background-color: #339b53;text-align: center;display: block;float: right;color: #FFFFFF;font-size: 12px;border-radius: 6px;margin-right: 2px;margin-top: 20px;}
 .plBtn:hover{background-color: #2f904d;}
 
@@ -105,7 +108,7 @@ body{font-family: "Microsoft Yahei";}
     height: 17px;
     display: block;
     float: left;
-    background-image: url(../images/icon-all_01.png);
+    background-image: url(~/images/icon-all_01.png);
     background-repeat: no-repeat;
     background-position: -6px -198px;
     margin-right: 5px;
