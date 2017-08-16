@@ -90,3 +90,5 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PosDispl
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.Properties.Resources.resources
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.csproj.GenerateResource.Cache
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.librarys.dll
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.librarys.pdb

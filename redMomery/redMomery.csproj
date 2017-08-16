@@ -43,6 +43,15 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ivony.Html">
+      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.dll</HintPath>
+    </Reference>
+    <Reference Include="Ivony.Html.Parser">
+      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="Ivony.Html.Parser.Regulars">
+      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.Regulars.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -119,6 +128,7 @@
     <Compile Include="Controllers\LBbxController.cs" />
     <Compile Include="Controllers\LBController.cs" />
     <Compile Include="Controllers\LBZLController.cs" />
+    <Compile Include="Controllers\searchController.cs" />
     <Compile Include="Controllers\uploadController.cs" />
     <Compile Include="Controllers\ZCZXController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1810,11 +1820,8 @@
     <Content Include="resource\js\LBUpload.js" />
     <Content Include="resource\js\tribune.js" />
     <Content Include="resource\js\video.js" />
-
     <Content Include="resource\staticfile\citybaiduinfo.js" />
-
     <Content Include="resource\js\ZCZX.js" />
-
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1893,6 +1900,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resource\jquery-ui-1.12.1.custom\package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\search\index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

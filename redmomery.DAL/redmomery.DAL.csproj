@@ -71,6 +71,7 @@
     <Compile Include="DAL_Auto\ROOT_INFODAL.cs" />
     <Compile Include="DAL_Auto\SHAPE_TABLEDAL.cs" />
     <Compile Include="DAL_Auto\SqlHelper.cs" />
+    <Compile Include="DAL_Auto\staticinfotableDAL.cs" />
     <Compile Include="DAL_Auto\sysdiagramsDAL.cs" />
     <Compile Include="DAL_Auto\USER_INFODAL.cs" />
     <Compile Include="DAL_Auto\View_CC_UDAL.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="ROOT_INFODAL.cs" />
     <Compile Include="SHAPE_TABLEDAL.cs" />
     <Compile Include="SqlHelper.cs" />
+    <Compile Include="staticinfotableDAL.cs" />
     <Compile Include="sysdiagramsDAL.cs" />
     <Compile Include="USER_INFODAL.cs" />
     <Compile Include="View_CC_UDAL.cs" />

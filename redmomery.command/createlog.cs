@@ -35,6 +35,7 @@ namespace redmomery.command
        {
            //开始创建文件地址
            string path = @"D:\题库系统\github\team\redmomery\调试\" + filename;
+           text = Encoding.UTF8.GetString(Encoding.Default.GetBytes(text));
            FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
            if (fs.Length > 0)
            {
@@ -56,7 +57,32 @@ namespace redmomery.command
                fs.Close();
            }
        }
+       public static void createtxt(string text, string paths,string filename)
+       {
+           //开始创建文件地址
+           string path =paths+"\\" + filename;
+           text = Encoding.UTF8.GetString(Encoding.Default.GetBytes(text));
+           FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+           if (fs.Length > 0)
+           {
+               fs.Position = fs.Length;
+           }
+           StreamWriter sw = new StreamWriter(fs);
+           string context = text + "\r\n";
+           try
+           {
+               sw.WriteLine(context);
+           }
+           catch
+           {
 
+           }
+           finally
+           {
+               sw.Close();
+               fs.Close();
+           }
+       }
        public static string readTextFrompath(string path)
        {
            FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
