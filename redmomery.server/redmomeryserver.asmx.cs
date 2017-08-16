@@ -258,7 +258,7 @@ namespace testtemp
         //--------------------------------论坛服务测试结束---------------------------------
 
         [WebMethod]
-        public string Bing(string keyword, string selectsite, int PageIndex)
+        public List<string> Bing(string keyword, string selectsite, int PageIndex)
         {
             JumonyParser jumony = new JumonyParser();
             //如：
@@ -287,7 +287,9 @@ namespace testtemp
                 if (npage <= PageIndex)
                     list = null;
             }
-            return redmomery.Common.SerializerHelper.SerializeToString(list);
+            List<string> result = new List<string>();
+            result.Add(redmomery.Common.SerializerHelper.SerializeToString(list));
+            return result;
         }
     }
 }

@@ -63,8 +63,6 @@ D:\题库系统\github\redmomery\ConsoleApplication1test\bin\Debug\ConsoleApplic
 D:\题库系统\github\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.exe
 D:\题库系统\github\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\ConsoleApplication1test.exe.config
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.exe
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\ConsoleApplication1test.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\ConsoleApplication1test.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\CustomRuleExample.dll
@@ -77,9 +75,11 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.Hi
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PosDisplayCtrl.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.command.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.DAL.dll
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.librarys.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\DML.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.command.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.DAL.pdb
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.librarys.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\CustomRuleExample.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Demo.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\DictManage.pdb
@@ -90,5 +90,5 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PosDispl
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.Properties.Resources.resources
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.csproj.GenerateResource.Cache
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.librarys.dll
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.librarys.pdb
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.exe
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.pdb

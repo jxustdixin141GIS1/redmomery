@@ -6,15 +6,18 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>bing搜索</title>
     <script src="resource/config.js"></script>
+    <script src="resource/Commandjs.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script>
     $(function () {
         var PageIndex;
         function query(selectsite, keyword, pageIndex) {
             $.post(webserverUrl + "/Bing", { selectsite: selectsite, keyword: keyword, PageIndex: pageIndex }, function (data) {
+                //由于这个data传输来为xml。需要转换为对应的json文件
+                data = JsonFromXml(data);
                 $("#result").empty();
-                for (var i = 0; i < data.length; i++) {
-                    $("#result").append("<div style='padding-top:10px'><div>" + data[i]
+                for (var i = 0; i < data[0].length; i++) {
+                    $("#result").append("<div style='padding-top:10px'><div>" +data[0][i]
                         + "</div></div>");
                 }
             });
