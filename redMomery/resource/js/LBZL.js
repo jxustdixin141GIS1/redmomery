@@ -39,7 +39,7 @@ require([
   "esri/Color",
 
   "esri/dijit/OverviewMap",
-  "esri/dijit/Scalebar",
+  //"esri/dijit/Scalebar",
   "esri/dijit/Bookmarks",
   "esri/dijit/Legend",
   "dijit/registry",
@@ -54,7 +54,7 @@ require([
   esriBasemaps, Map, HomeButton, BasemapGallery, Measurement, Graphic, InfoTemplate, SpatialReference, Extent,
   GraphicsLayer, FeatureLayer, HeatmapRenderer, SimpleMarkerSymbol,
      SimpleLineSymbol, SimpleFillSymbol, PictureMarkerSymbol, Query, QueryTask, FindTask, FindParameters, navigation,
-     on, parser, dom, arrayUtils, connect, ItemFileReadStore, DataGrid, Color, OverviewMap, Scalebar, Bookmarks, Legend, registry, Button,
+     on, parser, dom, arrayUtils, connect, ItemFileReadStore, DataGrid, Color, OverviewMap, Bookmarks, Legend, registry, Button,
      TitlePane
   ) {
 
@@ -111,8 +111,8 @@ require([
       measurement.startup();
 
 
-      var navToolbar = new esri.toolbars.Navigation(map);
-      var scalebar = new Scalebar({ map: map });
+      //var navToolbar = new esri.toolbars.Navigation(map);
+      //var scalebar = new Scalebar({ map: map });
 
       //------------地图坐标显示--------------//
       dojo.connect(map, "onMouseMove", function (e) {    //添加坐标位置信息

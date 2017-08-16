@@ -16,5 +16,9 @@ namespace redMomery.Controllers
             return View();
         }
 
+        public ActionResult ZCZX()
+        {
+            return View();
+        }
     }
 }

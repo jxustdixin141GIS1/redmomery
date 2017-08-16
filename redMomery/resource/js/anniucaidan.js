@@ -1,7 +1,7 @@
 var PathStatus 	= 0;
 var angle 		= Math.PI/((5-1)*2);	
 var mainButton 	= [
-	{'bg':'../images/bg-2x.png','css':'','cover':'../images/icon-2x.png','html':'<span class="cover"></span>'},
+	{'bg':'../image/bg-2x.png','css':'','cover':'../image/icon-2x.png','html':'<span class="cover"></span>'},
 	{'bg':'','css':'','cover':'','html':'','angle':-405,'speed':200}
 ];
 var Radius 		= 135;		//小图出来的半径

@@ -100,7 +100,7 @@
               esriBasemaps.delorme = {
                   baseMapLayers: [{ url: "http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer" }
                   ],
-                  thumbnailUrl: "~/resource/image/shiliang.jpg",
+                  thumbnailUrl: "http://localhost:9003/resource/image/shiliang.jpg",
                   title: "矢量图"
               };
 
@@ -256,9 +256,9 @@
                   queryTask.on("complete", function (event) {
 
 
-                      var highlightSymbol = new PictureMarkerSymbol("/~/resource/image/1432101824.png", 20, 30);
+                      var highlightSymbol = new PictureMarkerSymbol("http://localhost:9003/resource/image/1432101824.png", 20, 30);
 
-                      var symbol = new PictureMarkerSymbol("/~/resource/image/1432101726.png", 15, 20);
+                      var symbol = new PictureMarkerSymbol("http://localhost:9003/resource/image/1432101726.png", 15, 20);
 
 
                       var features = event.featureSet.features;
@@ -344,7 +344,7 @@
                                                                      "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "生活现状：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBlife + "</span>" + "</p>";
 
                           divs2.innerHTML = "<p >" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + ex + "</span>" + "</p>" +
-                                            "<p >" + "<img src= '~/resource/image/lbinfo/" + sLBPhoto + "' width=100%   />" + "</p>";
+                                            "<p >" + "<img src= '../resource/image/lbinfo/" + sLBPhoto + "' width=100%   />" + "</p>";
 
 
 
@@ -411,7 +411,7 @@
               function showResults(results) {
 
                   //map.graphics.clear();
-                  var dtsymbol = new PictureMarkerSymbol("/~/resource/image/Memory1.gif", 30, 30);
+                  var dtsymbol = new PictureMarkerSymbol("http://localhost:9003/resource/image/Memory1.gif", 30, 30);
 
 
                   //创建一个数组
@@ -494,7 +494,7 @@
 		
 			// 过渡页效果
         $(function ($) {
-            $('#fmPage').css('background-image', "url(~/resource/image/beijing1.jpg)");
+            $('#fmPage').css('background-image', "url(http://localhost:9003/resource/image/beijing1.jpg)");
             windowHeight = $(window).height();
             windowWidth = $(window).width();
             //文档宽度

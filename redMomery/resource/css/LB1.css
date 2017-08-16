@@ -95,7 +95,7 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			background: url(~/image/close1.png) no-repeat center;
+			background: url('../image/close1.png') no-repeat center;
 			width: 32px;
 			height: 32px;
 			padding: 32px;

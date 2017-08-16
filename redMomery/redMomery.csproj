@@ -162,7 +162,6 @@
     <Content Include="resource\css\dianzan.css" />
     <Content Include="resource\css\jquery.treemenu.css" />
     <Content Include="resource\css\LB1.css" />
-    <Content Include="resource\css\LBBX.css" />
     <Content Include="resource\css\LBZL.css" />
     <Content Include="resource\css\style.css" />
     <Content Include="resource\css\style_comment.css" />
@@ -178,6 +177,7 @@
     <Content Include="resource\image\1432101824.png" />
     <Content Include="resource\image\1432101835.png" />
     <Content Include="resource\image\1432101929.png" />
+    <Content Include="resource\image\arrow_right.png" />
     <Content Include="resource\image\baikebj.jpg" />
     <Content Include="resource\image\beijing.jpg" />
     <Content Include="resource\image\beijing1.jpg" />
@@ -1801,7 +1801,6 @@
     <Content Include="resource\fonts\icomoon.ttf" />
     <Content Include="resource\fonts\icomoon.woff" />
     <Content Include="resource\js\LB1.js" />
-    <Content Include="resource\js\LBBX.js" />
     <Content Include="resource\js\LBZL.js" />
     <Content Include="resource\js\loadbyname.js" />
     <Content Include="resource\js\modernizr.custom.js" />

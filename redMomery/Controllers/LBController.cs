@@ -16,5 +16,10 @@ namespace redMomery.Controllers
             return View();
         }
 
+        public ActionResult LB()
+        {
+            return View();
+        }
+
     }
 }

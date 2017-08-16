@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+﻿/*@charset "utf-8";*/
 
 .PathInner {
 	    position: absolute;
@@ -38,12 +38,12 @@
 	left:0;
 }
 .PathInner .PathMain .Tmain {
-	background-image: url(/~/resource/image/bg-2x.png);
+	background-image: url('../image/bg-2x.png');
 	width: 60px;
 	height: 60px;
 }
 .PathInner .PathMain .Tmain .rotate {
-	background-image: url(/~/resource/image/icon-2x.png);
+	background-image: url('../image/icon-2x.png');
 	-moz-transform: rotate(0deg);
 	position:absolute;
 	bottom:0;
@@ -53,7 +53,7 @@
 	width:100%;
 	height:100%;
 	display:block;
-	background:url(/~/resource/image/bg-hl-2x.png) center no-repeat;
+	background:url('../image/bg-hl-2x.png') center no-repeat;
 	cursor: pointer;
 *filter:alpha(opacity=0);
 	filter:alpha(opacity=0)\0;
@@ -74,7 +74,7 @@
 	left:0;
 	width: 60px;
 	height: 60px;
-    background-image: url(/~/resource/image/Circle.png);
+    background-image: url('../image/Circle.png');
 }
 .PathItem .link .item {
 	bottom:0;

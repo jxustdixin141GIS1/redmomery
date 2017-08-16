@@ -453,7 +453,7 @@ var closeFn;
 		var PathStatus = 0;
 		var angle = Math.PI / ((3 - 1) * 2);
 		var mainButton = [
-            { 'bg': '~/resource/images/bg-2x.png', 'css': '', 'cover': '~/resource/images/icon-2x.png', 'html': '<span class="cover"></span>' },
+            { 'bg': '~/resource/image/bg-2x.png', 'css': '', 'cover': '~/resource/image/icon-2x.png', 'html': '<span class="cover"></span>' },
             { 'bg': '', 'css': '', 'cover': '', 'html': '', 'angle': -405, 'speed': 200 }
 		];
 		var Radius = 86;		//小图出来的半径
@@ -560,7 +560,7 @@ var closeFn;
 
 		// 过渡页效果
 		$(function ($) {
-		    $('#fmPage').css('background-image', 'url(~/resource/image/zhchbj2.png)');
+		    $('#fmPage').css('background-image', 'url(http://localhost:9003/resource/image/zhchbj2.png)');
 		    $('#fmPage').height($(window).height());
 		    $('body').css('overflow', 'hidden');
 		    setTimeout(function () {

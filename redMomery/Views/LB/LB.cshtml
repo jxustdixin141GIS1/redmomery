@@ -40,7 +40,7 @@
 <body class="claro" style="height: 100%">
 
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid" style="background-image:url(~/resource/image/dhbj3.png); background-size:100% 50px;">
+    <div class="container-fluid" style="background-image:url(http://localhost:9003/resource/image/dhbj3.png); background-size:100% 50px;">
         <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -57,15 +57,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <input type="hidden" value="1" id="ViewBageType"/>
         <ul class="nav navbar-nav">
-        <li><a href="~/Views/Home/index" style="font-weight:bold; font-family:楷体; font-size:18px; color:#e91e1e;">首页</a></li>
+        <li><a href="~/Home/index" style="font-weight:bold; font-family:楷体; font-size:18px; color:#e91e1e;">首页</a></li>
         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight:bold; font-family:楷体; font-size:18px; color:#e91e1e;">老兵不朽 <b class="caret"></b></a>
                 <ul class="dropdown-menu" style="background-color:#e91e1e;">
 					<li><a href="#" style="font-weight:bold; font-family:楷体; font-size:18px;" >老兵地图</a></li>
                     <li><a id="Button14" href="#" style="font-weight:bold; font-family:楷体; font-size:18px;" >老兵热度图</a></li>
-                    <li><a href="~/Views/LBZL/LBZL" style="font-weight:bold; font-family:楷体; font-size:18px;" >提供线索</a></li>
+                    <li><a href="~/LBZL/LBZL" style="font-weight:bold; font-family:楷体; font-size:18px;" >提供线索</a></li>
 				</ul>
         </li>
-        <li><a href="~/Views/ZCZX/ZCZX" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#e91e1e;">战场再现</a></li>
+        <li><a href="~/ZCZX/ZCZX" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#e91e1e;">战场再现</a></li>
         <li><a href="#" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#e91e1e;">抗战纪念</a></li>
         <li><a href="#" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#e91e1e;">论坛</a></li>
         </ul>
@@ -170,27 +170,27 @@
   </div>
   <div class="PathItem">
    <a class="link" href="#" id="Button11" title="老兵查找" > 
-    <span class="item" style="background-image:url(~/resource/image/query2.png)"></span>
+    <span class="item" style="background-image:url('../resource/image/query2.png')"></span>
    </a>
   </div>
   <div class="PathItem"> 
    <a class="link" href="#" id="Button13" title="清空图层"> 
-    <span class="item" style="background-image:url(~/resource/image/delete.png);"></span> 
+    <span class="item" style="background-image:url('../resource/image/delete.png');"></span> 
    </a>
   </div>
   <div class="PathItem"> 
    <a class="link" href="#" id="Button8" title="地图拖动"> 
-    <span class="item" style="background-image: url(~/resource/image/drag.png);"></span> 
+    <span class="item" style="background-image: url('../resource/image/drag.png');"></span> 
    </a>
   </div>
   <div class="PathItem"> 
    <a class="link" href="#" id="Button2" title="地图缩小"> 
-    <span class="item" style="background-image: url(~/resource/image/zoom2.png);"></span> 
+    <span class="item" style="background-image: url('../resource/image/zoom2.png');"></span> 
    </a>
   </div>
     <div class="PathItem"> 
    <a class="link" href="#" id="Button1" title="地图放大"> 
-    <span class="item" style="background-image: url(~/resource/image/zoom1.png);"></span> 
+    <span class="item" style="background-image: url('../resource/image/zoom1.png');"></span> 
    </a>
   </div>
 </div>
@@ -337,14 +337,14 @@
     
     <!-- 过渡页 -->
     <div id="fmPage">
-    <img src="~/resource/image/beijing72_2.png" id="fm70">
-    <img src="~/resource/image/beijing2_2.png" id="fmTitle">
-    <img src="~/resource/image/beijing3.png" id="fmImg3">
+    <img src="http://localhost:9003/resource/image/beijing72_2.png" id="fm70">
+    <img src="http://localhost:9003/resource/image/beijing2_2.png" id="fmTitle">
+    <img src="http://localhost:9003/resource/image/beijing3.png" id="fmImg3">
     </div>
     <!-- 过渡页结束 -->
 
     <!-- 右侧弹出菜单 -->
-    <div class="js-sidebar  modal2 sidebar" id="AllInfoWin" style="background:url(~/resource/image/ziliaobj.jpg); opacity:20">
+    <div class="js-sidebar  modal2 sidebar" id="AllInfoWin" style="background:url(http://localhost:9003/resource/image/ziliaobj.jpg); opacity:20">
 			<span class="modal2-close-btn"></span>
         <h3 style="text-align:center; font-weight:bold; font-family:楷体; color:#C00;">老兵个人信息</h3>
 
@@ -355,7 +355,7 @@
         <p id="wz2"></p>
 
         <div style="margin-left:30px;">
-        <div class="heart " id="like1" rel="like"></div> <div class="likeCount" id="likeCount1">16</div>
+        <div class="heart " id="like1" style=" background:url(http://localhost:9003/resource/image/web_heart_animation.png); background-position: left; background-repeat: no-repeat; height: 80px; width: 80px; cursor: pointer; position: absolute; background-size:2900%;"></div> <div class="likeCount" id="likeCount1">16</div>
         <a href="http://gongyi.qq.com/succor/detail.htm?id=1265" class="juanzhu" target="view_window"><button type="button" class="btn btn-info">捐助老兵</button></a>
         </div>
 
