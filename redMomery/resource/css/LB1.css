@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
   #titlePane {
             top: 300px;
             width: auto;
@@ -257,4 +258,265 @@
           background-color:#00d0ff;
           font:16px bold;
 >>>>>>> d80a3d1fac9b2cc38f316903fe8ecb6bda32078a
+=======
+<<<<<<< HEAD
+  #titlePane {
+            top: 300px;
+            width: auto;
+        }
+
+        #titlePane_pane {
+            width: 210px;
+        }
+
+
+        #HomeButton {
+       position: absolute;
+       top: 90px;
+       left: 20px;
+       z-index: 50;
+        }
+
+        #divxy {
+            position: absolute;
+            left: 13%;
+            bottom: 0.1px;
+            z-index: 1;
+        }
+
+        #tb2_legendDiv {
+            position: absolute;
+            right: 5%;
+            bottom: 1px;
+            z-index: 1;
+            border: 1px solid #000;
+        }
+
+        #tb3_bookmarks {
+           position: absolute;
+           right:20px; 
+		   top:30px; 
+		   z-Index:20;
+        }
+
+     html, body, #mapDiv, .main {
+	   height: 100%;
+       width: 100%;
+       margin: 0;
+	   padding: 0;
+    }
+	
+	body { 
+	   padding-top: 50px;
+       overflow-x: hidden;
+       overflow-y: hidden;
+    } 
+	
+	 /*过渡页*/
+        #fmPage{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            background:black repeat center;
+            -webkit-background-size: contain;
+            background-size: contain;
+            z-index: 10000;
+        }
+        #fm70{
+            margin:0 auto;
+            height:100%;
+            position: absolute;
+        }
+        #fmTitle{
+            margin:0 auto;
+            height:100%;
+            display: none;
+            position: absolute;
+        }
+        #fmImg3{
+            margin:0 auto;
+            height:100%;
+            display: none;
+            position: absolute;
+        }
+
+          /*右侧弹出菜单*/
+        .modal2 {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+            transition: 200ms ease;
+		}
+
+		.modal2-close-btn {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: url('../image/close1.png') no-repeat center;
+			width: 32px;
+			height: 32px;
+			padding: 32px;
+			opacity: 0.8;
+			cursor: pointer;
+			transition: 0.3s ease;
+		}
+
+		.sidebar {
+			left: auto;
+			width:28%;
+            margin: 0;
+	        padding: 0;
+	        top:51px;
+			-webkit-transform: translateX(100%);
+			transform: translateX(100%);
+			opacity: 1;
+			visibility: visible;
+            overflow: auto;
+            border: #000 solid 1px;
+		}
+		.sidebar.show {
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+
+      /*对话框*/
+      .ui-widget-header {
+          background-color:#00d0ff;
+          font:16px bold;
+=======
+  #titlePane {
+            top: 300px;
+            width: auto;
+        }
+
+        #titlePane_pane {
+            width: 210px;
+        }
+
+
+        #HomeButton {
+       position: absolute;
+       top: 90px;
+       left: 20px;
+       z-index: 50;
+        }
+
+        #divxy {
+            position: absolute;
+            left: 13%;
+            bottom: 0.1px;
+            z-index: 1;
+        }
+
+        #tb2_legendDiv {
+            position: absolute;
+            right: 5%;
+            bottom: 1px;
+            z-index: 1;
+            border: 1px solid #000;
+        }
+
+        #tb3_bookmarks {
+           position: absolute;
+           right:20px; 
+		   top:30px; 
+		   z-Index:20;
+        }
+
+     html, body, #mapDiv, .main {
+	   height: 100%;
+       width: 100%;
+       margin: 0;
+	   padding: 0;
+    }
+	
+	body { 
+	   padding-top: 50px;
+       overflow-x: hidden;
+       overflow-y: hidden;
+    } 
+	
+	 /*过渡页*/
+        #fmPage{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            background:black repeat center;
+            -webkit-background-size: contain;
+            background-size: contain;
+            z-index: 10000;
+        }
+        #fm70{
+            margin:0 auto;
+            height:100%;
+            position: absolute;
+        }
+        #fmTitle{
+            margin:0 auto;
+            height:100%;
+            display: none;
+            position: absolute;
+        }
+        #fmImg3{
+            margin:0 auto;
+            height:100%;
+            display: none;
+            position: absolute;
+        }
+
+          /*右侧弹出菜单*/
+        .modal2 {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+            transition: 200ms ease;
+		}
+
+		.modal2-close-btn {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: url(~/image/close1.png) no-repeat center;
+			width: 32px;
+			height: 32px;
+			padding: 32px;
+			opacity: 0.8;
+			cursor: pointer;
+			transition: 0.3s ease;
+		}
+
+		.sidebar {
+			left: auto;
+			width:28%;
+            margin: 0;
+	        padding: 0;
+	        top:51px;
+			-webkit-transform: translateX(100%);
+			transform: translateX(100%);
+			opacity: 1;
+			visibility: visible;
+            overflow: auto;
+            border: #000 solid 1px;
+		}
+		.sidebar.show {
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+
+      /*对话框*/
+      .ui-widget-header {
+          background-color:#00d0ff;
+          font:16px bold;
+>>>>>>> d80a3d1fac9b2cc38f316903fe8ecb6bda32078a
+>>>>>>> master
         } 

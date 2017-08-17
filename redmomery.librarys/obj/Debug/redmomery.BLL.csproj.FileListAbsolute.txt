@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\题库系统\redMomery\redmomery.librarys\obj\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
 D:\题库系统\redMomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll.config
 D:\题库系统\redMomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll
@@ -71,3 +72,29 @@ D:\Github\redmomery\redmomery.librarys\bin\Debug\zh-Hant\Microsoft.SqlServer.Typ
 D:\Github\redmomery\redmomery.librarys\obj\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
 D:\Github\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.dll
 D:\Github\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.pdb
+=======
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll.config
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\DML.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.command.exe
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\DML.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.command.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
+D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.pdb
+F:\github\redmomery\redmomery.librarys\obj\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
+F:\github\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.dll
+F:\github\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.pdb
+F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll.config
+F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll
+F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.pdb
+F:\github\redmomery\redmomery.librarys\bin\Debug\DML.dll
+F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.command.exe
+F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL.dll
+F:\github\redmomery\redmomery.librarys\bin\Debug\DML.pdb
+F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.command.pdb
+F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL.pdb
+>>>>>>> master
