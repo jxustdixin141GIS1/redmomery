@@ -53,6 +53,7 @@
     <Compile Include="BBSBLL.cs" />
     <Compile Include="modelrecomment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="staticbydata.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,3 +1,734 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+论坛工作进度 
+    前提：-1表示老兵的模块  1是管理员
+
+1、完成帖子的创建--------------------------------------------------------------------------------1
+2、完成帖子的回复功能-----------------------------------------------------------------------------1
+3、完成针对回复的回复功能--------------------------------------------------------------------------1
+4、创建模块功能----------------------------------------------------------------------1
+5、模块搜索功能：1、按找论坛名进行搜索---------------------------------------------------------1
+               2、按照创建人进行搜索------------------------------------------------------1
+               3、按照关键字进行搜索----------------------------------------------------------1
+6、帖子搜索功能：1、按照模块名进行搜索------------------------------------------------------1
+               2、按照关键字进行搜索-------------------------------------------------------1
+               3、按照发布人进行搜索--------------------------------------------------------1
+               4、按帖子标题进行搜索--------------------------------------------------------1
+               5、按帖子关键字进行搜索------------------------------------------------------1
+7、论坛的关键信息展示列表：1、论坛模块的展示
+                        2、老兵信息的展示-----------------------------------------------------1
+                        3、战争信息的展示
+8、回复模块的功能搭建
+9、评论模块额的功能搭建
+10、老兵信息的展示----------------------------------------------------------------------1
+11、老兵论坛的评论页面的入口
+12、老兵论坛按照帖子名进行查找
+13、老兵论坛的目前信息的基本关联和录入。--------------关联完成，正在录入--------------------1
+14、写出工具，自动完成前期老兵论坛的录入、做好数据的基础。-----------------------------------1
+15、进行帖子创建功能的搭建和书写.----------------------------------------------------------1
+16、开始研究文件上传功能的书写------------------------------------------------------------1
+17、字符串前后台交互---------------------------------------------------------------------1
+18、解决图片的前后台上传、预览功能---------------------------------------------------------1
+19、图片按照老兵的ID进行展示----------------------------------------------------------------1
+20、按照老兵信息进行加载回复以及回复的回复--------------------------------------------------1
+21、按照帖子的ID获取到帖子----------------------------------------------------------------1
+22、对于评论模块进行改造-----------------------------------------------------------------1
+22、已经实现按照帖子的ID展示老兵的信息。-----------------------------------------------------1
+23、展示提帖子的回复------------------------------------------------------------------------1
+24、展示回复的回复--------------进行中-
+25、数据的展示，全国主要城市的老兵的分布图-----------代码完成----正在收集数据----
+26、完善地理编码的调用---坐标to城市-----城市to坐标---
+27、正在将系统上传到github中-------个人上传完成--已完成----进行多人分配-------------
+28、正在进行数据的组装------解析返回的数据---
+服务：
+    1、数据传输的端口---------------------------------------------------------------------1
+    2、常用功能的展现方法
+    3、地图定位功能----------------------------------------------------------------------1
+    4、服务环境的搭建--------------------------------------------------------------------1
+    5、下午4点半之前，解决传输格式问题，并将其形成以一整套的文稿。----------------------------1
+
+
+数据库：1、保证得到对象的访问对象，点赞数、访问数，在进行删除的时候，进行有效事件标记--------0.5
+       2、数据库论坛主要表格的设计和关联关系-----------------------------------------1
+       3、处理好老兵信息和论坛部分的关系-----------------------进行中--------------
+       4、单独写出方法专门针对老兵的信息录入（主要是人物的信息录入）
+       5、可以通过select Identify的方法拿到当前插入记录的ID------------------------1
+       6、数据库中CT中的表格为is_delete,0表示通过 1 表示热评 2表示待审核 3 表示删除
+
+
+
+
+
+
+特殊问题：1、如何处理好现有的模块与论坛关系？
+         2、如何保证用户在录入老兵故事的时候，自动的创建帖子，并进行关联？
+         3、如何提取老兵故事信息信息字段的展示
+         4、表单提交之后，会自动进行跳转(已解决-----通过拦截跳转)
+         5、png文件无法访问（这个可以在后期发布时解决）
+         6、如何判断用户回复的是哪个帖子，哪个模块，哪个回复？
+
+
+
+
+//------------------------------临时代码-----------------------------------------------
+temp=temp.childNodes[0].children
+for(var i=0;i<temp.length;i++){
+json[i]=temp[i].innerHTML;
+}
+var lblist=[];
+for(var i in json){
+ var temp=JSON.parse( json[i]);
+ lblist.push(temp);
+}
+
+
+
+//------------------------------代码临时区域
+
+
+经验总结：对于数据库链接尤其是这种几何数据数据存储来说，简直爆炸，争取九点之前解决这个问题。----超时解决40分钟
+         1、类库强制更换的方法-------已经解决-----------------------------------------------------1
+         2、缺少mspdb100.dll 的方法处理方案。在commom IDE10.0中找到对应的拖放道指定的文件夹就行了----1
+         3、如何使用sn命令来获取当前的类库的公钥，查找当前的公钥，并且完成各个配置文件中的对应的runtime节点的替换工作、并进行测试和调整---------------------完成部分、不影响工作-------------0.6
+         4、鉴于没有办法使用linq和匿名的方法进行三层架构的生成和书写，但是现在已经可以勉强进行三层架构的总结，
+         5、在没有办法的情况下，只能采用最为无奈的方法，将数据生成工作交给数据库，这里只是传递sql文本语句，但是这样做的话，需要自己去写个生成WKT的工具方案，这种方案作为备用方案进行处理。-----已经解决，需要指明UdtTypeName类型------------------------------------------------------------------------------------1
+         6、强制进行类库的升级转换--------------------完成-----------------------------------------1
+         7、在使用ajax的时候需要注意，对于asmx服务，其会直接将其转换为XMl格式，因此在指定访问数据的时候，不要进行设置contentType。 
+
+
+
+解决问题方案草稿回顾：
+
+1、如何处理还老兵信息和论坛部分的关系
+解： 在老兵的ID中插入一个对应的论坛的帖子ID,前提也就是没有足够的信息的情况下，需要创建一个工具进行自动生成对应的帖子，然后进行展示。然后将这种工具进行处理之后，收入工具库，以备后续使用。在前提写工具的时候，将创建帖子的业务流程抽象出来，按照这种写成对应的逻辑代码，快点将页面进行写出来，然后展示出来。
+
+
+2、针对的sqlgeometryphy的使用，案例代码
+if ( result[i].X.ToString() != "" && result[i].Y.ToString() != "")
+                {
+                    string locationpoint = "Point(" + result[i].X.ToString() + " " + result[i].Y.ToString() + ")";
+                    //-------------------结束构建WKT语句---------------
+                    SqlString parstring = new SqlString(locationpoint);
+                    SqlChars pars = new SqlChars(parstring);
+                    SqlGeography localpoint = SqlGeography.STPointFromText(pars, 4326);
+                    result[i].Location = localpoint;
+                }
+3、强制进行类库的升级转换，在配置文件中添加下列代码：
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.SqlServer.Types"
+                          publicKeyToken="89845dcd8080cc91"
+                          culture="neutral" />
+        <bindingRedirect oldVersion="10.0.0.0" newVersion="12.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+
+
+4、如何解决创建老兵帖的时候，拿到对应的帖子ID？
+解：1、这个问题的关键在与第一次提交创建帖的时候，并没有拿到对应的帖子的ID标签，这就带来了另一个问题，如何在提交程序的时候，返回对象的ID？这种方案能采用MD5的方案进行解决，在生成之前就生成一个MD5,值作为校验值吗，用来进行检索的。
+现在发现可以通过select identity的方式拿到当前对话的ID，这种方案是极好的，但是可能有问题，目前还在测试中。
+5、对于老兵信息模块，建议直接根据老兵的信息自动生成对应的帖子，在内部完成帖子的完成的录入。
+6、今天解决了前后台文字传输的时的XML和JSON的之间转换问题。
+   这里需要对于部分代码进行贴出来，以便后期访问和使用
+   /----------------------------------转换XML对象的代码----------------------------------/
+   unction xmlfromtext(xmlString) {
+    var xmlDoc = null;
+    //判断浏览器的类型
+    //支持IE浏览器
+    if (!window.DOMParser && window.ActiveXObject) { //window.DOMParser 判断是否是非ie浏览器
+        var xmlDomVersions = ['MSXML.2.DOMDocument.6.0', 'MSXML.2.DOMDocument.3.0', 'Microsoft.XMLDOM'];
+        for (var i = 0; i < xmlDomVersions.length; i++) {
+            try {
+                xmlDoc = new ActiveXObject(xmlDomVersions[i]);
+                xmlDoc.async = false;
+                xmlDoc.loadXML(xmlString); //loadXML方法载入xml字符串
+                break;
+            } catch (e) {
+            }
+        }
+    }
+        //支持Mozilla浏览器
+    else if (window.DOMParser && document.implementation && document.implementation.createDocument) {
+        try {
+            /* DOMParser 对象解析 XML 文本并返回一个 XML Document 对象。
+            * 要使用 DOMParser，使用不带参数的构造函数来实例化它，然后调用其 parseFromString() 方法
+            * parseFromString(text, contentType) 参数text:要解析的 XML 标记 参数contentType文本的内容类型
+            * 可能是 "text/xml" 、"application/xml" 或 "application/xhtml+xml" 中的一个。注意，不支持 "text/html"。
+            */
+            domParser = new DOMParser();
+            xmlDoc = domParser.parseFromString(xmlString, 'text/xml');
+        } catch (e) {
+        }
+    }
+    else {
+        return null;
+    }
+    return xmlDoc;
+}
+/---------------------------------------------结束文本到XML对象之间的转化---------------------------/
+/---------------------------------------------开始完成XML到JSON数据之间的转化问题-----------------/
+function (data) {
+            //注意这里是需要判别下是不是json格式的数据，若是不是的话，就只能硬钢Xml了
+            var data1 = data.responseText;
+            var xmls = xmlfromtext(data1);
+            var temp = xmls;
+            var json = {};
+            //这些代码可以处理大批量的数据格式
+            temp = temp.childNodes[0].children
+            for (var i = 0; i < temp.length; i++) {
+                json[i] = temp[i].innerHTML;
+            }
+            var lblist = [];
+            for (var i in json) {
+                var temp = JSON.parse(json[i]);
+                lblist.push(temp);
+            }
+            temp = lblist;
+             lb = temp[0];
+            show(lb);
+            //了数据转换完成
+        }
+/------------------------------------------结束转化--------------------------------------------/
+7、文件跨域上传的方法已经解决，代码如下，其中的出现的bug是因为webserve采用XML
+/------------------------------------------前台代码---------------------------------------------/
+ <script type="text/javascript">
+    function doUpload() {
+        var formData = new FormData($("#uploadForm")[0]);
+        $.ajax({
+            url: configUrl+'/redmomeryserver.asmx/UploadFile?jsoncallback=shows',
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            //                    dataType: "jsonp",//问题就在这里，如果用了jsonp，那么后台就接收不到文件流，无法获得文件流，就没办法把文件写入服务器。如果不指定，就是注释掉，虽然ajax提交之后，还是跑到error那里去，但是文件已经是成功写入服务器的了。
+            jsonp: "jsoncallback",
+            success: function (returndata) {
+                var vData = JSON.stringify(returndata);
+                alert(vData);
+            },
+            error: function (returndata) {
+                var vData = JSON.stringify(returndata);
+                alert(vData);
+            }
+        });
+    }
+    </script>
+    /---------------------------------后台代码------------------------------------------------------/
+     [WebMethod]
+        public void UploadFile()
+         {
+             HttpContext.Current.Response.ContentType = "application/json:charset=utf-8";
+             string jsonCallbackFunName = HttpContext.Current.Request.Params["jsoncallback"].ToString();
+             string strJson = "";
+             HttpFileCollection files = HttpContext.Current.Request.Files;
+             string strFileName=HttpContext.Current.Request["filename"];
+             byte[] b = new byte[files[0].ContentLength];
+             System.IO.Stream fs = (System.IO.Stream)files[0].InputStream;
+             fs.Read(b, 0, files[0].ContentLength);
+             //定义一个内存流
+             FileStream f = new FileStream(Server.MapPath("\\resource\\file") + "\\"+files[0].FileName,FileMode.Create);
+             StreamWriter sw = new StreamWriter(f);
+             sw.Write(f);
+             sw.Close();
+             f.Close();
+             f = null;
+             if (strJson == "")
+             {
+                 strJson = "0";
+             }
+             HttpContext.Current.Response.Write(string.Format("{0}({1})", jsonCallbackFunName, strJson));
+             HttpContext.Current.Response.End();
+         }
+    /--------------------------------结束第7问题的解决方案-----------------------------------------/
+7、如何在插入新的信息的时候，同时获得信息插入时候的ID？
+  解：在插入新的信息中添加MD5的字段，在完成插入之后，在按照MD5进行检索出，指定的对象，这样虽然浪费时间，但是可以在接受的范围内,同时发现可以通过连接获取的方式获取当前插入的ID。
+8、如何实现图片的预览？
+  解：就是将本地文件的地址转换为网络资源文件地址
+  /-----------------------------------获取本地文件地址----------------------------------------------/
+function getFileUrl(sourceId) {
+    var url;
+    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE   
+        url = document.getElementById(sourceId).value;
+    }
+    else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox   
+        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+    }
+    else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome   
+        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+    }
+    return url;
+}
+  /----------------------------------图片预览结束-------------------------------------------------/
+9、文件存储问题？
+ 解：这里作为一些简单约定，对于一些不知道是什么文件的存储，这里就是存储问题，就是
+ M_ID = 0 ， T_ID=0;
+10、关于时间控件问题？
+ 解：结果测试网页中的时间控件的时间值的字符串格式，在后台可以直接凭借一个方法完成字符串-->时间类型的转换
+ 具体代码：  
+          string LBbirthday = HttpContext.Request["lbbirthday"].ToString();
+          DateTime dt = DateTime.Parse(LBbirthday);
+/--------------------------------------10个问题解决------------------------------------------------/
+11、评论进行处理，这里主要用来展示关于评论的文件列表？
+   css:
+       style_comment.css;
+       comment.css
+   js:
+       jquery.flexText.js;
+       tribune.js
+       pagevariable.js
+12、这里其实应该注意数据库在设计时应该提前将每个字段的含义记下来，不要相信自己的记忆力，这个问题就是为了，数据库中每个表的字段含义做一个备份？
+解：BBSTITLE_Table:  Authonrity //这个字段的主要目的就是为帖子的置顶有个参考。
+    View_T_U：这个视图主要是为展示当前每一个帖子的信息
+
+13、关于视图的用法，发现在这里，基本都需要针对每个对象建立一个视图模块，然后在进行评论的时候，在按照对应的ID进行提交
+14、网络端变量的说法：
+   1、所有的变量除了个人信息之外全部都是对应的视图。
+   2、当提交的时候，就需要进行按照对应的信息进行提交。
+   3、注意下列网络变量的已被声明（class）：
+                     1、commentAll： 评论区
+                     2、reviewArea clearfix：
+                     3、content comment-input：
+                     4、plBtn：
+                     5、comment-show：
+                     6、comment-show-con clearfix：
+                     7、comment-show-con-img pull-left：
+                     8、comment-show-con-list pull-left clearfix：
+                     9、pl-text clearfix：
+                     10、comment-size-name：
+                     11、my-pl-con：
+                     12、date-dz
+                     13、date-dz-left pull-left comment-time：
+                     14、date-dz-right pull-right comment-pl-block：
+                     15、removeBlock
+                     16、date-dz-pl pl-hf hf-con-block pull-left
+                     17、pull-left date-dz-line：
+                     18、date-dz-z pull-left
+                     19、date-dz-z-click-red
+                     20、z-num
+                     21、hf-list-con
+   4、ClistTID_XXX ：XXX为TID
+   　CList_XXX: XXX 为CID
+
+
+15、json文件格式的展示数据
+json数组格式：
+[
+  {},
+  {},
+  {},
+]
+16、json文件对应的遍历？
+function getlnglatbycityName(cityname)
+{
+    //这个方法给出对应的json对象
+    for (var og in citylnglat) {
+        if (cityname == og)
+        {
+            var temp = citylnglat[og];
+            var lng = temp[0].toString();
+            var lat = temp[1].toString();
+            var result = '{\"lng\":' + lng + ',\"lat\":' + lat + '}';
+            return JSON.parse(result);
+        }
+    }
+
+}
+
+17、数据统计思路？
+  解： 1、从数据库中提取对应的实体对象
+       2、然后，将实体对象中lng，lat带入公式中，
+       3、得到对应的网址，开始进行网页文件解析
+     实例文本： 
+        {"status":0,"result":{"location":{"lng":121.96829223632793,"lat":37.16608424486709},"formatted_address":"山东省威海市文登市","business":"米山","addressComponent":{"country":"中国","country_code":0,"province":"山东省","city":"威海市","district":"文登市","adcode":"371081","street":"","street_number":"","direction":"","distance":""},"pois":[],"roads":[],"poiRegions":[],"sematic_description":"","cityCode":175}}
+     解决方案：采用堆栈的方案进行解决。
+              1、当遇到“{”时候，就压入栈中，当遇到 “,”，就前一个压入的元素取出来。进行构建对象，构建完之后，在压回栈中，
+                 例如：{ object 名称：{}，}
+=======
+论坛工作进度 
+    前提：-1表示老兵的模块  1是管理员
+
+1、完成帖子的创建--------------------------------------------------------------------------------1
+2、完成帖子的回复功能-----------------------------------------------------------------------------1
+3、完成针对回复的回复功能--------------------------------------------------------------------------1
+4、创建模块功能----------------------------------------------------------------------1
+5、模块搜索功能：1、按找论坛名进行搜索---------------------------------------------------------1
+               2、按照创建人进行搜索------------------------------------------------------1
+               3、按照关键字进行搜索----------------------------------------------------------1
+6、帖子搜索功能：1、按照模块名进行搜索------------------------------------------------------1
+               2、按照关键字进行搜索-------------------------------------------------------1
+               3、按照发布人进行搜索--------------------------------------------------------1
+               4、按帖子标题进行搜索--------------------------------------------------------1
+               5、按帖子关键字进行搜索------------------------------------------------------1
+7、论坛的关键信息展示列表：1、论坛模块的展示
+                        2、老兵信息的展示-----------------------------------------------------1
+                        3、战争信息的展示
+8、回复模块的功能搭建
+9、评论模块额的功能搭建
+10、老兵信息的展示----------------------------------------------------------------------1
+11、老兵论坛的评论页面的入口
+12、老兵论坛按照帖子名进行查找
+13、老兵论坛的目前信息的基本关联和录入。--------------关联完成，正在录入--------------------1
+14、写出工具，自动完成前期老兵论坛的录入、做好数据的基础。-----------------------------------1
+15、进行帖子创建功能的搭建和书写.----------------------------------------------------------1
+16、开始研究文件上传功能的书写------------------------------------------------------------1
+17、字符串前后台交互---------------------------------------------------------------------1
+18、解决图片的前后台上传、预览功能---------------------------------------------------------1
+19、图片按照老兵的ID进行展示----------------------------------------------------------------1
+20、按照老兵信息进行加载回复以及回复的回复--------------------------------------------------1
+21、按照帖子的ID获取到帖子----------------------------------------------------------------1
+22、对于评论模块进行改造-----------------------------------------------------------------1
+22、已经实现按照帖子的ID展示老兵的信息。-----------------------------------------------------1
+23、展示提帖子的回复------------------------------------------------------------------------1
+24、展示回复的回复--------------进行中-
+25、数据的展示，全国主要城市的老兵的分布图-----------代码完成----正在收集数据----
+26、完善地理编码的调用---坐标to城市-----城市to坐标---
+27、正在将系统上传到github中-------个人上传完成--已完成----进行多人分配-------------
+
+服务：
+    1、数据传输的端口---------------------------------------------------------------------1
+    2、常用功能的展现方法
+    3、地图定位功能----------------------------------------------------------------------1
+    4、服务环境的搭建--------------------------------------------------------------------1
+    5、下午4点半之前，解决传输格式问题，并将其形成以一整套的文稿。----------------------------1
+
+
+数据库：1、保证得到对象的访问对象，点赞数、访问数，在进行删除的时候，进行有效事件标记--------0.5
+       2、数据库论坛主要表格的设计和关联关系-----------------------------------------1
+       3、处理好老兵信息和论坛部分的关系-----------------------进行中--------------
+       4、单独写出方法专门针对老兵的信息录入（主要是人物的信息录入）
+       5、可以通过select Identify的方法拿到当前插入记录的ID------------------------1
+       6、数据库中CT中的表格为is_delete,0表示通过 1 表示热评 2表示待审核 3 表示删除
+
+
+
+
+
+
+特殊问题：1、如何处理好现有的模块与论坛关系？
+         2、如何保证用户在录入老兵故事的时候，自动的创建帖子，并进行关联？
+         3、如何提取老兵故事信息信息字段的展示
+         4、表单提交之后，会自动进行跳转(已解决-----通过拦截跳转)
+         5、png文件无法访问（这个可以在后期发布时解决）
+         6、如何判断用户回复的是哪个帖子，哪个模块，哪个回复？
+
+
+
+
+//------------------------------临时代码-----------------------------------------------
+temp=temp.childNodes[0].children
+for(var i=0;i<temp.length;i++){
+json[i]=temp[i].innerHTML;
+}
+var lblist=[];
+for(var i in json){
+ var temp=JSON.parse( json[i]);
+ lblist.push(temp);
+}
+
+
+
+//------------------------------代码临时区域
+
+
+经验总结：对于数据库链接尤其是这种几何数据数据存储来说，简直爆炸，争取九点之前解决这个问题。----超时解决40分钟
+         1、类库强制更换的方法-------已经解决-----------------------------------------------------1
+         2、缺少mspdb100.dll 的方法处理方案。在commom IDE10.0中找到对应的拖放道指定的文件夹就行了----1
+         3、如何使用sn命令来获取当前的类库的公钥，查找当前的公钥，并且完成各个配置文件中的对应的runtime节点的替换工作、并进行测试和调整---------------------完成部分、不影响工作-------------0.6
+         4、鉴于没有办法使用linq和匿名的方法进行三层架构的生成和书写，但是现在已经可以勉强进行三层架构的总结，
+         5、在没有办法的情况下，只能采用最为无奈的方法，将数据生成工作交给数据库，这里只是传递sql文本语句，但是这样做的话，需要自己去写个生成WKT的工具方案，这种方案作为备用方案进行处理。-----已经解决，需要指明UdtTypeName类型------------------------------------------------------------------------------------1
+         6、强制进行类库的升级转换--------------------完成-----------------------------------------1
+         7、在使用ajax的时候需要注意，对于asmx服务，其会直接将其转换为XMl格式，因此在指定访问数据的时候，不要进行设置contentType。 
+
+
+
+解决问题方案草稿回顾：
+
+1、如何处理还老兵信息和论坛部分的关系
+解： 在老兵的ID中插入一个对应的论坛的帖子ID,前提也就是没有足够的信息的情况下，需要创建一个工具进行自动生成对应的帖子，然后进行展示。然后将这种工具进行处理之后，收入工具库，以备后续使用。在前提写工具的时候，将创建帖子的业务流程抽象出来，按照这种写成对应的逻辑代码，快点将页面进行写出来，然后展示出来。
+
+
+2、针对的sqlgeometryphy的使用，案例代码
+if ( result[i].X.ToString() != "" && result[i].Y.ToString() != "")
+                {
+                    string locationpoint = "Point(" + result[i].X.ToString() + " " + result[i].Y.ToString() + ")";
+                    //-------------------结束构建WKT语句---------------
+                    SqlString parstring = new SqlString(locationpoint);
+                    SqlChars pars = new SqlChars(parstring);
+                    SqlGeography localpoint = SqlGeography.STPointFromText(pars, 4326);
+                    result[i].Location = localpoint;
+                }
+3、强制进行类库的升级转换，在配置文件中添加下列代码：
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.SqlServer.Types"
+                          publicKeyToken="89845dcd8080cc91"
+                          culture="neutral" />
+        <bindingRedirect oldVersion="10.0.0.0" newVersion="12.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+
+
+4、如何解决创建老兵帖的时候，拿到对应的帖子ID？
+解：1、这个问题的关键在与第一次提交创建帖的时候，并没有拿到对应的帖子的ID标签，这就带来了另一个问题，如何在提交程序的时候，返回对象的ID？这种方案能采用MD5的方案进行解决，在生成之前就生成一个MD5,值作为校验值吗，用来进行检索的。
+现在发现可以通过select identity的方式拿到当前对话的ID，这种方案是极好的，但是可能有问题，目前还在测试中。
+5、对于老兵信息模块，建议直接根据老兵的信息自动生成对应的帖子，在内部完成帖子的完成的录入。
+6、今天解决了前后台文字传输的时的XML和JSON的之间转换问题。
+   这里需要对于部分代码进行贴出来，以便后期访问和使用
+   /----------------------------------转换XML对象的代码----------------------------------/
+   unction xmlfromtext(xmlString) {
+    var xmlDoc = null;
+    //判断浏览器的类型
+    //支持IE浏览器
+    if (!window.DOMParser && window.ActiveXObject) { //window.DOMParser 判断是否是非ie浏览器
+        var xmlDomVersions = ['MSXML.2.DOMDocument.6.0', 'MSXML.2.DOMDocument.3.0', 'Microsoft.XMLDOM'];
+        for (var i = 0; i < xmlDomVersions.length; i++) {
+            try {
+                xmlDoc = new ActiveXObject(xmlDomVersions[i]);
+                xmlDoc.async = false;
+                xmlDoc.loadXML(xmlString); //loadXML方法载入xml字符串
+                break;
+            } catch (e) {
+            }
+        }
+    }
+        //支持Mozilla浏览器
+    else if (window.DOMParser && document.implementation && document.implementation.createDocument) {
+        try {
+            /* DOMParser 对象解析 XML 文本并返回一个 XML Document 对象。
+            * 要使用 DOMParser，使用不带参数的构造函数来实例化它，然后调用其 parseFromString() 方法
+            * parseFromString(text, contentType) 参数text:要解析的 XML 标记 参数contentType文本的内容类型
+            * 可能是 "text/xml" 、"application/xml" 或 "application/xhtml+xml" 中的一个。注意，不支持 "text/html"。
+            */
+            domParser = new DOMParser();
+            xmlDoc = domParser.parseFromString(xmlString, 'text/xml');
+        } catch (e) {
+        }
+    }
+    else {
+        return null;
+    }
+    return xmlDoc;
+}
+/---------------------------------------------结束文本到XML对象之间的转化---------------------------/
+/---------------------------------------------开始完成XML到JSON数据之间的转化问题-----------------/
+function (data) {
+            //注意这里是需要判别下是不是json格式的数据，若是不是的话，就只能硬钢Xml了
+            var data1 = data.responseText;
+            var xmls = xmlfromtext(data1);
+            var temp = xmls;
+            var json = {};
+            //这些代码可以处理大批量的数据格式
+            temp = temp.childNodes[0].children
+            for (var i = 0; i < temp.length; i++) {
+                json[i] = temp[i].innerHTML;
+            }
+            var lblist = [];
+            for (var i in json) {
+                var temp = JSON.parse(json[i]);
+                lblist.push(temp);
+            }
+            temp = lblist;
+             lb = temp[0];
+            show(lb);
+            //了数据转换完成
+        }
+/------------------------------------------结束转化--------------------------------------------/
+7、文件跨域上传的方法已经解决，代码如下，其中的出现的bug是因为webserve采用XML
+/------------------------------------------前台代码---------------------------------------------/
+ <script type="text/javascript">
+    function doUpload() {
+        var formData = new FormData($("#uploadForm")[0]);
+        $.ajax({
+            url: configUrl+'/redmomeryserver.asmx/UploadFile?jsoncallback=shows',
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            //                    dataType: "jsonp",//问题就在这里，如果用了jsonp，那么后台就接收不到文件流，无法获得文件流，就没办法把文件写入服务器。如果不指定，就是注释掉，虽然ajax提交之后，还是跑到error那里去，但是文件已经是成功写入服务器的了。
+            jsonp: "jsoncallback",
+            success: function (returndata) {
+                var vData = JSON.stringify(returndata);
+                alert(vData);
+            },
+            error: function (returndata) {
+                var vData = JSON.stringify(returndata);
+                alert(vData);
+            }
+        });
+    }
+    </script>
+    /---------------------------------后台代码------------------------------------------------------/
+     [WebMethod]
+        public void UploadFile()
+         {
+             HttpContext.Current.Response.ContentType = "application/json:charset=utf-8";
+             string jsonCallbackFunName = HttpContext.Current.Request.Params["jsoncallback"].ToString();
+             string strJson = "";
+             HttpFileCollection files = HttpContext.Current.Request.Files;
+             string strFileName=HttpContext.Current.Request["filename"];
+             byte[] b = new byte[files[0].ContentLength];
+             System.IO.Stream fs = (System.IO.Stream)files[0].InputStream;
+             fs.Read(b, 0, files[0].ContentLength);
+             //定义一个内存流
+             FileStream f = new FileStream(Server.MapPath("\\resource\\file") + "\\"+files[0].FileName,FileMode.Create);
+             StreamWriter sw = new StreamWriter(f);
+             sw.Write(f);
+             sw.Close();
+             f.Close();
+             f = null;
+             if (strJson == "")
+             {
+                 strJson = "0";
+             }
+             HttpContext.Current.Response.Write(string.Format("{0}({1})", jsonCallbackFunName, strJson));
+             HttpContext.Current.Response.End();
+         }
+    /--------------------------------结束第7问题的解决方案-----------------------------------------/
+7、如何在插入新的信息的时候，同时获得信息插入时候的ID？
+  解：在插入新的信息中添加MD5的字段，在完成插入之后，在按照MD5进行检索出，指定的对象，这样虽然浪费时间，但是可以在接受的范围内,同时发现可以通过连接获取的方式获取当前插入的ID。
+8、如何实现图片的预览？
+  解：就是将本地文件的地址转换为网络资源文件地址
+  /-----------------------------------获取本地文件地址----------------------------------------------/
+function getFileUrl(sourceId) {
+    var url;
+    if (navigator.userAgent.indexOf("MSIE") >= 1) { // IE   
+        url = document.getElementById(sourceId).value;
+    }
+    else if (navigator.userAgent.indexOf("Firefox") > 0) { // Firefox   
+        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+    }
+    else if (navigator.userAgent.indexOf("Chrome") > 0) { // Chrome   
+        url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0));
+    }
+    return url;
+}
+  /----------------------------------图片预览结束-------------------------------------------------/
+9、文件存储问题？
+ 解：这里作为一些简单约定，对于一些不知道是什么文件的存储，这里就是存储问题，就是
+ M_ID = 0 ， T_ID=0;
+10、关于时间控件问题？
+ 解：结果测试网页中的时间控件的时间值的字符串格式，在后台可以直接凭借一个方法完成字符串-->时间类型的转换
+ 具体代码：  
+          string LBbirthday = HttpContext.Request["lbbirthday"].ToString();
+          DateTime dt = DateTime.Parse(LBbirthday);
+/--------------------------------------10个问题解决------------------------------------------------/
+11、评论进行处理，这里主要用来展示关于评论的文件列表？
+   css:
+       style_comment.css;
+       comment.css
+   js:
+       jquery.flexText.js;
+       tribune.js
+       pagevariable.js
+12、这里其实应该注意数据库在设计时应该提前将每个字段的含义记下来，不要相信自己的记忆力，这个问题就是为了，数据库中每个表的字段含义做一个备份？
+解：BBSTITLE_Table:  Authonrity //这个字段的主要目的就是为帖子的置顶有个参考。
+    View_T_U：这个视图主要是为展示当前每一个帖子的信息
+
+13、关于视图的用法，发现在这里，基本都需要针对每个对象建立一个视图模块，然后在进行评论的时候，在按照对应的ID进行提交
+14、网络端变量的说法：
+   1、所有的变量除了个人信息之外全部都是对应的视图。
+   2、当提交的时候，就需要进行按照对应的信息进行提交。
+   3、注意下列网络变量的已被声明（class）：
+                     1、commentAll： 评论区
+                     2、reviewArea clearfix：
+                     3、content comment-input：
+                     4、plBtn：
+                     5、comment-show：
+                     6、comment-show-con clearfix：
+                     7、comment-show-con-img pull-left：
+                     8、comment-show-con-list pull-left clearfix：
+                     9、pl-text clearfix：
+                     10、comment-size-name：
+                     11、my-pl-con：
+                     12、date-dz
+                     13、date-dz-left pull-left comment-time：
+                     14、date-dz-right pull-right comment-pl-block：
+                     15、removeBlock
+                     16、date-dz-pl pl-hf hf-con-block pull-left
+                     17、pull-left date-dz-line：
+                     18、date-dz-z pull-left
+                     19、date-dz-z-click-red
+                     20、z-num
+                     21、hf-list-con
+   4、ClistTID_XXX ：XXX为TID
+   　CList_XXX: XXX 为CID
+
+
+15、json文件格式的展示数据
+json数组格式：
+[
+  {},
+  {},
+  {},
+]
+
+16、如何实现全网搜索？
+ 解：这里使用axms服务，所以传输的数据为xml，
+ 前台代码：
+        function query(selectsite, keyword, pageIndex) {
+            $.post("/redmomeryserver.asmx/Bing", { selectsite: selectsite, keyword: keyword, PageIndex: pageIndex }, function (data) {
+                //由于这个data传输来为xml。需要转换为对应的json文件
+                $("#result").empty();
+                var arrstr = [];
+                for (var i = 0; i < data.childNodes.length; i++) {
+                    for (var j = 0; j < data.childNodes[i].children.length;j++)
+                    {
+                        var temp = data.childNodes[i].children[j].innerHTML;
+                        temp = temp.replace(new RegExp("&lt;", "gm"), '<');//"&lt;", '<');
+                        temp = temp.replace(new RegExp("&gt;", "gm"), ">");//"&gt;", '>');
+                        $("#result").append("<div style='padding-top:10px'><div>" + temp + "</div></div>");
+                    }
+                }
+               
+            });
+        };
+
+后台代码：
+
+    [WebMethod]
+        public List<string> Bing(string keyword, string selectsite, int PageIndex)
+        {
+            JumonyParser jumony = new JumonyParser();
+            //如：
+            var url = "http://cn.bing.com/search?q=" + keyword + "+site:" + selectsite + "&first=" + PageIndex + "1&FORM=PERE";
+            var document = jumony.LoadDocument(url);
+            var list = document.Find("#b_results .b_algo").ToList().Select(t => t.ToString()).ToList();
+
+            var listli = document.Find("li.b_pag nav ul li");
+            if (PageIndex > 0 && listli.Count() == 0)
+                return null;
+
+            if (listli.Count() > 1)
+            {
+                var text = document.Find("li.b_pag nav ul li").Last().InnerText();
+                int npage = -1;
+                if (text == "下一页")
+                {
+                    if (listli.Count() > 1)
+                    {
+                        var num = listli.ToList()[listli.Count() - 2].InnerText();
+                        int.TryParse(num, out npage);
+                    }
+                }
+                else
+                    int.TryParse(text, out npage);
+                if (npage <= PageIndex)
+                    list = null;
+            }
+            return list;// result;
+        }
+
+
+>>>>>>> master
+=======
 论坛工作进度 
     前提：-1表示老兵的模块  1是管理员
 
@@ -323,3 +1054,4 @@ json数组格式：
 
 
 
+>>>>>>> master

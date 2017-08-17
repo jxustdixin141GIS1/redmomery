@@ -10,6 +10,8 @@ using redmomery.DAL;
 using redmomery.librarys;
 using redmomery.Model;
 using System.IO;
+using Ivony.Html;
+using Ivony.Html.Parser;
 namespace testtemp
 {
     /// <summary>
@@ -254,5 +256,38 @@ namespace testtemp
             return result;
         }
         //--------------------------------论坛服务测试结束---------------------------------
+
+        [WebMethod]
+        public List<string> Bing(string keyword, string selectsite, int PageIndex)
+        {
+            JumonyParser jumony = new JumonyParser();
+            //如：
+            var url = "http://cn.bing.com/search?q=" + keyword + "+site:" + selectsite + "&first=" + PageIndex + "1&FORM=PERE";
+            var document = jumony.LoadDocument(url);
+            var list = document.Find("#b_results .b_algo").ToList().Select(t => t.ToString()).ToList();
+
+            var listli = document.Find("li.b_pag nav ul li");
+            if (PageIndex > 0 && listli.Count() == 0)
+                return null;
+
+            if (listli.Count() > 1)
+            {
+                var text = document.Find("li.b_pag nav ul li").Last().InnerText();
+                int npage = -1;
+                if (text == "下一页")
+                {
+                    if (listli.Count() > 1)
+                    {
+                        var num = listli.ToList()[listli.Count() - 2].InnerText();
+                        int.TryParse(num, out npage);
+                    }
+                }
+                else
+                    int.TryParse(text, out npage);
+                if (npage <= PageIndex)
+                    list = null;
+            }
+            return list;// result;
+        }
     }
 }

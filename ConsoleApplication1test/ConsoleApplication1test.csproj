@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="abandon.cs" />
     <Compile Include="modelMa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +103,10 @@
     <ProjectReference Include="..\redmomery.DAL\redmomery.DAL.csproj">
       <Project>{80eca235-57f3-44bc-bc8b-e342b5af909c}</Project>
       <Name>redmomery.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\redmomery.librarys\redmomery.BLL.csproj">
+      <Project>{12941e0e-d4bc-4001-9f13-58aa515fac76}</Project>
+      <Name>redmomery.BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

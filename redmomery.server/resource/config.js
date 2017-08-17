@@ -1,2 +1,2 @@
 ﻿var configUrl = 'http://localhost:5385/';
-//var configUrl = 'http://192.168.0.111:20000/';
+var webserverUrl = 'http://192.168.42.55/redmomeryserver.asmx/';
