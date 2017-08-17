@@ -3,3 +3,15 @@ D:\题库系统\github\team\redmomery\DML\bin\Debug\DML.dll
 D:\题库系统\github\team\redmomery\DML\bin\Debug\DML.pdb
 D:\题库系统\github\team\redmomery\DML\obj\Debug\DML.dll
 D:\题库系统\github\team\redmomery\DML\obj\Debug\DML.pdb
+D:\题库系统\github\team\redmomery\DML\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\题库系统\github\team\redmomery\DML\obj\Debug\redmomery.MDL.csprojResolveAssemblyReference.cache
