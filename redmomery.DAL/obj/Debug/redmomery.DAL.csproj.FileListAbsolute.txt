@@ -19,13 +19,3 @@ D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\zh-Hant\Microsoft.
 D:\题库系统\github\team\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.dll
 D:\题库系统\github\team\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.pdb
-F:\github\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.csprojResolveAssemblyReference.cache
-F:\github\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.dll
-F:\github\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.pdb
-F:\github\redmomery\redmomery.DAL\bin\Debug\redmomery.DAL.dll.config
-F:\github\redmomery\redmomery.DAL\bin\Debug\redmomery.DAL.dll
-F:\github\redmomery\redmomery.DAL\bin\Debug\redmomery.DAL.pdb
-F:\github\redmomery\redmomery.DAL\bin\Debug\DML.dll
-F:\github\redmomery\redmomery.DAL\bin\Debug\redmomery.command.exe
-F:\github\redmomery\redmomery.DAL\bin\Debug\DML.pdb
-F:\github\redmomery\redmomery.DAL\bin\Debug\redmomery.command.pdb

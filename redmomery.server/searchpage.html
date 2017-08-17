@@ -12,7 +12,7 @@
     $(function () {
         var PageIndex;
         function query(selectsite, keyword, pageIndex) {
-            $.post("/redmomeryserver.asmx/Bing", { selectsite: selectsite, keyword: keyword, PageIndex: pageIndex }, function (data) {
+            $.post("/redmomeryserver.asmx//Bing", { selectsite: selectsite, keyword: keyword, PageIndex: pageIndex }, function (data) {
                 //由于这个data传输来为xml。需要转换为对应的json文件
                 $("#result").empty();
                 var arrstr = [];

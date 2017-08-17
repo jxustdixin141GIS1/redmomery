@@ -10,15 +10,3 @@ D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.dll
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.pdb
-F:\github\redmomery\redmomery.librarys\obj\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
-F:\github\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.dll
-F:\github\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.pdb
-F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll.config
-F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll
-F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.pdb
-F:\github\redmomery\redmomery.librarys\bin\Debug\DML.dll
-F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.command.exe
-F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL.dll
-F:\github\redmomery\redmomery.librarys\bin\Debug\DML.pdb
-F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.command.pdb
-F:\github\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL.pdb
