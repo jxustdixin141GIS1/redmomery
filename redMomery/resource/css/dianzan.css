@@ -1,6 +1,6 @@
 
-    .heart {
-	    background:url(~/image/web_heart_animation.png);
+    /*.heart {
+	    background:url(http://localhost:9003/resource/image/web_heart_animation.png);
 	    background-position: left;
 	    background-repeat: no-repeat;
 	    height: 80px;
@@ -8,7 +8,7 @@
 	    cursor: pointer;
 	    position: absolute;
         background-size:2900%;
-    }
+    }*/
 	 .likeCount{font-family: 'Georgia', Times, Times New Roman, serif; margin-top: 20px;margin-left: 60px;font-size: 25px; float:left;color: #999999}
       .juanzhu{margin-top: 20px;margin-left: 70px; float:left;}
     @-webkit-keyframes heartBlast {

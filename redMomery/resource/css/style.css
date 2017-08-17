@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 /*reset*/
 body { margin: 0; padding: 0; }
@@ -120,7 +120,7 @@ a{
     left:50%;
     top:50%;
     margin:-20px 0px 0px -20px;
-    background:transparent url(../images/arrow_right.png) no-repeat 50% 55%;
+    background:transparent url(http://localhost:9003/resource/image/arrow_right.png) no-repeat 50% 55%;
     -webkit-transition:all 0.3s linear;
     -moz-transition:all 0.3s linear;
     -o-transition:all 0.3s linear;

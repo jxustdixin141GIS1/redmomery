@@ -1,3 +1,4 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,11 @@ namespace redMomery.Controllers
             return View();
         }
 
+        public ActionResult LBZL()
+        {
+            return View();
+        }
+
     }
 }
+
