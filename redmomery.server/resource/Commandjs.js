@@ -85,7 +85,7 @@ function JsonFromXml(xml)
 {
     var temp = xml;
     var json = {};
-    temp = temp.childNodes[0].children
+    temp = temp.childNodes[0].children;
     for (var i = 0; i < temp.length; i++) {
         json[i] = temp[i].innerHTML;
     }

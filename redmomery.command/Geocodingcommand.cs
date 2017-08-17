@@ -7,6 +7,11 @@ namespace redmomery.command
 {
       public   class Geocodingcommand
     {
+         /// <summary>
+         /// 
+         /// </summary>
+         /// <param name="nedadresss"></param>
+         /// <returns>lng,lat</returns>
         public static string[] getGecodingByAddress(string nedadresss)
         {
             //获取指定的地址，开始进行查询
@@ -51,6 +56,15 @@ namespace redmomery.command
                     }
                 }
             }
+            return result;
+        }
+        public static string getAdressnameByXy(string lng, string lat)
+        {
+            string result = string.Empty;
+            string url = "http://api.map.baidu.com/geocoder/v2/?location=" + lat + "," + lng + "&output=json&pois=1&ak=" + "WqQgeC4x8uBKhnrkUZVs0kDbgtl7eUMM";
+            WebClient client = new WebClient();
+            string html = UTF8Encoding.UTF8.GetString(client.DownloadData(url));
+            result = html;
             return result;
         }
     }

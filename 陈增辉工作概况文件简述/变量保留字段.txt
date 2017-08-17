@@ -1,0 +1,2 @@
+codecity_C ：  用来记录当前城市和对应的百度城市编码
+getlnglatbycityName(cityname)： 根据城市名返回对应城市的经纬度坐标

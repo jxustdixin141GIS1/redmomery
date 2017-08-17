@@ -33,7 +33,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\资源-用于内网传输的\Json100r3\Bin\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -69,6 +71,7 @@
     <Compile Include="DAL_Auto\ROOT_INFODAL.cs" />
     <Compile Include="DAL_Auto\SHAPE_TABLEDAL.cs" />
     <Compile Include="DAL_Auto\SqlHelper.cs" />
+    <Compile Include="DAL_Auto\staticinfotableDAL.cs" />
     <Compile Include="DAL_Auto\sysdiagramsDAL.cs" />
     <Compile Include="DAL_Auto\USER_INFODAL.cs" />
     <Compile Include="DAL_Auto\View_CC_UDAL.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="ROOT_INFODAL.cs" />
     <Compile Include="SHAPE_TABLEDAL.cs" />
     <Compile Include="SqlHelper.cs" />
+    <Compile Include="staticinfotableDAL.cs" />
     <Compile Include="sysdiagramsDAL.cs" />
     <Compile Include="USER_INFODAL.cs" />
     <Compile Include="View_CC_UDAL.cs" />

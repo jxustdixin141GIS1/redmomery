@@ -1,6 +1,6 @@
 
     .heart {
-	    background:url(../image/web_heart_animation.png);
+	    background:url(~/image/web_heart_animation.png);
 	    background-position: left;
 	    background-repeat: no-repeat;
 	    height: 80px;

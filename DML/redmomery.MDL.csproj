@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARMY_INFO.cs" />
+    <Compile Include="auto\staticinfotable.cs" />
     <Compile Include="BBSCONTENTS.cs" />
     <Compile Include="BBSTITLE_TABLE.cs" />
     <Compile Include="CCBBS_TABLE.cs" />
@@ -71,7 +72,9 @@
     <Compile Include="PUBLIC_RECORD.cs" />
     <Compile Include="ROOT_INFO.cs" />
     <Compile Include="SHAPE_TABLE.cs" />
+    <Compile Include="staticinfotable.cs" />
     <Compile Include="sysdiagrams.cs" />
+    <Compile Include="systemmodel\objectkeyname.cs" />
     <Compile Include="USER_INFO.cs" />
     <Compile Include="View_CC_U.cs" />
     <Compile Include="View_CT_U.cs" />

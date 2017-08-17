@@ -41,6 +41,15 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ivony.Html">
+      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.dll</HintPath>
+    </Reference>
+    <Reference Include="Ivony.Html.Parser">
+      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="Ivony.Html.Parser.Regulars">
+      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.Regulars.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SqlServer.WebServiceTask, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
@@ -68,6 +77,7 @@
   <ItemGroup>
     <Content Include="BBStest.html" />
     <Content Include="disributioncity.html" />
+    <Content Include="effectScatter-map.html" />
     <Content Include="indexupload.html" />
     <Content Include="LBupload.html" />
     <Content Include="redmomeryserver.asmx" />
@@ -76,6 +86,7 @@
     <Content Include="resource\css\cmains.css" />
     <Content Include="resource\css\comment.css" />
     <Content Include="resource\css\style_comment.css" />
+    <Content Include="resource\staticfile\Treatmentdata.js" />
     <Content Include="resource\webjs\dark.js" />
     <Content Include="resource\webjs\echarts.js" />
     <Content Include="resource\image\header-img-comment_03.png" />
@@ -659,6 +670,7 @@
     <Content Include="resource\image\lbinfo\J99.jpg" />
     <Content Include="resource\image\tubiao.gif" />
     <Content Include="packages.config" />
+    <Content Include="resource\staticfile\citybaiduinfo.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="resource\js\bbstest.js" />
     <Content Include="resource\js\jquery-1.12.0.min.js" />
@@ -676,6 +688,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="resource\js\loadbyname.js" />
     <Content Include="resource\js\upimagepreview.js" />
+    <Content Include="searchpage.html" />
     <Content Include="showdistribution.html" />
     <Content Include="testshowLB.html" />
     <Content Include="uploadtest.html" />
