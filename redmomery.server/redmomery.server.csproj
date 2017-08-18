@@ -90,6 +90,7 @@
     <Content Include="resource\css\style_comment.css" />
     <Content Include="resource\staticfile\cityinfo.js" />
     <Content Include="resource\staticfile\Treatmentdata.js" />
+    <Content Include="resource\staticfile\various.js" />
     <Content Include="resource\webjs\dark.js" />
     <Content Include="resource\webjs\echarts.js" />
     <Content Include="resource\image\header-img-comment_03.png" />

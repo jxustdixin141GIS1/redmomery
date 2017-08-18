@@ -129,6 +129,7 @@
     <Compile Include="Controllers\LBController.cs" />
     <Compile Include="Controllers\LBZLController.cs" />
     <Compile Include="Controllers\searchController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\uploadController.cs" />
     <Compile Include="Controllers\ZCZXController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1822,6 +1823,9 @@
     <Content Include="resource\js\ZCZXanniu.js" />
     <Content Include="resource\staticfile\citybaiduinfo.js" />
     <Content Include="resource\js\ZCZX.js" />
+    <Content Include="resource\staticfile\cityinfo.js" />
+    <Content Include="resource\staticfile\Treatmentdata.js" />
+    <Content Include="resource\staticfile\various.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1903,6 +1907,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\LBZL\LBZL.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Statistics\cityLb.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
