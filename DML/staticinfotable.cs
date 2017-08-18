@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DML
+namespace redmomery.Model
 {
-   public   class staticinfotable
+   public partial  class staticinfotable
     {
     }
 }

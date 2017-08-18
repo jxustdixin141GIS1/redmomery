@@ -77,6 +77,8 @@
   <ItemGroup>
     <Content Include="BBStest.html" />
     <Content Include="disributioncity.html" />
+    <Content Include="echartsstudent\HtmlPage1.html" />
+    <Content Include="echartsstudent\HtmlPage2.html" />
     <Content Include="effectScatter-map.html" />
     <Content Include="indexupload.html" />
     <Content Include="LBupload.html" />
@@ -86,6 +88,7 @@
     <Content Include="resource\css\cmains.css" />
     <Content Include="resource\css\comment.css" />
     <Content Include="resource\css\style_comment.css" />
+    <Content Include="resource\staticfile\cityinfo.js" />
     <Content Include="resource\staticfile\Treatmentdata.js" />
     <Content Include="resource\webjs\dark.js" />
     <Content Include="resource\webjs\echarts.js" />
@@ -670,7 +673,6 @@
     <Content Include="resource\image\lbinfo\J99.jpg" />
     <Content Include="resource\image\tubiao.gif" />
     <Content Include="packages.config" />
-    <Content Include="resource\staticfile\citybaiduinfo.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="resource\js\bbstest.js" />
     <Content Include="resource\js\jquery-1.12.0.min.js" />
@@ -714,9 +716,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DML\redmomery.MDL.csproj">
+    <ProjectReference Include="..\DML\redmomery.Model.csproj">
       <Project>{7790ec9c-719f-4575-a2ab-b26c9f926284}</Project>
-      <Name>redmomery.MDL</Name>
+      <Name>redmomery.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\redmomery.command\redmomery.command.csproj">
       <Project>{cd72d7c1-227a-40d4-8b3a-b7c16f697a10}</Project>

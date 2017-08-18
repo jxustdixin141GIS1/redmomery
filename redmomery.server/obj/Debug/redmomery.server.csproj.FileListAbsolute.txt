@@ -1,3 +1,4 @@
+D:\题库系统\github\team\redmomery\redmomery.server\obj\Debug\redmomery.server.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redmomery.server\bin\redmomery.server.dll.config
 D:\题库系统\github\team\redmomery\redmomery.server\bin\redmomery.server.dll
 D:\题库系统\github\team\redmomery\redmomery.server\bin\redmomery.server.pdb
@@ -17,6 +18,5 @@ D:\题库系统\github\team\redmomery\redmomery.server\bin\redmomery.librarys.pd
 D:\题库系统\github\team\redmomery\redmomery.server\bin\Ivony.Html.xml
 D:\题库系统\github\team\redmomery\redmomery.server\bin\Ivony.Html.Parser.xml
 D:\题库系统\github\team\redmomery\redmomery.server\bin\Ivony.Core.xml
-D:\题库系统\github\team\redmomery\redmomery.server\obj\Debug\redmomery.server.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redmomery.server\obj\Debug\redmomery.server.dll
 D:\题库系统\github\team\redmomery\redmomery.server\obj\Debug\redmomery.server.pdb

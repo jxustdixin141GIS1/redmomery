@@ -17,3 +17,4 @@ D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.HighLigh
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PosDisplayCtrl.pdb
 D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.exe
 D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.pdb
+D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.csprojResolveAssemblyReference.cache

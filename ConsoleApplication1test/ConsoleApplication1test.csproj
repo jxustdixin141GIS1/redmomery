@@ -92,9 +92,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DML\redmomery.MDL.csproj">
+    <ProjectReference Include="..\DML\redmomery.Model.csproj">
       <Project>{7790ec9c-719f-4575-a2ab-b26c9f926284}</Project>
-      <Name>redmomery.MDL</Name>
+      <Name>redmomery.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\redmomery.command\redmomery.command.csproj">
       <Project>{cd72d7c1-227a-40d4-8b3a-b7c16f697a10}</Project>

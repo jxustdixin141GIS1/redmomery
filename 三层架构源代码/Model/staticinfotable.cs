@@ -5,7 +5,7 @@ using System.Text;
 
 namespace redmomery.Model
 {
-	public   partial class staticinfotable
+	partial class staticinfotable
 	{
 		public int ID { get; set; }
 		public string citycode { get; set; }

@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "redMomery", "redMomery\redMomery.csproj", "{625E6E40-3FE7-452F-87D8-CD6D71CBD2DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "redmomery.MDL", "DML\redmomery.MDL.csproj", "{7790EC9C-719F-4575-A2AB-B26C9F926284}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "redmomery.Model", "DML\redmomery.Model.csproj", "{7790EC9C-719F-4575-A2AB-B26C9F926284}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "redmomery.BLL", "redmomery.librarys\redmomery.BLL.csproj", "{12941E0E-D4BC-4001-9F13-58AA515FAC76}"
 	ProjectSection(ProjectDependencies) = postProject

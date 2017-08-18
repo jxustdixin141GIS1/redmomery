@@ -1,0 +1,2 @@
+series ： type bar 柱状图
+               pie 病状图

@@ -61,7 +61,6 @@ namespace redmomery.command
        {
            //开始创建文件地址
            string path =paths+"\\" + filename;
-           text = Encoding.UTF8.GetString(Encoding.Default.GetBytes(text));
            FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
            if (fs.Length > 0)
            {

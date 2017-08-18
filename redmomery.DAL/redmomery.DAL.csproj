@@ -57,11 +57,15 @@
     <Compile Include="BBSCONTENTSDAL.cs" />
     <Compile Include="BBSTITLE_TABLEDAL.cs" />
     <Compile Include="CCBBS_TABLEDAL.cs" />
+    <Compile Include="cityLBDAL.cs" />
+    <Compile Include="CityLBDistributionDAL.cs" />
     <Compile Include="CTBBS_TABLEDAL.cs" />
     <Compile Include="DAL_Auto\ARMY_INFODAL.cs" />
     <Compile Include="DAL_Auto\BBSCONTENTSDAL.cs" />
     <Compile Include="DAL_Auto\BBSTITLE_TABLEDAL.cs" />
     <Compile Include="DAL_Auto\CCBBS_TABLEDAL.cs" />
+    <Compile Include="DAL_Auto\cityLBDAL.cs" />
+    <Compile Include="DAL_Auto\CityLBDistributionDAL.cs" />
     <Compile Include="DAL_Auto\CTBBS_TABLEDAL.cs" />
     <Compile Include="DAL_Auto\FILE_TABLEDAL.cs" />
     <Compile Include="DAL_Auto\GEN_INFODAL.cs" />
@@ -102,9 +106,9 @@
     <Compile Include="WAR_INFODAL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DML\redmomery.MDL.csproj">
+    <ProjectReference Include="..\DML\redmomery.Model.csproj">
       <Project>{7790ec9c-719f-4575-a2ab-b26c9f926284}</Project>
-      <Name>redmomery.MDL</Name>
+      <Name>redmomery.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\redmomery.command\redmomery.command.csproj">
       <Project>{cd72d7c1-227a-40d4-8b3a-b7c16f697a10}</Project>

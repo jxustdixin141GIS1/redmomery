@@ -18,9 +18,8 @@ using Microsoft.SqlServer.Types;
 
 namespace redmomery.librarys
 {
-    public  class staticbydata
+    public class staticbydata
     {
-
         public void createcityinfo()
         {
             string path = @"D:\题库系统\github\team\redmomery\插件库\echart文件测试--统计网页\百度城市代码.txt";
@@ -49,14 +48,15 @@ namespace redmomery.librarys
         //这个方法，暂时还是有问题，中午吃饭是在进行更改
         public static void staticdistributionbycity()
         {
-            string tempstrings = "";
             List<redmomery.Model.LB_INFO> lbs = ((new redmomery.DAL.LB_INFODAL()).Listall()) as List<redmomery.Model.LB_INFO>;
             List<redmomery.Model.objectkeyname> citystatic = new List<objectkeyname>();
+            List<string> geovar = new List<string>();
+            List<string> Lbvar = new List<string>();
             for (int i = 0; i < lbs.Count; i++)
             {
                 LB_INFO lb = lbs[i];
-                string addres =redmomery.command.Geocodingcommand.getAdressnameByXy(lb.X.ToString(), lb.Y.ToString());//拿到对应的城市代码
-                addres = addres.Replace("\"", ""); 
+                string addres = redmomery.command.Geocodingcommand.getAdressnameByXy(lb.X.ToString(), lb.Y.ToString());//拿到对应的城市代码
+                addres = addres.Replace("\"", "");
                 string[] temp = addres.Split('{', '}', ',', ':');
                 string citycode = string.Empty;
                 string cityname = string.Empty;
@@ -65,7 +65,7 @@ namespace redmomery.librarys
                 string countrycode = string.Empty;
                 string lng = string.Empty;
                 string lat = string.Empty;
-                //信息获取
+                //地理信息获取
                 #region
                 for (int j = 0; j < temp.Length; j++)
                 {
@@ -102,23 +102,23 @@ namespace redmomery.librarys
                     citytemp.countrycode = countrycode;
                     string[] xy = redmomery.command.Geocodingcommand.getGecodingByAddress(cityname);
                     lng = xy[0]; lat = xy[1];
-                    citytemp.lng = lng==null?"":lng;
-                    citytemp.lat = lat==null?"":lat;
+                    citytemp.lng = lng == null ? "" : lng;
+                    citytemp.lat = lat == null ? "" : lat;
                     citytemp.province = province;
-                    if (citytemp.citycode.Length >1)
+                    if (citytemp.citycode.Length > 1)
                     {
                         (new redmomery.DAL.staticinfotableDAL()).AddNew(citytemp);
                     }
                 }
                 #endregion
                 //数据统计
-                   //进行数据判别
+                //进行数据判别
                 bool isexist = false;
                 for (int j = 0; j < citystatic.Count; j++)
                 {
-                    if (citystatic[i].Key.ToString() == cityname)
+                    if (citystatic[j].Key.ToString() == cityname)
                     {
-                        citystatic[i].Value = (int)(citystatic[i].Value) + 1;
+                        citystatic[j].Value = (int)(citystatic[j].Value) + 1;
                         isexist = true;
                         break;
                     }
@@ -130,21 +130,103 @@ namespace redmomery.librarys
                     {
                         newobject.Key = cityname;
                         newobject.Value = 1;
+                        citystatic.Add(newobject);
+                        //添加变量组成内容
+                        string geocity = "'" + cityname + "':[" + citytemp.lng + "," + citytemp.lat + "]";
+                        geovar.Add(geocity);
                     }
                 }
-                
                 Console.Write(i.ToString());
                 Console.Write("\r");
             }
             //开始生成第一个变量 cityinfo data
+            //数据初步展示
+            for (int i = 0; i < citystatic.Count; i++)
+            {
+                string Lbcity = "{name:'" + citystatic[i].Key.ToString() + "',value:" + citystatic[i].Value.ToString() + "}";
+                Lbvar.Add(Lbcity);
+            }
+            #region
+            Console.WriteLine(geovar.Count==Lbvar.Count?"成功":"失败");
+            for (int i = 0; i < Lbvar.Count; i++)
+            {
+                Console.WriteLine(geovar[i]+":"+Lbvar[i]);
+            }
+            #endregion
+            StringBuilder varinfo = new StringBuilder();
+            #region 开始进行变量文件的书写
+            StringBuilder s1 = new StringBuilder(); s1.Append("data = [");
+            StringBuilder s2 = new StringBuilder(); s2.Append("var geoCoordMap = {");
+            for (int i = 0; i < Lbvar.Count; i++)
+            {
+                s1.Append(Lbvar[i]);
+                s2.Append(geovar[i]);
+                if (i == Lbvar.Count - 1) { }
+                else
+                {
+                    s1.Append(",");
+                    s2.Append(",");
+                }
+            }
+            s1.Append("];");
+            s2.Append("};");
+            varinfo.Append(s1);
+            varinfo.Append(s2);
+            #endregion
             
-
-            //下面开始创建对应的数据表
-            string cityinfo = redmomery.Common.SerializerHelper.SerializeToString(citystatic);
-            string context = "var staticinfo=" + cityinfo + ";";
             string path = @"D:\题库系统\github\team\redmomery\redmomery.server\resource\staticfile";
-            redmomery.command.createlog.createtxt(context, path, "cityinfo.js");
-            redmomery.command.createlog.createlogs(tempstrings);
+            redmomery.command.createlog.createtxt(varinfo.ToString(), path, "cityinfo.js");
+        }
+        public static staticinfotable getbylnglat(string x, string y)
+        {
+            string addres = redmomery.command.Geocodingcommand.getAdressnameByXy(x, y);//拿到对应的城市代码
+            addres = addres.Replace("\"", "");
+            string[] temp = addres.Split('{', '}', ',', ':');
+            string citycode = string.Empty;
+            string cityname = string.Empty;
+            string province = string.Empty;
+            string country = string.Empty;
+            string countrycode = string.Empty;
+            string lng = string.Empty;
+            string lat = string.Empty;
+
+            //信息获取
+            for (int j = 0; j < temp.Length; j++)
+            {
+                if (temp[j].ToString() == "cityCode")
+                {
+                    citycode = temp[j + 1].ToString();
+                }
+                if (temp[j].ToString() == "city")
+                {
+                    cityname = temp[j + 1].ToString();
+                }
+                if (temp[j].ToString() == "province")
+                {
+                    province = temp[j + 1].ToString();
+                }
+                if (temp[j].ToString() == "country")
+                {
+                    country = temp[j + 1].ToString();
+                }
+                if (temp[j].ToString() == "country_code")
+                {
+                    countrycode = temp[j + 1].ToString();
+                }
+            }
+            //下面开始获取经纬度
+                staticinfotable  citytemp = new staticinfotable();
+                //表示没有需要添加
+                citytemp.citycode = citycode;
+                citytemp.cityname = cityname;
+                citytemp.country = country;
+                citytemp.countrycode = countrycode;
+                string[] xy = redmomery.command.Geocodingcommand.getGecodingByAddress(cityname);
+                lng = xy[0]; lat = xy[1];
+                citytemp.lng = lng == null ? "" : lng;
+                citytemp.lat = lat == null ? "" : lat;
+                citytemp.province = province;
+                return citytemp;
         }
     }
 }

@@ -1,0 +1,145 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <script src="https://cdn.bootcss.com/echarts/3.6.2/echarts.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.6.2/extension/bmap.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/3.6.2/extension/dataTool.js"></script>
+</head>
+<body>
+    <div id="main" style="width:600px; height:400px"></div>
+    <script type="text/javascript">
+        //开始初始化echart实例
+        var myChart = echarts.init(document.getElementById("main"));
+        var option = {
+            //全局变量
+            backgroundColor: '#2c343c',
+            textStyle: {
+                color: 'rgba(255, 255, 255, 0.3)'
+            },
+            labelLine: {
+                normal: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,0.3)'
+                    }
+                }
+            },
+            itemStyle: {
+                normal: {
+                    // 设置扇形的颜色
+                    color: '#c23531',
+                    shadowBlur: 200,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            },
+            //数据有关变量
+            title: { text: "入门实例" },
+            tooltip: {},
+            legend: { data: ['视频广告', '联盟广告', '邮件营销', '直接访问'] },
+            series: [
+                {
+                    name: '数据占比',
+                    type: 'pie',
+                    radius: '55%',
+                    roseType: 'angle',
+                    data: [
+                        {
+                            value: 235,
+                            name: '视频广告',
+                            itemStyle: {
+                                normal: {
+                                    // 设置扇形的颜色
+                                    color: '#EE82EE',
+                                    shadowBlur: 200,
+                                    shadowColor: 'rgba(100, 0, 0, 0.5)'
+                                }
+                            }
+                        },
+                    {
+                        value: 274,
+                        name: '联盟广告',
+                        itemStyle: {
+                            normal: {
+                                // 设置扇形的颜色
+                                color: '#00FFFF',
+                                shadowBlur: 200,
+                                shadowColor: 'rgba(0, 100, 0, 0.5)'
+                            }
+                        }
+
+                    },
+                    {
+                        value: 310,
+                        name: '邮件营销',
+                        itemStyle: {
+                            normal: {
+                                // 设置扇形的颜色
+                                color: '#00FF00',
+                                shadowBlur: 200,
+                                shadowColor: 'rgba(0, 0, 100, 0.5)'
+                            }
+                        }
+
+                    },
+                    {
+                        value: 335,
+                        name: '直接访问',
+                        itemStyle: {
+                            normal: {
+                                // 设置扇形的颜色
+                                color: '#87CEFF',
+                                shadowBlur: 200,
+                                shadowColor: 'rgba(0, 100, 100, 0.5)'
+                            }
+                        }
+
+                    },
+                    {
+                        value: 400,
+                        name: '搜索引擎',
+                        itemStyle: {
+                            normal: {
+                                // 设置扇形的颜色
+                                color: '#c23531',
+                                shadowBlur: 200,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+
+                    }
+                    ],
+
+                }
+            ],
+            itemStyle: {
+                normal: {
+                    shadowBlur: 200,//阴影大小
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    shadowColor: 'rgba(0,0,0,0.5)'
+                },
+                emphasis: {
+                    shadowBlur: 200,
+                    shadowColor: 'rgba(100, 0, 0, 0.5)'
+                },
+              
+            },
+            visualMap: {
+                // 不显示 visualMap 组件，只用于明暗度的映射
+                show: false,
+                // 映射的最小值为 80
+                min: 80,
+                // 映射的最大值为 600
+                max: 600,
+                inRange: {
+                    // 明暗度的范围是 0 到 1
+                    colorLightness: [0, 1]
+                }
+            }
+
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
