@@ -251,7 +251,7 @@ namespace redmomery.librarys
         }
 
         /// <summary>
-        /// 创建lb与帖子的关键方法
+        /// 创建lb与帖子的关连方法
         /// </summary>
         /// <param name="U_ID"></param>
         /// <param name="LBName"></param>
@@ -284,12 +284,13 @@ namespace redmomery.librarys
                 try
                 {
                     int ID = dal.addNew(LB);
-
                     LB = dal.get(ID);
+                    staticbydata.AddCityLBByLB(LB);
                 }
                 catch (Exception ex)
                 {
                     BBSTITLE_TABLEDAL dals = new BBSTITLE_TABLEDAL();
+                    staticbydata.DeleteCityLBByLB(LB);
                     dals.delete(LB.ID);
                     LB = null;
                 }
