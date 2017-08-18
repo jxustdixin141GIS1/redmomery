@@ -1,4 +1,10 @@
-﻿function distributioncity() {
+﻿var citylblist = null;//老兵的分布数据
+var cityinfolist = null;//城市信息
+var myChart = null;//这个必须声明
+var data = null;
+var geoCoordMap = null;
+var isdealwithok = false;//这个表示前一个运算还没有结束
+function distributioncity() {
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
@@ -146,6 +152,7 @@ function loadedmyChart()
 {
     var app = {};
     option = null;
+    myChart.hideLoading();
     var convertData = function (data) {
         var res = [];
         for (var i = 0; i < data.length; i++) {
@@ -263,7 +270,81 @@ function loadedmyChart()
         myChart.setOption(option, true);
     }
 }
-function getcitylb()
+function getcitylbs()
 {
-  
+    $.ajax({
+        url: "/Statistics/GetCityLb",
+        type:"post",
+        dataType:"json",
+        success: function (result)
+        {
+            citylblist = result;
+            getcityinfos();
+            //对于数据进行处理
+            data = [];
+            //下面开始进行数据处理，
+            //先开始对于citylblist数据进行汇总处理，注意这里的temp name 用citycode代替，value表示统计
+            for (var i = 0; i < citylblist.length; i++) {
+                var temp = citylblist[i];//取到临时代码
+                //如果已经在数组内部就在value的时进行加1
+                var isexsit = false;
+                for (var j = 0; j < data.length; j++) {
+                    if (data[j].name == temp.CityCode)
+                    {
+                        data[j].value = data[j].value + 1;
+                        isexsit = true;
+                    }
+                }
+                if (!isexsit)
+                {
+                    var datatemp = {};
+                    datatemp["name"] = temp.CityCode;
+                    datatemp["value"] = 1;
+                    data.push(datatemp);
+                }
+            }
+            isdealwithok = true;
+        }
+    });
+}
+function getcityinfos()
+{
+    $.ajax({
+        url: "/Statistics/GetCityinfo",
+        type: "post",
+        dataType: "json",
+        success: function (result) {
+            cityinfolist = result;
+            geoCoordMap = {};
+            var myDate = new Date();
+            while (!isdealwithok) {
+                var temp = new Date();
+                if (Math.abs(temp.getMinutes() - myDate.getMinutes()) > 1)
+                {
+                    alert("出现了错误");
+                    break;
+                }
+            };
+            //开始按照，citylb进行数据展示
+            for (var i = 0; i < data.length; i++) {
+                var temp = data[i];
+                //开始查找对应的代码
+                for (var j = 0; j < cityinfolist.length; j++) {
+                    var cityinfotemp = cityinfolist[j];
+                    if (cityinfotemp.citycode == temp.name)
+                    { //表示找到相同的代码文件
+                        data[i].name = cityinfotemp.cityname;
+                        //同时将对应的城市坐标压入数组中
+                        var coodirationtemp = [];
+                        coodirationtemp.push(parseFloat(cityinfotemp.lng));
+                        coodirationtemp.push(parseFloat(cityinfotemp.lat));
+                        //将数据压入json数据中
+                        geoCoordMap[data[i].name] = coodirationtemp;
+                    }
+                }
+            }
+            //数据展示
+            loadedmyChart();
+        }
+    });
 }

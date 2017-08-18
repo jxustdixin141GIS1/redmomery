@@ -15,6 +15,19 @@ namespace redMomery.Controllers
         {
             return View();
         }
-
+        public ActionResult cityLb()
+        {
+            return View();
+        }
+        public ActionResult GetCityLb()
+        {
+            List<redmomery.Model.cityLB> list = (new redmomery.DAL.cityLBDAL()).ListAll() as List<redmomery.Model.cityLB>;
+            return Json(list);
+        }
+        public ActionResult GetCityinfo()
+        {
+            List<redmomery.Model.staticinfotable> list = (new redmomery.DAL.staticinfotableDAL()).ListAll() as List<redmomery.Model.staticinfotable>;
+            return Json(list);
+        }
     }
 }
