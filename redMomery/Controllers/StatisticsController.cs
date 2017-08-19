@@ -28,6 +28,10 @@ namespace redMomery.Controllers
         {
             return View();
         }
+        public ActionResult provinceLB()
+        {
+            return View();
+        }
         #endregion
 
 
