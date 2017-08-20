@@ -22,8 +22,28 @@ namespace NLPIR_redmomery
             result_t[] results = nlpir.ParagraphProcessAW(count);
             int i = 1;
             byte[] bytes = Encoding.Default.GetBytes(s1);
-            Console.WriteLine(DateTime.UtcNow.ToString());
-           
+            foreach (result_t r in results)
+            {
+                string sWhichDic = "";
+                switch (r.word_type)
+                {
+                    case 0:
+                        sWhichDic = "核心词典";
+                        break;
+                    case 1:
+                        sWhichDic = "用户词典";
+                        break;
+                    case 2:
+                        sWhichDic = "专业词典";
+                        break;
+                    default:
+                        break;
+                }
+                Console.WriteLine(r.sPos + "," + Encoding.Default.GetString(bytes, r.start, r.length));
+                Console.WriteLine("No.{0}:start:{1},length:{2},POS_ID:{3}\n" +
+                    "Word_ID:{4},UserDefine:{5},Weight:{6},word type:{7}",
+                    i++, r.start, r.length, r.POS_id, r.word_ID, sWhichDic, r.weight,r.sPos);
+            }
 
             Console.Read();
         }

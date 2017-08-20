@@ -1,31 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Activation;
-using System.ServiceModel.Web;
+using System.Web;
 using System.Text;
+using System.Web.Services;
 using NLPIR_redmomery;
 namespace NIPIR_redmomery.server
 {
-    [ServiceContract(Namespace = "")]
-    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class NLPIRwebAPI
+    /// <summary>
+    /// redmomertNLPIRwebpage 的摘要说明
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    // 若要允许使用 ASP.NET AJAX 从脚本中调用此 Web 服务，请取消注释以下行。 
+     [System.Web.Script.Services.ScriptService]
+    public class redmomertNLPIRwebpage : System.Web.Services.WebService
     {
-        static NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
-        // 要使用 HTTP GET，请添加 [WebGet] 特性。(默认 ResponseFormat 为 WebMessageFormat.Json)
-        // 要创建返回 XML 的操作，
-        //     请添加 [WebGet(ResponseFormat=WebMessageFormat.Xml)]，
-        //     并在操作正文中包括以下行:
-        //         WebOperationContext.Current.OutgoingResponse.ContentType = "text/xml";
-        [OperationContract]
-        public void DoWork()
+
+        [WebMethod]
+        public string HelloWorld()
         {
-            // 在此处添加操作实现
-            return;
+            return "Hello World";
         }
-        [OperationContract]
+        [WebMethod]
         public List<string> Example()
         {
             NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
@@ -38,18 +36,17 @@ namespace NIPIR_redmomery.server
 
             int count = nlpir.GetParagraphProcessAWordCount(s1);
             result_t[] results = nlpir.ParagraphProcessAW(count);
-            byte[] bytes=Encoding.Default.GetBytes(s1);
+            byte[] bytes = Encoding.Default.GetBytes(s1);
             List<string> resultjson = new List<string>();
             for (int i = 0; i < results.Length; i++)
             {
                 StringBuilder str = new StringBuilder();
-                str.Append("词语的名称："+Encoding.Default.GetString(bytes,results[i].start,results[i].length)+",");
-                str.Append("词性："+results[i].sPos+",");
+                str.Append("词语的名称：" + Encoding.Default.GetString(bytes, results[i].start, results[i].length) + ",");
+                str.Append("词性：" + results[i].sPos + ",");
                 str.Append("权值：" + results[i].weight + ";");
                 resultjson.Add(str.ToString());
             }
             return resultjson;
         }
-        // 在此处添加更多操作并使用 [OperationContract] 标记它们
     }
 }

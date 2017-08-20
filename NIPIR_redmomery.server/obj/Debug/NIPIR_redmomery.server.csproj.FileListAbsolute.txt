@@ -19,3 +19,9 @@ D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\bin\zh-Hans\System.
 D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\obj\Debug\NIPIR_redmomery.server.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\obj\Debug\NIPIR_redmomery.server.dll
 D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\obj\Debug\NIPIR_redmomery.server.pdb
+D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\bin\DML.dll
+D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\bin\redmomery.DAL.dll
+D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\bin\redmomery.librarys.dll
+D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\bin\DML.pdb
+D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\bin\redmomery.DAL.pdb
+D:\题库系统\github\team\redmomery\NIPIR_redmomery.server\bin\redmomery.librarys.pdb
