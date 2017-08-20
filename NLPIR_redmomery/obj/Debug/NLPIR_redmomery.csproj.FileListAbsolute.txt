@@ -1,0 +1,13 @@
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\NLPIR_redmomery.exe.config
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\NLPIR_redmomery.exe
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\NLPIR_redmomery.pdb
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\Global.dll
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\redmomery.command.exe
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\Newtonsoft.Json.dll
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\redmomery.command.pdb
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\obj\Debug\NLPIR_redmomery.csprojResolveAssemblyReference.cache
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\obj\Debug\NLPIR_redmomery.exe
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\obj\Debug\NLPIR_redmomery.pdb
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\NLPIR_redmomery.dll.config
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\bin\NLPIR_redmomery.dll
+D:\题库系统\github\team\redmomery\NLPIR_redmomery\obj\Debug\NLPIR_redmomery.dll
