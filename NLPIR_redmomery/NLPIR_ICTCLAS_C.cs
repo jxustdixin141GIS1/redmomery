@@ -8,6 +8,9 @@ using System.IO;
 using System.Configuration;
 namespace NLPIR_redmomery
 {
+    /// <summary>
+    /// 这个是对目前所有库的汇总处理
+    /// </summary>
    public  class NLPIR_ICTCLAS_C
    {
        #region 对变量进行声明
@@ -15,11 +18,11 @@ namespace NLPIR_redmomery
        private static bool _NWIStart = false;
        private static bool _NWIComplete = false;
        private const string rootDir =@"D:\题库系统\github\team\redmomery\NLPIR_redmomery\" ;
-       private const string libpath =@"D:\题库系统\github\team\redmomery\NLPIR_redmomery\lib\win64\" ;
+       private const string libpath =@"D:\题库系统\github\team\redmomery\NLPIR_redmomery\lib\win32\" ;
        private const  string datapath = @"D:\题库系统\github\team\redmomery\NLPIR_redmomery\Data\";
        #endregion
 
-      
+       #region NLPIR_ICTCLA
        #region 对函数库进行声明和包装
        #region 预判断
        private static void JudgeInit()
@@ -69,18 +72,16 @@ namespace NLPIR_redmomery
        }
        [DllImport((libpath + "NLPIR.dll"), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_Exit")]
        private static   extern bool NLPIR_Exit();
-
        /// <summary>
        /// 退出
        /// </summary>
        /// <returns></returns>
-       public    bool Exit()
+       public  bool Exit()
        {
            _Init = false;
            return NLPIR_Exit();
        }
        #endregion
-
        #region 分词操作
        [DllImport((libpath + "NLPIR.dll"), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_ParagraphProcess")]
        private static extern IntPtr NLPIR_ParagraphProcess(string sParagraph, int bPOStagged = 1);
@@ -166,7 +167,7 @@ namespace NLPIR_redmomery
 
        #endregion
        #endregion
-
+       #endregion
    }
 
 }
