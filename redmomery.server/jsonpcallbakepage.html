@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>专门用来进行跨域测试</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://chenzenghui:20000/resource/Commandjs.js"></script>
+    <script>
+        var aks = "WqQgeC4x8uBKhnrkUZVs0kDbgtl7eUMM";
+        var addresses = "百度大厦";
+        var exurl = "http://api.map.baidu.com/geocoder/v2/?callback=renderOption&output=json&address=百度大厦&city=北京市&ak="+aks;
+        var tempresult = null;
+        var script = document.createElement('script');
+        script.setAttribute('src', exurl);  //load javascript    
+        document.getElementsByTagName('head')[0].appendChild(script);
+        //回调函数  
+        function renderOption(data) {
+            tempresult = data;
+            var s=  document.getElementById("chen");
+            s.innerHTML = tempresult;
+        }
+    </script>
+</head>
+<body>
+    <div id="chen">chenzenghui</div>
+</body>
+</html>

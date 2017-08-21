@@ -81,6 +81,7 @@
     <Content Include="echartsstudent\HtmlPage2.html" />
     <Content Include="effectScatter-map.html" />
     <Content Include="indexupload.html" />
+    <Content Include="jsonpcallbakepage.html" />
     <Content Include="LBupload.html" />
     <Content Include="redmomeryserver.asmx" />
     <Content Include="resource\Commandjs.js" />

@@ -16,6 +16,7 @@ namespace NLRedmomery
             s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\redMomery\redmomery\调试\新建文本文档.txt");
             if (nlpir.Init())
             {
+                nlpir.Init();
                 Console.WriteLine("初始化成功");
             }
 
@@ -42,10 +43,16 @@ namespace NLRedmomery
                 }
                 Console.WriteLine(r.sPos + "," + Encoding.Default.GetString(bytes, r.start, r.length));
                 Console.WriteLine("No.{0}:start:{1},length:{2},POS_ID:{3}\n" +
-                    "Word_ID:{4},UserDefine:{5},Weight:{6},word type:{7}",
-                    i++, r.start, r.length, r.POS_id, r.word_ID, sWhichDic, r.weight, r.sPos);
+                    "Word_ID:{4},UserDefine:{5},Weight:{6},word type:{7},workspose{8}",
+                    i++, r.start, r.length, r.POS_id, r.word_ID, sWhichDic, r.weight, r.sPos,NLPIR_ICTCLAS_C.nominal(r.sPos));
             }
-
+            Console.WriteLine("下面开始测试关键词提取功能");
+            if (nlpir.KeyExtractInit())
+            {
+                Console.WriteLine("关键词提取功能初始化成功");
+            }
+            string keys = nlpir.GetKeyWords(s1, 10, true);
+            Console.WriteLine(keys);
             Console.Read();
         }
     }
