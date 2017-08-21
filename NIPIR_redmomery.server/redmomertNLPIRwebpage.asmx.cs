@@ -17,7 +17,6 @@ namespace NIPIR_redmomery.server
      [System.Web.Script.Services.ScriptService]
     public class redmomertNLPIRwebpage : System.Web.Services.WebService
     {
-
         [WebMethod]
         public string HelloWorld()
         {
@@ -38,6 +37,7 @@ namespace NIPIR_redmomery.server
             result_t[] results = nlpir.ParagraphProcessAW(count);
             byte[] bytes = Encoding.Default.GetBytes(s1);
             List<string> resultjson = new List<string>();
+          resultjson.Add(s1);
             for (int i = 0; i < results.Length; i++)
             {
                 StringBuilder str = new StringBuilder();
