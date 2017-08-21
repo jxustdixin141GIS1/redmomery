@@ -21,7 +21,14 @@ namespace NLRedmomery
         private const string NLPIRPath=       @"..\..\NLPIR\bin-win64\NLPIR.dll";
         private const string KeyExtractPath = @"..\..\NLPIR\bin-win64\KeyExtract.dll";
         #endregion
+        #region 注意凡是在这个范围内的方法被标记为private 即时表示这个方法已经被放弃，不能够继续使用
         #region 非函数程序
+        public NLPIR_ICTCLAS_C()
+        { 
+          //这个方法开始针对环境进行初始化
+            Init();
+            KeyExtractInit();
+        }
         /// <summary>
        /// 词性标注集
        /// </summary>
@@ -172,8 +179,8 @@ namespace NLRedmomery
                 default: return "未知词";
             }
         }
-        #endregion
-        #region NLPIR库函数封装
+        #endregion 数据库
+        #region NLPIR库函数封装 
         #region 预判断
         private static void JudgeInit()
         {
@@ -200,27 +207,27 @@ namespace NLRedmomery
         }
         #endregion
         #region 初始化，退出
-        /// <summary>
+         /// <summary>
         /// 初始化分词环境
         /// </summary>
         /// <param name="sInitDirPath">data所在的根目录</param>
         /// <param name="encoding">字符串的编码格式</param>
         /// <returns>返回初始结果</returns>
-        public bool Init(string sInitDirPath, NLPIR_CODE encoding = NLPIR_CODE.UTF8_CODE)
+         public bool Init(string sInitDirPath, NLPIR_CODE encoding = NLPIR_CODE.UTF8_CODE)
         {
             _Init = NLPIR_Init(sInitDirPath, (int)encoding);
             return _Init;
         }
-        public bool Init()
+         public bool Init()
         {
             _Init = NLPIR_Init(rootDir);
             return _Init;
         }
-        /// <summary>
+         /// <summary>
         /// 退出
         /// </summary>
         /// <returns></returns>
-        public bool Exit()
+         public bool Exit()
         {
             _Init = false;
             return NLPIR_Exit();
@@ -238,47 +245,47 @@ namespace NLRedmomery
             return NLPIR_ImportUserDict(sFilename, bOverwrite);
 
         }
-        /// <summary>
+         /// <summary>
         /// 处理文本信息
         /// </summary>
         /// <param name="sParagraph">待处理的文本</param>
         /// <param name="bPOStagged">是否进行词性标注</param>
         /// <returns>处理之后文本</returns>
-        public string ParagraphProcess(string sParagraph, int bPOStagged = 1)
+         public string ParagraphProcess(string sParagraph, int bPOStagged = 1)
         {
             JudgeInit();
             IntPtr result = NLPIR_ParagraphProcess(sParagraph, bPOStagged);
             return Marshal.PtrToStringAnsi(result);
         }
-        /// <summary>
+         /// <summary>
         /// 处理文本文件
         /// </summary>
         /// <param name="sSrcFilename">源文件</param>
         /// <param name="sDestFilename">目标文件</param>
         /// <param name="bPOStagged">是否进行词性标注</param>
         /// <returns>执行成功返回处理速度</returns>
-        public double FileProcess(string sSrcFilename, string sDestFilename, bool bPOStagged)
+         public double FileProcess(string sSrcFilename, string sDestFilename, bool bPOStagged)
         {
             JudgeInit();
             return NLPIR_FileProcess(sSrcFilename, sDestFilename, bPOStagged ? 1 : 0);
         }
-        /// <summary>
+         /// <summary>
         /// 处理文本内容，获取分词数。
         /// </summary>
         /// <param name="sParagraph">文本内容</param>
         /// <returns>分词数。</returns>
-        public int GetParagraphProcessAWordCount(string sParagraph)
+         public int GetParagraphProcessAWordCount(string sParagraph)
         {
             JudgeInit();
             return NLPIR_GetParagraphProcessAWordCount(sParagraph);
         }
-        /// <summary>
+         /// <summary>
         /// 处理文本内容 并获取结果词组
         /// </summary>
         /// <param name="sParagraph">待处理的文本内容</param>
         /// <param name="bUserdir">是否启动用户词典</param>
         /// <returns>分词结果数组</returns>
-        public result_t[] ParagraphProcessA(string sParagraph,bool bUserdir=true)
+         public result_t[] ParagraphProcessA(string sParagraph,bool bUserdir=true)
         {
             JudgeInit();
             int nCount = 0;
@@ -290,26 +297,25 @@ namespace NLRedmomery
             }
             return result;
         }
-        /// <summary>
+         /// <summary>
         /// 处理文本内容
         /// </summary>
         /// <param name="nCount"></param>
         /// <returns>处理结果集</returns>
-        public result_t[] ParagraphProcessAW(int nCount)
+         public result_t[] ParagraphProcessAW(int nCount)
         {
             JudgeInit();
             result_t[] results = new result_t[nCount];
             NLPIR_ParagraphProcessAW(nCount, results);
             return results;
         }
-
          /// <summary>
          /// 向用户词典中添加词语
          ///  格式：添加词\t词性
          /// </summary>
          /// <param name="sWord">要添加的词语</param>
          /// <returns>1：成功  0：失败</returns>
-        public int AddUserWord(string sWord)
+         public int AddUserWord(string sWord)
         {
             JudgeInit();
             return NLPIR_AddUserWord(sWord);
@@ -318,23 +324,151 @@ namespace NLRedmomery
          /// 保存用户的词典
          /// </summary>
          /// <returns>1:成功 0:表示失败</returns>
-        public int SaveTheUsrDic()
+         public int SaveTheUsrDic()
         {
             JudgeInit();
             return NLPIR_SaveTheUsrDic();
         }
-
-     
          /// <summary>
          ///     删除某个词语从用户词典中
          /// </summary>
          /// <param name="sWord">需要删除的词语</param>
          /// <returns>-1：表示词语不存在于用户词典中 否者返回被删除的词语的句柄</returns>
-        public int DelUsrWord(string sWord)
+         public int DelUsrWord(string sWord)
         {
             JudgeInit();
             return NLPIR_DelUsrWord(sWord);
         }
+         /// <summary>
+         /// 导入关键词黑名单
+         /// </summary>
+         /// <param name="sFilename">文件</param>
+         /// <returns>成功黑名单个数</returns>
+         public uint ImportKeyBlackList(string sFilename)
+        {
+            JudgeInit();
+            return NLPIR_ImportKeyBlackList(sFilename);
+        }
+         /// <summary>
+         /// 提取文章的指纹信息
+         /// </summary>
+         /// <param name="sLine">文章</param>
+         /// <returns></returns>
+         public uint FingerPrint(string sLine)
+         {
+             JudgeInit();
+             return NLPIR_FingerPrint(sLine);
+         }
+         /// <summary>
+         /// 设置标注集
+         /// </summary>
+         /// <param name="nPOSmap"></param>
+         /// <returns>1：成功</returns>
+         public int SetPOSmap(int nPOSmap)
+         {
+             JudgeInit();
+             return NLPIR_SetPOSmap(nPOSmap);
+         }
+         //-----------------下面为批量新词识别方法----------    
+         /// <summary>
+         /// 启动新词识别
+         /// </summary>
+         /// <returns></returns>
+         public bool NWI_Start()
+         {
+             JudgeInit();
+             return NLPIR_NWI_Start();
+         }
+         /// <summary>
+         /// 添加需发现新词的文件
+         /// </summary>
+         /// <param name="sFilename">文件名</param>
+         /// <returns></returns>
+         public int NWI_AddFile(string sFilename)
+         {
+             JudgeInit();
+             return NLPIR_NWI_AddFile(sFilename);
+         }
+         /// <summary>
+         /// 添加分词的文本
+         /// </summary>
+         /// <param name="sText"></param>
+         /// <returns></returns>
+         public bool NWI_AddMem(string sText)
+         {
+             JudgeInit();
+             return NWI_AddMem(sText);
+         }
+         /// <summary>
+         /// 添加新词文本结束
+         /// </summary>
+         /// <returns></returns>
+         public bool NWI_Complete()
+         {
+             JudgeInit();
+             return NLPIR_NWI_Complete();
+         }
+         /// <summary>
+         /// 获取新词识别结果
+         /// </summary>
+         /// <param name="bWeightOut"></param>
+         /// <returns></returns>
+         public string NWI_GetResult(bool bWeightOut = false)
+         {
+             JudgeInit();
+             IntPtr intptr = NLPIR_NWI_GetResult(bWeightOut);
+             return Marshal.PtrToStringAnsi(intptr);
+         }
+         /// <summary>
+         /// 将识别结果存入到词典中
+         /// </summary>
+         /// <returns></returns>
+         public int NWI_Result2UserDict()
+         {
+             JudgeInit();
+             return NLPIR_NWI_Result2UserDict();
+         }
+
+         public string FinerSegment(string sLine)
+         {
+             JudgeInit();
+            IntPtr intptr= NLPIR_FinerSegment(sLine);
+            return Marshal.PtrToStringAnsi(intptr);
+         }
+         /// <summary>
+         /// 获取英文原型
+         /// </summary>
+         /// <param name="sWord"></param>
+         /// <returns></returns>
+         public string GetEngWordOrign(string sWord)
+         {
+             JudgeInit();
+             IntPtr intptr = NLPIR_GetEngWordOrign(sWord);
+             return Marshal.PtrToStringAnsi(intptr);
+
+         }
+         /// <summary>
+         /// 获取输入文本的词，词性，频统计结果，按照词频大小排序  来源字符串
+         /// </summary>
+         /// <param name="sText"></param>
+         /// <returns></returns>
+         public string WordFreqStat(string sText)
+         {
+             JudgeInit();
+             IntPtr intptr = NLPIR_WordFreqStat(sText);
+             return Marshal.PtrToStringAnsi(intptr);
+         }
+         /// <summary>
+         /// 获取输入文本的词，词性，频统计结果 来源于文件
+         /// </summary>
+         /// <param name="sFilename"></param>
+         /// <returns></returns>
+         public string FileWordFreqStat(string sFilename)
+         {
+             JudgeInit();
+             IntPtr intptr = NLPIR_FileWordFreqStat(sFilename);
+             return Marshal.PtrToStringAnsi(intptr);
+         }
         #endregion
         #region 关键词提取
 
@@ -384,7 +518,7 @@ namespace NLRedmomery
          /// <param name="nMaxKeyLimit">最大的关键词数</param>
          /// <param name="bWeightOut">是否输出最权重</param>
          /// <returns></returns>
-        public string GetKeyWords(string sLine,int nMaxKeyLimit=50,bool bWeightOut=false)
+        public string KeyExtractGetKeyWords(string sLine, int nMaxKeyLimit = 50, bool bWeightOut = false)
         {
             JudgeKeyExtractInit();
             IntPtr intpre = KeyExtract_GetKeyWords(sLine, nMaxKeyLimit, bWeightOut);
@@ -397,71 +531,13 @@ namespace NLRedmomery
          /// <param name="nMaxKeyLimit">关键词最大数</param>
          /// <param name="bWeightOut">是否输出权重</param>
          /// <returns>关键词</returns>
-        public string GetFileKeyWords(string sFilename, int nMaxKeyLimit = 50, bool bWeightOut = false)
+        public string KeyExtractGetFileKeyWords(string sFilename, int nMaxKeyLimit = 50, bool bWeightOut = false)
         {
             JudgeKeyExtractInit();
             IntPtr intpre = KeyExtract_GetFileKeyWords(sFilename, nMaxKeyLimit, bWeightOut);
             return Marshal.PtrToStringAnsi(intpre);
         }
-         /// <summary>
-         /// 导入用户自定的关键词词典
-         /// </summary>
-         /// <param name="sFileName">词典名称</param>
-         /// <param name="bOverwrite">是否重写</param>
-         /// <returns>1</returns>
-        public uint KeyExtractImportUserDict(string sFileName, bool bOverwrite = false)
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_ImportUserDict(sFileName, bOverwrite);
-        }
-         /// <summary>
-         /// 向关键词词典中添加词语
-         /// </summary>
-         /// <param name="sWord">注意事项参见NLPIR的官方帮助文档，本程序已经应汇总对应的帮助文档</param>
-         /// <returns></returns>
-        public int KeyExtractAddUserWord(string sWord)
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_AddUserWord(sWord);
-        }
-         /// <summary>
-         /// 清除用户词典库
-         /// </summary>
-         /// <returns></returns>
-        public int KeyExtractCleanUserWord()
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_CleanUserWord();
-        }
-        /// <summary>
-        /// 保存用户词典库
-        /// </summary>
-        /// <returns></returns>
-        public int KeyExtractSaveTheUsrDic()
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_SaveTheUsrDic();
-        }
-        /// <summary>
-        /// 删除用户词
-        /// </summary>
-        /// <returns></returns>
-        public int KeyExtractDelUsrWord(string sWord)
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_DelUsrWord(sWord);
-        }
-         /// <summary>
-         /// 导入停用词列表
-         /// </summary>
-         /// <param name="sFilename"></param>
-         /// <param name="sPOSBlacklist"></param>
-         /// <returns></returns>
-        public uint KeyExtractImportKeyBlackList(string sFilename, string sPOSBlacklist)
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_ImportKeyBlackList(sFilename,sPOSBlacklist);
-        }
+
          //-----------------------------下面为批量处理方法----------
          //启动识别
         public int KeyExtractBatch_Start()
@@ -495,6 +571,10 @@ namespace NLRedmomery
             return Marshal.PtrToStringAnsi(intpre);
         }
         #endregion
+        #region  新词发现
+
+        #endregion 
+        #endregion
     }
 }
 namespace NLRedmomery
@@ -506,27 +586,35 @@ namespace NLRedmomery
         //初始化
         [DllImport((NLPIRPath), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_Init")]
         private static extern bool NLPIR_Init(string sInitDirPath, int encoding = (int)NLPIR_CODE.GBK_CODE);
+
         //退出
         [DllImport((NLPIRPath), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_Exit")]
         private static extern bool NLPIR_Exit();
+
         //导入用户词典
         [DllImport((NLPIRPath), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_Exit")]
         private static extern uint NLPIR_ImportUserDict(string sFilename, bool bOverwrite = true);
+
         //解析输入的文本
         [DllImport((NLPIRPath), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_ParagraphProcess")]
         private static extern IntPtr NLPIR_ParagraphProcess(string sParagraph, int bPOStagged = 1);
+
         //处理文本返回
         [DllImport((NLPIRPath), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_ParagraphProcessA")]
         private static extern IntPtr NLPIR_ParagraphProcessA(string sParagraph, out int nResultCount,bool bUseeDir=true);
+
         //处理文本文件
         [DllImport((NLPIRPath), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_FileProcess")]
         private static extern double NLPIR_FileProcess(string sSrcFilename, string sDestFilename, int bPOStagged = 1);
+
         //处理文本，返回分词结果数目
         [DllImport((NLPIRPath), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_GetParagraphProcessAWordCount")]
         private static extern int NLPIR_GetParagraphProcessAWordCount(string sParagraph);
+
         //处理文本
         [DllImport((NLPIRPath), CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_ParagraphProcessAW")]
         private static extern void NLPIR_ParagraphProcessAW(int nCount, [Out, MarshalAs(UnmanagedType.LPArray)] result_t[] result);
+
         //向用户词点中添加用户自定义词语
         [DllImport(NLPIRPath,CharSet=CharSet.Ansi,CallingConvention=CallingConvention.Cdecl,EntryPoint="NLPIR_AddUserWord")]
         private static  extern int NLPIR_AddUserWord(string sWord);
@@ -535,11 +623,62 @@ namespace NLRedmomery
         [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_SaveTheUsrDic")]
         private static extern int NLPIR_SaveTheUsrDic();
 
-        //删除用户词
+        //删除用户词典
         [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_DelUsrWord")]
         private static extern int NLPIR_DelUsrWord(string sWord);
-        #endregion
 
+        //设置关键词黑名单
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_ImportKeyBlackList")]
+        private static extern uint NLPIR_ImportKeyBlackList(string sFilename); 
+
+        //提取出文章的指纹信息
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_FingerPrint")]
+        private static extern uint NLPIR_FingerPrint(string sLine);
+
+        //设置标注集
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_SetPOSmap")]
+        private static extern int NLPIR_SetPOSmap(int nPOSmap);
+
+        //启动新词识别
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_Start")]
+        private static extern bool NLPIR_NWI_Start();
+
+        //添加待识别新词的文件
+         [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_AddFile")]
+        private static extern int NLPIR_NWI_AddFile(string  sFilename);
+
+         //往新词识别系统中添加一段待识别新词的内存
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_AddMem")]
+        private static extern bool NLPIR_NWI_AddMem( string sText);
+
+        //新词识别内容添加完毕
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_Complete")]
+        private static extern bool NLPIR_NWI_Complete();
+
+        //输出新词的识别结果
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_GetResult")]
+        private static extern IntPtr NLPIR_NWI_GetResult(bool bWeightOut = false);
+
+        //将新词结果导到用户的词典中
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_Result2UserDict")]
+        private static extern int NLPIR_NWI_Result2UserDict();
+
+        //细分分词结果
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_FinerSegment")]
+        private static extern IntPtr NLPIR_FinerSegment(string  sLine);
+
+        //得到英文单词的原型
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_GetEngWordOrign")]
+        private static extern IntPtr NLPIR_GetEngWordOrign(string sWord);
+
+        //获取输入文本的词，词性，频统计结果，按照词频大小排序  来源字符串
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_WordFreqStat")]
+        private static extern IntPtr NLPIR_WordFreqStat(string  sText);
+
+        //获取输入文本的词，词性，频统计结果 来源于文件
+        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_FileWordFreqStat")]
+        private static extern IntPtr NLPIR_FileWordFreqStat(string sFilename);
+        #endregion
         #region KeyExtract
         //初始化关键词提取
         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Init")]
@@ -553,24 +692,7 @@ namespace NLRedmomery
 
         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_GetFileKeyWords")]
         private static extern IntPtr KeyExtract_GetFileKeyWords(string sFilename, int nMaxKeyLimit = 50, bool bWeightOut = false);
-        //导入关键词用户自定义的词典
-        [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_ImportUserDict")]
-        private static extern uint KeyExtract_ImportUserDict(string sFileName, bool bOverwrite = false);
-        //向词典中添加词语
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_AddUserWord")]
-        private static extern int KeyExtract_AddUserWord(string sWord);
-        //清除关键词库
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_CleanUserWord")]
-         private static extern int KeyExtract_CleanUserWord();
-        //保存关键词库
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_SaveTheUsrDic")]
-         private static extern int KeyExtract_SaveTheUsrDic();
-        //删除词语
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_DelUsrWord")]
-         private static extern int KeyExtract_DelUsrWord(string sWord);
-        //导入停用词
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_DelUsrWord")]
-         private static extern uint KeyExtract_ImportKeyBlackList(string sFilename, string sPOSBlacklist);
+       
 
         ///下面为批量处理方法
         //启动关键词识别
