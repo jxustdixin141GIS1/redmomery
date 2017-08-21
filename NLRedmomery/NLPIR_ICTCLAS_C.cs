@@ -463,12 +463,37 @@ namespace NLRedmomery
             return KeyExtract_ImportKeyBlackList(sFilename,sPOSBlacklist);
         }
          //-----------------------------下面为批量处理方法----------
+         //启动识别
         public int KeyExtractBatch_Start()
         {
             JudgeKeyExtractInit();
             return KeyExtract_Batch_Start();
         }
-
+         //导入识别语料库
+        public uint KeyExtractBatch_AddFile(string sFilename)
+        {
+            JudgeKeyExtractInit();
+            return KeyExtract_Batch_AddFile(sFilename);
+         }
+        //关键词匹配字符串
+        public uint KeyExtractBatch_AddMem(string sText)
+        {
+            JudgeKeyExtractInit();
+            return KeyExtract_Batch_AddMem(sText);
+        }
+        //文件或者内存导入结束
+        public int KeyExtractBatch_Complete()
+        {
+            JudgeKeyExtractInit();
+            return KeyExtract_Batch_Complete();
+        }
+        //获取关键词识别的结果
+        public string KeyExtractBatch_GetResult(bool bWeightOut = false)
+        {
+            JudgeKeyExtractInit();
+            IntPtr intpre = KeyExtract_Batch_GetResult(bWeightOut);
+            return Marshal.PtrToStringAnsi(intpre);
+        }
         #endregion
     }
 }
@@ -554,9 +579,15 @@ namespace NLRedmomery
         //添加关键词匹配文件
          [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_AddFile")]
          private static extern uint KeyExtract_Batch_AddFile(string sFilename);
-        //天剑关键词匹配字符串
+        //关键词匹配字符串
          [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_AddMem")]
          private static extern uint KeyExtract_Batch_AddMem(string sText);
+        //文件或者内存导入结束
+         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_Complete")]
+         private static extern int KeyExtract_Batch_Complete();
+        //获取关键词识别的结果
+         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_Complete")]
+         private static extern IntPtr KeyExtract_Batch_GetResult(bool bWeightOut = false);
         #endregion
     }
     
