@@ -28,5 +28,3 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.Hi
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PosDisplayCtrl.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.pdb
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\NLPIR_redmomery.pdb
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\NLPIR_redmomery.exe

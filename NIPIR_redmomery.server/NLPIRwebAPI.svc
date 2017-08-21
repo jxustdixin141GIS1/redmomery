@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="NIPIR_redmomery.server.NLPIRwebAPI" CodeBehind="NLPIRwebAPI.svc.cs" %>
