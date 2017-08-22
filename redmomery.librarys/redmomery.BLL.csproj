@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BBSBLL.cs" />
+    <Compile Include="LbTextParse.cs" />
     <Compile Include="modelrecomment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="staticbydata.cs" />
@@ -62,6 +63,10 @@
     <ProjectReference Include="..\DML\redmomery.Model.csproj">
       <Project>{7790ec9c-719f-4575-a2ab-b26c9f926284}</Project>
       <Name>redmomery.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLRedmomery\NLRedmomery.csproj">
+      <Project>{f89eeb73-e41d-4a13-97fa-97a851170b8b}</Project>
+      <Name>NLRedmomery</Name>
     </ProjectReference>
     <ProjectReference Include="..\redmomery.command\redmomery.command.csproj">
       <Project>{cd72d7c1-227a-40d4-8b3a-b7c16f697a10}</Project>

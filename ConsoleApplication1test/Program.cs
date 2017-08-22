@@ -16,6 +16,7 @@ using System.Data.SqlTypes;
 using System.IO;
 using System.Runtime.InteropServices;
 using Microsoft.SqlServer.Types;
+using NLRedmomery;
 //using PanGu;
 //using PanGu.Dict;
 //using PanGu.Framework;
@@ -39,21 +40,72 @@ namespace ConsoleApplication1test
             //Console.WriteLine("全部修改成功");
             #endregion
             //现在正在使用的代码
-           //staticbydata.staticdistributionbycity();
+            //staticbydata.staticdistributionbycity();
 
-           string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\redMomery\redmomery\调试\新建文本文档.txt");
+            NLPIR_ICTCLAS_C nlpr = new NLPIR_ICTCLAS_C();
+            
+            nlpr.AddUserWord("10月\tt");
 
-           ServiceReference1.IService1 Iservice1 = (new ServiceReference1.Service1Client()) as ServiceReference1.IService1;
-           Console.WriteLine(Iservice1.DoWork());
-           string result = Iservice1.example(s1);
-           for (int i = 0; i < result.Length; i++)
-           {
-               Console.WriteLine(result[i]);
-           }
-           Console.Read();
-          
+            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt");
+            // NLRedmomery.Program.example();
+            Text_result[] result = LBText.parseText(s1);
+            for (int i = 0; i < result.Length-1; i++)
+            {
+                //当遇到数值的时候，需要进行判断,简单
+                var num1 = result[i];
+                var year1 = result[i+1];
+
+                switch(num1.res.sPos)
+                {
+                    case "t": Console.WriteLine(); Console.Write(num1.text + ":" + num1.res.sPos + "  "); break;
+                    case "ns": Console.WriteLine(num1.text + ":" + num1.res.sPos); break;
+                    default: Console.WriteLine(num1.text + ":" + num1.res.sPos); break;
+                }
+               
+            }
+
+            Console.Read();
+            
         }
+
+
+
     }
+    public class LBText
+    {
+        public static  Text_result[] parseText(string text)
+        {
+            Text_result[] results = null;
+            NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
+            int count = nlpir.GetParagraphProcessAWordCount(text);
+            result_t[] res = nlpir.ParagraphProcessAW(count);
+            byte[] bytes = System.Text.Encoding.Default.GetBytes(text);
+            //下面将对应的数据进行转换
+            results=new Text_result[count];
+            for (int i = 0; i < results.Length; i++)
+            {
+                results[i] = new Text_result();
+                results[i].text = Encoding.Default.GetString(bytes, res[i].start, res[i].length);
+                results[i].res = res[i];
+            }
+            return results;
+        }
+    
+    }
+    public class Text_result
+    {
+        public string text;
+        public result_t res;
+    }
+    public class LbyL
+    {
+        public string name;//这个是暂时的字段，以后可以删除
+        public string year;
+        public string local;
+        public string text;
+          
+    }
+
     public class TimeDict
     {
 
