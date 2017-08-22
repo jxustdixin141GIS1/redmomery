@@ -10,16 +10,22 @@ namespace NLRedmomery
 {
      public partial class NLPIR_ICTCLAS_C
     {
-        #region 对变量进行声明
-        private static bool _Init = false;
-        private static bool _KeyExtractInit = false;
-        private static bool _NWIStart = false;
-        private static bool _NWIComplete = false;
-        private const string rootDir =        @"..\..\NLPIR\";
+        #region 文件初始化地址变量
+          private const string rootDir =      @"..\..\NLPIR\";
         private const string libpath =        @"..\..\NLPIR\bin-win64\";
         private const string datapath =       @"..\..\NLPIR\Data\";
         private const string NLPIRPath=       @"..\..\NLPIR\bin-win64\NLPIR.dll";
         private const string KeyExtractPath = @"..\..\NLPIR\bin-win64\KeyExtract.dll";
+        private const string NewWordFinder =  @"..\..\NLPIR\bin-win64\NewWordFinder.dll";
+        #endregion
+
+        #region 程序运行维护变量
+        private static bool _Init = false;
+        private static bool _KeyExtractInit = false;
+        private static bool _NewWordFinderInit=false;
+        private static bool _NWIStart = false;
+        private static bool _NWIComplete = false;
+       
         #endregion
         #region 注意凡是在这个范围内的方法被标记为private 即时表示这个方法已经被放弃，不能够继续使用
         #region 非函数程序
@@ -28,7 +34,9 @@ namespace NLRedmomery
           //这个方法开始针对环境进行初始化
             Init();
             KeyExtractInit();
+            NewWordFinderInit();
         }
+         
         /// <summary>
        /// 词性标注集
        /// </summary>
@@ -191,7 +199,7 @@ namespace NLRedmomery
         }
         private static void JudgeNWIStart()
         {
-            JudgeInit();
+            JudgeNWFInit();
             if (!_NWIStart)
             {
                 throw new Exception("未启动新词识别!");
@@ -199,7 +207,7 @@ namespace NLRedmomery
         }
         private static void JudgeNWIComplete()
         {
-            JudgeInit();
+            JudgeNWFInit();
             if (!_NWIComplete)
             {
                 throw new Exception("未结束新词识别！");
@@ -369,66 +377,11 @@ namespace NLRedmomery
              JudgeInit();
              return NLPIR_SetPOSmap(nPOSmap);
          }
-         //-----------------下面为批量新词识别方法----------    
          /// <summary>
-         /// 启动新词识别
+         /// 文章指纹
          /// </summary>
+         /// <param name="sLine"></param>
          /// <returns></returns>
-         public bool NWI_Start()
-         {
-             JudgeInit();
-             return NLPIR_NWI_Start();
-         }
-         /// <summary>
-         /// 添加需发现新词的文件
-         /// </summary>
-         /// <param name="sFilename">文件名</param>
-         /// <returns></returns>
-         public int NWI_AddFile(string sFilename)
-         {
-             JudgeInit();
-             return NLPIR_NWI_AddFile(sFilename);
-         }
-         /// <summary>
-         /// 添加分词的文本
-         /// </summary>
-         /// <param name="sText"></param>
-         /// <returns></returns>
-         public bool NWI_AddMem(string sText)
-         {
-             JudgeInit();
-             return NWI_AddMem(sText);
-         }
-         /// <summary>
-         /// 添加新词文本结束
-         /// </summary>
-         /// <returns></returns>
-         public bool NWI_Complete()
-         {
-             JudgeInit();
-             return NLPIR_NWI_Complete();
-         }
-         /// <summary>
-         /// 获取新词识别结果
-         /// </summary>
-         /// <param name="bWeightOut"></param>
-         /// <returns></returns>
-         public string NWI_GetResult(bool bWeightOut = false)
-         {
-             JudgeInit();
-             IntPtr intptr = NLPIR_NWI_GetResult(bWeightOut);
-             return Marshal.PtrToStringAnsi(intptr);
-         }
-         /// <summary>
-         /// 将识别结果存入到词典中
-         /// </summary>
-         /// <returns></returns>
-         public int NWI_Result2UserDict()
-         {
-             JudgeInit();
-             return NLPIR_NWI_Result2UserDict();
-         }
-
          public string FinerSegment(string sLine)
          {
              JudgeInit();
@@ -572,7 +525,130 @@ namespace NLRedmomery
         }
         #endregion
         #region  新词发现
-
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <returns></returns>
+        public bool NewWordFinderInit()
+        {
+            _NewWordFinderInit = NWF_Init(rootDir);
+            return _NewWordFinderInit;
+        }
+        public bool NewWordFinderInit(string sRootdir, NLPIR_CODE coding = NLPIR_CODE.GBK_CODE)
+        {
+            _NewWordFinderInit = NWF_Init(sRootdir, (int)coding);
+            return _NewWordFinderInit;
+        }
+         /// <summary>
+         /// 退出新词发现模块
+         /// </summary>
+         /// <returns></returns>
+        public bool NewWordFinderExit()
+        {
+            _NewWordFinderInit = false;
+            return NWF_Exit();
+        }
+         /// <summary>
+         /// 判断是否已经进行新词发现模块初始化
+         /// </summary>
+        public static void JudgeNWFInit()
+        {
+            if (!_NewWordFinderInit)
+            {
+                throw new Exception("新词发现模块没有初始化");
+            }
+        }
+         /// <summary>
+         /// 发现新词
+         /// </summary>
+         /// <param name="sLine">词源</param>
+         /// <param name="nMaxKeyLimit">词数限制</param>
+         /// <param name="bWeight">是否输出权重</param>
+         /// <returns></returns>
+        public string NWFGetNewWords(string sLine, int nMaxKeyLimit = 50, bool bWeight = false)
+        {
+            JudgeNWFInit();
+            IntPtr intptr = NWF_GetNewWords(sLine, nMaxKeyLimit, bWeight);
+            return Marshal.PtrToStringAnsi(intptr);
+        }
+         /// <summary>
+         /// 从文件中寻找新词
+         /// </summary>
+         /// <param name="sTextFile"></param>
+         /// <param name="nMaxKeyLimit"></param>
+         /// <param name="bWeight"></param>
+         /// <returns></returns>
+        public string NWFGetFileNewWords(string sTextFile, int nMaxKeyLimit = 50, bool bWeight = false)
+        {
+            JudgeNWFInit();
+            IntPtr intptr = NWF_GetFileNewWords(sTextFile, nMaxKeyLimit, bWeight);
+            return Marshal.PtrToStringAnsi(intptr);
+        }
+         /// <summary>
+         /// 将发现的新词写入用户词典
+         /// </summary>
+         /// <returns></returns>
+        public uint NWFResult2UserDict()
+        {
+            JudgeNWFInit();
+            return NWF_Result2UserDict();
+        }
+         /// <summary>
+         /// 启动批量新词发现
+         /// </summary>
+         /// <returns></returns>
+        public bool NWFBatch_Start()
+        {
+            JudgeNWFInit();
+            _NWIStart = NWF_Batch_Start();
+            return _NWIStart;
+        }
+         /// <summary>
+         /// 添加文件
+         /// </summary>
+         /// <param name="sFilename">语料文件</param>
+         /// <returns></returns>
+        public int NWFBatch_AddFile(string sFilename)
+        {
+            JudgeNWFInit();
+            JudgeNWIStart();
+            return NWF_Batch_AddFile(sFilename);
+        }
+         /// <summary>
+         /// 添加待发现的新词内存
+         /// </summary>
+         /// <param name="sText"></param>
+         /// <returns></returns>
+        public bool NWFBatch_AddMem(string sText)
+        {
+            JudgeNWFInit();
+            JudgeNWIStart();
+            return  NWF_Batch_AddMem(sText);
+        }
+         /// <summary>
+         /// 完成语料添加，需要在star运行之后才有效
+         /// </summary>
+         /// <returns></returns>
+        public bool NWFBatch_Complete()
+        { 
+            JudgeNWFInit();
+            JudgeNWIStart();
+            _NWIStart = false;
+            _NWIComplete=NWF_Batch_Complete();
+            return _NWIComplete;
+        }
+         /// <summary>
+         /// 从中获取分词结果
+         /// </summary>
+         /// <param name="bWeight"></param>
+         /// <returns></returns>
+        public string NWFBatch_GetResult(bool bWeight = false)
+        {
+            JudgeNWFInit();
+            JudgeNWIComplete();
+            IntPtr intptr = NWF_Batch_GetResult(bWeight);
+            return Marshal.PtrToStringAnsi(intptr);
+        }
         #endregion 
         #endregion
     }
@@ -639,30 +715,6 @@ namespace NLRedmomery
         [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_SetPOSmap")]
         private static extern int NLPIR_SetPOSmap(int nPOSmap);
 
-        //启动新词识别
-        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_Start")]
-        private static extern bool NLPIR_NWI_Start();
-
-        //添加待识别新词的文件
-         [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_AddFile")]
-        private static extern int NLPIR_NWI_AddFile(string  sFilename);
-
-         //往新词识别系统中添加一段待识别新词的内存
-        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_AddMem")]
-        private static extern bool NLPIR_NWI_AddMem( string sText);
-
-        //新词识别内容添加完毕
-        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_Complete")]
-        private static extern bool NLPIR_NWI_Complete();
-
-        //输出新词的识别结果
-        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_GetResult")]
-        private static extern IntPtr NLPIR_NWI_GetResult(bool bWeightOut = false);
-
-        //将新词结果导到用户的词典中
-        [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_NWI_Result2UserDict")]
-        private static extern int NLPIR_NWI_Result2UserDict();
-
         //细分分词结果
         [DllImport(NLPIRPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NLPIR_FinerSegment")]
         private static extern IntPtr NLPIR_FinerSegment(string  sLine);
@@ -710,6 +762,38 @@ namespace NLRedmomery
         //获取关键词识别的结果
          [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_Complete")]
          private static extern IntPtr KeyExtract_Batch_GetResult(bool bWeightOut = false);
+        #endregion
+        #region 新词发现
+        //初始化
+         [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Init")]
+         private static extern bool NWF_Init(string rootDir, int encoding = (int)NLPIR_CODE.GBK_CODE);
+        //退出
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Exit")]
+         private static extern bool NWF_Exit();
+        //发现新词
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_GetNewWords")]
+        private static extern IntPtr NWF_GetNewWords(string sLine, int nMaxKeyLimit = 50, bool bWeight = false);
+        //发现文件中的新词
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_GetFileNewWords")]
+        private static extern IntPtr NWF_GetFileNewWords(string sTextFile, int nMaxKeyLimit = 50, bool bWeight = false);
+        //新词转化为用户词典
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Result2UserDict")]
+        private static extern uint NWF_Result2UserDict();
+        //批量识别新词启动
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Batch_Start")]
+        private static extern bool NWF_Batch_Start();
+        //批量识别新词添加文件
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Batch_AddFile")]
+        private static extern int NWF_Batch_AddFile(string sFilename);
+        //批量识别新词添加内存中的文件内容
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Batch_AddMem")]
+        private static extern bool NWF_Batch_AddMem(string sText);
+        //批量识别新词导入完成
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Batch_Complete")]
+        private static extern bool NWF_Batch_Complete();
+        //批量识别新词获取结果
+        [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Batch_GetResult")]
+        private static extern IntPtr NWF_Batch_GetResult(bool bWeight = false);
         #endregion
     }
     
