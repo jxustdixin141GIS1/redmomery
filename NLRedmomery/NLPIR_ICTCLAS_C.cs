@@ -11,18 +11,21 @@ namespace NLRedmomery
      public partial class NLPIR_ICTCLAS_C
     {
         #region 文件初始化地址变量
-          private const string rootDir =      @"..\..\NLPIR\";
+        private const string rootDir =        @"..\..\NLPIR\";
         private const string libpath =        @"..\..\NLPIR\bin-win64\";
         private const string datapath =       @"..\..\NLPIR\Data\";
+        private const string sentimentData =  @"..\..\NLPIR\Data\SentimentNew";
         private const string NLPIRPath=       @"..\..\NLPIR\bin-win64\NLPIR.dll";
         private const string KeyExtractPath = @"..\..\NLPIR\bin-win64\KeyExtract.dll";
         private const string NewWordFinder =  @"..\..\NLPIR\bin-win64\NewWordFinder.dll";
+        private const string DElib =          @"..\..\NLPIR\bin-win64\DocExtractor.dll";
         #endregion
 
         #region 程序运行维护变量
         private static bool _Init = false;
         private static bool _KeyExtractInit = false;
         private static bool _NewWordFinderInit=false;
+        private static bool _DEInit = false;
         private static bool _NWIStart = false;
         private static bool _NWIComplete = false;
        
@@ -35,6 +38,7 @@ namespace NLRedmomery
             Init();
             KeyExtractInit();
             NewWordFinderInit();
+            DEInit();
         }
          
         /// <summary>
@@ -491,38 +495,6 @@ namespace NLRedmomery
             return Marshal.PtrToStringAnsi(intpre);
         }
 
-         //-----------------------------下面为批量处理方法----------
-         //启动识别
-        public int KeyExtractBatch_Start()
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_Batch_Start();
-        }
-         //导入识别语料库
-        public uint KeyExtractBatch_AddFile(string sFilename)
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_Batch_AddFile(sFilename);
-         }
-        //关键词匹配字符串
-        public uint KeyExtractBatch_AddMem(string sText)
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_Batch_AddMem(sText);
-        }
-        //文件或者内存导入结束
-        public int KeyExtractBatch_Complete()
-        {
-            JudgeKeyExtractInit();
-            return KeyExtract_Batch_Complete();
-        }
-        //获取关键词识别的结果
-        public string KeyExtractBatch_GetResult(bool bWeightOut = false)
-        {
-            JudgeKeyExtractInit();
-            IntPtr intpre = KeyExtract_Batch_GetResult(bWeightOut);
-            return Marshal.PtrToStringAnsi(intpre);
-        }
         #endregion
         #region  新词发现
         /// <summary>
@@ -650,6 +622,45 @@ namespace NLRedmomery
             return Marshal.PtrToStringAnsi(intptr);
         }
         #endregion 
+        #region  实体抽取功能
+        public bool DEInit(string srootDir,NLPIR_CODE encoding=NLPIR_CODE.GBK_CODE)
+        {
+            _DEInit = DE_Init(srootDir, (int)encoding)==1?true:false;
+            return _DEInit;
+        }
+        public bool DEInit()
+        {
+            int res = DE_Init(rootDir, (int)NLPIR_CODE.GBK_CODE);
+            _DEInit = res == 1 ? true : false;
+            return _DEInit;
+        }
+        public static void JudgeDEInit()
+        {
+            if (!_DEInit)
+            {
+                throw new Exception("实体抽取和情感判断没有进行初始化");
+            }
+        }
+
+        public void DEExit()
+        {
+            _DEInit = false;
+            DE_Exit();
+        }
+
+        public long DEParseDocE(string sText, string UserDefPos, bool bSummayNeeded = true, nFuncRequired funcrequired=nFuncRequired.ALL_REQUIRED)
+        {
+            JudgeDEInit();
+            return DE_ParseDocE(sText, UserDefPos, bSummayNeeded, (uint)funcrequired);
+        }
+        public string DEGetResult(long handle, nDocExtractType docextractype = nDocExtractType.DOC_EXTRACT_TYPE_PERSON)
+        {
+            JudgeDEInit();
+            IntPtr intptr = DE_GetResult(handle,(int)docextractype);
+            return Marshal.PtrToStringAnsi(intptr);
+        }
+
+        #endregion
         #endregion
     }
 }
@@ -744,26 +755,9 @@ namespace NLRedmomery
 
         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_GetFileKeyWords")]
         private static extern IntPtr KeyExtract_GetFileKeyWords(string sFilename, int nMaxKeyLimit = 50, bool bWeightOut = false);
-       
-
-        ///下面为批量处理方法
-        //启动关键词识别
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "eyExtract_Batch_Start")]
-         private static extern int KeyExtract_Batch_Start();
-        //添加关键词匹配文件
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_AddFile")]
-         private static extern uint KeyExtract_Batch_AddFile(string sFilename);
-        //关键词匹配字符串
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_AddMem")]
-         private static extern uint KeyExtract_Batch_AddMem(string sText);
-        //文件或者内存导入结束
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_Complete")]
-         private static extern int KeyExtract_Batch_Complete();
-        //获取关键词识别的结果
-         [DllImport(KeyExtractPath, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "KeyExtract_Batch_Complete")]
-         private static extern IntPtr KeyExtract_Batch_GetResult(bool bWeightOut = false);
+  
         #endregion
-        #region 新词发现
+        #region 新词发现  NewWordFinder
         //初始化
          [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Init")]
          private static extern bool NWF_Init(string rootDir, int encoding = (int)NLPIR_CODE.GBK_CODE);
@@ -794,6 +788,20 @@ namespace NLRedmomery
         //批量识别新词获取结果
         [DllImport(NewWordFinder, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "NWF_Batch_GetResult")]
         private static extern IntPtr NWF_Batch_GetResult(bool bWeight = false);
+        #endregion
+        #region   DocExtractor
+        //初始化
+        [DllImport(DElib, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "DE_Init")]
+        private static extern int DE_Init(string sPath, int Encoding = (int)NLPIR_CODE.GBK_CODE);
+        //退出
+        [DllImport (DElib,CharSet=CharSet.Ansi,CallingConvention=CallingConvention.Cdecl,EntryPoint="DE_Exit")]
+        private  static extern void DE_Exit();
+        //系列文档抽取处理函数
+        [DllImport(DElib, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "DE_ParseDocE")]
+        private static extern long DE_ParseDocE(string sText, string sUserDefPos, bool bSummaryNeeded = true, uint nFuncRequired = (uint)nFuncRequired.ALL_REQUIRED);
+        [DllImport(DElib, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint = "DE_GetResult")]
+        private static extern IntPtr DE_GetResult(long handle, int nDocExtractType = (int)nDocExtractType.DOC_EXTRACT_TYPE_PERSON);
+
         #endregion
     }
     
@@ -891,5 +899,44 @@ namespace NLRedmomery
         /// 权值。
         /// </summary>
         public int weight;
+    }
+    [StructLayout(LayoutKind.Sequential)]
+    public struct _tDocExtractResult
+    {
+      
+    
+    }
+    public enum nFuncRequired 
+    {
+      PERSON_REQUIRED=0x0001,
+      LOCATION_REQUIRED=0x0002,
+      ORGANIZATION_REQUIRED=0x0004,
+ 	  KEYWORD_REQUIRED=0x0008,
+ 	  AUTHOR_REQUIRED=0x0010,
+      MEDIA_REQUIRED=0x0100,
+   	  COUNTRY_REQUIRED=0x0200,
+ 	  PROVINCE_REQUIRED=0x0400,
+ 	  ABSTRACT_REQUIRED=0x0800,
+ 	  SENTIWORD_REQUIRED=0x1000,
+ 	  SENTIMENT_REQUIRED=0x2000,
+ 	  USER_REQUIRED=0x4000,
+ 	  HTML_REMOVER_REQUIRED=0x8000,
+      ALL_REQUIRED=0xffff
+    } 
+    public enum nDocExtractType
+    {
+     DOC_EXTRACT_TYPE_PERSON = 	0,//输出的人名
+     DOC_EXTRACT_TYPE_LOCATION  =1,//输出的地名
+     DOC_EXTRACT_TYPE_ORGANIZATION = 2,//输出的机构名
+     DOC_EXTRACT_TYPE_KEYWORD = 3,//输出的关键词
+     DOC_EXTRACT_TYPE_AUTHOR = 4,//输出的文章作者
+     DOC_EXTRACT_TYPE_MEDIA  =	5,//输出的媒体
+     DOC_EXTRACT_TYPE_COUNTRY = 6,//输出的文章对应的所在国别
+     DOC_EXTRACT_TYPE_PROVINCE= 7,//输出的文章对应的所在省份
+     DOC_EXTRACT_TYPE_ABSTRACT= 8,//输出文章的摘要
+     DOC_EXTRACT_TYPE_POSITIVE= 9,//输出文章的正面情感词
+     DOC_EXTRACT_TYPE_NEGATIVE= 10,//输出文章的副面情感词
+     DOC_EXTRACT_TYPE_TEXT =11,//输出文章去除网页等标签后的正文
+     DOC_EXTRACT_TYPE_USER =12,//用户自定义的词类，第一个自定义词
     }
 }

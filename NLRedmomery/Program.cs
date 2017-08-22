@@ -52,7 +52,10 @@ namespace NLRedmomery
             nlpir.NWFBatch_AddMem(s1);
             nlpir.NWFBatch_Complete();
             Console.WriteLine(nlpir.NWFBatch_GetResult());
-           
+            Console.WriteLine("下面测试实体抽取功能");
+            long handle = nlpir.DEParseDocE(s1, "mgc#ngd", true, nFuncRequired.ALL_REQUIRED);
+            string res=nlpir.DEGetResult(handle);
+            Console.WriteLine(res);
             Console.Read();
         }
     }
