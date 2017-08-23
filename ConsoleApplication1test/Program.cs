@@ -41,33 +41,45 @@ namespace ConsoleApplication1test
             #endregion
             //现在正在使用的代码
             //staticbydata.staticdistributionbycity();
-            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt");
+            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt").Replace("\n\r","").Replace("\r\n","");
             List<Text_result> initlist = LBText.parseText(s1);
+            for (int i = 0; i < initlist.Count; i++)
+            {
+                Console.WriteLine(i.ToString()+"::"+initlist[i].text+":"+initlist[i].res.sPos);
+            }
+            for (int i = 0; i < initlist.Count; i++)
+            {
+                Console.Write( initlist[i].text );
+            }
+            Console.WriteLine();
             List<T_LocalText> timeinit1 = LBText.timeExtract(initlist); 
 
             //结果展示：
+            string s = "";
             for (int i = 0; i < timeinit1.Count; i++)
             {
                 T_LocalText temp = timeinit1[i];
-                Console.Write("时间：");
-                Console.Write(temp.Time == null ? "" : temp.Time.text);
-                Console.WriteLine();
-                Console.Write("地点:");
+              s+="时间：";
+               s+=temp.Time == null ? "" : temp.Time.text;
+               s += "\n\r";
+               s+="地点:";
                 for (int j = 0; j < temp.local.Count; j++)
                 {
                     Text_result ttemp = temp.local[j];
-                    Console.Write(ttemp.text+"  ");
+                   s+=ttemp.text + "  ";
                 }
-                Console.WriteLine();
-                Console.Write("内容：");
+                s += "\n\r";
+                 s+="内容：";
                 for (int j = 0; j < temp.res.Count; j++)
                 {
                     Text_result ttemp = temp.res[j];
-                    Console.Write(ttemp.text);
+                    s+=ttemp.text;
                 }
-                Console.WriteLine();
-                Console.WriteLine();
+                s += "\n\r";
+                s += "\n\r";
             }
+            Console.WriteLine(s);
+            redmomery.command.createlog.createlogs(s);
             //--------------------------------------------------下面开始针对时间顺序进行排列------------------------------
             List<T_LocalText> t_sort = new List<T_LocalText>();
             for (int i = 0; i < timeinit1.Count; i++)
@@ -131,104 +143,143 @@ namespace ConsoleApplication1test
         }
         public static List<T_LocalText> timeExtract(List<Text_result> initlist)
         {
-            int start = 0;//切分的起点
-            int hisstart = 0;
-            int Next = 0;//切分的终点
-            //这里假设当前面文章为简单介绍时，也同时进行切分
             List<T_LocalText> t_linit1 = new List<T_LocalText>();
+            //数据的格式改变
+              //1、更改部分词语的词性
+            string[] tmid = redmomery.command.createlog.readTextFrompath(@"..\时间中词.txt").Split(',', '，');
+            for (int i = 0; i < initlist.Count; i++)
+            { 
+                for(int j=0;j<tmid.Length;j++)
+                {
+                    if (initlist[i].text == tmid[j])
+                    { 
+                      //如何在这两个词中有一个是时间词，则表示这两个都是时间词
+                        if (initlist[i - 1].res.sPos == "t" || initlist[i + 1].res.sPos == "t")
+                        {
+                            initlist[i - 1].res.sPos = "t";
+                            initlist[i + 1].res.sPos = "t";
+                        }
+                    }
+                    if (initlist[i].res.sPos == "t")
+                    {
+                        bool text = (initlist[i].text.IndexOf("后") >= 0) || (initlist[i].text.IndexOf("同") >= 0);
+                        if (text )
+                        {
+                            initlist[i].res.sPos = initlist[i].res.sPos == "t" ? "tc" : initlist[i].res.sPos;
+                        }
+                    }
+               }
+            }
+            //开始将程序进行提取,使用堆栈的方式
+            List<Text_result> temp = new List<Text_result>();
             for (int i = 0; i < initlist.Count; i++)
             {
-                Next = i;
-                if (initlist[i].res.sPos == "t")
+                temp.Add(initlist[i]);
+                if (initlist[i].text == "。" || initlist[i].text == "\r\n")
                 {
-                    if (initlist[i - 1].text == "~")
+                    if (initlist[i + 1].res.sPos == "t" || i + 1 == initlist.Count - 1)//表示一种结束
                     {
-                        //这个方法主要是用来处理类似于1990-1999这样的一些的信息，若是有新的规则再进行设置
-                        if (initlist[i - 2].res.sPos == "m")
+                        Text_result[] ttemp = new Text_result[temp.Count];
+                        for (int j = 0; j < ttemp.Length; j++)
                         {
-                            //这个表示确实合适的词语和代码
-                            int tempint = i - 2;
-                            Next = tempint;
+                            ttemp[j] = temp[j];
                         }
-                    }
-                    #region
-                    T_LocalText newt_l = new T_LocalText();
-                    //将start -  Next 放入到newTimeresult
-                    for (int j = start; j < Next; j++)
-                    {
-                       
-                        newt_l.res.Add(initlist[j]);
-                        if (initlist[j].res.sPos == "ns" || initlist[j].res.sPos == "nsf")
+                        T_LocalText nt = new T_LocalText();
+                        nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
+                        for (int j = 0; j < ttemp.Length; j++)
                         {
-                            newt_l.local.Add(initlist[j]);
+                            nt.res.Add(ttemp[j]);
                         }
-                    }
-                    if (initlist[start].res.sPos == "t")
-                    {
-                        
-                        newt_l.Time = initlist[start];
-                        hisstart = start;
+                        nt.local = ExtractLocal(nt.res);
+                        if (nt.local.Count >= 0)
+                        {
+                            t_linit1.Add(nt);
+                            temp = new List<Text_result>();//在从新添加对应的程序
+                        }
                     }
                     else
-                    {
-                        if (initlist[hisstart].res.sPos == "t")
+                    { //若是碰到类似与 从 表示之后的程序为
+                        if (initlist[i + 1].text == "从" && initlist[i + 2].res.sPos == "t")
                         {
-                          
-                            newt_l.Time = initlist[hisstart];
-                        }
-                        else
-                        {
-                          
-                            newt_l.Time = null;
+                            Text_result[] ttemp = new Text_result[temp.Count];
+                            for (int j = 0; j < ttemp.Length; j++)
+                            {
+                                ttemp[j] = temp[j];
+                            }
+                            T_LocalText nt = new T_LocalText();
+                            nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
+                            for (int j = 0; j < ttemp.Length; j++)
+                            {
+                                nt.res.Add(ttemp[j]);
+                            }
+                            nt.local = ExtractLocal(nt.res);
+                            if (nt.local.Count >= 0)
+                            {
+                                t_linit1.Add(nt);
+                                temp = new List<Text_result>();//在从新添加对应的程序
+                            }
                         }
                     }
-                  
-                    t_linit1.Add(newt_l);
-                    start = Next;
-                    #endregion
-
                 }
-                if (i == initlist.Count - 1)
+                else
                 {
-                    T_LocalText newt_l = new T_LocalText();
-                    //将start -  Next 放入到newTimeresult
-                    for (int j = start; j < Next; j++)
+                    if (i == initlist.Count - 1)
                     {
-
-                        newt_l.res.Add(initlist[j]);
-                        if (initlist[j].res.sPos == "ns" || initlist[j].res.sPos == "nsf")
+                        Text_result[] ttemp = new Text_result[temp.Count];
+                        for (int j = 0; j < ttemp.Length; j++)
                         {
-                            newt_l.local.Add(initlist[j]);
+                            ttemp[j] = temp[j];
                         }
+                        T_LocalText nt = new T_LocalText();
+                        nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
+                        for (int j = 0; j < ttemp.Length; j++)
+                        {
+                            nt.res.Add(ttemp[j]);
+                        }
+                        nt.local = ExtractLocal(nt.res);
+                        if (nt.local.Count == 0)
+                        {
+                            nt.local = t_linit1[t_linit1.Count - 1].local;
+                        }
+                        t_linit1.Add(nt);
+                        temp = new List<Text_result>();//在从新添加对应的程序
                     }
-                    if (initlist[start].res.sPos == "t")
+                }
+            }
+            //下面开始进行二次时间的确定
+            for (int i = 0; i < t_linit1.Count; i++)
+            {
+                T_LocalText ttemp=t_linit1[i];
+                if (ttemp.Time != null)
+                {
+                    continue;
+                }
+                for (int j = 0; j < ttemp.res.Count; j++)
+                {
+                    if (ttemp.res[j].res.sPos == "t")
                     {
+                        t_linit1[i].Time = ttemp.res[j];
+                        break;
+                    }   
+                }
+            }
+            if (t_linit1[0].Time == null)
+            {
+                t_linit1[0].Time = t_linit1[1].Time;
+            }
 
-                        newt_l.Time = initlist[start];
-                        hisstart = start;
-                    }
-                    else
-                    {
-                        if (initlist[hisstart].res.sPos == "t")
-                        {
-
-                            newt_l.Time = initlist[hisstart];
-                        }
-                        else
-                        {
-
-                            newt_l.Time = null;
-                        }
-                    }
-
-                    t_linit1.Add(newt_l);
-                    start = Next;
-
+            //进行时间的推算，简单来说就是，进行时间的年份推算
+            for (int i = 0; i < t_linit1.Count; i++)
+            {
+                T_LocalText ttemp=t_linit1[i];
+                if (ttemp.Time.text.IndexOf("年") <= 0)
+                { 
+                  
                 }
             }
             return t_linit1;
         }
-        public List<Text_result> ExtractLocal(List<Text_result> inittext)
+        public static  List<Text_result> ExtractLocal(List<Text_result> inittext)
         {
             List<Text_result> result = new List<Text_result>();
             for (int i = 0; i < inittext.Count; i++)
@@ -253,6 +304,15 @@ namespace ConsoleApplication1test
         public Text_result Time;//表示时间
         public List<Text_result> local = new List<Text_result>();//表示地点
         public List<Text_result> res = new List<Text_result>();
+        public string outstring()
+        {
+            String s = "";
+            for (int i = 0; i < res.Count; i++)
+            {
+                s += res[i].text;
+            }
+            return s;
+        }
     }
     public class Res_T_LocalText
     {
