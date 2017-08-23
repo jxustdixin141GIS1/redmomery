@@ -43,9 +43,8 @@ namespace ConsoleApplication1test
             //staticbydata.staticdistributionbycity();
 
             NLPIR_ICTCLAS_C nlpr = new NLPIR_ICTCLAS_C();
-            
-            nlpr.AddUserWord("10月\tt");
 
+         
             string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt");
             // NLRedmomery.Program.example();
             Text_result[] result = LBText.parseText(s1);
@@ -59,7 +58,7 @@ namespace ConsoleApplication1test
                 {
                     case "t": Console.WriteLine(); Console.Write(num1.text + ":" + num1.res.sPos + "  "); break;
                     case "ns": Console.WriteLine(num1.text + ":" + num1.res.sPos); break;
-                    default: Console.WriteLine(num1.text + ":" + num1.res.sPos); break;
+                    default:  break;
                 }
                
             }
