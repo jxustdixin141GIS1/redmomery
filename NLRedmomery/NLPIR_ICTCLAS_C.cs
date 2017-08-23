@@ -373,7 +373,7 @@ namespace NLRedmomery
             return NLPIR_SetPOSmap(nPOSmap);
         }
         /// <summary>
-        /// 文章指纹
+        /// 细分词语
         /// </summary>
         /// <param name="sLine"></param>
         /// <returns></returns>
