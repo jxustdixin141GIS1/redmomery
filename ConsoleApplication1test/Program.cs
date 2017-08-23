@@ -191,11 +191,9 @@ namespace ConsoleApplication1test
                             nt.res.Add(ttemp[j]);
                         }
                         nt.local = ExtractLocal(nt.res);
-                        if (nt.local.Count >= 0)
-                        {
-                            t_linit1.Add(nt);
-                            temp = new List<Text_result>();//在从新添加对应的程序
-                        }
+                        nt.iscurrent = 1;
+                        t_linit1.Add(nt);
+                        temp = new List<Text_result>();//在从新添加对应的程序
                     }
                     else
                     { //若是碰到类似与 从 表示之后的程序为
@@ -213,11 +211,10 @@ namespace ConsoleApplication1test
                                 nt.res.Add(ttemp[j]);
                             }
                             nt.local = ExtractLocal(nt.res);
-                            if (nt.local.Count >= 0)
-                            {
-                                t_linit1.Add(nt);
-                                temp = new List<Text_result>();//在从新添加对应的程序
-                            }
+                            nt.iscurrent = 1;
+                            t_linit1.Add(nt);
+                            temp = new List<Text_result>();//在从新添加对应的程序
+                            
                         }
                     }
                 }
@@ -237,46 +234,136 @@ namespace ConsoleApplication1test
                             nt.res.Add(ttemp[j]);
                         }
                         nt.local = ExtractLocal(nt.res);
-                        if (nt.local.Count == 0)
-                        {
-                            nt.local = t_linit1[t_linit1.Count - 1].local;
-                        }
+                        nt.iscurrent = 1;
                         t_linit1.Add(nt);
                         temp = new List<Text_result>();//在从新添加对应的程序
                     }
                 }
             }
-            //下面开始进行二次时间的确定
-            for (int i = 0; i < t_linit1.Count; i++)
+
+            //下面开始进行二次时间的确定,从文本中抽取
+
+            if (t_linit1[0].Time == null)
             {
-                T_LocalText ttemp=t_linit1[i];
-                if (ttemp.Time != null)
-                {
-                    continue;
-                }
+                T_LocalText ttemp = t_linit1[0];
+                t_linit1[0].Time = t_linit1[1].Time;
                 for (int j = 0; j < ttemp.res.Count; j++)
                 {
                     if (ttemp.res[j].res.sPos == "t")
                     {
-                        t_linit1[i].Time = ttemp.res[j];
+                        t_linit1[0].Time = ttemp.res[j];
+                        t_linit1[0].iscurrent = 2;
                         break;
-                    }   
+                    }
                 }
+                t_linit1[0].iscurrent = 2;
             }
-            if (t_linit1[0].Time == null)
+
+            for (int i = 0; i < t_linit1.Count; i++)
             {
-                t_linit1[0].Time = t_linit1[1].Time;
+                T_LocalText ttemp=t_linit1[i];
+                if (ttemp.Time != null)
+                { 
+                    continue;
+                }
+                else
+                {
+                    for (int j = 0; j < ttemp.res.Count; j++)
+                    {
+                        if (ttemp.res[j].res.sPos == "t")
+                        {
+                            t_linit1[i].Time = ttemp.res[j];
+                            t_linit1[i].iscurrent = 2;
+                            break;
+                        }
+                    }
+                }
+                 t_linit1[i].Time.text= t_linit1[i].Time.text.Replace("春", "3月");
+                 t_linit1[i].Time.text = t_linit1[i].Time.text.Replace("夏", "6月");
+                 t_linit1[i].Time.text = t_linit1[i].Time.text.Replace("秋", "9月");
+                 t_linit1[i].Time.text = t_linit1[i].Time.text.Replace("冬", "12月");
             }
+           
 
             //进行时间的推算，简单来说就是，进行时间的年份推算
             for (int i = 0; i < t_linit1.Count; i++)
             {
                 T_LocalText ttemp=t_linit1[i];
-                if (ttemp.Time.text.IndexOf("年") <= 0)
+                if (ttemp.Time.text.IndexOf("年") >= 0)
+                {
+                    if (ttemp.Time.text.IndexOf("月") >= 0)
+                    {
+                        
+                    }
+                    else
+                    {
+                        if (ttemp.Time.text.IndexOf("日") >= 0)
+                        {
+                            
+                        }
+                        else
+                        {
+                            //没有日期的限制,需要二次处理信息，也就找到一个有着时间的时间词作为补偿
+                            for (int j = i; j >= 0; j--)
+                            {
+                                if (t_linit1[j].Time.text.IndexOf("年") >= 0)
+                                {
+                                    t_linit1[i].Time = t_linit1[j].Time;
+                                    t_linit1[i].iscurrent = 3;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                else
                 { 
-                  
+                  //表示没有年份
+                    for (int j = i; j >=0 ; j--)
+                    {
+                        int ytemp=t_linit1[j].Time.text.IndexOf("年");
+                        if (ytemp >= 0)
+                        {
+                            t_linit1[i].Time.text = t_linit1[j].Time.text.Substring(0,ytemp+1) + t_linit1[i].Time.text;
+                            t_linit1[i].iscurrent = 4;
+                            break;
+                        }
+                    }
                 }
             }
+            //进行地点的词语匹配，这里就是假定指定的对象不会发生移动
+            for (int i = 0; i < t_linit1.Count; i++)
+            {
+                if (t_linit1[i].local.Count == 0)
+                {
+                    if (i == 0)
+                    {
+                        for (int j = 0; j < t_linit1.Count; j++)
+                        {
+                            if (t_linit1[j].local.Count > 0)
+                            {
+                                t_linit1[i].local = t_linit1[j].local;
+                                t_linit1[i].iscurrent = 5;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (t_linit1[i].local.Count == 0)
+                        {
+                            for (int j = 0; j < i; j++)
+                            {
+                                if (t_linit1[j].local.Count > 0)
+                                {
+                                    t_linit1[i].local = t_linit1[j].local;
+                                    t_linit1[i].iscurrent = 5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
             return t_linit1;
         }
         public static  List<Text_result> ExtractLocal(List<Text_result> inittext)
@@ -304,6 +391,7 @@ namespace ConsoleApplication1test
         public Text_result Time;//表示时间
         public List<Text_result> local = new List<Text_result>();//表示地点
         public List<Text_result> res = new List<Text_result>();
+        public int iscurrent = 0;
         public string outstring()
         {
             String s = "";
