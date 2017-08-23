@@ -21,6 +21,7 @@ namespace NLRedmomery
         private const string KeyExtractPath = NLpath + @"..\..\NLPIR\bin-win64\KeyExtract.dll";
         private const string NewWordFinder = NLpath + @"..\..\NLPIR\bin-win64\NewWordFinder.dll";
         private const string DElib = NLpath + @"..\..\NLPIR\bin-win64\DocExtractor.dll";
+        public  const string userDir = NLpath + @"..\..\NLPIR\bin-win64\\output\NewTermlist.txt";
         #endregion
 
     }

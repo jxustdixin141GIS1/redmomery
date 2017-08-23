@@ -41,31 +41,10 @@ namespace ConsoleApplication1test
             #endregion
             //现在正在使用的代码
             //staticbydata.staticdistributionbycity();
-
-            NLPIR_ICTCLAS_C nlpr = new NLPIR_ICTCLAS_C();
-
-
             string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt");
-            // NLRedmomery.Program.example();
-            //预处理------------------将本人的著作提出来，并当做新词添加到词表中
-
-            //书名提取结果
-            for (int i = 0; i < bookname.Count; i++)
-            {
-                Console.WriteLine(bookname[i]);
-            }
-
-            
-
-
             List<Text_result> initlist = LBText.parseText(s1);
-            for (int i = 0; i < initlist.Count; i++)
-            {
-                Console.WriteLine(initlist[i].text + ":" + initlist[i].res.sPos);
-            }
-            //---------------------进行对象整合：也就是按照时间进行词语且切分-------------------- 
-            List<T_LocalText> timeinit1 = LBText.timeExtract(initlist);
-            
+            List<T_LocalText> timeinit1 = LBText.timeExtract(initlist); 
+
             //结果展示：
             for (int i = 0; i < timeinit1.Count; i++)
             {
@@ -89,13 +68,15 @@ namespace ConsoleApplication1test
                 Console.WriteLine();
                 Console.WriteLine();
             }
-            //下面开始针对时间顺序进行排列
+            //--------------------------------------------------下面开始针对时间顺序进行排列------------------------------
+            List<T_LocalText> t_sort = new List<T_LocalText>();
+            for (int i = 0; i < timeinit1.Count; i++)
+            {
+                T_LocalText temp = timeinit1[i];
+            }
 
 
-
-
-
-
+            //
             Console.Read();
 
         }
@@ -130,7 +111,10 @@ namespace ConsoleApplication1test
             Text_result[] results = null;
             NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
 
-
+            for (int i = 0; i < bookname.Count; i++)
+            {
+                nlpir.AddUserWord(bookname[i] + "\t" + "n");
+            }
             int count = nlpir.GetParagraphProcessAWordCount(text);
             result_t[] res = nlpir.ParagraphProcessAW(count);
             byte[] bytes = System.Text.Encoding.Default.GetBytes(text);
