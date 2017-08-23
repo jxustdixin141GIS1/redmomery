@@ -990,3 +990,11 @@ namespace NLRedmomery
         DOC_EXTRACT_TYPE_USER = 12,//用户自定义的词类，第一个自定义词
     }
 }
+namespace NLRedmomery
+{
+    public class Text_result
+    {
+        public string text;
+        public result_t res;
+    }
+}

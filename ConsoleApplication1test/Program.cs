@@ -47,99 +47,49 @@ namespace ConsoleApplication1test
 
             string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt");
             // NLRedmomery.Program.example();
+            //预处理------------------将本人的著作提出来，并当做新词添加到词表中
+
+            //书名提取结果
+            for (int i = 0; i < bookname.Count; i++)
+            {
+                Console.WriteLine(bookname[i]);
+            }
+
+            
+
+
             List<Text_result> initlist = LBText.parseText(s1);
-            //---------------------进行对象整合：也就是按照时间进行词语且切分-------------------- 
-            int start = 0;//切分的起点
-            int hisstart = 0;
-            int Next = 0;//切分的终点
-            //这里假设当前面文章为简单介绍时，也同时进行切分
-            List<Time_result> timeinit1 = new List<Time_result>();
             for (int i = 0; i < initlist.Count; i++)
             {
-                Next = i;
-                if (initlist[i].res.sPos == "t")
-                {
-                    if (initlist[i - 1].text == "~")
-                    {
-
-                    }
-                    else
-                    {
-                        #region
-                        Time_result newTimeresult = new Time_result();
-                        //将start -  Next 放入到newTimeresult
-                        for (int j = start; j < Next; j++)
-                        {
-                            newTimeresult.timelist.Add(initlist[j]);
-                        }
-                        if (initlist[start].res.sPos == "t")
-                        {
-                            newTimeresult.time = initlist[start];
-                            hisstart = start;
-                        }
-                        else
-                        {
-                            if (initlist[hisstart].res.sPos == "t")
-                            {
-                                newTimeresult.time = initlist[hisstart];
-                            }
-                            else
-                            {
-                                newTimeresult.time = null;
-                            }
-                        }
-                        timeinit1.Add(newTimeresult);
-                        start = Next;
-                        #endregion
-                    }
-                }
-                if (i == initlist.Count - 1)
-                {
-                    Time_result newTimeresult = new Time_result();
-                    //将start -  Next 放入到newTimeresult
-                    for (int j = start; j < Next; j++)
-                    {
-                        newTimeresult.timelist.Add(initlist[j]);
-                    }
-                    if (initlist[start].res.sPos == "t")
-                    {
-                        newTimeresult.time = initlist[start];
-                        hisstart = start;
-                    }
-                    else
-                    {
-                        if (initlist[hisstart].res.sPos == "t")
-                        {
-                            newTimeresult.time = initlist[hisstart];
-                        }
-                        else
-                        {
-                            newTimeresult.time = null;
-                        }
-                    }
-                    timeinit1.Add(newTimeresult);
-                    start = Next;
-                
-                }
+                Console.WriteLine(initlist[i].text + ":" + initlist[i].res.sPos);
             }
+            //---------------------进行对象整合：也就是按照时间进行词语且切分-------------------- 
+            List<T_LocalText> timeinit1 = LBText.timeExtract(initlist);
             
             //结果展示：
             for (int i = 0; i < timeinit1.Count; i++)
             {
-                Time_result temp = timeinit1[i];
+                T_LocalText temp = timeinit1[i];
                 Console.Write("时间：");
-                Console.Write(temp.time == null ? "" : temp.time.text);
+                Console.Write(temp.Time == null ? "" : temp.Time.text);
+                Console.WriteLine();
+                Console.Write("地点:");
+                for (int j = 0; j < temp.local.Count; j++)
+                {
+                    Text_result ttemp = temp.local[j];
+                    Console.Write(ttemp.text+"  ");
+                }
                 Console.WriteLine();
                 Console.Write("内容：");
-                for (int j = 0; j < temp.timelist.Count; j++)
+                for (int j = 0; j < temp.res.Count; j++)
                 {
-                    Text_result ttemp = temp.timelist[j];
+                    Text_result ttemp = temp.res[j];
                     Console.Write(ttemp.text);
                 }
                 Console.WriteLine();
                 Console.WriteLine();
             }
-
+            //下面开始针对时间顺序进行排列
 
 
 
@@ -153,11 +103,34 @@ namespace ConsoleApplication1test
     }
     public class LBText
     {
+        public static List<string> Extractbookname(string s1)
+        {
+            List<string> bookname = new List<string>();
+            for (int i = 0; i < s1.Length; i++)
+            {
+                if (s1[i].ToString() == "》")
+                {
+                    int starts = s1.LastIndexOf("《", i);
+                    if (starts >= 0)
+                    {
+                        StringBuilder st = new StringBuilder();
+                        st.Append(s1.Substring(starts, i - starts + 1));
+                        bookname.Add(st.ToString());
+                    }
+                }
+
+            }
+            return bookname;
+
+        }
         public static List<Text_result> parseText(string text)
         {
+            List<string> bookname = Extractbookname(text);
             List<Text_result> resl = new List<Text_result>();
             Text_result[] results = null;
             NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
+
+
             int count = nlpir.GetParagraphProcessAWordCount(text);
             result_t[] res = nlpir.ParagraphProcessAW(count);
             byte[] bytes = System.Text.Encoding.Default.GetBytes(text);
@@ -172,37 +145,137 @@ namespace ConsoleApplication1test
             resl.AddRange(results);
             return resl;
         }
+        public static List<T_LocalText> timeExtract(List<Text_result> initlist)
+        {
+            int start = 0;//切分的起点
+            int hisstart = 0;
+            int Next = 0;//切分的终点
+            //这里假设当前面文章为简单介绍时，也同时进行切分
+            List<T_LocalText> t_linit1 = new List<T_LocalText>();
+            for (int i = 0; i < initlist.Count; i++)
+            {
+                Next = i;
+                if (initlist[i].res.sPos == "t")
+                {
+                    if (initlist[i - 1].text == "~")
+                    {
+                        //这个方法主要是用来处理类似于1990-1999这样的一些的信息，若是有新的规则再进行设置
+                        if (initlist[i - 2].res.sPos == "m")
+                        {
+                            //这个表示确实合适的词语和代码
+                            int tempint = i - 2;
+                            Next = tempint;
+                        }
+                    }
+                    #region
+                    T_LocalText newt_l = new T_LocalText();
+                    //将start -  Next 放入到newTimeresult
+                    for (int j = start; j < Next; j++)
+                    {
+                       
+                        newt_l.res.Add(initlist[j]);
+                        if (initlist[j].res.sPos == "ns" || initlist[j].res.sPos == "nsf")
+                        {
+                            newt_l.local.Add(initlist[j]);
+                        }
+                    }
+                    if (initlist[start].res.sPos == "t")
+                    {
+                        
+                        newt_l.Time = initlist[start];
+                        hisstart = start;
+                    }
+                    else
+                    {
+                        if (initlist[hisstart].res.sPos == "t")
+                        {
+                          
+                            newt_l.Time = initlist[hisstart];
+                        }
+                        else
+                        {
+                          
+                            newt_l.Time = null;
+                        }
+                    }
+                  
+                    t_linit1.Add(newt_l);
+                    start = Next;
+                    #endregion
 
+                }
+                if (i == initlist.Count - 1)
+                {
+                    T_LocalText newt_l = new T_LocalText();
+                    //将start -  Next 放入到newTimeresult
+                    for (int j = start; j < Next; j++)
+                    {
+
+                        newt_l.res.Add(initlist[j]);
+                        if (initlist[j].res.sPos == "ns" || initlist[j].res.sPos == "nsf")
+                        {
+                            newt_l.local.Add(initlist[j]);
+                        }
+                    }
+                    if (initlist[start].res.sPos == "t")
+                    {
+
+                        newt_l.Time = initlist[start];
+                        hisstart = start;
+                    }
+                    else
+                    {
+                        if (initlist[hisstart].res.sPos == "t")
+                        {
+
+                            newt_l.Time = initlist[hisstart];
+                        }
+                        else
+                        {
+
+                            newt_l.Time = null;
+                        }
+                    }
+
+                    t_linit1.Add(newt_l);
+                    start = Next;
+
+                }
+            }
+            return t_linit1;
+        }
+        public List<Text_result> ExtractLocal(List<Text_result> inittext)
+        {
+            List<Text_result> result = new List<Text_result>();
+            for (int i = 0; i < inittext.Count; i++)
+            {
+                if (inittext[i].res.sPos == "ns" || inittext[i].res.sPos == "nsf")
+                {
+                    result.Add(inittext[i]);
+                }
+            }
+            return result;
+        }
     }
 
-
-
-    public class Text_result
-    {
-        public string text;
-        public result_t res;
-    }
     public class Time_result
     {
         public Text_result time=new Text_result();//若为null开头非时间词
         public List<Text_result> timelist=new List<Text_result>();//表示表示这个时间段，所对应的时间词切分结果
-
+        
     }
     public class T_LocalText
     {
-        public result_t Time;//表示时间
-        public List<result_t> local;//表示地点
-        public string context;//表示事件
+        public Text_result Time;//表示时间
+        public List<Text_result> local = new List<Text_result>();//表示地点
+        public List<Text_result> res = new List<Text_result>();
     }
     public class Res_T_LocalText
     {
         public string time;//时间
         public string local;//地点
         public string context;//内容
-
     }
-
-
 
     public class LbyL
     {
