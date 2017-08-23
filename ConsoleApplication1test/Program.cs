@@ -41,7 +41,7 @@ namespace ConsoleApplication1test
             #endregion
             //现在正在使用的代码
             //staticbydata.staticdistributionbycity();
-            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt").Replace("\n\r","").Replace("\r\n","");
+            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt").Replace("\n\r", "").Replace("\r\n", "");
             List<Text_result> initlist = LBText.parseText(s1);
             for (int i = 0; i < initlist.Count; i++)
             {
@@ -175,29 +175,30 @@ namespace ConsoleApplication1test
             for (int i = 0; i < initlist.Count; i++)
             {
                 temp.Add(initlist[i]);
-                if (initlist[i].text == "。" || initlist[i].text == "\r\n")
+                if (i == initlist.Count - 1)
                 {
-                    if (initlist[i + 1].res.sPos == "t" || i + 1 == initlist.Count - 1)//表示一种结束
+                    Text_result[] ttemp = new Text_result[temp.Count];
+                    for (int j = 0; j < ttemp.Length; j++)
                     {
-                        Text_result[] ttemp = new Text_result[temp.Count];
-                        for (int j = 0; j < ttemp.Length; j++)
-                        {
-                            ttemp[j] = temp[j];
-                        }
-                        T_LocalText nt = new T_LocalText();
-                        nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
-                        for (int j = 0; j < ttemp.Length; j++)
-                        {
-                            nt.res.Add(ttemp[j]);
-                        }
-                        nt.local = ExtractLocal(nt.res);
-                        nt.iscurrent = 1;
-                        t_linit1.Add(nt);
-                        temp = new List<Text_result>();//在从新添加对应的程序
+                        ttemp[j] = temp[j];
                     }
-                    else
-                    { //若是碰到类似与 从 表示之后的程序为
-                        if (initlist[i + 1].text == "从" && initlist[i + 2].res.sPos == "t")
+                    T_LocalText nt = new T_LocalText();
+                    nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
+                    for (int j = 0; j < ttemp.Length; j++)
+                    {
+                        nt.res.Add(ttemp[j]);
+                    }
+                    nt.local = ExtractLocal(nt.res);
+                    nt.iscurrent = 1;
+                    t_linit1.Add(nt);
+                    temp = new List<Text_result>();//在从新添加对应的程序
+                    break;
+                }
+                else
+                {
+                    if (initlist[i].text == "。" || initlist[i].text == "\r\n")
+                    {
+                        if (initlist[i + 1].res.sPos == "t" || i + 1 == initlist.Count - 1)//表示一种结束
                         {
                             Text_result[] ttemp = new Text_result[temp.Count];
                             for (int j = 0; j < ttemp.Length; j++)
@@ -214,29 +215,33 @@ namespace ConsoleApplication1test
                             nt.iscurrent = 1;
                             t_linit1.Add(nt);
                             temp = new List<Text_result>();//在从新添加对应的程序
-                            
+                        }
+                        else
+                        { //若是碰到类似与 从 表示之后的程序为
+                            if (initlist[i + 1].text == "从" && initlist[i + 2].res.sPos == "t")
+                            {
+                                Text_result[] ttemp = new Text_result[temp.Count];
+                                for (int j = 0; j < ttemp.Length; j++)
+                                {
+                                    ttemp[j] = temp[j];
+                                }
+                                T_LocalText nt = new T_LocalText();
+                                nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
+                                for (int j = 0; j < ttemp.Length; j++)
+                                {
+                                    nt.res.Add(ttemp[j]);
+                                }
+                                nt.local = ExtractLocal(nt.res);
+                                nt.iscurrent = 1;
+                                t_linit1.Add(nt);
+                                temp = new List<Text_result>();//在从新添加对应的程序
+
+                            }
                         }
                     }
-                }
-                else
-                {
-                    if (i == initlist.Count - 1)
+                    else
                     {
-                        Text_result[] ttemp = new Text_result[temp.Count];
-                        for (int j = 0; j < ttemp.Length; j++)
-                        {
-                            ttemp[j] = temp[j];
-                        }
-                        T_LocalText nt = new T_LocalText();
-                        nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
-                        for (int j = 0; j < ttemp.Length; j++)
-                        {
-                            nt.res.Add(ttemp[j]);
-                        }
-                        nt.local = ExtractLocal(nt.res);
-                        nt.iscurrent = 1;
-                        t_linit1.Add(nt);
-                        temp = new List<Text_result>();//在从新添加对应的程序
+
                     }
                 }
             }
