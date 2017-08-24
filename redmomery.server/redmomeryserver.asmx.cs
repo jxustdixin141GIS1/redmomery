@@ -295,16 +295,16 @@ namespace testtemp
         {
              List<Echowall> result=new List<Echowall>();
             string s=string.Empty;
-            try
-            {
+            //try
+            //{
                result = Echowalllib.getAllEchowall();
                 return redmomery.Common.SerializerHelper.SerializeToString(result);
-            }
-            catch (Exception ex)
-            {
-                redmomery.command.createlog.createlogs(ex.Source.ToString() + "\n\r" + ex.StackTrace.ToString() + "\n\r");
-            }
-            return s;
+            //}
+            //catch (Exception ex)
+            //{
+            //    redmomery.command.createlog.createlogs(ex.Source.ToString() + "\n\r" + ex.StackTrace.ToString() + "\n\r"+ex.Message);
+            //}
+            //return s;
         }
         [WebMethod]
         public string addechowall(string context)

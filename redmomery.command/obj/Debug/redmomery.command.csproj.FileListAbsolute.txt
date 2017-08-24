@@ -5,12 +5,15 @@ D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\CustomRuleExam
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\Demo.exe
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\Demo.vshost.exe
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\DictManage.exe
+D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\Newtonsoft.Json.dll
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.dll
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.HighLight.dll
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PosDisplayCtrl.dll
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\CustomRuleExample.pdb
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\Demo.pdb
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\DictManage.pdb
+D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\Newtonsoft.Json.pdb
+D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\Newtonsoft.Json.xml
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.pdb
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.xml
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.HighLight.pdb

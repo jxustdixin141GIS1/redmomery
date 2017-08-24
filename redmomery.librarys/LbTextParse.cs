@@ -284,6 +284,7 @@ namespace redmomery.librarys
                     }
                 }
             }
+            //下面进行方法的二次处理将文本提取出来
 
             return t_linit1;
         }
@@ -299,13 +300,38 @@ namespace redmomery.librarys
             }
             return result;
         }
+        public static List<Res_T_LocalText> ConvertToRes(List<T_LocalText> t_linit1)
+        {
+            List<Res_T_LocalText> result = new List<Res_T_LocalText>();
+            for (int i = 0; i < t_linit1.Count; i++)
+            {
+                Res_T_LocalText newres = new Res_T_LocalText();
+                newres.time = t_linit1[i].Time.text;
+                for (int j = 0; j < t_linit1[i].local.Count; j++)
+                {
+                    newres.local.Add(t_linit1[i].local[j].text);
+                }
+                StringBuilder sb = new StringBuilder();
+                for (int j = 0; j < t_linit1[i].res.Count; j++)
+                {
+                    sb.Append(t_linit1[i].res[j].text);
+                }
+                newres.context = sb.ToString();
+                newres.iscurrent = t_linit1[i].iscurrent;
+                result.Add(newres);
+            }
+            return result;
+        }
     }
+
+}
+namespace redmomery.librarys
+{
 
     public class Time_result
     {
         public Text_result time = new Text_result();//若为null开头非时间词
         public List<Text_result> timelist = new List<Text_result>();//表示表示这个时间段，所对应的时间词切分结果
-
     }
     public class T_LocalText
     {
@@ -317,7 +343,8 @@ namespace redmomery.librarys
     public class Res_T_LocalText
     {
         public string time;//时间
-        public string local;//地点
+        public List<string> local = new List<string>();//地点
         public string context;//内容
+        public int iscurrent = 0;
     }
 }

@@ -13,9 +13,12 @@ namespace redmomery.DAL
 		public int AddNew(Echowall model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO Echowall(text,FTime) VALUES (@text,@FTime);SELECT @@identity"
+				"INSERT INTO Echowall(text,FTime,T_ID,LBID,M_ID) VALUES (@text,@FTime,@T_ID,@LBID,@M_ID);SELECT @@identity"
 				,new SqlParameter("@text", model.text)
 				,new SqlParameter("@FTime", model.FTime)
+				,new SqlParameter("@T_ID", model.T_ID)
+				,new SqlParameter("@LBID", model.LBID)
+				,new SqlParameter("@M_ID", model.M_ID)
 			);
 			return Convert.ToInt32(obj);
 		}
@@ -28,11 +31,14 @@ namespace redmomery.DAL
 
 		public bool Update(Echowall model)
 		{
-			string sql = "UPDATE Echowall SET text=@text,FTime=@FTime WHERE ID=@ID";
+			string sql = "UPDATE Echowall SET text=@text,FTime=@FTime,T_ID=@T_ID,LBID=@LBID,M_ID=@M_ID WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@text", model.text)
 				, new SqlParameter("@FTime", model.FTime)
+				, new SqlParameter("@T_ID", model.T_ID)
+				, new SqlParameter("@LBID", model.LBID)
+				, new SqlParameter("@M_ID", model.M_ID)
 			);
 			return rows > 0;
 		}
@@ -59,6 +65,9 @@ namespace redmomery.DAL
 			model.ID = (object)row["ID"];
 			model.text = (string)row["text"];
 			model.FTime = (DateTime)row["FTime"];
+			model.T_ID = (int)row["T_ID"];
+			model.LBID = (int)row["LBID"];
+			model.M_ID = (int)row["M_ID"];
 			return model;
 		}
 

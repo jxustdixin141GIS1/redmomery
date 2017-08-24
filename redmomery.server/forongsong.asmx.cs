@@ -39,31 +39,37 @@ namespace redmomery.server
             Console.WriteLine();
             List<T_LocalText> timeinit1 = LBText.timeExtract(initlist);
 
-            //结果展示：
-            string s = "";
-            for (int i = 0; i < timeinit1.Count; i++)
+            List<Res_T_LocalText> result = LBText.ConvertToRes(timeinit1);
+
+            return redmomery.Common.SerializerHelper.SerializeToString(result);
+        }
+        [WebMethod]
+        public List<Res_T_LocalText> ParseText(string stext)
+        {
+            try
             {
-                T_LocalText temp = timeinit1[i];
-                s += "时间：";
-                s += temp.Time == null ? "" : temp.Time.text;
-                s += "\n\r";
-                s += "地点:";
-                for (int j = 0; j < temp.local.Count; j++)
+                string s1 = stext.Replace("\n\r", "").Replace("\r\n", "");
+                List<Text_result> initlist = LBText.parseText(s1);
+                for (int i = 0; i < initlist.Count; i++)
                 {
-                    Text_result ttemp = temp.local[j];
-                    s += ttemp.text + "  ";
+                    Console.WriteLine(i.ToString() + "::" + initlist[i].text + ":" + initlist[i].res.sPos);
                 }
-                s += "\n\r";
-                s += "内容：";
-                for (int j = 0; j < temp.res.Count; j++)
+                for (int i = 0; i < initlist.Count; i++)
                 {
-                    Text_result ttemp = temp.res[j];
-                    s += ttemp.text;
+                    Console.Write(initlist[i].text);
                 }
-                s += "\n\r";
-                s += "\n\r";
+                Console.WriteLine();
+                List<T_LocalText> timeinit1 = LBText.timeExtract(initlist);
+
+                List<Res_T_LocalText> result = LBText.ConvertToRes(timeinit1);
+
+                return result;//redmomery.Common.SerializerHelper.SerializeToString(result);
             }
-            return s;
+            catch (Exception ex)
+            {
+                redmomery.command.createlog.createlogs(ex.Source.ToString() + "\n\r" + ex.StackTrace.ToString() + "\n\r" + ex.Message);
+            }
+            return new List<Res_T_LocalText>();
         }
     }
 }

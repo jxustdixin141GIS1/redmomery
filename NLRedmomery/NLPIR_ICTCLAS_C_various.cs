@@ -12,7 +12,7 @@ namespace NLRedmomery
     public partial class NLPIR_ICTCLAS_C
     {
         #region 文件初始化地址变量
-        private const string NLpath = @"D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\";
+        private const string NLpath = @"";
         private const string rootDir =NLpath+ @"..\..\NLPIR\";
         private const string libpath = NLpath + @"..\..\NLPIR\bin-win32\";
         private const string datapath = NLpath + @"..\..\NLPIR\Data\";

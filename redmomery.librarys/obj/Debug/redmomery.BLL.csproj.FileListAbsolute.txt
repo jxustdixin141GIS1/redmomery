@@ -12,3 +12,6 @@ D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.dll
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\Newtonsoft.Json.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\Newtonsoft.Json.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\Newtonsoft.Json.xml
