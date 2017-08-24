@@ -2,7 +2,6 @@ D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.csprojResolv
 D:\题库系统\github\team\redmomery\redMomery\bin\redMomery.dll.config
 D:\题库系统\github\team\redmomery\redMomery\bin\redMomery.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\redMomery.pdb
-D:\题库系统\github\team\redmomery\redMomery\bin\DML.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Html.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Html.Parser.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Html.Parser.Regulars.dll
@@ -21,7 +20,6 @@ D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.Razor.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Newtonsoft.Json.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Core.dll
-D:\题库系统\github\team\redmomery\redMomery\bin\DML.pdb
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.command.pdb
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.DAL.pdb
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.librarys.pdb
@@ -52,3 +50,7 @@ D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.WebPages.
 D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.dll
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.pdb
+D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.Model.dll
+D:\题库系统\github\team\redmomery\redMomery\bin\NLRedmomery.exe
+D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.Model.pdb
+D:\题库系统\github\team\redmomery\redMomery\bin\NLRedmomery.pdb

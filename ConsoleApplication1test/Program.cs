@@ -86,8 +86,6 @@ namespace ConsoleApplication1test
             {
                 T_LocalText temp = timeinit1[i];
             }
-
-
             //
             Console.Read();
 

@@ -997,4 +997,5 @@ namespace NLRedmomery
         public string text;
         public result_t res;
     }
+
 }
