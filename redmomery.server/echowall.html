@@ -9,7 +9,7 @@
         var echowalllist = null;
         function addchowall(text)
         {
-            var url = configUrl + "/redmomeryserver.asmx/addechowall"
+            var url = "http://chenzenghui:20000" + "/redmomeryserver.asmx/addechowall"
             $.ajax({
                 type: "post",
                 dataType: "json",
@@ -30,7 +30,7 @@
             });
         }
         function loadchowall() {
-            var url = configUrl + "/redmomeryserver.asmx/loadechowall"
+            var url = "http://chenzenghui:20000" + "/redmomeryserver.asmx/loadechowall"
             $.ajax({
                 type: "post",
                 dataType: "json",
