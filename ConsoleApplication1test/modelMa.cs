@@ -10,11 +10,9 @@ using System.IO;
 using System.Text.RegularExpressions;
 using redmomery.DAL;
 using redmomery.Model;
-using Newtonsoft.Json;
 using System.Net;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
-using Microsoft.SqlServer.Types;
 using PanGu;
 using PanGu.Framework;
 using PanGu.Dict;
@@ -68,7 +66,7 @@ namespace ConsoleApplication1test
            string result = "";
            for (int i = 0; i < LB_library.Count; i++)
            {
-               result += redmomery.Common.SerializerHelper.SerializeToString(LB_library[i]) + "\n\r";
+               result += LB_library[i].text + "\n\r";
            }
            redmomery.command.createlog.createlogs(result);
            Console.WriteLine("数据提取完成。");

@@ -5,18 +5,14 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using redmomery.Model;
-using Microsoft.SqlServer.Types;
 namespace redmomery.DAL
 {
 	partial class LB_INFODAL
 	{
 		public int AddNew(LB_INFO model)
 		{
-            SqlParameter geop = new SqlParameter("@Location", Microsoft.SqlServer.Types.OpenGisGeographyType.Point);
             if (model.Location != null)
             {
-                geop.Value = model.Location;
-                geop.UdtTypeName = "geography";
                 object obj = SqlHelper.ExecuteScalar(
                "INSERT INTO LB_INFO(T_ID,LBname,LBjob,LBsex,LBbirthday,LBdomicile,designation,LBexperience,LBlife,LBPhoto,X,Y,Location) VALUES (@T_ID,@LBname,@LBjob,@LBsex,@LBbirthday,@LBdomicile,@designation,@LBexperience,@LBlife,@LBPhoto,@X,@Y,@Location);SELECT @@identity"
                , new SqlParameter("@T_ID", model.T_ID)
@@ -31,7 +27,7 @@ namespace redmomery.DAL
                , new SqlParameter("@LBPhoto", model.LBPhoto)
                , new SqlParameter("@X", model.X)
                , new SqlParameter("@Y", model.Y)
-               , geop);
+               , new SqlParameter("@Location",model.Location.ToString()));
                 return Convert.ToInt32(obj);
             }
             else
@@ -61,10 +57,7 @@ namespace redmomery.DAL
         }
         public bool Update(LB_INFO model)
         {
-            string sql = "UPDATE LB_INFO SET T_ID=@T_ID,LBname=@LBname,LBjob=@LBjob,LBsex=@LBsex,LBbirthday=@LBbirthday,LBdomicile=@LBdomicile,designation=@designation,LBexperience=@LBexperience,LBlife=@LBlife,LBPhoto=@LBPhoto,X=@X,Y=@Y,Location=@Location WHERE ID=@ID";
-            SqlParameter geop = new SqlParameter("@Location", Microsoft.SqlServer.Types.OpenGisGeographyType.Point);
-            geop.Value = model.Location;
-            geop.UdtTypeName = "geography";
+            string sql = "UPDATE LB_INFO SET T_ID=@T_ID,LBname=@LBname,LBjob=@LBjob,LBsex=@LBsex,LBbirthday=@LBbirthday,LBdomicile=@LBdomicile,designation=@designation,LBexperience=@LBexperience,LBlife=@LBlife,LBPhoto=@LBPhoto,X=@X,Y=@Y,Location=@Location  WHERE ID=@ID";
             int rows = SqlHelper.ExecuteNonQuery(sql
                 , new SqlParameter("@ID", model.ID)
                 , new SqlParameter("@T_ID", model.T_ID)
@@ -79,11 +72,10 @@ namespace redmomery.DAL
                 , new SqlParameter("@LBPhoto", model.LBPhoto)
                 , new SqlParameter("@X", model.X)
                 , new SqlParameter("@Y", model.Y)
-                , geop
+                , new SqlParameter("@Location",localtiontoWKT(model))
             );
             return rows > 0;
         }
-
         public LB_INFO Get(int id)
         {
             DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM LB_INFO WHERE ID=@ID", new SqlParameter("@ID", id));
@@ -115,11 +107,9 @@ namespace redmomery.DAL
             model.LBPhoto = (string)row["LBPhoto"];
             model.X = (object)row["X"];
             model.Y = (object)row["Y"];
-            SqlGeographyBuilder sgeobuding = new SqlGeographyBuilder();
-            model.Location = (SqlGeography)((object)row["Location"]);
+            model.Location = (object)row["Location"];
             return model;
         }
-
         public IEnumerable<LB_INFO> ListAll()
         {
             List<LB_INFO> list = new List<LB_INFO>();

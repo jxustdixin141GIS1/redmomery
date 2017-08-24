@@ -6,7 +6,6 @@ using redmomery.Model;
 using redmomery.DAL;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
-using Microsoft.SqlServer.Types;
 namespace redmomery.librarys
 {
     public abstract partial class BBSBLL
@@ -197,7 +196,7 @@ namespace redmomery.librarys
             newt1.pass_TIME = DateTime.ParseExact("9999/12/31", "yyyy/MM/dd", null);
             newt1.F_TIME = DateTime.Now;
             newt1.Authonrity = 10;
-            newt1.MD5 = redmomery.Common.MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newt1));
+            newt1.MD5 = redmomery.Common.MD5Helper.EncryptString(newt1.Authonrity + newt1.F_TIME.ToString() + newt1.M_ID.ToString() + newt1.Context + newt1.TITLE);
             //创建管理对应的帖子完毕
             try
             {
@@ -205,7 +204,6 @@ namespace redmomery.librarys
                 redmomery.command.createlog.createlogs(count.ToString());
                 newt1 = titledal.getByMD5(newt1.MD5);
                 lb.T_ID = newt1.ID;
-
                 redmomery.command.createlog.createlogs(count.ToString() + ":" + lb.T_ID.ToString());
             }
             catch (Exception ex)
@@ -240,11 +238,8 @@ namespace redmomery.librarys
             //创建几何对象
             if ((lb.X.ToString() != "" && lb.X.ToString() != "") && ((float)(lb.X) >= 0 && (float)(lb.X) >= 0))
             {
-
                 string locationpoint = "Point(" + lb.X.ToString() + " " + lb.Y.ToString() + ")";
-                SqlString parstring = new SqlString(locationpoint);
-                SqlChars pars = new SqlChars(parstring);
-                SqlGeography localpoint = SqlGeography.STPointFromText(pars, 4326);
+                string localpoint = "geometry::STGeomFromText('" + locationpoint + "', 4326)";//SqlGeography.STPointFromText(pars, 4326);
                 lb.Location = localpoint;
             }
             return lb;

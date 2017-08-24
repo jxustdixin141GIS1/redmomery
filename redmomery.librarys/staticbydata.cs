@@ -8,13 +8,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using redmomery.DAL;
 using redmomery.Model;
-using Newtonsoft.Json;
 using System.Net;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Runtime.InteropServices;
-using Microsoft.SqlServer.Types;
 
 namespace redmomery.librarys
 {

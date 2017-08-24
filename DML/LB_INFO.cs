@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.SqlServer.Types;
-using Newtonsoft.Json;
 namespace redmomery.Model
 {
 	public partial class LB_INFO
@@ -21,7 +19,6 @@ namespace redmomery.Model
 		public string LBPhoto { get; set; }
 		public object X { get; set; }
 		public object Y { get; set; }
-         [JsonIgnore]
-		public SqlGeography Location { get; set; }
+		public object Location { get; set; }
 	}
 }

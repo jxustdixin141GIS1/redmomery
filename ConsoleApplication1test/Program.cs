@@ -9,13 +9,11 @@ using System.Text.RegularExpressions;
 using redmomery.DAL;
 using redmomery.Model;
 using redmomery.librarys;
-using Newtonsoft.Json;
 using System.Net;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Runtime.InteropServices;
-using Microsoft.SqlServer.Types;
 using NLRedmomery;
 //using PanGu;
 //using PanGu.Dict;
@@ -87,6 +85,9 @@ namespace ConsoleApplication1test
                 T_LocalText temp = timeinit1[i];
             }
             //
+            Commands c1 = new Commands();
+            c1.testgeogecoding();
+
             Console.Read();
 
         }
@@ -452,7 +453,7 @@ namespace ConsoleApplication1test
             newt1.pass_TIME = DateTime.ParseExact("9999/12/31", "yyyy/MM/dd", null);
             newt1.F_TIME = DateTime.Now;
             newt1.Authonrity = 10;
-            newt1.MD5 = redmomery.Common.MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newt1));
+            newt1.MD5 = redmomery.Common.MD5Helper.EncryptString(newt1.Authonrity+newt1.F_TIME.ToString()+newt1.M_ID.ToString()+newt1.Context+newt1.TITLE);
             try
             {
                 int count = titledal.addNew(newt1);
@@ -530,20 +531,17 @@ namespace ConsoleApplication1test
                 result[i].T_ID = -1;
                 if (result[i].X.ToString() != "" && result[i].Y.ToString() != "")
                 {
-                    string locationpoint = "Point(" + result[i].X.ToString() + " " + result[i].Y.ToString() + ")";
-                    SqlString parstring = new SqlString(locationpoint);
-                    SqlChars pars = new SqlChars(parstring);
-                    SqlGeography localpoint = SqlGeography.STPointFromText(pars, 4326);
-                    result[i].Location = localpoint;
+                    result[i].Location = lt.localtiontoWKT(result[i]);
                 }
                 Console.Write((i + 1).ToString() + "/");
             }
             //现在开始逐行更改
             int count = 0;
+            Console.WriteLine("正在提交数据");
             for (int i = 0; i < result.Count; i++)
             {
-                // count += lt.update(result[i] as LB_INFO)?1:-1;
-
+                 count += lt.update(result[i] as LB_INFO)?1:-1;
+                 Console.Write((i + 1).ToString() + "/");
             }
             Console.WriteLine();
             Console.WriteLine("\n\r有{0}行受到了影响,共计{1}", count, result.Count.ToString());
