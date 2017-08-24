@@ -7,8 +7,8 @@
     <ProjectGuid>{7790EC9C-719F-4575-A2AB-B26C9F926284}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DML</RootNamespace>
-    <AssemblyName>DML</AssemblyName>
+    <RootNamespace>redmomery.Model</RootNamespace>
+    <AssemblyName>redmomery.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -60,6 +60,7 @@
     <Compile Include="ARMY_INFO.cs" />
     <Compile Include="auto\cityLB.cs" />
     <Compile Include="auto\CityLBDistribution.cs" />
+    <Compile Include="auto\Echowall.cs" />
     <Compile Include="auto\staticinfotable.cs" />
     <Compile Include="BBSCONTENTS.cs" />
     <Compile Include="BBSTITLE_TABLE.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="cityLB.cs" />
     <Compile Include="CityLBDistribution.cs" />
     <Compile Include="CTBBS_TABLE.cs" />
+    <Compile Include="Echowall.cs" />
     <Compile Include="FILE_TABLE.cs" />
     <Compile Include="GEN_INFO.cs" />
     <Compile Include="LB_INFO.cs" />

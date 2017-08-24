@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>留言墙实例</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script>
+        var echowall = null;
+        var echowalllist = null;
+        function addchowall(text)
+        {
+            var url = configUrl + "/redmomeryserver.asmx/addechowall"
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: url,
+                data: { context: text },
+                success: function (data) {
+                    echowall = data;
+                },
+
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+                },
+                complete: function (data) {
+                    //注意这里是需要判别下是不是json格式的数据，若是不是的话，就只能硬钢Xml了
+                    echowall = data;
+                    //了数据转换完成
+                }
+            });
+        }
+        function loadchowall() {
+            var url = configUrl + "/redmomeryserver.asmx/loadechowall"
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: url,
+                success: function (data) {
+                    echowalllist = data;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                },
+                complete: function (data) {
+                    //注意这里是需要判别下是不是json格式的数据，若是不是的话，就只能硬钢Xml了
+                    echowalllist = data;
+                    //了数据转换完成
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

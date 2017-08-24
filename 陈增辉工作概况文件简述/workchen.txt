@@ -431,6 +431,9 @@ function getlnglatbycityName(cityname)
           CityCode:城市编码
           province：所在省份名称
           LBnum：老兵的数量
+  Echowall：ID:表示
+            Text：内容
+            datatime：发布日期
 21、下面为对应视图的展示
     
 22、关于数据统计两种解决方案：

@@ -67,6 +67,7 @@
     <Compile Include="DAL_Auto\cityLBDAL.cs" />
     <Compile Include="DAL_Auto\CityLBDistributionDAL.cs" />
     <Compile Include="DAL_Auto\CTBBS_TABLEDAL.cs" />
+    <Compile Include="DAL_Auto\EchowallDAL.cs" />
     <Compile Include="DAL_Auto\FILE_TABLEDAL.cs" />
     <Compile Include="DAL_Auto\GEN_INFODAL.cs" />
     <Compile Include="DAL_Auto\LB_INFODAL.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="DAL_Auto\View_m_TLDAL.cs" />
     <Compile Include="DAL_Auto\View_T_UDAL.cs" />
     <Compile Include="DAL_Auto\WAR_INFODAL.cs" />
+    <Compile Include="EchowallDAL.cs" />
     <Compile Include="FILE_TABLEDAL.cs" />
     <Compile Include="GEN_INFODAL.cs" />
     <Compile Include="LB_INFODAL.cs" />

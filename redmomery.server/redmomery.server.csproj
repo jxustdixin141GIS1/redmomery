@@ -79,6 +79,7 @@
     <Content Include="disributioncity.html" />
     <Content Include="echartsstudent\HtmlPage1.html" />
     <Content Include="echartsstudent\HtmlPage2.html" />
+    <Content Include="echowall.html" />
     <Content Include="effectScatter-map.html" />
     <Content Include="indexupload.html" />
     <Content Include="jsonpcallbakepage.html" />
@@ -675,6 +676,7 @@
     <Content Include="resource\image\lbinfo\J99.jpg" />
     <Content Include="resource\image\tubiao.gif" />
     <Content Include="packages.config" />
+    <Content Include="redmomeryashx.ashx" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="resource\js\bbstest.js" />
     <Content Include="resource\js\jquery-1.12.0.min.js" />
@@ -702,6 +704,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="redmomeryashx.ashx.cs">
+      <DependentUpon>redmomeryashx.ashx</DependentUpon>
+    </Compile>
     <Compile Include="redmomeryserver.asmx.cs">
       <DependentUpon>redmomeryserver.asmx</DependentUpon>
       <SubType>Component</SubType>

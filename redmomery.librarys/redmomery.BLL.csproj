@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BBSBLL.cs" />
+    <Compile Include="Echowalllib.cs" />
     <Compile Include="LbTextParse.cs" />
     <Compile Include="modelrecomment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

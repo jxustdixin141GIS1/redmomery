@@ -1,10 +1,8 @@
 D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\redmomery.DAL.dll.config
 D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\redmomery.DAL.dll
 D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\redmomery.DAL.pdb
-D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\DML.dll
 D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\Microsoft.SqlServer.Types.dll
 D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\redmomery.command.exe
-D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\DML.pdb
 D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\redmomery.command.pdb
 D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
 D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
@@ -19,3 +17,5 @@ D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\zh-Hant\Microsoft.
 D:\题库系统\github\team\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.dll
 D:\题库系统\github\team\redmomery\redmomery.DAL\obj\Debug\redmomery.DAL.pdb
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\redmomery.Model.dll
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\Debug\redmomery.Model.pdb
