@@ -91,6 +91,7 @@
     <Compile Include="DAL_Auto\SqlHelper.cs" />
     <Compile Include="DAL_Auto\staticinfotableDAL.cs" />
     <Compile Include="DAL_Auto\sysdiagramsDAL.cs" />
+    <Compile Include="DAL_Auto\trajectoryDAL.cs" />
     <Compile Include="DAL_Auto\USER_INFODAL.cs" />
     <Compile Include="DAL_Auto\View_CC_UDAL.cs" />
     <Compile Include="DAL_Auto\View_CT_UDAL.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="SqlHelper.cs" />
     <Compile Include="staticinfotableDAL.cs" />
     <Compile Include="sysdiagramsDAL.cs" />
+    <Compile Include="trajectoryDAL.cs" />
     <Compile Include="USER_INFODAL.cs" />
     <Compile Include="View_CC_UDAL.cs" />
     <Compile Include="View_CT_UDAL.cs" />
