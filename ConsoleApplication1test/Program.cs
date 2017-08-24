@@ -39,45 +39,46 @@ namespace ConsoleApplication1test
             #endregion
             //现在正在使用的代码
             //staticbydata.staticdistributionbycity();
-            //string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt").Replace("\n\r", "").Replace("\r\n", "");
-            //List<Text_result> initlist = LBText.parseText(s1);
-            //for (int i = 0; i < initlist.Count; i++)
-            //{
-            //    Console.WriteLine(i.ToString()+"::"+initlist[i].text+":"+initlist[i].res.sPos);
-            //}
-            //for (int i = 0; i < initlist.Count; i++)
-            //{
-            //    Console.Write( initlist[i].text );
-            //}
-            //Console.WriteLine();
-            //List<T_LocalText> timeinit1 = LBText.timeExtract(initlist); 
+            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt").Replace("\n\r", "").Replace("\r\n", "");
+            List<Text_result> initlist = LBText.parseText(s1);
+            for (int i = 0; i < initlist.Count; i++)
+            {
+                Console.WriteLine(i.ToString() + "::" + initlist[i].text + ":" + initlist[i].res.sPos);
+            }
+            for (int i = 0; i < initlist.Count; i++)
+            {
+                Console.Write(initlist[i].text);
+            }
+            Console.WriteLine();
+            List<T_LocalText> timeinit1 = LBText.timeExtract(initlist);
 
-            ////结果展示：
-            //string s = "";
-            //for (int i = 0; i < timeinit1.Count; i++)
-            //{
-            //    T_LocalText temp = timeinit1[i];
-            //  s+="时间：";
-            //   s+=temp.Time == null ? "" : temp.Time.text;
-            //   s += "\n\r";
-            //   s+="地点:";
-            //    for (int j = 0; j < temp.local.Count; j++)
-            //    {
-            //        Text_result ttemp = temp.local[j];
-            //       s+=ttemp.text + "  ";
-            //    }
-            //    s += "\n\r";
-            //     s+="内容：";
-            //    for (int j = 0; j < temp.res.Count; j++)
-            //    {
-            //        Text_result ttemp = temp.res[j];
-            //        s+=ttemp.text;
-            //    }
-            //    s += "\n\r";
-            //    s += "\n\r";
-            //}
-            //Console.WriteLine(s);
-            //redmomery.command.createlog.createlogs(s);
+            //结果展示：
+            string s = "";
+            for (int i = 0; i < timeinit1.Count; i++)
+            {
+                T_LocalText temp = timeinit1[i];
+                s += "时间：";
+                s += temp.Time == null ? "" : temp.Time.text;
+                s += "\n\r\r\n";
+                s += "地点:";
+                for (int j = 0; j < temp.local.Count; j++)
+                {
+                    Text_result ttemp = temp.local[j];
+                    s += ttemp.text + "  ";
+                }
+                s += "\n\r\r\n";
+                s += "内容：";
+                for (int j = 0; j < temp.res.Count; j++)
+                {
+                    Text_result ttemp = temp.res[j];
+                    s += ttemp.text;
+                }
+
+                s += "\n\r\r\n";
+                s += "\n\r\r\n";
+            }
+            Console.WriteLine(s);
+            redmomery.command.createlog.createlogs(s);
             ////--------------------------------------------------下面开始针对时间顺序进行排列------------------------------
             //List<T_LocalText> t_sort = new List<T_LocalText>();
             //for (int i = 0; i < timeinit1.Count; i++)
@@ -88,12 +89,12 @@ namespace ConsoleApplication1test
             //Commands c1 = new Commands();
             //c1.testgeogecoding();
 
-            List<Echowall> result = new List<Echowall>();
-            string s = string.Empty;
-            //try
-            //{
-            result = Echowalllib.getAllEchowall();
-            redmomery.Common.SerializerHelper.SerializeToString(result);
+            //List<Echowall> result = new List<Echowall>();
+            //string s = string.Empty;
+            ////try
+            ////{
+            //result = Echowalllib.getAllEchowall();
+            //redmomery.Common.SerializerHelper.SerializeToString(result);
 
             Console.Read();
 
