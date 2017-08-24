@@ -5,3 +5,4 @@ D:\题库系统\github\team\redmomery\DML\bin\Debug\Microsoft.QualityTools.Testi
 D:\题库系统\github\team\redmomery\DML\bin\Debug\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
 D:\题库系统\github\team\redmomery\DML\obj\Debug\redmomery.Model.dll
 D:\题库系统\github\team\redmomery\DML\obj\Debug\redmomery.Model.pdb
+D:\题库系统\github\team\redmomery\DML\obj\Debug\redmomery.Model.csprojResolveAssemblyReference.cache
