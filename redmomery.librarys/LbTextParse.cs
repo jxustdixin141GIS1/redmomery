@@ -4,11 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NLRedmomery;
+using redmomery.Common;
+using redmomery.command;
 namespace redmomery.librarys
 {
     class LbTextParse
     {
-       
+        //public static List<Text_result> parseText(string text)
+        //{ 
+        //    object temp=LBText.parseText(text);
+        //    temp=LBText.timeExtract((List<Text_result>)temp);
+        //    temp=LBText.ConvertToRes((List<T_LocalText>)temp);
+        //    //开始进行组合
+        //    List<Res_T_LocalText> init = temp as List<Res_T_LocalText>;
+        //    //下面主要处理地名
+            
+        //}
     }
     public class LBText
     {
@@ -322,12 +333,28 @@ namespace redmomery.librarys
             }
             return result;
         }
+        public static List<Res_T_LocalText> convertdeallocal(List<Res_T_LocalText> timeinit )
+        {
+            List<Res_T_LocalText> result = new List<Res_T_LocalText>();
+       
+
+            return result;
+        }
+        
     }
 
 }
 namespace redmomery.librarys
 {
-
+    public class Text_trcajectory
+    {
+        public DateTime Time = DateTime.Now;
+        public baiducoordinate xy = new baiducoordinate();
+        public string context;
+    }
+}
+namespace redmomery.librarys
+{
     public class Time_result
     {
         public Text_result time = new Text_result();//若为null开头非时间词
@@ -343,8 +370,9 @@ namespace redmomery.librarys
     public class Res_T_LocalText
     {
         public string time;//时间
-        public List<string> local = new List<string>();//地点
+        public List<string> local = new List<string>();//地点 
         public string context;//内容
         public int iscurrent = 0;
     }
+   
 }

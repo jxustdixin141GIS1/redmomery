@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using redmomery.DAL;
 using redmomery.Model;
 using redmomery.librarys;
+using redmomery.command;
 using System.Net;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
@@ -28,6 +29,20 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
+            baiduGeocodingaddress bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国");
+            Console.WriteLine("中国"+":"+bas.result.level);
+            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省");
+            Console.WriteLine("中国江苏省" + ":" + bas.result.level);
+            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市");
+            Console.WriteLine("中国江苏省徐州市" + ":" + bas.result.level);
+            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市沛县");
+            Console.WriteLine("中国江苏省徐州市沛县" + ":" + bas.result.level);
+            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市沛县魏庙镇");
+            Console.WriteLine("中国江苏省徐州市沛县魏庙镇" + ":" + bas.result.level);
+            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市沛县魏庙镇义河村");
+            Console.WriteLine("中国江苏省徐州市沛县魏庙镇义河村" + ":" + bas.result.level);
+            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市沛县魏庙镇义河村200号");
+            Console.WriteLine("中国江苏省徐州市沛县魏庙镇义河村200号" + ":" + bas.result.level);
             #region  前期废弃的代码
             //BBs_laobing m = new BBs_laobing();
             //Commands c1 = new Commands();
@@ -38,7 +53,7 @@ namespace ConsoleApplication1test
             //Console.WriteLine("全部修改成功");
             #endregion
             //现在正在使用的代码
-            //staticbydata.staticdistributionbycity();
+            ////staticbydata.staticdistributionbycity();
             string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt").Replace("\n\r", "").Replace("\r\n", "");
             List<Text_result> initlist = LBText.parseText(s1);
             for (int i = 0; i < initlist.Count; i++)
@@ -73,32 +88,62 @@ namespace ConsoleApplication1test
                     Text_result ttemp = temp.res[j];
                     s += ttemp.text;
                 }
-
                 s += "\n\r\r\n";
                 s += "\n\r\r\n";
             }
             Console.WriteLine(s);
             redmomery.command.createlog.createlogs(s);
-            ////--------------------------------------------------下面开始针对时间顺序进行排列------------------------------
-            //List<T_LocalText> t_sort = new List<T_LocalText>();
-            //for (int i = 0; i < timeinit1.Count; i++)
-            //{
-            //    T_LocalText temp = timeinit1[i];
-            //}
-            ////
-            //Commands c1 = new Commands();
-            //c1.testgeogecoding();
+            Console.WriteLine("进行聚类分析");
+            
+            //求距离重心
+            List<baiduGeocodingaddress> tesba = new List<baiduGeocodingaddress>();
+            double Gx = 0;
+            double Gy = 0;
+            double G = 0;
+            for (int i = 0; i < timeinit1.Count; i++)
+            { 
+                for(int j=0;j<timeinit1[i].local.Count;j++)
+                {
+                    baiduGeocodingaddress ba = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(timeinit1[i].local[j].text);
+                    if (ba.status != 0&&ba.result!=null)
+                    {
+                        double mi = 0;
+                        switch (ba.result.level)
+                        {
+                            case "国家": mi = 0.2; break;
+                            case "省": mi = 0.4; break;
+                            case "城市": mi = 0.6; break;
+                            case "区县": mi = 0.8; break;
+                            case "村庄": mi = 1; break;
+                            default: mi = 0; break;
+                        }
+                        Gx = Gx + ba.result.location.lng * mi;
+                        Gy = Gy + ba.result.location.lat * mi;
+                    }
+                }
+            }
+                //--------------------------------------------------下面开始针对时间顺序进行排列------------------------------
+                //List<T_LocalText> t_sort = new List<T_LocalText>();
+                //for (int i = 0; i < timeinit1.Count; i++)
+                //{
+                //    T_LocalText temp = timeinit1[i];
+                //}
+                ////
+                //Commands c1 = new Commands();
+                //c1.testgeogecoding();
 
-            //List<Echowall> result = new List<Echowall>();
-            //string s = string.Empty;
-            ////try
-            ////{
-            //result = Echowalllib.getAllEchowall();
-            //redmomery.Common.SerializerHelper.SerializeToString(result);
+                //List<Echowall> result = new List<Echowall>();
+                //string s = string.Empty;
+                ////try
+                ////{
+                //result = Echowalllib.getAllEchowall();
+                //redmomery.Common.SerializerHelper.SerializeToString(result);
 
-            Console.Read();
+                Console.Read();
 
         }
+
+     
         //中间临时建立的对象，这里需要对此进行进一步的划分 
     }
     public class LBText
@@ -637,6 +682,7 @@ namespace ConsoleApplication1test
             {
                 lb1.X = float.Parse(xy[0]);
                 lb1.Y = float.Parse(xy[1]);
+              //  baiduGeocodingXY ba = redmomery.command.Geocodingcommand.getGeocodingByXYobject(lb1.X.ToString(), lb1.Y.ToString());
             }
             return lb1;
         }
@@ -647,11 +693,11 @@ namespace ConsoleApplication1test
             string url = "http://api.map.baidu.com/geocoder/v2/?";
             string address = "address=";
             string output = "&output=json";
-            string callback = "&callback=showLocation";
             address += nedadresss;
-            url = url + address + output + ak + callback;
+            url = url + address + output + ak;
             WebClient client = new WebClient();
             string html = UTF8Encoding.UTF8.GetString(client.DownloadData(url));
+            baiduGeocodingaddress ba = redmomery.Common.SerializerHelper.DeserializeToObject<baiduGeocodingaddress>(html);
             string[] xy = parsegeocoding(html);
             return xy;
         }
