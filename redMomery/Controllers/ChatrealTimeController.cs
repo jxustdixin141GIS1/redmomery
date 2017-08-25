@@ -15,6 +15,9 @@ namespace redMomery.Controllers
         {
             return View();
         }
-
+        public ActionResult GetMessage()
+        {
+            return View();
+        }
     }
 }

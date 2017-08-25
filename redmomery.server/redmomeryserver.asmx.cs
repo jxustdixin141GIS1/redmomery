@@ -256,7 +256,6 @@ namespace testtemp
             return result;
         }
         //--------------------------------论坛服务测试结束---------------------------------
-
         [WebMethod]
         public List<string> Bing(string keyword, string selectsite, int PageIndex)
         {
@@ -289,7 +288,6 @@ namespace testtemp
             }
             return list;// result;
         }
-
         [WebMethod]
         public string loadechowall()
         {
@@ -321,13 +319,12 @@ namespace testtemp
             }
             return s;
         }
-
         [WebMethod]
-        public string parseLbtext(string LBtext)
+        public string parseLbtext(string LBtext,string lbId)
         {
-            List<Text_trcajectory> temp = LBText.parseText(LBtext);
-            return redmomery.Common.SerializerHelper.SerializeToString(temp);
+            return redmomery.Common.SerializerHelper.SerializeToString(LbTextParse.parseLbstored(int.Parse(lbId), LBtext));  
+        }
         
-         }
+        
     }
 }

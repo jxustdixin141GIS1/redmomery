@@ -42,7 +42,9 @@ namespace ConsoleApplication1test
                     trajectory newtra = new trajectory();
                     newtra.LBID = lblist[i].ID;
                     newtra.Local = temp[j].address == null ? "null" : temp[j].address;
-                    string temps=temp[j].time.Replace("年","-").Replace("月","-").Replace("日","-").ToString();
+                    string temps= temp[j].time.IndexOf("年")>=0?
+                    temp[j].time.Replace("9999-12-30-","").Replace("年","-").Replace("月","-").Replace("日","-").ToString():
+                    temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
                     DateTime dt = new DateTime();
                     try
                     {
@@ -72,10 +74,10 @@ namespace ConsoleApplication1test
                     newtra.y = temp[j].xy.lat.ToString();
                     newtra.isCurrent = temp[j].iscurent;
                     newtra.context = temp[j].context;
-                    int index=  dal.AddNew(newtra);
-                    Console.Write((count++    ).ToString()+"\r");
+                    list.Add(newtra);
                 }
             }
+
             Console.WriteLine("程序结束");
             Console.Read();
 

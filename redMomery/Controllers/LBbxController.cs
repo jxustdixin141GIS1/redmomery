@@ -88,7 +88,6 @@ namespace redMomery.Controllers
         {
             return View();
         }
-
         [WebMethod]
         public ActionResult GetLBByLBID(string sLBID)
         {
@@ -97,7 +96,5 @@ namespace redMomery.Controllers
             result.Add((new LB_INFODAL()).get(int.Parse(sLBID)));
             return Json(result);
         }
-
-
     }
 }

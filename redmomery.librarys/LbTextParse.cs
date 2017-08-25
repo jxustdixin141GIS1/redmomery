@@ -4,17 +4,108 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NLRedmomery;
+using redmomery.Model;
 using redmomery.Common;
 using redmomery.command;
 namespace redmomery.librarys
 {
-    class LbTextParse
+   public  class LbTextParse
     {
-      
+        public static List<trajectory> parseLbstored(LB_INFO lb)
+        {
+            List<trajectory> list = new List<trajectory>();
+            List<Text_trcajectory> temp = LBText.parseText(lb.LBexperience.ToString());
+            for (int j = 0; j < temp.Count; j++)
+            {
+                trajectory newtra = new trajectory();
+                newtra.LBID = lb.ID;
+                newtra.Local = temp[j].address == null ? "null" : temp[j].address;
+                string temps = temp[j].time.IndexOf("年") >= 0 ?
+                temp[j].time.Replace("9999-12-30-", "").Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString() :
+                temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
+                DateTime dt = new DateTime();
+                try
+                {
+                    dt = DateTime.ParseExact(temps, "yyyy-MM-dd-", null);
+                }
+                catch
+                {
+                    try
+                    {
+                        dt = DateTime.ParseExact(temps, "yyyy-MM-", null);
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            dt = DateTime.ParseExact(temps, "yyyy-", null);
+                        }
+                        catch
+                        {
+                            dt = DateTime.ParseExact("9999-12-30-", "yyyy-MM-dd-", null);
+                        }
+                    }
+                }
+                newtra.T_time = dt;
+                newtra.Timetext = temp[j].time;
+                newtra.x = temp[j].xy.lng.ToString();
+                newtra.y = temp[j].xy.lat.ToString();
+                newtra.isCurrent = temp[j].iscurent;
+                newtra.context = temp[j].context;
+                list.Add(newtra);
+            }
+            return list;
+        }
+        public static List<trajectory> parseLbstored(int lbID,string lbtext)
+        {
+            
+            List<trajectory> list = new List<trajectory>();
+            List<Text_trcajectory> temp = LBText.parseText(lbtext);
+            for (int j = 0; j < temp.Count; j++)
+            {
+                trajectory newtra = new trajectory();
+                newtra.LBID = lbID;
+                newtra.Local = temp[j].address == null ? "null" : temp[j].address;
+                string temps = temp[j].time.IndexOf("年") >= 0 ?
+                temp[j].time.Replace("9999-12-30-", "").Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString() :
+                temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
+                DateTime dt = new DateTime();
+                try
+                {
+                    dt = DateTime.ParseExact(temps, "yyyy-MM-dd-", null);
+                }
+                catch
+                {
+                    try
+                    {
+                        dt = DateTime.ParseExact(temps, "yyyy-MM-", null);
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            dt = DateTime.ParseExact(temps, "yyyy-", null);
+                        }
+                        catch
+                        {
+                            dt = DateTime.ParseExact("9999-12-30-", "yyyy-MM-dd-", null);
+                        }
+                    }
+                }
+                newtra.T_time = dt;
+                newtra.Timetext = temp[j].time;
+                newtra.x = temp[j].xy.lng.ToString();
+                newtra.y = temp[j].xy.lat.ToString();
+                newtra.isCurrent = temp[j].iscurent;
+                newtra.context = temp[j].context;
+                list.Add(newtra);
+            }
+            return list;
+        }
     }
-  public   class LBText
+    class LBText
     {
-      public static List<Text_trcajectory> parseText(string text)
+     public static List<Text_trcajectory> parseText(string text)
       {
           object temp = LBText.parsetext(text);
           temp = LBText.timeExtract((List<Text_result>)temp);
@@ -25,7 +116,6 @@ namespace redmomery.librarys
           List<Text_trcajectory> result = LBText.convertdeallocal(init);
           return result;
       }
-
      private   static List<string> Extractbookname(string s1)
         {
             List<string> bookname = new List<string>();
