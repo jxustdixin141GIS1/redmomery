@@ -166,7 +166,7 @@ namespace redmomery.librarys
             List<T_LocalText> t_linit1 = new List<T_LocalText>();
             //数据的格式改变
             //1、更改部分词语的词性
-            string[] tmid = redmomery.command.createlog.readTextFrompath(@"..\时间中词.txt").Split(',', '，');
+            string[] tmid = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\NLRedmomery\bin\时间中词.txt").Split(',', '，');
             for (int i = 0; i < initlist.Count; i++)
             {
                 for (int j = 0; j < tmid.Length; j++)

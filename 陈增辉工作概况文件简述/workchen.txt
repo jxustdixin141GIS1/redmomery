@@ -440,3 +440,20 @@ function getlnglatbycityName(cityname)
    一种是对于以前的老兵提交功能全部重写
    第二中就是针对老兵故事进行二次统计。
    个人建议采用第二种
+23： {"status":0,
+      "result":{"location":{"lng":118.14097079845904,"lat":25.395598523492639},
+                 "precise":0,
+                 "confidence":14,
+                 "level":"区县"
+               }
+     }
+24、在线发表聚会服务功能
+    聚会功能：
+       字段： ID：标志
+              TTime：发布时间
+              local：聚会地点
+              context：聚会内容
+              UID：发布人ID
+              vnum：发布人参与人数
+              lng: lng
+              lat:lat
