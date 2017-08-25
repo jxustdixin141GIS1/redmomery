@@ -29,54 +29,7 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
-            //开始批量处理LB的信息
-            List<LB_INFO> lblist = (new LB_INFODAL()).Listall() as List<LB_INFO>;
-            List<trajectory> list = new List<trajectory>();
-            trajectoryDAL dal = new trajectoryDAL();
-            int count = 0;
-            for (int i = 0; i < lblist.Count; i++)
-            {
-                List<Text_trcajectory> temp = LBText.parseText(lblist[i].LBexperience.ToString());
-                for (int j = 0; j < temp.Count; j++)
-                {
-                    trajectory newtra = new trajectory();
-                    newtra.LBID = lblist[i].ID;
-                    newtra.Local = temp[j].address == null ? "null" : temp[j].address;
-                    string temps= temp[j].time.IndexOf("年")>=0?
-                    temp[j].time.Replace("9999-12-30-","").Replace("年","-").Replace("月","-").Replace("日","-").ToString():
-                    temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
-                    DateTime dt = new DateTime();
-                    try
-                    {
-                        dt = DateTime.ParseExact(temps, "yyyy-MM-dd-", null);
-                    }
-                    catch
-                    {
-                        try
-                        {
-                            dt = DateTime.ParseExact(temps, "yyyy-MM-", null);
-                        }
-                        catch
-                        {
-                            try
-                            {
-                                dt = DateTime.ParseExact(temps, "yyyy-", null);
-                            }
-                            catch
-                            {
-                                dt = DateTime.ParseExact("9999-12-30-", "yyyy-MM-dd-", null);
-                            }
-                        }
-                    }
-                    newtra.T_time = dt;
-                    newtra.Timetext = temp[j].time;
-                    newtra.x = temp[j].xy.lng.ToString();
-                    newtra.y = temp[j].xy.lat.ToString();
-                    newtra.isCurrent = temp[j].iscurent;
-                    newtra.context = temp[j].context;
-                    list.Add(newtra);
-                }
-            }
+           
 
             Console.WriteLine("程序结束");
             Console.Read();
