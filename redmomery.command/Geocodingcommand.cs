@@ -87,11 +87,7 @@ namespace redmomery.command
             baiduGeocodingXY result = redmomery.Common.SerializerHelper.DeserializeToObject<baiduGeocodingXY>(html);
             return result;
         }
-
     }
-
-
-
 }
 namespace redmomery.command
 {
@@ -117,7 +113,7 @@ namespace redmomery.command
 {
     public class baiduGeocodingXY
     {
-        public string status;
+        public int status;
         public baiduXYresult result;
     }
     public class baiduXYresult

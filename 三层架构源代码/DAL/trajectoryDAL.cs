@@ -13,8 +13,9 @@ namespace redmomery.DAL
 		public int AddNew(trajectory model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO trajectory(T_time,Local,context,x,y,TID,MID) VALUES (@T_time,@Local,@context,@x,@y,@TID,@MID);SELECT @@identity"
+				"INSERT INTO trajectory(T_time,Timetext,Local,context,x,y,TID,MID) VALUES (@T_time,@Timetext,@Local,@context,@x,@y,@TID,@MID);SELECT @@identity"
 				,new SqlParameter("@T_time", model.T_time)
+				,new SqlParameter("@Timetext", model.Timetext)
 				,new SqlParameter("@Local", model.Local)
 				,new SqlParameter("@context", model.context)
 				,new SqlParameter("@x", model.x)
@@ -33,10 +34,11 @@ namespace redmomery.DAL
 
 		public bool Update(trajectory model)
 		{
-			string sql = "UPDATE trajectory SET T_time=@T_time,Local=@Local,context=@context,x=@x,y=@y,TID=@TID,MID=@MID WHERE ID=@ID";
+			string sql = "UPDATE trajectory SET T_time=@T_time,Timetext=@Timetext,Local=@Local,context=@context,x=@x,y=@y,TID=@TID,MID=@MID WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@T_time", model.T_time)
+				, new SqlParameter("@Timetext", model.Timetext)
 				, new SqlParameter("@Local", model.Local)
 				, new SqlParameter("@context", model.context)
 				, new SqlParameter("@x", model.x)
@@ -68,6 +70,7 @@ namespace redmomery.DAL
 			trajectory model = new trajectory();
 			model.ID = (object)row["ID"];
 			model.T_time = (DateTime)row["T_time"];
+			model.Timetext = (string)row["Timetext"];
 			model.Local = (string)row["Local"];
 			model.context = (string)row["context"];
 			model.x = (string)row["x"];

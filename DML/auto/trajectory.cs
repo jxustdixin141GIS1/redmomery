@@ -9,6 +9,7 @@ namespace redmomery.Model
 	{
 		public object ID { get; set; }
 		public DateTime T_time { get; set; }
+		public string Timetext { get; set; }
 		public string Local { get; set; }
 		public string context { get; set; }
 		public string x { get; set; }

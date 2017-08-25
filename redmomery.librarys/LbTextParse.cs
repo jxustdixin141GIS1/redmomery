@@ -12,11 +12,11 @@ namespace redmomery.librarys
     {
         //public static List<Text_result> parseText(string text)
         //{ 
-        //    object temp=LBText.parseText(text);
-        //    temp=LBText.timeExtract((List<Text_result>)temp);
-        //    temp=LBText.ConvertToRes((List<T_LocalText>)temp);
-        //    //开始进行组合
-        //    List<Res_T_LocalText> init = temp as List<Res_T_LocalText>;
+            //object temp=LBText.parseText(text);
+            //temp=LBText.timeExtract((List<Text_result>)temp);
+            //temp=LBText.ConvertToRes((List<T_LocalText>)temp);
+            ////开始进行组合
+            //List<Res_T_LocalText> init = temp as List<Res_T_LocalText>;
         //    //下面主要处理地名
             
         //}
@@ -360,19 +360,36 @@ namespace redmomery.librarys
         public Text_result time = new Text_result();//若为null开头非时间词
         public List<Text_result> timelist = new List<Text_result>();//表示表示这个时间段，所对应的时间词切分结果
     }
-    public class T_LocalText
+    public class T_LocalText//提取时间，和地点词  第二次处理
     {
         public Text_result Time;//表示时间
         public List<Text_result> local = new List<Text_result>();//表示地点
         public List<Text_result> res = new List<Text_result>();
         public int iscurrent = 0;
     }
-    public class Res_T_LocalText
+    public class Res_T_LocalText //提取时间和内容 去除对应对的分词属性之后结果 第三次处理
     {
         public string time;//时间
         public List<string> local = new List<string>();//地点 
         public string context;//内容
         public int iscurrent = 0;
     }
-   
+    public class Res_t_localtext //给地点 进行坐标处理之后的第四次处理
+    {
+        public string Time;
+        public List<Res_t_locals> locals = new List<Res_t_locals>();
+        public string context;
+        public int iscurrent = 0;
+    }
+    public class Res_t_locals //地点赋值时间
+    {
+        public string addressname;
+        public baiduGeocodingaddress local;
+    }
+    public class Text_result//分词第一次处理
+    {
+        public string text;
+        public result_t res;
+    }
+
 }

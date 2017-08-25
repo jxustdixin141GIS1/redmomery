@@ -992,10 +992,6 @@ namespace NLRedmomery
 }
 namespace NLRedmomery
 {
-    public class Text_result
-    {
-        public string text;
-        public result_t res;
-    }
+  
 
 }
