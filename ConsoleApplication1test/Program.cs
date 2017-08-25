@@ -29,129 +29,54 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
-            baiduGeocodingaddress bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国");
-            Console.WriteLine("中国" + ":" + bas.result.level);
-            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省");
-            Console.WriteLine("中国江苏省" + ":" + bas.result.level);
-            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市");
-            Console.WriteLine("中国江苏省徐州市" + ":" + bas.result.level);
-            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市沛县");
-            Console.WriteLine("中国江苏省徐州市沛县" + ":" + bas.result.level);
-            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市沛县魏庙镇");
-            Console.WriteLine("中国江苏省徐州市沛县魏庙镇" + ":" + bas.result.level);
-            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市沛县魏庙镇义河村");
-            Console.WriteLine("中国江苏省徐州市沛县魏庙镇义河村" + ":" + bas.result.level);
-            bas = redmomery.command.Geocodingcommand.getGeocodingByAddressobject("中国江苏省徐州市沛县魏庙镇义河村200号");
-            Console.WriteLine("中国江苏省徐州市沛县魏庙镇义河村200号" + ":" + bas.result.level);
-            #region  前期废弃的代码
-            //BBs_laobing m = new BBs_laobing();
-            //Commands c1 = new Commands();
-            //string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["con"].ToString().Trim();
-            //Console.WriteLine(connectionString);
-            //c1.testgeogecoding();
-            //// m.updata();
-            //Console.WriteLine("全部修改成功");
-            #endregion
-            //现在正在使用的代码
-            ////staticbydata.staticdistributionbycity();
-            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt").Replace("\n\r", "").Replace("\r\n", "");
-            Console.WriteLine("进行聚类分析");
-            object temp = LBText.parseText(s1);
-            temp = LBText.timeExtract((List<Text_result>)temp);
-            temp = LBText.ConvertToRes((List<T_LocalText>)temp);
-            //开始进行组合
-            List<Res_T_LocalText> timeinit1 = temp as List<Res_T_LocalText>;
-
-           //地名唯一化处理
-
-            //先批量处理地址
-            List<Res_t_localtext> res_t = new List<Res_t_localtext>();
-            for (int i = 0; i < timeinit1.Count; i++)
+            //开始批量处理LB的信息
+            List<LB_INFO> lblist = (new LB_INFODAL()).Listall() as List<LB_INFO>;
+            List<trajectory> list = new List<trajectory>();
+            trajectoryDAL dal = new trajectoryDAL();
+            int count = 0;
+            for (int i = 0; i < lblist.Count; i++)
             {
-                Res_t_localtext newres = new Res_t_localtext();
-                newres.Time = timeinit1[i].time;
-                for (int j = 0; j < timeinit1[i].local.Count; j++)
+                List<Text_trcajectory> temp = LBText.parseText(lblist[i].LBexperience.ToString());
+                for (int j = 0; j < temp.Count; j++)
                 {
-                    //处理代码
-                    baiduGeocodingaddress ba = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(timeinit1[i].local[j]);
-                    if (ba.status == 0 && ba.result != null)
+                    trajectory newtra = new trajectory();
+                    newtra.LBID = lblist[i].ID;
+                    newtra.Local = temp[j].address == null ? "null" : temp[j].address;
+                    string temps=temp[j].time.Replace("年","-").Replace("月","-").Replace("日","-").ToString();
+                    DateTime dt = new DateTime();
+                    try
                     {
-                        Res_t_locals newloc = new Res_t_locals();
-                        newloc.addressname = timeinit1[i].local[j];
-                        newloc.local = ba;
-                        newres.locals.Add(newloc);
+                        dt = DateTime.ParseExact(temps, "yyyy-MM-dd-", null);
                     }
-                }
-                newres.context = timeinit1[i].context;
-                newres.iscurrent = timeinit1[i].iscurrent;
-                res_t.Add(newres);
-            }
-            double Gx = 0, Gy = 0, G=0;
-            for (int i = 0; i < res_t.Count; i++)
-            {
-                for (int j = 0; j < res_t[i].locals.Count; j++)
-                {
-                    baiduGeocodingaddress ba = res_t[i].locals[j].local;
-                    if (ba.status == 0 && ba.result != null)
+                    catch
                     {
-                        double mi = 0;
-                        switch (ba.result.level)
+                        try
                         {
-                            case "国家": mi = 0.2; break;
-                            case "省": mi = 0.4; break;
-                            case "城市": mi = 0.6; break;
-                            case "区县": mi = 0.8; break;
-                            case "村庄": mi = 1; break;
-                            default: mi = 0; break;
+                            dt = DateTime.ParseExact(temps, "yyyy-MM-", null);
                         }
-
-                        Gx = Gx + ba.result.location.lng * mi;
-                        Gy = Gy + ba.result.location.lat * mi;
-                        G = mi + G;
+                        catch
+                        {
+                            try
+                            {
+                                dt = DateTime.ParseExact(temps, "yyyy-", null);
+                            }
+                            catch
+                            {
+                                dt = DateTime.ParseExact("9999-12-30-", "yyyy-MM-dd-", null);
+                            }
+                        }
                     }
+                    newtra.T_time = dt;
+                    newtra.Timetext = temp[j].time;
+                    newtra.x = temp[j].xy.lng.ToString();
+                    newtra.y = temp[j].xy.lat.ToString();
+                    newtra.isCurrent = temp[j].iscurent;
+                    newtra.context = temp[j].context;
+                    int index=  dal.AddNew(newtra);
+                    Console.Write((count++    ).ToString()+"\r");
                 }
             }
-            //计算坐标重心
-            //统计国别
-
-            Gy = Gy / G;
-            Gx = Gx / G;
-            baiducoordinate Gcenter = new baiducoordinate();
-            Gcenter.lng =float.Parse( Gx.ToString());
-            Gcenter.lat =float.Parse( Gy.ToString());
-           
-            //下面开始删除地名点  坐标如下 级别最高为准  距离最近为准  级别越高 坐标越准
-            for (int i = 0; i < res_t.Count; i++)
-            {
-                //首先进行级别判断 找到级别最高的
-                Res_t_locals localtemp = new Res_t_locals();
-                for (int j = 0; j < res_t[i].locals.Count; j++)
-                {
-                    baiduGeocodingaddress ba = res_t[i].locals[j].local;
-
-                    if (levelscore(localtemp.local) > levelscore(ba))
-                    {
-                        res_t[i].locals.Remove(res_t[i].locals[j]);
-                    }
-                    else if (levelscore(localtemp.local) == levelscore(ba))
-                    {
-                        localtemp = res_t[i].locals[j];
-                    }
-                    else
-                    {
-                        res_t[i].locals.Remove(localtemp);
-                        localtemp = res_t[i].locals[j];
-                    }
-                }
-
-                //下面开始计算距离最近为准
-                Res_t_locals localtemps = new Res_t_locals();
-
-
-            }
-
-
-
+            Console.WriteLine("程序结束");
             Console.Read();
 
         }
@@ -174,6 +99,7 @@ namespace ConsoleApplication1test
         {
             float distance = float.MaxValue;
             distance = (ba.result.location.lng - Gcenter.lng) * (ba.result.location.lng - Gcenter.lng) + (ba.result.location.lat - Gcenter.lat) * (ba.result.location.lat - Gcenter.lat);
+            return distance;
         }
         //中间临时建立的对象，这里需要对此进行进一步的划分 
     }
@@ -186,7 +112,6 @@ namespace ConsoleApplication1test
         public string text;
 
     }
-
     public class TimeDict
     {
 

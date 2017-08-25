@@ -14,7 +14,7 @@ namespace redmomery.Model
 		public string context { get; set; }
 		public string x { get; set; }
 		public string y { get; set; }
-		public string TID { get; set; }
-		public string MID { get; set; }
+		public int LBID { get; set; }
+		public int isCurrent { get; set; }
 	}
 }

@@ -321,5 +321,13 @@ namespace testtemp
             }
             return s;
         }
+
+        [WebMethod]
+        public string parseLbtext(string LBtext)
+        {
+            List<Text_trcajectory> temp = LBText.parseText(LBtext);
+            return redmomery.Common.SerializerHelper.SerializeToString(temp);
+        
+         }
     }
 }

@@ -77,7 +77,6 @@
     <Content Include="echartsstudent\HtmlPage2.html" />
     <Content Include="echowall.html" />
     <Content Include="effectScatter-map.html" />
-    <Content Include="forongsong.asmx" />
     <Content Include="indexupload.html" />
     <Content Include="jsonpcallbakepage.html" />
     <Content Include="LBupload.html" />
@@ -815,10 +814,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forongsong.asmx.cs">
-      <DependentUpon>forongsong.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="redmomeryashx.ashx.cs">
       <DependentUpon>redmomeryashx.ashx</DependentUpon>

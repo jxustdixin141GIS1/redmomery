@@ -13,15 +13,15 @@ namespace redmomery.DAL
 		public int AddNew(trajectory model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO trajectory(T_time,Timetext,Local,context,x,y,TID,MID) VALUES (@T_time,@Timetext,@Local,@context,@x,@y,@TID,@MID);SELECT @@identity"
+				"INSERT INTO trajectory(T_time,Timetext,Local,context,x,y,LBID,isCurrent) VALUES (@T_time,@Timetext,@Local,@context,@x,@y,@LBID,@isCurrent);SELECT @@identity"
 				,new SqlParameter("@T_time", model.T_time)
 				,new SqlParameter("@Timetext", model.Timetext)
 				,new SqlParameter("@Local", model.Local)
 				,new SqlParameter("@context", model.context)
 				,new SqlParameter("@x", model.x)
 				,new SqlParameter("@y", model.y)
-				,new SqlParameter("@TID", model.TID)
-				,new SqlParameter("@MID", model.MID)
+				,new SqlParameter("@LBID", model.LBID)
+				,new SqlParameter("@isCurrent", model.isCurrent)
 			);
 			return Convert.ToInt32(obj);
 		}
@@ -34,7 +34,7 @@ namespace redmomery.DAL
 
 		public bool Update(trajectory model)
 		{
-			string sql = "UPDATE trajectory SET T_time=@T_time,Timetext=@Timetext,Local=@Local,context=@context,x=@x,y=@y,TID=@TID,MID=@MID WHERE ID=@ID";
+			string sql = "UPDATE trajectory SET T_time=@T_time,Timetext=@Timetext,Local=@Local,context=@context,x=@x,y=@y,LBID=@LBID,isCurrent=@isCurrent WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@T_time", model.T_time)
@@ -43,8 +43,8 @@ namespace redmomery.DAL
 				, new SqlParameter("@context", model.context)
 				, new SqlParameter("@x", model.x)
 				, new SqlParameter("@y", model.y)
-				, new SqlParameter("@TID", model.TID)
-				, new SqlParameter("@MID", model.MID)
+				, new SqlParameter("@LBID", model.LBID)
+				, new SqlParameter("@isCurrent", model.isCurrent)
 			);
 			return rows > 0;
 		}
@@ -75,8 +75,8 @@ namespace redmomery.DAL
 			model.context = (string)row["context"];
 			model.x = (string)row["x"];
 			model.y = (string)row["y"];
-			model.TID = (string)row["TID"];
-			model.MID = (string)row["MID"];
+			model.LBID = (int)row["LBID"];
+			model.isCurrent = (int)row["isCurrent"];
 			return model;
 		}
 

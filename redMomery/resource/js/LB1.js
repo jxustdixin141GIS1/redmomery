@@ -33,7 +33,7 @@
         require([
           "esri/basemaps",
           "esri/map",
-          "esri/dijit/HomeButton",
+     
 
           "esri/dijit/BasemapGallery",
           "esri/dijit/Measurement",
@@ -79,7 +79,7 @@
           "dojo/domReady!"
         ],
           function (
-          esriBasemaps, Map, HomeButton, BasemapGallery, Measurement, Graphic, InfoTemplate, SpatialReference, Extent,
+          esriBasemaps, Map, BasemapGallery, Measurement, Graphic, InfoTemplate, SpatialReference, Extent,
           GraphicsLayer, FeatureLayer, HeatmapRenderer, SimpleMarkerSymbol,
              SimpleLineSymbol, SimpleFillSymbol, PictureMarkerSymbol, Query, QueryTask, FindTask, FindParameters, navigation,
              on, parser, dom, arrayUtils, connect, ItemFileReadStore, DataGrid, Color, OverviewMap, Scalebar, Bookmarks, Legend, registry, Button,
@@ -111,10 +111,10 @@
                   sliderStyle: "small"
               });
 
-              var home = new HomeButton({
-                  map: map
-              }, "HomeButton");
-              home.startup();
+              //var home = new HomeButton({
+              //    map: map
+              //}, "HomeButton");
+              //home.startup();
 
 
               var basemapGallery = new esri.dijit.BasemapGallery({
@@ -203,7 +203,7 @@
               function setUpQuery() {
 
                   var queryTask = new QueryTask
-                      ("http://172.16.100.178:6080/arcgis/rest/services/LBDatanew/MapServer/0");
+                      ("http://172.16.100.6:6080/arcgis/rest/services/LBDatanew/MapServer/0");
 
                   //设定查询条件
                   var query = new Query();
@@ -316,12 +316,14 @@
                           $.ajax({
                               type: "POST",
                               contentType: "application/json;utf-8",
-                              url: "WebService1.asmx/SqlSearch",
+                              url: " /LBbx/GetLBByLBID",
                               data: "{'sLBID':'" + sLBID + "'}",
                               dataType: "JSON",
                               success: function (results1) {
-
-                                  ex = results1.d;
+                                  ex = results1[0].LBexperience;
+                                  var divs2 = $("#wz2")[0];
+                                  divs2.innerHTML = "<p >" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + ex + "</span>" + "</p>" +
+                                                    "<p >" + "<img src= '../resource/image/lbinfo/" + sLBPhoto + "' width=100%   />" + "</p>";
 
                               }
                           });
@@ -329,23 +331,24 @@
 
 
                           //声明处理////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                         
+
+                              var divs = $("#wz")[0];
+                              
 
 
-                          var divs = $("#wz")[0];
-                          var divs2 = $("#wz2")[0];
-
-
-                          divs.innerHTML = "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "姓&nbsp&nbsp名：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBname + "</span>" + "</p>" +
-                                                                     "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "性&nbsp&nbsp别：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBsex + "</span>" + "</p>" +
-                                                                     "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "出生日期：" + "</span>" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBbirthday + "</span>" + "</p>" +
-                                                                     "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "部队职务：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBjob + "</span>" + "</p>" +
-                                                                     "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "现居住地：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBdomicile + "</span>" + "</p>" +
-                                                                     "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "现居住地：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sdesignation + "</span>" + "</p>" +
-                                                                     "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "生活现状：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBlife + "</span>" + "</p>";
-
-                          divs2.innerHTML = "<p >" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + ex + "</span>" + "</p>" +
-                                            "<p >" + "<img src= '../resource/image/lbinfo/" + sLBPhoto + "' width=100%   />" + "</p>";
-
+                              divs.innerHTML = "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "姓&nbsp&nbsp名：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBname + "</span>" + "</p>" +
+                                                                         "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "性&nbsp&nbsp别：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBsex + "</span>" + "</p>" +
+                                                                         "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "出生日期：" + "</span>" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBbirthday + "</span>" + "</p>" +
+                                                                         "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "部队职务：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBjob + "</span>" + "</p>" +
+                                                                         "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "现居住地：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBdomicile + "</span>" + "</p>" +
+                                                                         "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "现居住地：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sdesignation + "</span>" + "</p>" +
+                                                                         "<p >" + "<span style='font-size:17px;font-weight:bold;font-family:华文新魏;'>" + "生活现状：" + "</span>" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + sLBlife + "</span>" + "</p>";
+                             
+                              var divs2 = $("#wz2")[0];
+                              divs2.innerHTML = "<p >" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + ex + "</span>" + "</p>" +
+                                                "<p >" + "<img src= '../resource/image/lbinfo/" + sLBPhoto + "' width=100%   />" + "</p>";
+                          
 
 
                           HLGraphicsLayer.add(highlightGraphic);
@@ -391,7 +394,7 @@
                   map.graphics.clear();
               }
               findTask = new FindTask
-               ("http://172.16.100.178:6080/arcgis/rest/services/LBDatanew/MapServer");
+               ("http://172.16.100.6:6080/arcgis/rest/services/LBDatanew/MapServer");
 
               map.on("load", function () {
                   //构建寻找参数
@@ -475,7 +478,7 @@
 
 
               dojo.connect(button14, "click", function () {
-                  var serviceURL = "http://172.16.100.178:6080/arcgis/rest/services/LBDatanew/FeatureServer/0";
+                  var serviceURL = "http://172.16.100.6:6080/arcgis/rest/services/LBDatanew/FeatureServer/0";
 
                   heatmapFeatureLayer = new FeatureLayer(serviceURL, {
                       opacity: 0.6,

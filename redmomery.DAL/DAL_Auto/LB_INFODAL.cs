@@ -107,7 +107,7 @@ namespace redmomery.DAL
             model.LBPhoto = (string)row["LBPhoto"];
             model.X = (object)row["X"];
             model.Y = (object)row["Y"];
-            model.Location = (object)row["Location"];
+            model.Location = (object)(row["Location"].ToString() == "" ? "null" : row["Location"].ToString());
             return model;
         }
         public IEnumerable<LB_INFO> ListAll()
