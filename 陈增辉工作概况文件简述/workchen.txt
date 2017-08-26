@@ -497,6 +497,7 @@ function getlnglatbycityName(cityname)
                  ctime：创建留言的时间
                  message：留言
                  ISINV：留言类型，申请加为好友0 ，简单留言 1 ，其他待定
+
     个人聊天记录池：singlemessagepooltable
            字段：
                  FUID：发布者用户ID
