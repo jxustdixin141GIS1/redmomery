@@ -73,6 +73,7 @@
     <Compile Include="auto\cityLB.cs" />
     <Compile Include="auto\CityLBDistribution.cs" />
     <Compile Include="auto\Echowall.cs" />
+    <Compile Include="auto\LB_INFO.cs" />
     <Compile Include="auto\staticinfotable.cs" />
     <Compile Include="auto\trajectory.cs" />
     <Compile Include="BBSCONTENTS.cs" />

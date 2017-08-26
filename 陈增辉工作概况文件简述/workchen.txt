@@ -476,4 +476,28 @@ function getlnglatbycityName(cityname)
                 Ftime：创建
                 description：群组描述
                 vnum：群组人数
-    聊天记录池：
+    个人聊天记录池：singlemessagepooltable
+           字段：ID：标识
+                 FUID：发布者用户ID
+                 TUID：接收者ID
+                 Ftime：发布时间
+                 context：消息内容，
+                          （对于照片进行传输，对于视频也可以传输）
+                 isread：表示是不是已经读取了。
+    群组聊天记录池：multimessagepooltable（建议这里聊天信息，为7天）
+            字段：ID：标识
+                  FUID：发布者ID
+                  TGID：发布到的群组ID
+                  Ftime：发布时间
+                  context:消息内容
+                  Rnum：读取者人数
+                  Snum：应读人数
+
+
+    具体策略：客户端：（定时的刷新消息，发送消息，存储聊天记录，展示活动列表）
+             服务器：（提供信息的查询功能，消息中转，图片中转，创建活动列表，读取活动列表）
+25、老兵信息进行删除时：
+                 留言墙：1
+                 老兵城市统计表：2
+                 老兵表：3 
+    老兵客户端：更新删除字段 LBdelete

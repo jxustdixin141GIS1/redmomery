@@ -10,6 +10,7 @@ namespace redmomery.librarys
 {
     public abstract partial class BBSBLL
     {
+        #region 论坛提交
         /// <summary>
         /// 提交回复评论功能
         /// </summary>
@@ -62,7 +63,7 @@ namespace redmomery.librarys
                 return true;
             return false;
         }
-        public static int PostCommentByTID(Model.CTBBS_TABLE CT)
+        public static int  PostCommentByTID(Model.CTBBS_TABLE CT)
         {
             CTBBS_TABLEDAL dal = new CTBBS_TABLEDAL();
             int CID = dal.addNew(CT);
@@ -117,7 +118,7 @@ namespace redmomery.librarys
             newm1.U_TIME = DateTime.Now;
             return false;
         }
-
+        #endregion
         #region  论坛展示功能
         #region  论坛搜索功能
 
@@ -216,7 +217,7 @@ namespace redmomery.librarys
         /// 根据信息创建老兵对象
         /// </summary>
         /// <returns></returns>
-        private static LB_INFO CreateLBInFo(string LBName, string LBjob, string LBsex, string Birthday, string Domicicile, string designation, string lbExperirence, string lblife, string LBPoto, float? x, float? y)
+        public  static LB_INFO CreateLBInFo(string LBName, string LBjob, string LBsex, string Birthday, string Domicicile, string designation, string lbExperirence, string lblife, string LBPoto, float? x, float? y)
         {
             //开始根据这些信息创建字段
             LB_INFO lb = new LB_INFO();
@@ -229,6 +230,7 @@ namespace redmomery.librarys
             lb.LBexperience = lbExperirence;
             lb.LBlife = lblife;
             lb.LBPhoto = LBPoto;
+            lb.LBdelete = 0;
             lb.X = x;
             lb.Y = y;
             if ((x.ToString() == "" && y.ToString() == "") || (x < 0 && y < 0))
@@ -244,7 +246,6 @@ namespace redmomery.librarys
             }
             return lb;
         }
-
         /// <summary>
         /// 创建lb与帖子的关连方法
         /// </summary>
@@ -293,6 +294,32 @@ namespace redmomery.librarys
             return LB;
         }
         //--------------------------------LB_INFO故事论坛评论加载-------------------------------------------------
+           //删除
+        public static bool updataDelLBInfo(LB_INFO Lb)
+        {
+            Lb.LBdelete = 1;
+            LB_INFODAL dal = new LB_INFODAL();
+            return   dal.update(Lb);
+        }
+        public static bool deleteLbinfo(LB_INFO lb)
+        {
+            bool result = false;
+            cityLBDAL cdal = new cityLBDAL();
+            if (cdal.deleteByLBID(lb.ID.ToString()))
+            { 
+                EchowallDAL edal=new EchowallDAL();
+                if (edal.DelByLBID(lb.ID.ToString()))
+                {
+                    LB_INFODAL ldal = new LB_INFODAL();
+                    if (ldal.delete(lb.ID))
+                    {
+                        result = result;
+                    }
+                }
+            }
+            return result;
+        
+        }
 
         //----------------------------------------根据老兵的ID，获取帖子，评论，评论的回复-------------------------
         public static LB_INFO getLB_INFOByID(int ID)

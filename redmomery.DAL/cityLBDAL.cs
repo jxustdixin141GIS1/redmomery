@@ -26,5 +26,10 @@ namespace redmomery.DAL
             cityLB model = ToModel(row);
             return model;
         }
+        public bool deleteByLBID(string LBID)
+        {
+            int rows = SqlHelper.ExecuteNonQuery("DELETE FROM cityLB WHERE LBID = @LBID", new SqlParameter("@LBID", LBID));
+            return rows > 0;
+        }
     }
 }
