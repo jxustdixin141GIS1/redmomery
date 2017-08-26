@@ -43,14 +43,17 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ivony.Core">
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Ivony.Html">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.dll</HintPath>
     </Reference>
     <Reference Include="Ivony.Html.Parser">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.Parser.dll</HintPath>
     </Reference>
     <Reference Include="Ivony.Html.Parser.Regulars">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.Regulars.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.Parser.Regulars.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.WebServiceTask, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
