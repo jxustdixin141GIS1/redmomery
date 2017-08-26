@@ -70,23 +70,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARMY_INFO.cs" />
+    <Compile Include="auto\chartgrouptable.cs" />
     <Compile Include="auto\cityLB.cs" />
     <Compile Include="auto\CityLBDistribution.cs" />
     <Compile Include="auto\Echowall.cs" />
+    <Compile Include="auto\GoodUser.cs" />
+    <Compile Include="auto\GroupUser.cs" />
+    <Compile Include="auto\invGoodUser.cs" />
     <Compile Include="auto\LB_INFO.cs" />
+    <Compile Include="auto\meetingtable.cs" />
+    <Compile Include="auto\multimessagepooltable.cs" />
+    <Compile Include="auto\singlemessagepooltable.cs" />
     <Compile Include="auto\staticinfotable.cs" />
     <Compile Include="auto\trajectory.cs" />
+    <Compile Include="auto\travetable.cs" />
+    <Compile Include="auto\USER_INFO.cs" />
     <Compile Include="BBSCONTENTS.cs" />
     <Compile Include="BBSTITLE_TABLE.cs" />
     <Compile Include="CCBBS_TABLE.cs" />
+    <Compile Include="chartgrouptable.cs" />
     <Compile Include="cityLB.cs" />
     <Compile Include="CityLBDistribution.cs" />
     <Compile Include="CTBBS_TABLE.cs" />
     <Compile Include="Echowall.cs" />
     <Compile Include="FILE_TABLE.cs" />
     <Compile Include="GEN_INFO.cs" />
+    <Compile Include="GoodUser.cs" />
+    <Compile Include="GroupUser.cs" />
+    <Compile Include="invGoodUser.cs" />
     <Compile Include="LB_INFO.cs" />
+    <Compile Include="meetingtable.cs" />
     <Compile Include="moduleBBS_Table.cs" />
+    <Compile Include="multimessagepooltable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -96,10 +111,12 @@
     <Compile Include="PUBLIC_RECORD.cs" />
     <Compile Include="ROOT_INFO.cs" />
     <Compile Include="SHAPE_TABLE.cs" />
+    <Compile Include="singlemessagepooltable.cs" />
     <Compile Include="staticinfotable.cs" />
     <Compile Include="sysdiagrams.cs" />
     <Compile Include="systemmodel\objectkeyname.cs" />
     <Compile Include="trajectory.cs" />
+    <Compile Include="travetable.cs" />
     <Compile Include="USER_INFO.cs" />
     <Compile Include="View_CC_U.cs" />
     <Compile Include="View_CT_U.cs" />
