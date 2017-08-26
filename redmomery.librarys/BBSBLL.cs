@@ -63,7 +63,7 @@ namespace redmomery.librarys
                 return true;
             return false;
         }
-        public static int  PostCommentByTID(Model.CTBBS_TABLE CT)
+        public static int PostCommentByTID(Model.CTBBS_TABLE CT)
         {
             CTBBS_TABLEDAL dal = new CTBBS_TABLEDAL();
             int CID = dal.addNew(CT);
@@ -217,7 +217,7 @@ namespace redmomery.librarys
         /// 根据信息创建老兵对象
         /// </summary>
         /// <returns></returns>
-        public  static LB_INFO CreateLBInFo(string LBName, string LBjob, string LBsex, string Birthday, string Domicicile, string designation, string lbExperirence, string lblife, string LBPoto, float? x, float? y)
+        public static LB_INFO CreateLBInFo(string LBName, string LBjob, string LBsex, string Birthday, string Domicicile, string designation, string lbExperirence, string lblife, string LBPoto, float? x, float? y)
         {
             //开始根据这些信息创建字段
             LB_INFO lb = new LB_INFO();
@@ -241,7 +241,7 @@ namespace redmomery.librarys
             if ((lb.X.ToString() != "" && lb.X.ToString() != "") && ((float)(lb.X) >= 0 && (float)(lb.X) >= 0))
             {
                 string locationpoint = "POINT(" + lb.X.ToString() + " " + lb.Y.ToString() + ")";
-                string localpoint =  locationpoint;//SqlGeography.STPointFromText(pars, 4326);
+                string localpoint = locationpoint;//SqlGeography.STPointFromText(pars, 4326);
                 lb.Location = localpoint;
             }
             return lb;
@@ -294,31 +294,35 @@ namespace redmomery.librarys
             return LB;
         }
         //--------------------------------LB_INFO故事论坛评论加载-------------------------------------------------
-           //删除
+        //删除
         public static bool updataDelLBInfo(LB_INFO Lb)
         {
             Lb.LBdelete = 1;
             LB_INFODAL dal = new LB_INFODAL();
-            return   dal.update(Lb);
+            return dal.update(Lb);
         }
         public static bool deleteLbinfo(LB_INFO lb)
         {
             bool result = false;
             cityLBDAL cdal = new cityLBDAL();
             if (cdal.deleteByLBID(lb.ID.ToString()))
-            { 
-                EchowallDAL edal=new EchowallDAL();
+            {
+                EchowallDAL edal = new EchowallDAL();
                 if (edal.DelByLBID(lb.ID.ToString()))
                 {
-                    LB_INFODAL ldal = new LB_INFODAL();
-                    if (ldal.delete(lb.ID))
+                    trajectoryDAL tdal = new trajectoryDAL();
+                    if (tdal.deleteByLBID(lb.ID.ToString()))
                     {
-                        result = result;
+                        LB_INFODAL ldal = new LB_INFODAL();
+                        if (ldal.delete(lb.ID))
+                        {
+                            result = true; ;
+                        }
                     }
                 }
             }
             return result;
-        
+
         }
 
         //----------------------------------------根据老兵的ID，获取帖子，评论，评论的回复-------------------------

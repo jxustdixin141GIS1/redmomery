@@ -448,17 +448,19 @@ function getlnglatbycityName(cityname)
                }
      }
 24、在线发表聚会服务功能，在线交流功能的数据库表格群
-    聚会功能：meetingtable
+    聚会功能：meetingtable-----------1
         字段：ID：标志
      		  UID：发布人ID
+     		  GID：聊天群组ID
               TTime：发布时间
               local：聚会地点
               context：聚会内容
               vnum：发布人参与人数
-              ischecking：是否经过验证，表示这个活动是不是真实有效的
+              ischecking：是否经过验证，表示这个活动是不是真实有效的  0 表示有效  越大越危险
               lng: lng
               lat: lat
-    旅游路线安排：travetable
+
+    旅游路线安排：travetable-------------1
            字段：ID：标识
                  Utime：更新时间
                  UID：添加人
@@ -468,36 +470,65 @@ function getlnglatbycityName(cityname)
                  Vtime:参见聚会的时间
                  lng：lng 经度
                  lat：lat 纬度
+                 point：object 点的几何坐标
                  isOK:表示最终同意
                  nOk：同意的人数
                  nY:点赞数
-    聊天群组表：chartgrouptable
+
+    聊天群组表：chartgrouptable-----1
            字段：ID:标识
-                Ftime：创建
+                UID：创建人ID
+                Ctime：创建时间
                 description：群组描述
                 vnum：群组人数
+    群组人员列表：GroupUser  //这个东西建议存放在服务器中----1
+                 UID：用户ID
+                 GroupID：聊天群组ID
+                 groupname：在聊天组里的名称
+
+       好友列表：GoodUser
+                LUID：用户ID（发起人）
+                RUID：用户ID（接收方）
+                groundname：好友分组
+
+       好友申请表：invGoodUser
+                 LUID：用户ID，申请人
+                 RUID：接收人，被添加者
+                 ctime：创建留言的时间
+                 message：留言
+                 ISINV：留言类型，申请加为好友0 ，简单留言 1 ，其他待定
     个人聊天记录池：singlemessagepooltable
-           字段：ID：标识
+           字段：
                  FUID：发布者用户ID
                  TUID：接收者ID
                  Ftime：发布时间
                  context：消息内容，
                           （对于照片进行传输，对于视频也可以传输）
                  isread：表示是不是已经读取了。
-    群组聊天记录池：multimessagepooltable（建议这里聊天信息，为7天）
-            字段：ID：标识
+                 MD5：消息记录标识
+    群组聊天记录池：multimessagepooltable（建议这里聊天信息，为7天，）
+            字段：
                   FUID：发布者ID
                   TGID：发布到的群组ID
                   Ftime：发布时间
                   context:消息内容
                   Rnum：读取者人数
                   Snum：应读人数
-
+                  MD5：消息标识
 
     具体策略：客户端：（定时的刷新消息，发送消息，存储聊天记录，展示活动列表）
              服务器：（提供信息的查询功能，消息中转，图片中转，创建活动列表，读取活动列表）
-25、老兵信息进行删除时：
+25、老兵信息进行删除时：-------1
                  留言墙：1
                  老兵城市统计表：2
-                 老兵表：3 
+                 老兵轨迹表：3
+                 老兵表：4
     老兵客户端：更新删除字段 LBdelete
+    好友注册申请：1、点击需要加为好友的人
+                 2、进入好友的页面
+                 3、选择是否添加为好友
+                 4、后台处理，将消息发送到被添加为好友的消息库中，可是为
+                 5、
+
+26、数据库更新比较：UserInfo进行更改
+                  添加了IsPass列 0 标识正常通过 1 表示在审查中 2 表示管理员
