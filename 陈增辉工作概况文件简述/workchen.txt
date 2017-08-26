@@ -447,13 +447,33 @@ function getlnglatbycityName(cityname)
                  "level":"区县"
                }
      }
-24、在线发表聚会服务功能
-    聚会功能：
-       字段： ID：标志
+24、在线发表聚会服务功能，在线交流功能的数据库表格群
+    聚会功能：meetingtable
+        字段：ID：标志
+     		  UID：发布人ID
               TTime：发布时间
               local：聚会地点
               context：聚会内容
-              UID：发布人ID
               vnum：发布人参与人数
+              ischecking：是否经过验证，表示这个活动是不是真实有效的
               lng: lng
-              lat:lat
+              lat: lat
+    旅游路线安排：travetable
+           字段：ID：标识
+                 Utime：更新时间
+                 UID：添加人
+                 meetID：聚会的ID
+                 context：安排的内容
+                 local：地点
+                 Vtime:参见聚会的时间
+                 lng：lng 经度
+                 lat：lat 纬度
+                 isOK:表示最终同意
+                 nOk：同意的人数
+                 nY:点赞数
+    聊天群组表：chartgrouptable
+           字段：ID:标识
+                Ftime：创建
+                description：群组描述
+                vnum：群组人数
+    聊天记录池：

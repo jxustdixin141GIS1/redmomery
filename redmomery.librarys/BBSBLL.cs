@@ -238,8 +238,8 @@ namespace redmomery.librarys
             //创建几何对象
             if ((lb.X.ToString() != "" && lb.X.ToString() != "") && ((float)(lb.X) >= 0 && (float)(lb.X) >= 0))
             {
-                string locationpoint = "Point(" + lb.X.ToString() + " " + lb.Y.ToString() + ")";
-                string localpoint = "geometry::STGeomFromText('" + locationpoint + "', 4326)";//SqlGeography.STPointFromText(pars, 4326);
+                string locationpoint = "POINT(" + lb.X.ToString() + " " + lb.Y.ToString() + ")";
+                string localpoint =  locationpoint;//SqlGeography.STPointFromText(pars, 4326);
                 lb.Location = localpoint;
             }
             return lb;
