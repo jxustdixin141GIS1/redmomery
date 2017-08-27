@@ -20,7 +20,7 @@ namespace redmomery.librarys
 {
     public partial class ChartOnlinelib
     {
-       //当用户创建一个活动信息时 ,创建成功就返回活动信息
+       //当用户创建一个活动信息时 ,创建成功就返回活动信息，失败就返回空对象
         public static meetingtable Usertakeon(USER_INFO user,string local,string content,string suject)
         {
            meetingtable mt=CreateMeet(user.USER_ID.ToString(),local,content,suject );

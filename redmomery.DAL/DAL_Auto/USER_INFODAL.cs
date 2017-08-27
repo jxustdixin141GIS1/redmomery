@@ -89,7 +89,7 @@ namespace redmomery.DAL
 			model.USER_IMG = (string)row["USER_IMG"];
 			model.USER_PSWD = (string)row["USER_PSWD"];
 			model.ISPASS = (int)row["ISPASS"];
-			model.MD5 = (string)row["MD5"];
+			model.MD5 = (string)row["MD5"].ToString();
 			return model;
 		}
 

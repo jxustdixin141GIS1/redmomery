@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>评论模块测试页面</title>
+    <script src="../../Scripts/jquery-1.4.4.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function Submit() {
+            $("#frmRegist").submit();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <form id="frmRegist" action="/BBS/submitComtent" method="post">
+            <table border="2">
+                <tbody>
+                    <tr>
+                        <th colspan="2">User Regist</th>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" id="txtUsername" name="Username"></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="txtPassword"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="button" id="btnSubmit" value="Regist" onclick="Submit()"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
