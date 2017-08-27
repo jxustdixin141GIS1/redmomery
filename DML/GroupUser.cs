@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace redmomery.Model
 {
-  public    class GroupUser
+    public partial class GroupUser
     {
     }
 }

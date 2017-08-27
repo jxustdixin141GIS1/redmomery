@@ -11,7 +11,7 @@ namespace redmomery.Model
 		public string USER_NAME { get; set; }
 		public string USER_SEX { get; set; }
 		public string USER_JOB { get; set; }
-		public DateTime USER_BIRTHDAY { get; set; }
+		public string USER_BIRTHDAY { get; set; }
 		public string USER_ADDRESS { get; set; }
 		public string USER_PHONE { get; set; }
 		public string USER_EMEIL { get; set; }

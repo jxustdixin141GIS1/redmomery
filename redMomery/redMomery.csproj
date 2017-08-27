@@ -133,6 +133,7 @@
     <Compile Include="Controllers\searchController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\uploadController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ZCZXController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1753,6 +1754,7 @@
     <Content Include="resource\js\jquery.imagesloaded.min.js" />
     <Content Include="resource\js\jquery.js" />
     <Content Include="resource\js\jquery.lettering.js" />
+    <Content Include="resource\js\jquery.md5.js" />
     <Content Include="resource\js\jquery.min.js" />
     <Content Include="resource\js\jquery.textillate.js" />
     <Content Include="resource\js\jquery.treemenu.js" />

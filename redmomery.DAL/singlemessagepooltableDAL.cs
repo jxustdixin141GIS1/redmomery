@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace redmomery.DAL
 {
-   public  class singlemessagepooltableDAL
+    public partial class singlemessagepooltableDAL
     {
     }
 }

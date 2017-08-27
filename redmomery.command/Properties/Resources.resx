@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="emailadress" xml:space="preserve">
+    <value>18720728252@163.com</value>
+  </data>
+  <data name="emailname" xml:space="preserve">
+    <value>18720728252</value>
+  </data>
+  <data name="emailpassword" xml:space="preserve">
+    <value>chenliu0904</value>
+  </data>
   <data name="redmomeryak" xml:space="preserve">
     <value>WqQgeC4x8uBKhnrkUZVs0kDbgtl7eUMM</value>
   </data>

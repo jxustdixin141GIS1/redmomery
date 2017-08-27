@@ -10,12 +10,14 @@ using redmomery.DAL;
 using redmomery.Model;
 using redmomery.librarys;
 using redmomery.command;
+using redmomery.Common;
 using System.Net;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Runtime.InteropServices;
 using NLRedmomery;
+using System.Net.Mail;  
 //using PanGu;
 //using PanGu.Dict;
 //using PanGu.Framework;
@@ -30,16 +32,8 @@ namespace ConsoleApplication1test
         static void Main(string[] args)
         {
 
-            //LB_INFO mao = new LB_INFO();
-            //mao.LBname = "毛泽东";
-            //mao.LBjob = "国家主席";
-            //mao.LBsex = "男";
-            //mao.LBbirthday = "1893年12月26日";
-            //mao.LBdomicile = "背景天安门";
-            //mao.designation ="国家主席，新中国的领导者"; 
-            //mao.LBexperience= redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt");
-            //mao.LBlife = "现已去世";
-            //BBSBLL.CreateLBandTitle(1, mao.LBname, mao.LBjob, mao.LBsex,mao.LBbirthday,mao.LBdomicile,mao.designation.ToString(),mao.LBexperience.ToString(),mao.LBlife.ToString(),"");
+
+           
             Console.WriteLine("程序结束");
             Console.Read();
 
@@ -65,8 +59,15 @@ namespace ConsoleApplication1test
             distance = (ba.result.location.lng - Gcenter.lng) * (ba.result.location.lng - Gcenter.lng) + (ba.result.location.lat - Gcenter.lat) * (ba.result.location.lat - Gcenter.lat);
             return distance;
         }
+       
         //中间临时建立的对象，这里需要对此进行进一步的划分 
     }
+
+
+
+
+
+
 
     public class LbyL
     {

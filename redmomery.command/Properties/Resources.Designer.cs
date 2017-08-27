@@ -61,6 +61,33 @@ namespace redmomery.command.Properties {
         }
         
         /// <summary>
+        ///   查找类似 18720728252@163.com 的本地化字符串。
+        /// </summary>
+        internal static string emailadress {
+            get {
+                return ResourceManager.GetString("emailadress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 18720728252 的本地化字符串。
+        /// </summary>
+        internal static string emailname {
+            get {
+                return ResourceManager.GetString("emailname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 chenliu0904 的本地化字符串。
+        /// </summary>
+        internal static string emailpassword {
+            get {
+                return ResourceManager.GetString("emailpassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 WqQgeC4x8uBKhnrkUZVs0kDbgtl7eUMM 的本地化字符串。
         /// </summary>
         internal static string redmomeryak {

@@ -111,7 +111,6 @@
     <Compile Include="EmailHelper.cs" />
     <Compile Include="NIPIR_C3.cs" />
     <Compile Include="Geocodingcommand.cs" />
-    <Compile Include="MailPage.cs" />
     <Compile Include="MD5Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -120,6 +119,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SerializerHelper.cs" />
+    <Compile Include="UtilSp.ClassLib\Base64Sp.cs" />
+    <Compile Include="UtilSp.ClassLib\FileSp.cs" />
+    <Compile Include="UtilSp.ClassLib\IpPortSp.cs" />
+    <Compile Include="UtilSp.ClassLib\MailSp.cs" />
+    <Compile Include="UtilSp.ClassLib\RegexSp.cs" />
+    <Compile Include="UtilSp.ClassLib\SmtpSp.cs" />
     <Compile Include="ValidateCode.cs" />
   </ItemGroup>
   <ItemGroup>

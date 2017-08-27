@@ -81,7 +81,7 @@ namespace redmomery.DAL
 			model.USER_NAME = (string)row["USER_NAME"];
 			model.USER_SEX = (string)row["USER_SEX"];
 			model.USER_JOB = (string)row["USER_JOB"];
-			model.USER_BIRTHDAY = (DateTime)row["USER_BIRTHDAY"];
+			model.USER_BIRTHDAY = (string)row["USER_BIRTHDAY"];
 			model.USER_ADDRESS = (string)row["USER_ADDRESS"];
 			model.USER_PHONE = (string)row["USER_PHONE"];
 			model.USER_EMEIL = (string)row["USER_EMEIL"];

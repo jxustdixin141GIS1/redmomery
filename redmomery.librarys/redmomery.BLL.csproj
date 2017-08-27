@@ -66,11 +66,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BBSBLL.cs" />
+    <Compile Include="ChartOnline.cs" />
     <Compile Include="Echowalllib.cs" />
     <Compile Include="LbTextParse.cs" />
     <Compile Include="modelrecomment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="staticbydata.cs" />
+    <Compile Include="UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

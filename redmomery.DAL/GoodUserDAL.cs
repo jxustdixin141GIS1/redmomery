@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace redmomery.DAL
 {
-  public   class GoodUserDAL
+    public partial class GoodUserDAL
     {
     }
 }

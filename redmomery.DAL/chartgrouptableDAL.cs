@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace redmomery.DAL
 {
-    public class chartgrouptableDAL
+    public partial class chartgrouptableDAL
     {
     }
 }
