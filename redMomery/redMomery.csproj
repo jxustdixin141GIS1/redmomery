@@ -32,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -43,19 +44,19 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ivony.Core">
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Ivony.Html">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.dll</HintPath>
     </Reference>
     <Reference Include="Ivony.Html.Parser">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.Parser.dll</HintPath>
     </Reference>
     <Reference Include="Ivony.Html.Parser.Regulars">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.Regulars.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.Parser.Regulars.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -123,13 +124,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BBSController.cs" />
+    <Compile Include="Controllers\ChatrealTimeController.cs" />
     <Compile Include="Controllers\CommandServeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LBbxController.cs" />
     <Compile Include="Controllers\LBController.cs" />
     <Compile Include="Controllers\LBZLController.cs" />
     <Compile Include="Controllers\searchController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\uploadController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ZCZXController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1750,6 +1754,7 @@
     <Content Include="resource\js\jquery.imagesloaded.min.js" />
     <Content Include="resource\js\jquery.js" />
     <Content Include="resource\js\jquery.lettering.js" />
+    <Content Include="resource\js\jquery.md5.js" />
     <Content Include="resource\js\jquery.min.js" />
     <Content Include="resource\js\jquery.textillate.js" />
     <Content Include="resource\js\jquery.treemenu.js" />
@@ -1819,8 +1824,12 @@
     <Content Include="resource\js\LBUpload.js" />
     <Content Include="resource\js\tribune.js" />
     <Content Include="resource\js\video.js" />
+    <Content Include="resource\js\ZCZXanniu.js" />
     <Content Include="resource\staticfile\citybaiduinfo.js" />
     <Content Include="resource\js\ZCZX.js" />
+    <Content Include="resource\staticfile\cityinfo.js" />
+    <Content Include="resource\staticfile\Treatmentdata.js" />
+    <Content Include="resource\staticfile\various.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1839,7 +1848,7 @@
     <Content Include="Views\upload\Index.cshtml" />
     <Content Include="Views\CommandServe\GetXYByAddess.cshtml" />
     <Content Include="Views\BBS\LBComment.cshtml" />
-    <Content Include="Views\upload\summitForm.cshtml" />
+    <Content Include="Views\User\summitForm.cshtml" />
     <Content Include="Views\LBbx\LBupload.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1868,9 +1877,9 @@
     <Content Include="resource\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DML\redmomery.MDL.csproj">
+    <ProjectReference Include="..\DML\redmomery.Model.csproj">
       <Project>{7790ec9c-719f-4575-a2ab-b26c9f926284}</Project>
-      <Name>redmomery.MDL</Name>
+      <Name>redmomery.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\redmomery.command\redmomery.command.csproj">
       <Project>{cd72d7c1-227a-40d4-8b3a-b7c16f697a10}</Project>
@@ -1892,9 +1901,6 @@
     <Content Include="Views\LB\LB.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\LBZL\LBZL.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\ZCZX\ZCZX.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1903,9 +1909,49 @@
   <ItemGroup>
     <Content Include="Views\search\index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LBZL\LBZL.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Statistics\cityLb.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Statistics\LBsexstatistics.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Statistics\provinceLB.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ChatrealTime\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Web.config.pubxml" />
+    <Content Include="Views\User\register.cshtml" />
+    <Content Include="Views\User\activation.cshtml" />
+    <Content Include="Views\User\activafault.cshtml" />
+    <Content Include="Views\User\loginuser.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

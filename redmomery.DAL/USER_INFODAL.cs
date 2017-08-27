@@ -48,5 +48,20 @@ namespace redmomery.DAL
             USER_INFO model = ToModel(row);
             return model;
         }
+        public USER_INFO getByMD5(string MD5)
+        {
+            DataTable dt = SqlHelper.ExecuteDataTable("select * from USER_INFO where MD5=@MD5", new SqlParameter("@MD5", MD5));
+            if (dt.Rows.Count > 1)
+            {
+                throw new Exception("more than 1 row was found");
+            }
+            if (dt.Rows.Count <= 0)
+            {
+                return null;
+            }
+            DataRow row = dt.Rows[0];
+            USER_INFO model = ToModel(row);
+            return model;
+        }
 	}
 }

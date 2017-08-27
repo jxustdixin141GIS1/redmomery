@@ -6,11 +6,11 @@ using redmomery.Model;
 using redmomery.DAL;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
-using Microsoft.SqlServer.Types;
 namespace redmomery.librarys
 {
     public abstract partial class BBSBLL
     {
+        #region 论坛提交
         /// <summary>
         /// 提交回复评论功能
         /// </summary>
@@ -118,7 +118,7 @@ namespace redmomery.librarys
             newm1.U_TIME = DateTime.Now;
             return false;
         }
-
+        #endregion
         #region  论坛展示功能
         #region  论坛搜索功能
 
@@ -197,7 +197,7 @@ namespace redmomery.librarys
             newt1.pass_TIME = DateTime.ParseExact("9999/12/31", "yyyy/MM/dd", null);
             newt1.F_TIME = DateTime.Now;
             newt1.Authonrity = 10;
-            newt1.MD5 = redmomery.Common.MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newt1));
+            newt1.MD5 = redmomery.Common.MD5Helper.EncryptString(newt1.Authonrity + newt1.F_TIME.ToString() + newt1.M_ID.ToString() + newt1.Context + newt1.TITLE);
             //创建管理对应的帖子完毕
             try
             {
@@ -205,7 +205,6 @@ namespace redmomery.librarys
                 redmomery.command.createlog.createlogs(count.ToString());
                 newt1 = titledal.getByMD5(newt1.MD5);
                 lb.T_ID = newt1.ID;
-
                 redmomery.command.createlog.createlogs(count.ToString() + ":" + lb.T_ID.ToString());
             }
             catch (Exception ex)
@@ -218,7 +217,7 @@ namespace redmomery.librarys
         /// 根据信息创建老兵对象
         /// </summary>
         /// <returns></returns>
-        private static LB_INFO CreateLBInFo(string LBName, string LBjob, string LBsex, string Birthday, string Domicicile, string designation, string lbExperirence, string lblife, string LBPoto, float? x, float? y)
+        public static LB_INFO CreateLBInFo(string LBName, string LBjob, string LBsex, string Birthday, string Domicicile, string designation, string lbExperirence, string lblife, string LBPoto, float? x, float? y)
         {
             //开始根据这些信息创建字段
             LB_INFO lb = new LB_INFO();
@@ -231,6 +230,7 @@ namespace redmomery.librarys
             lb.LBexperience = lbExperirence;
             lb.LBlife = lblife;
             lb.LBPhoto = LBPoto;
+            lb.LBdelete = 0;
             lb.X = x;
             lb.Y = y;
             if ((x.ToString() == "" && y.ToString() == "") || (x < 0 && y < 0))
@@ -240,18 +240,14 @@ namespace redmomery.librarys
             //创建几何对象
             if ((lb.X.ToString() != "" && lb.X.ToString() != "") && ((float)(lb.X) >= 0 && (float)(lb.X) >= 0))
             {
-
-                string locationpoint = "Point(" + lb.X.ToString() + " " + lb.Y.ToString() + ")";
-                SqlString parstring = new SqlString(locationpoint);
-                SqlChars pars = new SqlChars(parstring);
-                SqlGeography localpoint = SqlGeography.STPointFromText(pars, 4326);
+                string locationpoint = "POINT(" + lb.X.ToString() + " " + lb.Y.ToString() + ")";
+                string localpoint = locationpoint;//SqlGeography.STPointFromText(pars, 4326);
                 lb.Location = localpoint;
             }
             return lb;
         }
-
         /// <summary>
-        /// 创建lb与帖子的关键方法
+        /// 创建lb与帖子的关连方法
         /// </summary>
         /// <param name="U_ID"></param>
         /// <param name="LBName"></param>
@@ -284,12 +280,13 @@ namespace redmomery.librarys
                 try
                 {
                     int ID = dal.addNew(LB);
-
                     LB = dal.get(ID);
+                    staticbydata.AddCityLBByLB(LB);
                 }
                 catch (Exception ex)
                 {
                     BBSTITLE_TABLEDAL dals = new BBSTITLE_TABLEDAL();
+                    staticbydata.DeleteCityLBByLB(LB);
                     dals.delete(LB.ID);
                     LB = null;
                 }
@@ -297,6 +294,36 @@ namespace redmomery.librarys
             return LB;
         }
         //--------------------------------LB_INFO故事论坛评论加载-------------------------------------------------
+        //删除
+        public static bool updataDelLBInfo(LB_INFO Lb)
+        {
+            Lb.LBdelete = 1;
+            LB_INFODAL dal = new LB_INFODAL();
+            return dal.update(Lb);
+        }
+        public static bool deleteLbinfo(LB_INFO lb)
+        {
+            bool result = false;
+            cityLBDAL cdal = new cityLBDAL();
+            if (cdal.deleteByLBID(lb.ID.ToString()))
+            {
+                EchowallDAL edal = new EchowallDAL();
+                if (edal.DelByLBID(lb.ID.ToString()))
+                {
+                    trajectoryDAL tdal = new trajectoryDAL();
+                    if (tdal.deleteByLBID(lb.ID.ToString()))
+                    {
+                        LB_INFODAL ldal = new LB_INFODAL();
+                        if (ldal.delete(lb.ID))
+                        {
+                            result = true; ;
+                        }
+                    }
+                }
+            }
+            return result;
+
+        }
 
         //----------------------------------------根据老兵的ID，获取帖子，评论，评论的回复-------------------------
         public static LB_INFO getLB_INFOByID(int ID)

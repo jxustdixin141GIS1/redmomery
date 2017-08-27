@@ -4,14 +4,13 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace  redmomery.Common
+namespace redmomery.command
 {
-  public  class EmailHelper
+    public class EmailHelper
     {
         #region Eail 属性
 
-        private string _mailFrom = "postmaster@sharegis.cn";
+        private string _mailFrom = "postmaster@redmomery.cn";
         /// <summary>
         /// 发送者
         /// </summary>
@@ -42,7 +41,7 @@ namespace  redmomery.Common
         /// </summary>
         public string mailPwd { get; set; }
 
-        private string _host = "smtp.sharegis.cn";
+        private string _host = "smtp.redmomery.cn";
         /// <summary>
         /// SMTP邮件服务器
         /// </summary>
@@ -54,7 +53,7 @@ namespace  redmomery.Common
         /// </summary>
         public bool isbodyHtml { get { return _isbodyHtml; } set { _isbodyHtml = value; } }
 
-        private string _nickname = "你在哪 系统通知";
+        private string _nickname = "红色记忆 系统通知";
         /// <summary>
         /// 发送者昵称
         /// </summary>
@@ -171,6 +170,41 @@ namespace  redmomery.Common
                 return false;
             }
 
+        }
+    }
+    public  class PageMail
+    {
+      public string senderAddress = "";//System.Configuration.ConfigurationManager.AppSettings["EmailAdress"].ToString();
+      public List<string> reciveaddres = new List<string>();
+      public string subject = "";
+      public string content = "";
+      public string userName = "";
+      public string password = "";
+      public string servehf = "";
+      public int port = 25;
+      public bool ishtml = false;
+        public PageMail()
+        {
+            senderAddress =System.Configuration.ConfigurationManager.AppSettings["EmailAdress"].ToString();
+            userName = System.Configuration.ConfigurationManager.AppSettings["Emailname"].ToString();
+            password = System.Configuration.ConfigurationManager.AppSettings["Emailpassword"].ToString();
+            servehf = System.Configuration.ConfigurationManager.AppSettings["EmailHost"].ToString();
+            port = int.Parse(System.Configuration.ConfigurationManager.AppSettings["port"].ToString());
+        }
+
+        public  bool Sends()
+        {
+            SmtpSp smtpSp = new SmtpSp();
+            smtpSp.ishtml = ishtml;
+            SmtpSp.MailInfo mailInfo = new SmtpSp.MailInfo();
+            mailInfo.senderAddress_pro = senderAddress;
+            mailInfo.receiverAddresses_pro = reciveaddres;
+            mailInfo.subject_pro = subject;
+            mailInfo.content_pro = content;
+            mailInfo.userName_pro = userName;
+            mailInfo.password_pro = password;
+            bool isok=  smtpSp.send(servehf,port,mailInfo);
+            return isok;
         }
     }
 }

@@ -15,21 +15,10 @@ namespace redMomery.Controllers
         
         public ActionResult Index()
         {
-            
-            USER_INFO userinfo = new USER_INFO();
-            USER_INFODAL udal = new USER_INFODAL();
-            userinfo = udal.Get(1);
-            Session["userinfo"] = userinfo;
             return View();
         }
         public ActionResult datetests()
         {  
-       
-            USER_INFO userinfo = (USER_INFO)Session["userinfo"];
-            if (userinfo != null)
-            {
-                redmomery.command.createlog.createlogs(Session["userinfo"].ToString());
-            }
                  return View();
         }
         #region 常用的网络

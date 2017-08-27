@@ -45,6 +45,22 @@ namespace redmomery.DAL
             }
             return list;
         }
+        //
+        public string localtiontoWKT(LB_INFO lb)
+        {
+            if (lb.X.ToString() != "" && lb.Y.ToString() != "")
+            {
+                string locationpoint = "Point(" + lb.X.ToString() + " " + lb.Y.ToString() + ")";
+                string localpoint = locationpoint.ToUpper();//"geometry::STGeomFromText('" + locationpoint.ToUpper() + "', 4326)";//SqlGeography.STPointFromText(pars, 4326);
+                lb.Location = localpoint;
+            }
+            else
+            {
+                lb.Location = "null";
+            }
+            return lb.Location.ToString();
+        }
+
 
 
         //-----------------自动生成的代码

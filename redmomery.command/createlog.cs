@@ -10,7 +10,7 @@ namespace redmomery.command
        public static void createlogs(string text)
       {
          //开始创建文件地址
-          string path = @"D:\题库系统\github\team\redmomery\调试\" + "_" + DateTime.Now.ToString("yyyy_MM_dd_hh_mm") + ".txt";
+          string path = @"D:\题库系统\github\team\redmomery\调试\" + "_" + DateTime.Now.ToString("yyyy_MM_dd_hh_mm") + "err.txt";
           FileStream fs = new FileStream(path,FileMode.OpenOrCreate,FileAccess.ReadWrite);
           if (fs.Length > 0)
           {
@@ -61,7 +61,6 @@ namespace redmomery.command
        {
            //开始创建文件地址
            string path =paths+"\\" + filename;
-           text = Encoding.UTF8.GetString(Encoding.Default.GetBytes(text));
            FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
            if (fs.Length > 0)
            {

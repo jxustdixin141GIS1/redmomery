@@ -13,8 +13,8 @@ namespace redmomery.DAL
 		public int AddNew(USER_INFO model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO USER_INFO(USER_ID,USER_NAME,USER_SEX,USER_JOB,USER_BIRTHDAY,USER_ADDRESS,USER_PHONE,USER_EMEIL,USER_NETNAME,USER_IMG,USER_PSWD,MD5) VALUES (@USER_ID,@USER_NAME,@USER_SEX,@USER_JOB,@USER_BIRTHDAY,@USER_ADDRESS,@USER_PHONE,@USER_EMEIL,@USER_NETNAME,@USER_IMG,@USER_PSWD,@MD5);SELECT @@identity"
-				,new SqlParameter("@USER_ID", model.USER_ID)
+				"INSERT INTO USER_INFO(USER_NAME,USER_SEX,USER_JOB,USER_BIRTHDAY,USER_ADDRESS,USER_PHONE,USER_EMEIL,USER_NETNAME,USER_IMG,USER_PSWD,ISPASS,MD5) VALUES (@USER_NAME,@USER_SEX,@USER_JOB,@USER_BIRTHDAY,@USER_ADDRESS,@USER_PHONE,@USER_EMEIL,@USER_NETNAME,@USER_IMG,@USER_PSWD,@ISPASS,@MD5);SELECT @@identity"
+				
 				,new SqlParameter("@USER_NAME", model.USER_NAME)
 				,new SqlParameter("@USER_SEX", model.USER_SEX)
 				,new SqlParameter("@USER_JOB", model.USER_JOB)
@@ -25,6 +25,7 @@ namespace redmomery.DAL
 				,new SqlParameter("@USER_NETNAME", model.USER_NETNAME)
 				,new SqlParameter("@USER_IMG", model.USER_IMG)
 				,new SqlParameter("@USER_PSWD", model.USER_PSWD)
+				,new SqlParameter("@ISPASS", model.ISPASS)
 				,new SqlParameter("@MD5", model.MD5)
 			);
 			return Convert.ToInt32(obj);
@@ -38,7 +39,7 @@ namespace redmomery.DAL
 
 		public bool Update(USER_INFO model)
 		{
-			string sql = "UPDATE USER_INFO SET USER_ID=@USER_ID,USER_NAME=@USER_NAME,USER_SEX=@USER_SEX,USER_JOB=@USER_JOB,USER_BIRTHDAY=@USER_BIRTHDAY,USER_ADDRESS=@USER_ADDRESS,USER_PHONE=@USER_PHONE,USER_EMEIL=@USER_EMEIL,USER_NETNAME=@USER_NETNAME,USER_IMG=@USER_IMG,USER_PSWD=@USER_PSWD,MD5=@MD5 WHERE USER_ID=@USER_ID";
+			string sql = "UPDATE USER_INFO SET         USER_NAME=@USER_NAME,USER_SEX=@USER_SEX,USER_JOB=@USER_JOB,USER_BIRTHDAY=@USER_BIRTHDAY,USER_ADDRESS=@USER_ADDRESS,USER_PHONE=@USER_PHONE,USER_EMEIL=@USER_EMEIL,USER_NETNAME=@USER_NETNAME,USER_IMG=@USER_IMG,USER_PSWD=@USER_PSWD,ISPASS=@ISPASS,MD5=@MD5 WHERE USER_ID=@USER_ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@USER_ID", model.USER_ID)
 				, new SqlParameter("@USER_NAME", model.USER_NAME)
@@ -51,6 +52,7 @@ namespace redmomery.DAL
 				, new SqlParameter("@USER_NETNAME", model.USER_NETNAME)
 				, new SqlParameter("@USER_IMG", model.USER_IMG)
 				, new SqlParameter("@USER_PSWD", model.USER_PSWD)
+				, new SqlParameter("@ISPASS", model.ISPASS)
 				, new SqlParameter("@MD5", model.MD5)
 			);
 			return rows > 0;
@@ -79,14 +81,15 @@ namespace redmomery.DAL
 			model.USER_NAME = (string)row["USER_NAME"];
 			model.USER_SEX = (string)row["USER_SEX"];
 			model.USER_JOB = (string)row["USER_JOB"];
-			model.USER_BIRTHDAY = (DateTime)row["USER_BIRTHDAY"];
+			model.USER_BIRTHDAY = (string)row["USER_BIRTHDAY"];
 			model.USER_ADDRESS = (string)row["USER_ADDRESS"];
 			model.USER_PHONE = (string)row["USER_PHONE"];
 			model.USER_EMEIL = (string)row["USER_EMEIL"];
 			model.USER_NETNAME = (string)row["USER_NETNAME"];
-            model.USER_IMG = (string)row["USER_IMG"].ToString() == "" ? "" : (string)row["USER_IMG"]; 
+			model.USER_IMG = (string)row["USER_IMG"];
 			model.USER_PSWD = (string)row["USER_PSWD"];
-            model.MD5 = (string)row["MD5"].ToString() == "" ? "" : (string)row["MD5"].ToString();
+			model.ISPASS = (int)row["ISPASS"];
+			model.MD5 = (string)row["MD5"].ToString();
 			return model;
 		}
 

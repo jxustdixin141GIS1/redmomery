@@ -1,0 +1,10 @@
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\x64\Debug\redmomery.DAL.dll.config
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\x64\Debug\redmomery.DAL.dll
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\x64\Debug\redmomery.DAL.pdb
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\x64\Debug\redmomery.command.exe
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\x64\Debug\redmomery.Model.dll
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\x64\Debug\redmomery.Model.pdb
+D:\题库系统\github\team\redmomery\redmomery.DAL\bin\x64\Debug\redmomery.command.pdb
+D:\题库系统\github\team\redmomery\redmomery.DAL\obj\x64\Debug\redmomery.DAL.csprojResolveAssemblyReference.cache
+D:\题库系统\github\team\redmomery\redmomery.DAL\obj\x64\Debug\redmomery.DAL.dll
+D:\题库系统\github\team\redmomery\redmomery.DAL\obj\x64\Debug\redmomery.DAL.pdb

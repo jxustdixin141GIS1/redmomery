@@ -256,7 +256,6 @@ namespace testtemp
             return result;
         }
         //--------------------------------论坛服务测试结束---------------------------------
-
         [WebMethod]
         public List<string> Bing(string keyword, string selectsite, int PageIndex)
         {
@@ -289,5 +288,44 @@ namespace testtemp
             }
             return list;// result;
         }
+        [WebMethod]
+        public string loadechowall()
+        {
+             List<Echowall> result=new List<Echowall>();
+            string s=string.Empty;
+            //try
+            //{
+               result = Echowalllib.getAllEchowall();
+                return redmomery.Common.SerializerHelper.SerializeToString(result);
+            //}
+            //catch (Exception ex)
+            //{
+            //    redmomery.command.createlog.createlogs(ex.Source.ToString() + "\n\r" + ex.StackTrace.ToString() + "\n\r"+ex.Message);
+            //}
+            //return s;
+        }
+        [WebMethod]
+        public string addechowall(string context)
+        {
+            string s = string.Empty;
+            try
+            {
+                Echowall ec = Echowalllib.Addechowall(context);
+                return redmomery.Common.SerializerHelper.SerializeToString(ec);
+            }
+            catch (Exception ex)
+            {
+                redmomery.command.createlog.createlogs(ex.Source.ToString() + "\n\r" + ex.StackTrace.ToString() + "\n\r");
+            }
+            return s;
+        }
+        [WebMethod]
+        public string parseLbtext(string LBtext,string lbId)
+        {
+            return redmomery.Common.SerializerHelper.SerializeToString(LbTextParse.parseLbstored(int.Parse(lbId), LBtext));  
+        }
+        
+        
     }
+
 }

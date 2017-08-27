@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,25 +43,26 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ivony.Core">
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Ivony.Html">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.dll</HintPath>
     </Reference>
     <Reference Include="Ivony.Html.Parser">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.Parser.dll</HintPath>
     </Reference>
     <Reference Include="Ivony.Html.Parser.Regulars">
-      <HintPath>..\..\..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Web\bin\Ivony.Html.Parser.Regulars.dll</HintPath>
+      <HintPath>..\..\..\备份\redmomery\redMomery\bin\Ivony.Html.Parser.Regulars.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SqlServer.WebServiceTask, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\资源-用于内网传输的\Json100r3\Bin\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -77,8 +80,12 @@
   <ItemGroup>
     <Content Include="BBStest.html" />
     <Content Include="disributioncity.html" />
+    <Content Include="echartsstudent\HtmlPage1.html" />
+    <Content Include="echartsstudent\HtmlPage2.html" />
+    <Content Include="echowall.html" />
     <Content Include="effectScatter-map.html" />
     <Content Include="indexupload.html" />
+    <Content Include="jsonpcallbakepage.html" />
     <Content Include="LBupload.html" />
     <Content Include="redmomeryserver.asmx" />
     <Content Include="resource\Commandjs.js" />
@@ -86,13 +93,55 @@
     <Content Include="resource\css\cmains.css" />
     <Content Include="resource\css\comment.css" />
     <Content Include="resource\css\style_comment.css" />
-    <Content Include="resource\staticfile\Treatmentdata.js" />
-    <Content Include="resource\webjs\dark.js" />
-    <Content Include="resource\webjs\echarts.js" />
-    <Content Include="resource\image\header-img-comment_03.png" />
-    <Content Include="resource\image\head\41afadb7665e2cf76660dc9870f75bdf.jpg" />
-    <Content Include="resource\image\head\be70162581c792921d88f753be0f9550.jpg" />
-    <Content Include="resource\image\icon-all_01.png" />
+    <Content Include="resource\image\lbinfo\1.jpg" />
+    <Content Include="resource\image\lbinfo\11.jpg" />
+    <Content Include="resource\image\lbinfo\12.jpg" />
+    <Content Include="resource\image\lbinfo\13-1.jpg" />
+    <Content Include="resource\image\lbinfo\13.jpg" />
+    <Content Include="resource\image\lbinfo\14.jpg" />
+    <Content Include="resource\image\lbinfo\15.jpg" />
+    <Content Include="resource\image\lbinfo\2.jpg" />
+    <Content Include="resource\image\lbinfo\23.jpg" />
+    <Content Include="resource\image\lbinfo\24.png" />
+    <Content Include="resource\image\lbinfo\25.jpg" />
+    <Content Include="resource\image\lbinfo\26.jpg" />
+    <Content Include="resource\image\lbinfo\28.jpg" />
+    <Content Include="resource\image\lbinfo\29.png" />
+    <Content Include="resource\image\lbinfo\3.jpg" />
+    <Content Include="resource\image\lbinfo\30.jpg" />
+    <Content Include="resource\image\lbinfo\31-2.jpg" />
+    <Content Include="resource\image\lbinfo\31.jpg" />
+    <Content Include="resource\image\lbinfo\32.jpg" />
+    <Content Include="resource\image\lbinfo\33.jpg" />
+    <Content Include="resource\image\lbinfo\34.jpg" />
+    <Content Include="resource\image\lbinfo\35.png" />
+    <Content Include="resource\image\lbinfo\36.png" />
+    <Content Include="resource\image\lbinfo\37.jpg" />
+    <Content Include="resource\image\lbinfo\40.jpg" />
+    <Content Include="resource\image\lbinfo\41.jpg" />
+    <Content Include="resource\image\lbinfo\42.jpg" />
+    <Content Include="resource\image\lbinfo\43.jpg" />
+    <Content Include="resource\image\lbinfo\44.jpg" />
+    <Content Include="resource\image\lbinfo\45.jpg" />
+    <Content Include="resource\image\lbinfo\46.jpg" />
+    <Content Include="resource\image\lbinfo\47.png" />
+    <Content Include="resource\image\lbinfo\49.jpg" />
+    <Content Include="resource\image\lbinfo\5.jpg" />
+    <Content Include="resource\image\lbinfo\56.jpg" />
+    <Content Include="resource\image\lbinfo\58.jpg" />
+    <Content Include="resource\image\lbinfo\59.png" />
+    <Content Include="resource\image\lbinfo\6-1.jpg" />
+    <Content Include="resource\image\lbinfo\6-2.jpg" />
+    <Content Include="resource\image\lbinfo\60.jpg" />
+    <Content Include="resource\image\lbinfo\61.jpg" />
+    <Content Include="resource\image\lbinfo\62.png" />
+    <Content Include="resource\image\lbinfo\63.jpg" />
+    <Content Include="resource\image\lbinfo\65.png" />
+    <Content Include="resource\image\lbinfo\69.jpg" />
+    <Content Include="resource\image\lbinfo\7.jpg" />
+    <Content Include="resource\image\lbinfo\70.jpg" />
+    <Content Include="resource\image\lbinfo\8.jpg" />
+    <Content Include="resource\image\lbinfo\9.jpg" />
     <Content Include="resource\image\lbinfo\A1.jpg" />
     <Content Include="resource\image\lbinfo\A17.jpg" />
     <Content Include="resource\image\lbinfo\A30.jpg" />
@@ -105,11 +154,14 @@
     <Content Include="resource\image\lbinfo\A76.jpg" />
     <Content Include="resource\image\lbinfo\A97.jpg" />
     <Content Include="resource\image\lbinfo\B1.jpg" />
+    <Content Include="resource\image\lbinfo\B14.jpg" />
     <Content Include="resource\image\lbinfo\B15.jpg" />
     <Content Include="resource\image\lbinfo\B16.jpg" />
     <Content Include="resource\image\lbinfo\B17.jpg" />
     <Content Include="resource\image\lbinfo\B18.jpg" />
     <Content Include="resource\image\lbinfo\B19.jpg" />
+    <Content Include="resource\image\lbinfo\B20.jpg" />
+    <Content Include="resource\image\lbinfo\B21.jpg" />
     <Content Include="resource\image\lbinfo\B22.jpg" />
     <Content Include="resource\image\lbinfo\B25.jpg" />
     <Content Include="resource\image\lbinfo\B26.jpg" />
@@ -146,7 +198,9 @@
     <Content Include="resource\image\lbinfo\D26.jpg" />
     <Content Include="resource\image\lbinfo\D27.jpg" />
     <Content Include="resource\image\lbinfo\D28.jpg" />
+    <Content Include="resource\image\lbinfo\D29.jpg" />
     <Content Include="resource\image\lbinfo\D3.jpg" />
+    <Content Include="resource\image\lbinfo\D30.jpg" />
     <Content Include="resource\image\lbinfo\D31.jpg" />
     <Content Include="resource\image\lbinfo\D32.jpg" />
     <Content Include="resource\image\lbinfo\D33.jpg" />
@@ -265,6 +319,7 @@
     <Content Include="resource\image\lbinfo\F17.jpg" />
     <Content Include="resource\image\lbinfo\F18.jpg" />
     <Content Include="resource\image\lbinfo\F19.jpg" />
+    <Content Include="resource\image\lbinfo\F2.jpg" />
     <Content Include="resource\image\lbinfo\F20.jpg" />
     <Content Include="resource\image\lbinfo\F21.jpg" />
     <Content Include="resource\image\lbinfo\F22.jpg" />
@@ -279,13 +334,18 @@
     <Content Include="resource\image\lbinfo\F30.jpg" />
     <Content Include="resource\image\lbinfo\F31.jpg" />
     <Content Include="resource\image\lbinfo\F32.jpg" />
+    <Content Include="resource\image\lbinfo\F33.jpg" />
     <Content Include="resource\image\lbinfo\F34.jpg" />
     <Content Include="resource\image\lbinfo\F35.jpg" />
     <Content Include="resource\image\lbinfo\F36.jpg" />
     <Content Include="resource\image\lbinfo\F37.jpg" />
     <Content Include="resource\image\lbinfo\F38.jpg" />
+    <Content Include="resource\image\lbinfo\F39.jpg" />
     <Content Include="resource\image\lbinfo\F4.jpg" />
+    <Content Include="resource\image\lbinfo\F40.jpg" />
+    <Content Include="resource\image\lbinfo\F41.jpg" />
     <Content Include="resource\image\lbinfo\F42.jpg" />
+    <Content Include="resource\image\lbinfo\F43.jpg" />
     <Content Include="resource\image\lbinfo\F44.jpg" />
     <Content Include="resource\image\lbinfo\F45.jpg" />
     <Content Include="resource\image\lbinfo\F46.jpg" />
@@ -316,6 +376,8 @@
     <Content Include="resource\image\lbinfo\F69.jpg" />
     <Content Include="resource\image\lbinfo\F7.jpg" />
     <Content Include="resource\image\lbinfo\F70.jpg" />
+    <Content Include="resource\image\lbinfo\F71.jpg" />
+    <Content Include="resource\image\lbinfo\F72.jpg" />
     <Content Include="resource\image\lbinfo\F73.jpg" />
     <Content Include="resource\image\lbinfo\F74.jpg" />
     <Content Include="resource\image\lbinfo\F75.jpg" />
@@ -334,8 +396,11 @@
     <Content Include="resource\image\lbinfo\F87.jpg" />
     <Content Include="resource\image\lbinfo\F88.jpg" />
     <Content Include="resource\image\lbinfo\F89.jpg" />
+    <Content Include="resource\image\lbinfo\F9.jpg" />
     <Content Include="resource\image\lbinfo\F90.jpg" />
     <Content Include="resource\image\lbinfo\F91.jpg" />
+    <Content Include="resource\image\lbinfo\F92.jpg" />
+    <Content Include="resource\image\lbinfo\F93.jpg" />
     <Content Include="resource\image\lbinfo\F94.jpg" />
     <Content Include="resource\image\lbinfo\F95.jpg" />
     <Content Include="resource\image\lbinfo\F96.jpg" />
@@ -350,9 +415,12 @@
     <Content Include="resource\image\lbinfo\G13.jpg" />
     <Content Include="resource\image\lbinfo\G14.jpg" />
     <Content Include="resource\image\lbinfo\G15.jpg" />
+    <Content Include="resource\image\lbinfo\G16.jpg" />
     <Content Include="resource\image\lbinfo\G17.jpg" />
+    <Content Include="resource\image\lbinfo\G19.jpg" />
     <Content Include="resource\image\lbinfo\G2.jpg" />
     <Content Include="resource\image\lbinfo\G20.jpg" />
+    <Content Include="resource\image\lbinfo\G21.jpg" />
     <Content Include="resource\image\lbinfo\G22.jpg" />
     <Content Include="resource\image\lbinfo\G23.jpg" />
     <Content Include="resource\image\lbinfo\G24.jpg" />
@@ -368,6 +436,7 @@
     <Content Include="resource\image\lbinfo\G34.jpg" />
     <Content Include="resource\image\lbinfo\G35.jpg" />
     <Content Include="resource\image\lbinfo\G36.jpg" />
+    <Content Include="resource\image\lbinfo\G4.jpg" />
     <Content Include="resource\image\lbinfo\G45.jpg" />
     <Content Include="resource\image\lbinfo\G46.jpg" />
     <Content Include="resource\image\lbinfo\G47.jpg" />
@@ -407,6 +476,7 @@
     <Content Include="resource\image\lbinfo\G80.jpg" />
     <Content Include="resource\image\lbinfo\G81.jpg" />
     <Content Include="resource\image\lbinfo\G82.jpg" />
+    <Content Include="resource\image\lbinfo\G83.jpg" />
     <Content Include="resource\image\lbinfo\G84.jpg" />
     <Content Include="resource\image\lbinfo\G85.jpg" />
     <Content Include="resource\image\lbinfo\G87.jpg" />
@@ -414,6 +484,7 @@
     <Content Include="resource\image\lbinfo\G89.jpg" />
     <Content Include="resource\image\lbinfo\G9.jpg" />
     <Content Include="resource\image\lbinfo\G90.jpg" />
+    <Content Include="resource\image\lbinfo\G91.jpg" />
     <Content Include="resource\image\lbinfo\G92.jpg" />
     <Content Include="resource\image\lbinfo\G93.jpg" />
     <Content Include="resource\image\lbinfo\G94.jpg" />
@@ -425,6 +496,7 @@
     <Content Include="resource\image\lbinfo\H100.jpg" />
     <Content Include="resource\image\lbinfo\H11.jpg" />
     <Content Include="resource\image\lbinfo\H12.jpg" />
+    <Content Include="resource\image\lbinfo\H13.jpg" />
     <Content Include="resource\image\lbinfo\H14.jpg" />
     <Content Include="resource\image\lbinfo\H15.jpg" />
     <Content Include="resource\image\lbinfo\H16.jpg" />
@@ -438,6 +510,7 @@
     <Content Include="resource\image\lbinfo\H23.jpg" />
     <Content Include="resource\image\lbinfo\H24.jpg" />
     <Content Include="resource\image\lbinfo\H25.jpg" />
+    <Content Include="resource\image\lbinfo\H26.jpg" />
     <Content Include="resource\image\lbinfo\H27.jpg" />
     <Content Include="resource\image\lbinfo\H28.jpg" />
     <Content Include="resource\image\lbinfo\H29.jpg" />
@@ -463,6 +536,7 @@
     <Content Include="resource\image\lbinfo\H5.jpg" />
     <Content Include="resource\image\lbinfo\H51.jpg" />
     <Content Include="resource\image\lbinfo\H52.jpg" />
+    <Content Include="resource\image\lbinfo\H53.jpg" />
     <Content Include="resource\image\lbinfo\H54.jpg" />
     <Content Include="resource\image\lbinfo\H55.jpg" />
     <Content Include="resource\image\lbinfo\H56.jpg" />
@@ -471,6 +545,7 @@
     <Content Include="resource\image\lbinfo\H6.jpg" />
     <Content Include="resource\image\lbinfo\H60.jpg" />
     <Content Include="resource\image\lbinfo\H61.jpg" />
+    <Content Include="resource\image\lbinfo\H62.jpg" />
     <Content Include="resource\image\lbinfo\H63.jpg" />
     <Content Include="resource\image\lbinfo\H64.jpg" />
     <Content Include="resource\image\lbinfo\H65.jpg" />
@@ -507,15 +582,18 @@
     <Content Include="resource\image\lbinfo\H97.jpg" />
     <Content Include="resource\image\lbinfo\H98.jpg" />
     <Content Include="resource\image\lbinfo\H99.jpg" />
+    <Content Include="resource\image\lbinfo\I1.jpg" />
     <Content Include="resource\image\lbinfo\I10.jpg" />
     <Content Include="resource\image\lbinfo\I11.jpg" />
     <Content Include="resource\image\lbinfo\I12.jpg" />
     <Content Include="resource\image\lbinfo\I13.jpg" />
     <Content Include="resource\image\lbinfo\I14.jpg" />
+    <Content Include="resource\image\lbinfo\I15.jpg" />
     <Content Include="resource\image\lbinfo\I16.jpg" />
     <Content Include="resource\image\lbinfo\I17.jpg" />
     <Content Include="resource\image\lbinfo\I18.jpg" />
     <Content Include="resource\image\lbinfo\I19.jpg" />
+    <Content Include="resource\image\lbinfo\I2.jpg" />
     <Content Include="resource\image\lbinfo\I20.jpg" />
     <Content Include="resource\image\lbinfo\I21.jpg" />
     <Content Include="resource\image\lbinfo\I22.jpg" />
@@ -526,6 +604,7 @@
     <Content Include="resource\image\lbinfo\I27.jpg" />
     <Content Include="resource\image\lbinfo\I28.jpg" />
     <Content Include="resource\image\lbinfo\I29.jpg" />
+    <Content Include="resource\image\lbinfo\I3.jpg" />
     <Content Include="resource\image\lbinfo\I30.jpg" />
     <Content Include="resource\image\lbinfo\I31.jpg" />
     <Content Include="resource\image\lbinfo\I32.jpg" />
@@ -545,7 +624,9 @@
     <Content Include="resource\image\lbinfo\I45.jpg" />
     <Content Include="resource\image\lbinfo\I46.jpg" />
     <Content Include="resource\image\lbinfo\I47.jpg" />
+    <Content Include="resource\image\lbinfo\I48.jpg" />
     <Content Include="resource\image\lbinfo\I49.jpg" />
+    <Content Include="resource\image\lbinfo\I5.jpg" />
     <Content Include="resource\image\lbinfo\I50.jpg" />
     <Content Include="resource\image\lbinfo\I51.jpg" />
     <Content Include="resource\image\lbinfo\I52.jpg" />
@@ -556,6 +637,7 @@
     <Content Include="resource\image\lbinfo\I57.jpg" />
     <Content Include="resource\image\lbinfo\I58.jpg" />
     <Content Include="resource\image\lbinfo\I59.jpg" />
+    <Content Include="resource\image\lbinfo\I6.jpg" />
     <Content Include="resource\image\lbinfo\I60.jpg" />
     <Content Include="resource\image\lbinfo\I61.jpg" />
     <Content Include="resource\image\lbinfo\I62.jpg" />
@@ -577,6 +659,7 @@
     <Content Include="resource\image\lbinfo\I77.jpg" />
     <Content Include="resource\image\lbinfo\I78.jpg" />
     <Content Include="resource\image\lbinfo\I79.jpg" />
+    <Content Include="resource\image\lbinfo\I8.jpg" />
     <Content Include="resource\image\lbinfo\I80.jpg" />
     <Content Include="resource\image\lbinfo\I82.jpg" />
     <Content Include="resource\image\lbinfo\I83.jpg" />
@@ -599,10 +682,21 @@
     <Content Include="resource\image\lbinfo\I99.jpg" />
     <Content Include="resource\image\lbinfo\II00.jpg" />
     <Content Include="resource\image\lbinfo\J1.jpg" />
+    <Content Include="resource\image\lbinfo\J10.jpg" />
     <Content Include="resource\image\lbinfo\J100.jpg" />
     <Content Include="resource\image\lbinfo\J101.jpg" />
+    <Content Include="resource\image\lbinfo\J11.jpg" />
+    <Content Include="resource\image\lbinfo\J12.jpg" />
+    <Content Include="resource\image\lbinfo\J13.jpg" />
+    <Content Include="resource\image\lbinfo\J14.jpg" />
+    <Content Include="resource\image\lbinfo\J15.jpg" />
+    <Content Include="resource\image\lbinfo\J16.jpg" />
+    <Content Include="resource\image\lbinfo\J17.jpg" />
+    <Content Include="resource\image\lbinfo\J18.jpg" />
     <Content Include="resource\image\lbinfo\J19.jpg" />
     <Content Include="resource\image\lbinfo\J2.jpg" />
+    <Content Include="resource\image\lbinfo\J20.jpg" />
+    <Content Include="resource\image\lbinfo\J21.jpg" />
     <Content Include="resource\image\lbinfo\J22.jpg" />
     <Content Include="resource\image\lbinfo\J23.jpg" />
     <Content Include="resource\image\lbinfo\J24.jpg" />
@@ -622,55 +716,85 @@
     <Content Include="resource\image\lbinfo\J37.jpg" />
     <Content Include="resource\image\lbinfo\J38.jpg" />
     <Content Include="resource\image\lbinfo\J39.jpg" />
+    <Content Include="resource\image\lbinfo\J4.jpg" />
     <Content Include="resource\image\lbinfo\J40.jpg" />
     <Content Include="resource\image\lbinfo\J41.jpg" />
     <Content Include="resource\image\lbinfo\J42.jpg" />
     <Content Include="resource\image\lbinfo\J43.jpg" />
     <Content Include="resource\image\lbinfo\J44.jpg" />
+    <Content Include="resource\image\lbinfo\J45.jpg" />
+    <Content Include="resource\image\lbinfo\J46.jpg" />
     <Content Include="resource\image\lbinfo\J47.jpg" />
     <Content Include="resource\image\lbinfo\J48.jpg" />
     <Content Include="resource\image\lbinfo\J49.jpg" />
+    <Content Include="resource\image\lbinfo\J5.jpg" />
+    <Content Include="resource\image\lbinfo\J50.jpg" />
     <Content Include="resource\image\lbinfo\J51.jpg" />
     <Content Include="resource\image\lbinfo\J52.jpg" />
     <Content Include="resource\image\lbinfo\J53.jpg" />
+    <Content Include="resource\image\lbinfo\J54.jpg" />
     <Content Include="resource\image\lbinfo\J55.jpg" />
     <Content Include="resource\image\lbinfo\J56.jpg" />
     <Content Include="resource\image\lbinfo\J57.jpg" />
     <Content Include="resource\image\lbinfo\J58.jpg" />
     <Content Include="resource\image\lbinfo\J59.jpg" />
+    <Content Include="resource\image\lbinfo\J6.jpg" />
     <Content Include="resource\image\lbinfo\J60.jpg" />
+    <Content Include="resource\image\lbinfo\J61.jpg" />
     <Content Include="resource\image\lbinfo\J62.jpg" />
+    <Content Include="resource\image\lbinfo\J63.jpg" />
     <Content Include="resource\image\lbinfo\J64.jpg" />
+    <Content Include="resource\image\lbinfo\J65.jpg" />
+    <Content Include="resource\image\lbinfo\J66.jpg" />
     <Content Include="resource\image\lbinfo\J67.jpg" />
     <Content Include="resource\image\lbinfo\J68.jpg" />
     <Content Include="resource\image\lbinfo\J69.jpg" />
+    <Content Include="resource\image\lbinfo\J7.jpg" />
     <Content Include="resource\image\lbinfo\J70.jpg" />
+    <Content Include="resource\image\lbinfo\J71.jpg" />
     <Content Include="resource\image\lbinfo\J72.jpg" />
     <Content Include="resource\image\lbinfo\J73.jpg" />
+    <Content Include="resource\image\lbinfo\J74.jpg" />
     <Content Include="resource\image\lbinfo\J75.jpg" />
     <Content Include="resource\image\lbinfo\J76.jpg" />
     <Content Include="resource\image\lbinfo\J77.jpg" />
     <Content Include="resource\image\lbinfo\J78.jpg" />
     <Content Include="resource\image\lbinfo\J79.jpg" />
+    <Content Include="resource\image\lbinfo\J8.jpg" />
     <Content Include="resource\image\lbinfo\J80.jpg" />
+    <Content Include="resource\image\lbinfo\J81.jpg" />
+    <Content Include="resource\image\lbinfo\J82.jpg" />
+    <Content Include="resource\image\lbinfo\J83.jpg" />
     <Content Include="resource\image\lbinfo\J84.jpg" />
     <Content Include="resource\image\lbinfo\J85.jpg" />
     <Content Include="resource\image\lbinfo\J86.jpg" />
     <Content Include="resource\image\lbinfo\J87.jpg" />
     <Content Include="resource\image\lbinfo\J88.jpg" />
     <Content Include="resource\image\lbinfo\J89.jpg" />
+    <Content Include="resource\image\lbinfo\J9.jpg" />
     <Content Include="resource\image\lbinfo\J90.jpg" />
     <Content Include="resource\image\lbinfo\J91.jpg" />
     <Content Include="resource\image\lbinfo\J92.jpg" />
+    <Content Include="resource\image\lbinfo\J93.jpg" />
     <Content Include="resource\image\lbinfo\J94.jpg" />
     <Content Include="resource\image\lbinfo\J95.jpg" />
     <Content Include="resource\image\lbinfo\J96.jpg" />
     <Content Include="resource\image\lbinfo\J97.jpg" />
     <Content Include="resource\image\lbinfo\J98.jpg" />
     <Content Include="resource\image\lbinfo\J99.jpg" />
+    <Content Include="resource\staticfile\cityinfo.js" />
+    <Content Include="resource\staticfile\Treatmentdata.js" />
+    <Content Include="resource\staticfile\various.js" />
+    <Content Include="resource\webjs\dark.js" />
+    <Content Include="resource\webjs\echarts.js" />
+    <Content Include="resource\image\header-img-comment_03.png" />
+    <Content Include="resource\image\head\41afadb7665e2cf76660dc9870f75bdf.jpg" />
+    <Content Include="resource\image\head\be70162581c792921d88f753be0f9550.jpg" />
+    <Content Include="resource\image\icon-all_01.png" />
     <Content Include="resource\image\tubiao.gif" />
     <Content Include="packages.config" />
-    <Content Include="resource\staticfile\citybaiduinfo.js" />
+    <Content Include="redmomeryashx.ashx" />
+    <None Include="Properties\PublishProfiles\Web.config.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="resource\js\bbstest.js" />
     <Content Include="resource\js\jquery-1.12.0.min.js" />
@@ -698,6 +822,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="redmomeryashx.ashx.cs">
+      <DependentUpon>redmomeryashx.ashx</DependentUpon>
+    </Compile>
     <Compile Include="redmomeryserver.asmx.cs">
       <DependentUpon>redmomeryserver.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -714,9 +841,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DML\redmomery.MDL.csproj">
+    <ProjectReference Include="..\DML\redmomery.Model.csproj">
       <Project>{7790ec9c-719f-4575-a2ab-b26c9f926284}</Project>
-      <Name>redmomery.MDL</Name>
+      <Name>redmomery.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NLRedmomery\NLRedmomery.csproj">
+      <Project>{f89eeb73-e41d-4a13-97fa-97a851170b8b}</Project>
+      <Name>NLRedmomery</Name>
     </ProjectReference>
     <ProjectReference Include="..\redmomery.command\redmomery.command.csproj">
       <Project>{cd72d7c1-227a-40d4-8b3a-b7c16f697a10}</Project>
@@ -737,6 +868,25 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

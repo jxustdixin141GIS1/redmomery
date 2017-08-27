@@ -1,0 +1,3428 @@
+No:1	word=末##末	pos=	freq=36	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(18,78,89,134,172,255,262,387,472,510,620,704,739,814,899,996,1037,1149,1161,1203,1256,1312,1334,1398,1466,1524,1583,1621,1648,1731,1809,1848,1887,1955,2003,)
+LV()
+RV()
+No:2	word=19	pos=m	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=0.86
+Inverted List(0,97,)
+LV(末##末(1),，(1),)
+RV(岁(2),)
+No:3	word=岁	pos=qt	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1,98,1346,1967,)
+LV()
+RV()
+No:4	word=那年	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.12
+Inverted List(2,)
+LV(岁(1),)
+RV(的(1),)
+No:5	word=的	pos=ude1	freq=71	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(3,51,56,75,82,99,119,126,150,182,195,222,230,294,299,434,441,448,469,522,537,564,591,633,653,680,761,795,826,842,862,868,882,890,896,917,1001,1018,1107,1119,1146,1168,1185,1195,1336,1341,1347,1368,1385,1413,1441,1458,1476,1540,1544,1589,1604,1614,1665,1715,1796,1823,1829,1843,1853,1870,1882,1933,1944,1963,1997,)
+LV()
+RV()
+No:6	word=离家	pos=vi	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=4.96
+Inverted List(4,104,1586,)
+LV(的(1),，(1),家人(1),)
+RV(逃难(1),避难(1),8(1),)
+No:7	word=逃难	pos=vi	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(5,181,)
+LV(离家(1),一起(1),)
+RV(的(1),，(1),)
+No:8	word=，	pos=wd	freq=217	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(6,12,21,29,32,37,48,61,68,84,91,96,106,121,138,142,154,157,163,166,174,186,190,204,211,224,234,245,248,257,283,296,321,324,336,341,353,365,371,375,379,394,398,407,421,436,442,450,463,477,484,490,498,502,518,528,532,543,550,571,574,578,593,600,603,609,626,629,644,655,663,667,682,687,696,708,712,721,728,733,746,751,753,766,778,797,805,835,839,853,857,860,864,873,888,892,903,912,923,933,940,949,959,971,983,989,1004,1009,1021,1027,1043,1050,1055,1063,1068,1072,1076,1081,1090,1099,1110,1113,1117,1139,1153,1163,1171,1181,1192,1213,1219,1224,1237,1241,1246,1249,1262,1281,1285,1292,1298,1304,1315,1321,1328,1343,1349,1357,1361,1366,1371,1380,1387,1391,1402,1407,1429,1443,1452,1460,1473,1483,1489,1494,1509,1520,1528,1547,1552,1558,1585,1602,1608,1617,1627,1632,1641,1650,1657,1667,1671,1674,1688,1701,1709,1724,1733,1739,1748,1751,1758,1766,1772,1776,1781,1789,1806,1811,1817,1831,1838,1855,1862,1872,1893,1903,1909,1921,1927,1936,1946,1957,1961,1974,1979,1990,)
+LV()
+RV()
+No:9	word=虽	pos=c	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(7,)
+LV()
+RV()
+No:10	word=已	pos=d	freq=5	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(8,129,396,1948,1959,)
+LV()
+RV()
+No:11	word=过去	pos=vf	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(9,)
+LV(已(1),)
+RV(了(1),)
+No:12	word=了	pos=ule	freq=30	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(10,94,160,188,202,260,310,404,411,423,466,542,637,666,742,1166,1272,1303,1331,1405,1420,1470,1508,1514,1594,1626,1631,1662,1743,1969,)
+LV()
+RV()
+No:13	word=74年	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=4.40
+Inverted List(11,)
+LV(了(1),)
+RV(，(1),)
+No:14	word=高振中	pos=nr	freq=12	LV=8	RV=10	is_stopword=0	unit_count=1	weight=28.95
+Inverted List(13,87,229,1435,1490,1529,1553,1590,1628,1800,1828,1849,)
+LV(末##末(1),的(1),，(5),。(1),是(1),”(1),在(2),！(1),)
+RV(的(2),依然(1),。(1),也(2),希望(1),就(1),终于(1),想起(1),站(1),轻轻(1),)
+No:15	word=依然	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(14,)
+LV(高振中(1),)
+RV(记忆(1),)
+No:16	word=记忆	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(15,)
+LV(依然(1),)
+RV(深刻(1),)
+No:17	word=深刻	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(16,)
+LV(记忆(1),)
+RV(。(1),)
+No:18	word=。	pos=wj	freq=82	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(17,46,77,88,112,133,171,179,193,219,232,254,261,276,291,304,332,350,361,386,413,426,458,471,495,509,525,559,567,589,619,639,675,716,738,773,787,813,823,849,877,885,898,929,995,1036,1059,1087,1105,1133,1148,1160,1178,1202,1231,1255,1273,1310,1333,1376,1397,1425,1465,1523,1542,1560,1597,1620,1647,1693,1755,1768,1799,1808,1847,1886,1916,1953,1970,2002,)
+LV()
+RV()
+No:19	word=豫北	pos=ns	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.24
+Inverted List(19,)
+LV(末##末(1),)
+RV(平原(1),)
+No:20	word=平原	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(20,)
+LV(豫北(1),)
+RV(，(1),)
+No:21	word=黄河	pos=ns	freq=3	LV=3	RV=2	is_stopword=0	unit_count=1	weight=0.99
+Inverted List(22,108,147,)
+LV(，(1),在(1),随着(1),)
+RV(故道(1),屯(2),)
+No:22	word=故道	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(23,)
+LV(黄河(1),)
+RV(上(1),)
+No:23	word=上	pos=f	freq=10	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(24,308,330,536,585,841,937,1355,1788,1874,)
+LV()
+RV()
+No:24	word=有	pos=vyou	freq=13	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(25,136,140,238,445,480,670,894,1106,1431,1777,1791,1851,)
+LV()
+RV()
+No:25	word=一	pos=m	freq=28	LV=22	RV=24	is_stopword=0	unit_count=1	weight=2.33
+Inverted List(26,52,144,184,279,286,377,455,553,586,597,689,807,986,1029,1101,1124,1179,1182,1229,1282,1400,1501,1639,1651,1696,1792,1940,)
+LV(的(1),，(3),。(1),上(1),有(2),是(1),父亲(1),高夫(1),就(1),着(3),这(2),村民(1),走(1),抗战(1),到(1),每(1),由(1),交换机(1),接(1),漆黑(1),近(1),高喊(1),)
+RV(座(1),户(1),家(1),合计(1),名(1),天(3),别(1),等(2),步(2),顿(1),米(1),脸(1),定(1),通(1),班(1),响(1),根(1),颗(1),片(1),年(1),句(1),位(1),声(1),处(1),)
+No:26	word=座	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(27,)
+LV()
+RV()
+No:27	word=县城	pos=n	freq=3	LV=3	RV=2	is_stopword=0	unit_count=1	weight=3.79
+Inverted List(28,49,95,)
+LV(，(1),了(1),座(1),)
+RV(，(2),附近(1),)
+No:28	word=名曰	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(30,)
+LV(，(1),)
+RV(内黄县(1),)
+No:29	word=内黄县	pos=ns	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=0.74
+Inverted List(31,1595,)
+LV(了(1),名曰(1),)
+RV(，(1),城(1),)
+No:30	word=这里	pos=rzs	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(33,)
+LV()
+RV()
+No:31	word=是	pos=vshi	freq=21	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(34,39,86,116,439,730,816,1227,1290,1383,1393,1439,1510,1567,1569,1615,1669,1672,1841,1864,1939,)
+LV()
+RV()
+No:32	word=商鞅	pos=nr	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=2.40
+Inverted List(35,)
+LV(是(1),)
+RV(故里(1),)
+No:33	word=故里	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(36,)
+LV(商鞅(1),)
+RV(，(1),)
+No:34	word=也	pos=d	freq=12	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(38,197,355,723,977,1083,1305,1454,1491,1741,1832,1850,)
+LV()
+RV()
+No:35	word=项羽	pos=nr	freq=1	LV=1	RV=2	is_stopword=0	unit_count=1	weight=0.55
+Inverted List(40,)
+LV(是(1),)
+RV(“(1),破釜沉舟(1),)
+No:36	word=“	pos=wyz	freq=23	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(41,205,277,305,437,560,656,878,1257,1293,1414,1421,1426,1447,1495,1561,1668,1698,1720,1844,1877,1888,1928,)
+LV()
+RV()
+No:37	word=破釜沉舟	pos=vl	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(42,)
+LV(项羽(1),“(1),)
+RV(”(1),之(1),)
+No:38	word=”	pos=wyy	freq=23	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(43,220,292,312,459,568,676,886,1274,1311,1416,1424,1434,1450,1516,1582,1681,1700,1730,1846,1885,1917,1954,)
+LV()
+RV()
+No:39	word=之	pos=uzhi	freq=5	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(44,59,177,1526,)
+LV()
+RV()
+No:40	word=地	pos=n	freq=8	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(45,516,548,557,736,1486,1711,1858,)
+LV()
+RV()
+No:41	word=1922年12月13日	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=2.40
+Inverted List(47,)
+LV(。(1),)
+RV(，(1),)
+No:42	word=附近	pos=f	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=0.65
+Inverted List(50,632,)
+LV(县城(1),到(1),)
+RV(的(2),)
+No:43	word=户	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(53,)
+LV()
+RV()
+No:44	word=姓	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(54,)
+LV(户(1),)
+RV(高(1),)
+No:45	word=高	pos=a	freq=11	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(55,73,300,533,817,904,972,1091,1207,1682,1998,)
+LV()
+RV()
+No:46	word=人家	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(57,)
+LV(的(1),)
+RV(弄璋(1),)
+No:47	word=弄璋	pos=nr2	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.92
+Inverted List(58,)
+LV(人家(1),)
+RV(之(1),)
+No:48	word=喜	pos=ng	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(60,1689,)
+LV(，(1),之(1),)
+RV(，(1),极(1),)
+No:49	word=父亲	pos=n	freq=22	LV=15	RV=16	is_stopword=0	unit_count=1	weight=17.07
+Inverted List(62,196,221,317,325,359,385,649,674,679,688,701,1541,1557,1670,1673,1699,1740,1759,1769,1812,1897,)
+LV(的(2),，(6),。(2),是(2),“(1),”(1),让(1),告诉(1),和(2),见到(1),想起(1),见(1),没有(1),声(1),像(1),)
+RV(的(2),，(4),。(3),一(1),也(2),”(1),给(1),这个(1),在(1),正(1),道别(1),失望(1),曾(1),解开(1),早已(1),那样(1),)
+No:50	word=给	pos=p	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(63,1991,)
+LV()
+RV()
+No:51	word=儿子	pos=n	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=4.96
+Inverted List(64,200,1734,)
+LV(，(1),给(1),着(1),)
+RV(取名(1),加入(1),离开(1),)
+No:52	word=取名	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(65,)
+LV(儿子(1),)
+RV(——(1),)
+No:53	word=——	pos=wp	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(66,1127,)
+LV()
+RV()
+No:54	word=高夫	pos=nrf	freq=28	LV=11	RV=22	is_stopword=0	unit_count=1	weight=44.62
+Inverted List(67,81,100,143,194,263,342,354,366,399,414,511,592,640,684,711,722,758,796,836,1044,1064,1114,1154,1234,1332,1340,1403,)
+LV(末##末(2),的(3),，(12),了(1),。(3),——(1),叫(1),着(2),中(1),和(1),但(1),)
+RV(的(3),，(4),。(1),一(1),也(2),就(1),跟(1),不(1),被(1),一起(1),与(1),他们(1),和(1),还(1),等(1),经常(1),咬牙(1),始终(1),曾(1),从不(1),伸出(1),改(1),)
+No:55	word=希望	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(69,1436,)
+LV(，(1),高振中(1),)
+RV(孩子(1),自己(1),)
+No:56	word=孩子	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(70,)
+LV(希望(1),)
+RV(能(1),)
+No:57	word=能	pos=v	freq=17	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(71,289,357,382,492,660,699,828,1129,1307,1354,1445,1461,1576,1578,1623,1980,)
+LV()
+RV()
+No:58	word=成为	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(72,)
+LV(能(1),)
+RV(高(1),)
+No:59	word=家	pos=n	freq=7	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(74,145,692,1412,1432,1599,1999,)
+LV()
+RV()
+No:60	word=顶梁柱	pos=n	freq=2	LV=1	RV=2	is_stopword=0	unit_count=1	weight=2.15
+Inverted List(76,1442,)
+LV(的(2),)
+RV(，(1),。(1),)
+No:61	word=这个	pos=rz	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(79,318,706,1344,)
+LV()
+RV()
+No:62	word=叫	pos=vi	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(80,)
+LV()
+RV()
+No:63	word=男婴	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(83,)
+LV(的(1),)
+RV(，(1),)
+No:64	word=就	pos=d	freq=14	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(85,285,339,345,408,934,1065,1140,1226,1264,1295,1299,1554,1642,)
+LV()
+RV()
+No:65	word=1941年	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.65
+Inverted List(90,)
+LV(末##末(1),)
+RV(，(1),)
+No:66	word=洪水	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(92,137,)
+LV(，(1),有(1),)
+RV(，(1),淹(1),)
+No:67	word=淹	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(93,)
+LV(洪水(1),)
+RV(了(1),)
+No:68	word=跟	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(101,)
+LV(高夫(1),)
+RV(着(1),)
+No:69	word=着	pos=uzhe	freq=27	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(102,199,454,643,694,710,845,961,975,1097,1123,1297,1339,1353,1456,1488,1500,1572,1646,1678,1713,1723,1727,1803,1876,1973,1982,)
+LV()
+RV()
+No:70	word=家人	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(103,)
+LV(着(1),)
+RV(离家(1),)
+No:71	word=避难	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(105,)
+LV(离家(1),)
+RV(，(1),)
+No:72	word=在	pos=p	freq=24	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(107,228,327,368,546,613,650,691,789,909,926,943,1013,1150,1187,1209,1269,1373,1479,1563,1655,1827,1860,1930,)
+LV()
+RV()
+No:73	word=屯	pos=v	freq=2	LV=1	RV=2	is_stopword=0	unit_count=1	weight=0.72
+Inverted List(109,148,)
+LV(黄河(2),)
+RV(村落(1),村(1),)
+No:74	word=村落	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(110,)
+LV(屯(1),)
+RV(脚(1),)
+No:75	word=脚	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(111,535,)
+LV(村落(1),夫(1),)
+RV(。(1),上(1),)
+No:76	word=这	pos=rzv	freq=7	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(113,376,815,879,1278,1399,1947,)
+LV()
+RV()
+No:77	word=并	pos=d	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(114,)
+LV()
+RV()
+No:78	word=不	pos=d	freq=18	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(115,206,281,288,373,584,595,659,769,837,978,1084,1128,1289,1568,1577,1610,1634,)
+LV()
+RV()
+No:79	word=个	pos=q	freq=7	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(117,446,744,764,1034,1317,1717,)
+LV()
+RV()
+No:80	word=安全	pos=a	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.76
+Inverted List(118,1006,)
+LV(个(1),为了(1),)
+RV(的(1),和(1),)
+No:81	word=所在	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(120,)
+LV(的(1),)
+RV(，(1),)
+No:82	word=40	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(122,)
+LV(，(1),)
+RV(多(1),)
+No:83	word=多	pos=m	freq=6	LV=5	RV=6	is_stopword=0	unit_count=1	weight=0.75
+Inverted List(123,763,968,1016,1318,1815,)
+LV(个(1),40(1),一个(1),20(2),去世(1),)
+RV(个(1),公里(1),米(1),月(1),小时(1),年(1),)
+No:84	word=公里	pos=q	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(124,162,)
+LV()
+RV()
+No:85	word=外	pos=f	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(125,)
+LV()
+RV()
+No:86	word=安阳市	pos=ns	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.21
+Inverted List(127,)
+LV(的(1),)
+RV(区(1),)
+No:87	word=区	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(128,)
+LV(安阳市(1),)
+RV(已(1),)
+No:88	word=被	pos=pbei	freq=8	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(130,269,409,415,798,1011,1260,1266,)
+LV()
+RV()
+No:89	word=日军	pos=n	freq=6	LV=6	RV=4	is_stopword=0	unit_count=1	weight=6.43
+Inverted List(131,474,521,1164,1184,1335,)
+LV(末##末(1),，(1),被(1),当时(1),躲避(1),颗(1),)
+RV(的(3),占领(1),步步(1),加密(1),)
+No:90	word=占领	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(132,)
+LV(日军(1),)
+RV(。(1),)
+No:91	word=后	pos=f	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(135,970,1320,1737,)
+LV()
+RV()
+No:92	word=前	pos=f	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(139,1773,)
+LV()
+RV()
+No:93	word=日寇	pos=n	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=2.15
+Inverted List(141,1360,)
+LV(有(1),刃(1),)
+RV(，(2),)
+No:94	word=随着	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(146,)
+LV()
+RV()
+No:95	word=村	pos=n	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(149,634,)
+LV()
+RV()
+No:96	word=村民	pos=n	freq=2	LV=1	RV=2	is_stopword=0	unit_count=1	weight=2.16
+Inverted List(151,183,)
+LV(的(2),)
+RV(一(1),再次(1),)
+No:97	word=再次	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(152,)
+LV(村民(1),)
+RV(转移(1),)
+No:98	word=转移	pos=v	freq=3	LV=3	RV=2	is_stopword=0	unit_count=1	weight=3.79
+Inverted List(153,494,508,)
+LV(再次(1),不断(1),河南洛阳(1),)
+RV(，(1),。(2),)
+No:99	word=走走	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(155,)
+LV(，(1),)
+RV(停停(1),)
+No:100	word=停停	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(156,)
+LV(走走(1),)
+RV(，(1),)
+No:101	word=硬是	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(158,)
+LV(，(1),)
+RV(走(1),)
+No:102	word=走	pos=v	freq=8	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(159,338,340,362,388,552,741,1637,)
+LV()
+RV()
+No:103	word=数百	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.92
+Inverted List(161,)
+LV(了(1),)
+RV(公里(1),)
+No:104	word=进入	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(164,)
+LV(，(1),)
+RV(河北武安(1),)
+No:105	word=河北武安	pos=ns	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.65
+Inverted List(165,)
+LV(进入(1),)
+RV(，(1),)
+No:106	word=藏	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(167,253,)
+LV(，(1),躲藏(1),)
+RV(。(1),进(1),)
+No:107	word=进	pos=vf	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(168,)
+LV()
+RV()
+No:108	word=山	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(169,335,)
+LV(进(1),如(1),)
+RV(，(1),中(1),)
+No:109	word=中	pos=f	freq=11	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(170,652,1020,1233,1423,1449,1481,1684,1757,1935,1996,)
+LV()
+RV()
+No:110	word=躲	pos=v	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=1.65
+Inverted List(173,251,630,)
+LV(末##末(1),，(1),不用(1),)
+RV(，(1),躲藏(1),到(1),)
+No:111	word=并非	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(175,)
+LV(，(1),)
+RV(长久(1),)
+No:112	word=长久	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(176,)
+LV(并非(1),)
+RV(之(1),)
+No:113	word=计	pos=ng	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(178,)
+LV(之(1),)
+RV(。(1),)
+No:114	word=一起	pos=s	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.05
+Inverted List(180,759,)
+LV(。(1),高夫(1),)
+RV(逃难(1),出发(1),)
+No:115	word=合计	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(185,)
+LV(一(1),)
+RV(，(1),)
+No:116	word=成立	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(187,)
+LV(，(1),)
+RV(了(1),)
+No:117	word=游击队	pos=n	freq=4	LV=3	RV=3	is_stopword=0	unit_count=1	weight=4.86
+Inverted List(189,203,651,1736,)
+LV(了(2),在(1),离开(1),)
+RV(，(2),后(1),中(1),)
+No:118	word=保护	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(191,)
+LV(，(1),)
+RV(妇孺(1),)
+No:119	word=妇孺	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(192,)
+LV(保护(1),)
+RV(。(1),)
+No:120	word=带	pos=v	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(198,1981,)
+LV()
+RV()
+No:121	word=加入	pos=v	freq=3	LV=3	RV=2	is_stopword=0	unit_count=1	weight=3.79
+Inverted List(201,271,1742,)
+LV(也(1),儿子(1),选中(1),)
+RV(了(2),冀(1),)
+No:122	word=打	pos=v	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(207,)
+LV()
+RV()
+No:123	word=跑	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(208,)
+LV(打(1),)
+RV(日本(1),)
+No:124	word=日本	pos=nsf	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.28
+Inverted List(209,)
+LV(跑(1),)
+RV(人(1),)
+No:125	word=人	pos=n	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(210,401,772,1145,)
+LV()
+RV()
+No:126	word=我们	pos=rr	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(212,)
+LV()
+RV()
+No:127	word=永远	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(213,)
+LV(我们(1),)
+RV(都(1),)
+No:128	word=都	pos=d	freq=8	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(214,555,582,846,907,924,1095,1351,)
+LV()
+RV()
+No:129	word=要	pos=v	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(215,242,346,503,)
+LV()
+RV()
+No:130	word=提心吊胆	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(216,)
+LV(要(1),)
+RV(、(1),)
+No:131	word=、	pos=wn	freq=6	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(217,919,1041,1057,1536,1783,)
+LV()
+RV()
+No:132	word=东躲西藏	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(218,)
+LV(、(1),)
+RV(。(1),)
+No:133	word=话	pos=n	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(223,295,1503,)
+LV()
+RV()
+No:134	word=至今	pos=d	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.40
+Inverted List(225,428,)
+LV(，(1),老人(1),)
+RV(仍(1),还(1),)
+No:135	word=仍	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(226,893,)
+LV()
+RV()
+No:136	word=回响	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(227,)
+LV(仍(1),)
+RV(在(1),)
+No:137	word=耳边	pos=s	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(231,)
+LV(的(1),)
+RV(。(1),)
+No:138	word=那时	pos=rzt	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(233,590,)
+LV()
+RV()
+No:139	word=他	pos=rr	freq=31	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(235,313,372,645,695,697,851,858,930,984,1118,1214,1250,1367,1378,1408,1453,1562,1566,1580,1603,1609,1633,1660,1675,1694,1819,1834,1856,1962,1992,)
+LV()
+RV()
+No:140	word=心中	pos=s	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.05
+Inverted List(236,1252,)
+LV(他(1),才(1),)
+RV(只(1),稍(1),)
+No:141	word=只	pos=d	freq=7	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(237,491,729,767,990,1121,1215,)
+LV()
+RV()
+No:142	word=一个	pos=mq	freq=5	LV=4	RV=5	is_stopword=0	unit_count=1	weight=1.91
+Inverted List(239,481,967,1137,1865,)
+LV(有(2),是(1),…(1),接(1),)
+RV(多(1),心愿(1),电话(1),手枪(1),公益(1),)
+No:143	word=心愿	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(240,)
+LV(一个(1),)
+RV(：(1),)
+No:144	word=：	pos=wp	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(241,1504,1719,)
+LV()
+RV()
+No:145	word=当	pos=p	freq=5	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(243,307,636,661,792,)
+LV()
+RV()
+No:146	word=正规军	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(244,309,)
+LV(上(1),当(1),)
+RV(，(1),了(1),)
+No:147	word=赶跑	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(246,)
+LV(，(1),)
+RV(鬼子(1),)
+No:148	word=鬼子	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(247,)
+LV(赶跑(1),)
+RV(，(1),)
+No:149	word=再	pos=d	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(249,383,1636,1975,)
+LV()
+RV()
+No:150	word=不用	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(250,)
+LV(再(1),)
+RV(躲(1),)
+No:151	word=躲藏	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(252,)
+LV(躲(1),)
+RV(藏(1),)
+No:152	word=那年秋天	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.26
+Inverted List(256,)
+LV(末##末(1),)
+RV(，(1),)
+No:153	word=机会	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(258,)
+LV(，(1),)
+RV(来(1),)
+No:154	word=来	pos=vf	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(259,1469,)
+LV()
+RV()
+No:155	word=与	pos=p	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(264,486,783,)
+LV()
+RV()
+No:156	word=其他	pos=rzv	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(265,)
+LV()
+RV()
+No:157	word=16	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(266,)
+LV(其他(1),)
+RV(名(1),)
+No:158	word=名	pos=q	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(267,1941,)
+LV()
+RV()
+No:159	word=年轻人	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(268,)
+LV(名(1),)
+RV(被(1),)
+No:160	word=选中	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(270,)
+LV(被(1),)
+RV(加入(1),)
+No:161	word=冀	pos=b	freq=3	LV=3	RV=1	is_stopword=0	unit_count=1	weight=0.25
+Inverted List(272,390,779,)
+LV(，(1),加入(1),到(1),)
+RV(察(3),)
+No:162	word=察	pos=vg	freq=3	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(273,391,780,)
+LV(冀(3),)
+RV(战区(3),)
+No:163	word=战区	pos=n	freq=6	LV=3	RV=2	is_stopword=0	unit_count=1	weight=3.57
+Inverted List(274,392,781,785,802,1174,)
+LV(察(3),第一(2),向(1),)
+RV(司令部(5),合并(1),)
+No:164	word=司令部	pos=n	freq=8	LV=2	RV=8	is_stopword=0	unit_count=1	weight=4.59
+Inverted List(275,393,478,499,575,782,803,1175,)
+LV(，(3),战区(5),)
+RV(，(1),。(1),与(1),仅(1),接到(1),物资(1),话务员(1),投掷(1),)
+No:165	word=抗战	pos=vi	freq=2	LV=3	RV=2	is_stopword=0	unit_count=1	weight=3.79
+Inverted List(278,1474,)
+LV(，(1),。(1),“(1),)
+RV(一(1),胜利(1),)
+No:166	word=天	pos=qt	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(280,287,581,1180,)
+LV()
+RV()
+No:167	word=胜利	pos=vi	freq=4	LV=4	RV=4	is_stopword=0	unit_count=1	weight=6.22
+Inverted List(282,1467,1475,1507,)
+LV(末##末(1),不(1),抗战(1),中国(1),)
+RV(的(1),，(1),了(1),终于(1),)
+No:168	word=失地	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(284,1513,)
+LV(，(1),收复(1),)
+RV(了(1),就(1),)
+No:169	word=收复	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(290,1512,)
+LV(能(1),时候(1),)
+RV(。(1),失地(1),)
+No:170	word=长官	pos=n	freq=1	LV=2	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(293,)
+LV(。(1),”(1),)
+RV(的(1),)
+No:171	word=让	pos=v	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(297,700,1833,)
+LV()
+RV()
+No:172	word=年轻	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(298,)
+LV(让(1),)
+RV(的(1),)
+No:173	word=夫	pos=ng	freq=8	LV=3	RV=9	is_stopword=0	unit_count=1	weight=1.86
+Inverted List(301,534,818,905,973,1092,1208,1415,)
+LV(的(1),“(1),高(7),)
+RV(”(1),在(1),脚(1),热血(1),第一(1),基本(1),闭(1),打盹(1),字(1),)
+No:174	word=热血	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(302,)
+LV(夫(1),)
+RV(沸腾(1),)
+No:175	word=沸腾	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(303,)
+LV(热血(1),)
+RV(。(1),)
+No:176	word=终于	pos=d	freq=5	LV=6	RV=5	is_stopword=0	unit_count=1	weight=3.05
+Inverted List(306,748,1324,1468,1591,)
+LV(高振中(1),。(1),“(1),胜利(1),们(1),部队(1),)
+RV(当(1),来(1),又(1),抵达(1),挖(1),)
+No:177	word=！	pos=wt	freq=5	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(311,703,1433,1471,1515,)
+LV()
+RV()
+No:178	word=想	pos=v	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(314,1296,)
+LV()
+RV()
+No:179	word=马上	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(315,)
+LV(想(1),)
+RV(告诉(1),)
+No:180	word=告诉	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(316,)
+LV(马上(1),)
+RV(父亲(1),)
+No:181	word=好	pos=a	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(319,1389,)
+LV()
+RV()
+No:182	word=消息	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(320,1477,)
+LV(的(1),好(1),)
+RV(，(1),开始(1),)
+No:183	word=可	pos=v	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(322,658,)
+LV()
+RV()
+No:184	word=那天	pos=r	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(323,)
+LV()
+RV()
+No:185	word=正	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(326,1205,)
+LV()
+RV()
+No:186	word=山里	pos=s	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(328,)
+LV(在(1),)
+RV(要道(1),)
+No:187	word=要道	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(329,)
+LV(山里(1),)
+RV(上(1),)
+No:188	word=站岗	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(331,)
+LV(上(1),)
+RV(。(1),)
+No:189	word=军令	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(333,)
+LV(。(1),)
+RV(如(1),)
+No:190	word=如	pos=v	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(334,)
+LV()
+RV()
+No:191	word=说	pos=v	freq=5	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(337,460,1276,1287,1918,)
+LV()
+RV()
+No:192	word=他们	pos=rr	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(343,)
+LV()
+RV()
+No:193	word=当天	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.13
+Inverted List(344,)
+LV(他们(1),)
+RV(就(1),)
+No:194	word=开拔	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(347,)
+LV(要(1),)
+RV(前往(1),)
+No:195	word=前往	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(348,)
+LV(开拔(1),)
+RV(河北邢台(1),)
+No:196	word=河北邢台	pos=ns	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=11.58
+Inverted List(349,505,)
+LV(前往(1),从(1),)
+RV(。(1),向(1),)
+No:197	word=直到	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(351,1242,)
+LV(，(1),。(1),)
+RV(出发(1),手指(1),)
+No:198	word=出发	pos=vi	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(352,760,)
+LV(一起(1),直到(1),)
+RV(的(1),，(1),)
+No:199	word=没	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(356,1259,)
+LV()
+RV()
+No:200	word=和	pos=cc	freq=7	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(358,512,648,757,1007,1156,1785,)
+LV()
+RV()
+No:201	word=道别	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(360,)
+LV(父亲(1),)
+RV(。(1),)
+No:202	word=下	pos=vf	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(363,1239,)
+LV()
+RV()
+No:203	word=山梁	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(364,)
+LV(下(1),)
+RV(，(1),)
+No:204	word=还	pos=d	freq=9	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(367,381,429,1051,1570,1575,1676,1721,1725,)
+LV()
+RV()
+No:205	word=频频	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(369,)
+LV(在(1),)
+RV(回头(1),)
+No:206	word=回头	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(370,)
+LV(频频(1),)
+RV(，(1),)
+No:207	word=知道	pos=v	freq=3	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.42
+Inverted List(374,859,1611,)
+LV(不(2),他(1),)
+RV(，(2),等待(1),)
+No:208	word=别	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(378,)
+LV(一(1),)
+RV(，(1),)
+No:209	word=是否	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(380,)
+LV(，(1),)
+RV(还(1),)
+No:210	word=见到	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(384,1579,)
+LV(能(1),再(1),)
+RV(父亲(1),他(1),)
+No:211	word=到	pos=v	freq=9	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(389,461,596,631,770,1143,1277,1549,1919,)
+LV()
+RV()
+No:212	word=天色	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(395,)
+LV(，(1),)
+RV(已(1),)
+No:213	word=晚	pos=tg	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(397,)
+LV(已(1),)
+RV(，(1),)
+No:214	word=等	pos=udeng	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(400,456,693,808,)
+LV()
+RV()
+No:215	word=匆匆	pos=z	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(402,)
+LV(人(1),)
+RV(喝(1),)
+No:216	word=喝	pos=vg	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(403,)
+LV(匆匆(1),)
+RV(了(1),)
+No:217	word=点儿	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(405,)
+LV()
+RV()
+No:218	word=小米粥	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(406,)
+LV(点儿(1),)
+RV(，(1),)
+No:219	word=分配	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(410,)
+LV(被(1),)
+RV(了(1),)
+No:220	word=岗位	pos=n	freq=3	LV=3	RV=2	is_stopword=0	unit_count=1	weight=3.79
+Inverted List(412,1086,1943,)
+LV(了(1),离开(1),坚守(1),)
+RV(的(1),。(2),)
+No:221	word=任命	pos=v	freq=2	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(416,799,)
+LV(被(2),)
+RV(为(2),)
+No:222	word=为	pos=p	freq=6	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(417,800,811,1394,1446,1879,)
+LV()
+RV()
+No:223	word=电话	pos=n	freq=6	LV=6	RV=3	is_stopword=0	unit_count=1	weight=5.44
+Inverted List(418,754,790,988,1132,1138,)
+LV(，(1),在(1),一个(1),为(1),接(1),通(1),)
+RV(，(2),。(1),排(3),)
+No:224	word=排	pos=v	freq=4	LV=2	RV=4	is_stopword=0	unit_count=1	weight=1.32
+Inverted List(419,483,755,791,)
+LV(电话(3),手枪(1),)
+RV(，(1),当(1),勤务员(1),里(1),)
+No:225	word=勤务员	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(420,)
+LV(排(1),)
+RV(，(1),)
+No:226	word=领到	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(422,)
+LV(，(1),)
+RV(了(1),)
+No:227	word=正式	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(424,)
+LV(了(1),)
+RV(军装(1),)
+No:228	word=军装	pos=n	freq=3	LV=4	RV=3	is_stopword=0	unit_count=1	weight=5.25
+Inverted List(425,433,438,)
+LV(，(1),“(1),正式(1),身(1),)
+RV(的(1),。(1),是(1),)
+No:229	word=老人	pos=n	freq=11	LV=6	RV=10	is_stopword=0	unit_count=1	weight=8.81
+Inverted List(427,464,569,889,1275,1517,1653,1869,1922,1958,1971,)
+LV(，(4),。(4),”(3),！(1),位(1),送给(1),)
+RV(的(2),已(1),至今(1),说(1),挺(1),回忆(1),眼中(1),提高(1),出现(1),盼望(1),)
+No:230	word=记得	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(430,)
+LV(还(1),)
+RV(第一(1),)
+No:231	word=第一	pos=m	freq=4	LV=4	RV=3	is_stopword=0	unit_count=1	weight=1.54
+Inverted List(431,784,801,819,)
+LV(与(1),夫(1),为(1),记得(1),)
+RV(战区(2),身(1),次(1),)
+No:232	word=身	pos=q	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(432,1763,)
+LV()
+RV()
+No:233	word=颜色	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(435,)
+LV(的(1),)
+RV(，(1),)
+No:234	word=黄色	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(440,)
+LV(是(1),)
+RV(的(1),)
+No:235	word=左	pos=f	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(443,)
+LV(，(1),)
+RV(胸前(1),)
+No:236	word=胸前	pos=s	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.05
+Inverted List(444,1861,)
+LV(在(1),左(1),)
+RV(，(1),有(1),)
+No:237	word=白色	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(447,)
+LV(个(1),)
+RV(的(1),)
+No:238	word=符号	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(449,452,)
+LV(的(1),那个(1),)
+RV(，(1),代表(1),)
+No:239	word=那个	pos=rz	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(451,)
+LV()
+RV()
+No:240	word=代表	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(453,1410,)
+LV(符号(1),把(1),)
+RV(着(1),小(1),)
+No:241	word=兵	pos=n	freq=3	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.14
+Inverted List(457,809,2001,)
+LV(等(2),父子(1),)
+RV(。(2),升(1),)
+No:242	word=这儿	pos=rzs	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(462,1920,)
+LV()
+RV()
+No:243	word=挺	pos=vi	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(465,467,)
+LV(了(1),老人(1),)
+RV(了(1),干瘦(1),)
+No:244	word=干瘦	pos=z	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(468,)
+LV(挺(1),)
+RV(的(1),)
+No:245	word=胸膛	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(470,)
+LV(的(1),)
+RV(。(1),)
+No:246	word=当时	pos=t	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=5.37
+Inverted List(473,1204,1294,)
+LV(末##末(2),，(1),“(1),)
+RV(就(1),日军(1),正(1),)
+No:247	word=步步	pos=vd	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(475,)
+LV(日军(1),)
+RV(紧逼(1),)
+No:248	word=紧逼	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(476,)
+LV(步步(1),)
+RV(，(1),)
+No:249	word=仅	pos=d	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(479,)
+LV()
+RV()
+No:250	word=手枪	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(482,)
+LV(一个(1),)
+RV(排(1),)
+No:251	word=无法	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(485,)
+LV(，(1),)
+RV(与(1),)
+No:252	word=其	pos=rz	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(487,624,)
+LV()
+RV()
+No:253	word=正面	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(488,)
+LV(其(1),)
+RV(交锋(1),)
+No:254	word=交锋	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(489,)
+LV(正面(1),)
+RV(，(1),)
+No:255	word=不断	pos=d	freq=3	LV=2	RV=3	is_stopword=0	unit_count=1	weight=1.52
+Inverted List(493,950,1172,)
+LV(，(2),能(1),)
+RV(转移(1),向(1),变化(1),)
+No:256	word=1942年1月	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.02
+Inverted List(496,)
+LV(。(1),)
+RV(初(1),)
+No:257	word=初	pos=f	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(497,)
+LV()
+RV()
+No:258	word=接到	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(500,)
+LV(司令部(1),)
+RV(命令(1),)
+No:259	word=命令	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(501,1382,)
+LV(接到(1),服从(1),)
+RV(，(1),是(1),)
+No:260	word=从	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(504,)
+LV()
+RV()
+No:261	word=向	pos=p	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(506,734,1173,)
+LV()
+RV()
+No:262	word=河南洛阳	pos=ns	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=9.65
+Inverted List(507,750,)
+LV(向(1),抵达(1),)
+RV(，(1),转移(1),)
+No:263	word=战友	pos=n	freq=5	LV=5	RV=4	is_stopword=0	unit_count=1	weight=6.35
+Inverted List(513,719,765,1108,1322,)
+LV(的(1),，(1),个(1),和(1),看见(1),)
+RV(，(1),们(2),牺牲(1),偷懒(1),)
+No:264	word=们	pos=k	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(514,1323,)
+LV()
+RV()
+No:265	word=日夜兼程	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(515,)
+LV(们(1),)
+RV(地(1),)
+No:266	word=赶路	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(517,)
+LV(地(1),)
+RV(，(1),)
+No:267	word=以	pos=p	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(519,1906,)
+LV()
+RV()
+No:268	word=躲避	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(520,)
+LV(以(1),)
+RV(日军(1),)
+No:269	word=围追	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(523,)
+LV(的(1),)
+RV(堵截(1),)
+No:270	word=堵截	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(524,)
+LV(围追(1),)
+RV(。(1),)
+No:271	word=正值	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(526,)
+LV(。(1),)
+RV(深冬(1),)
+No:272	word=深冬	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.11
+Inverted List(527,)
+LV(正值(1),)
+RV(，(1),)
+No:273	word=又	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(529,1592,)
+LV()
+RV()
+No:274	word=赶上	pos=v	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=4.96
+Inverted List(530,1088,1206,)
+LV(。(1),正(1),又(1),)
+RV(高(1),下雪(1),晚班(1),)
+No:275	word=下雪	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(531,)
+LV(赶上(1),)
+RV(，(1),)
+No:276	word=布鞋	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(538,)
+LV(的(1),)
+RV(早就(1),)
+No:277	word=早就	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(539,)
+LV(布鞋(1),)
+RV(磨(1),)
+No:278	word=磨	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(540,)
+LV(早就(1),)
+RV(破(1),)
+No:279	word=破	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(541,)
+LV(磨(1),)
+RV(了(1),)
+No:280	word=脚趾	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(544,)
+LV(，(1),)
+RV(踩(1),)
+No:281	word=踩	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(545,)
+LV(脚趾(1),)
+RV(在(1),)
+No:282	word=雪	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(547,)
+LV(在(1),)
+RV(地(1),)
+No:283	word=里	pos=f	freq=9	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(549,635,756,928,945,1039,1211,1271,1546,)
+LV()
+RV()
+No:284	word=每	pos=rz	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(551,914,1028,1548,)
+LV()
+RV()
+No:285	word=步	pos=qv	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(554,1640,)
+LV()
+RV()
+No:286	word=钻心	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(556,)
+LV(都(1),)
+RV(地(1),)
+No:287	word=疼	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(558,608,)
+LV(地(1),胃(1),)
+RV(，(1),。(1),)
+No:288	word=最	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(561,999,)
+LV()
+RV()
+No:289	word=难	pos=ad	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(562,1061,)
+LV()
+RV()
+No:290	word=熬	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(563,)
+LV(难(1),)
+RV(的(1),)
+No:291	word=还是	pos=c	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(565,1618,)
+LV()
+RV()
+No:292	word=饿	pos=v	freq=3	LV=3	RV=2	is_stopword=0	unit_count=1	weight=1.26
+Inverted List(566,605,616,)
+LV(还是(1),途中(1),常常(1),)
+RV(。(1),得(2),)
+No:293	word=回忆	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(570,)
+LV(老人(1),)
+RV(，(1),)
+No:294	word=行军	pos=vi	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=2.15
+Inverted List(572,614,)
+LV(，(1),在(1),)
+RV(途中(2),)
+No:295	word=途中	pos=s	freq=2	LV=1	RV=2	is_stopword=0	unit_count=1	weight=0.65
+Inverted List(573,615,)
+LV(行军(2),)
+RV(，(1),饿(1),)
+No:296	word=物资	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(576,)
+LV(司令部(1),)
+RV(短缺(1),)
+No:297	word=短缺	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(577,)
+LV(物资(1),)
+RV(，(1),)
+No:298	word=经常	pos=d	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.40
+Inverted List(579,1045,)
+LV(，(1),高夫(1),)
+RV(三五(1),冻(1),)
+No:299	word=三五	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.92
+Inverted List(580,)
+LV(经常(1),)
+RV(天(1),)
+No:300	word=吃	pos=v	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(583,)
+LV()
+RV()
+No:301	word=顿	pos=qv	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(587,)
+LV()
+RV()
+No:302	word=饭	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(588,)
+LV(顿(1),)
+RV(。(1),)
+No:303	word=身高	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(594,)
+LV(，(1),)
+RV(不(1),)
+No:304	word=米	pos=q	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(598,1017,)
+LV()
+RV()
+No:305	word=七	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(599,)
+LV(米(1),)
+RV(，(1),)
+No:306	word=很	pos=d	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(601,)
+LV()
+RV()
+No:307	word=瘦	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(602,)
+LV(很(1),)
+RV(，(1),)
+No:308	word=常常	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(604,)
+LV(，(1),)
+RV(饿(1),)
+No:309	word=得	pos=ude3	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(606,617,1047,1288,)
+LV()
+RV()
+No:310	word=胃	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(607,)
+LV(得(1),)
+RV(疼(1),)
+No:311	word=有时	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(610,)
+LV(，(1),)
+RV(甚至(1),)
+No:312	word=甚至	pos=d	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.40
+Inverted List(611,1894,)
+LV(，(1),有时(1),)
+RV(会(1),没有(1),)
+No:313	word=会	pos=v	freq=5	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(612,935,979,1265,1555,)
+LV()
+RV()
+No:314	word=晕倒	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(618,)
+LV(得(1),)
+RV(。(1),)
+No:315	word=很多	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(621,)
+LV(末##末(1),)
+RV(士兵(1),)
+No:316	word=士兵	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(622,1945,)
+LV(的(1),很多(1),)
+RV(，(1),不堪(1),)
+No:317	word=不堪	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(623,)
+LV(士兵(1),)
+RV(其(1),)
+No:318	word=苦	pos=an	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(625,)
+LV(其(1),)
+RV(，(1),)
+No:319	word=偷偷	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(627,)
+LV(，(1),)
+RV(离队(1),)
+No:320	word=离队	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(628,)
+LV(偷偷(1),)
+RV(，(1),)
+No:321	word=逃兵	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(638,662,)
+LV(了(1),当(1),)
+RV(，(1),。(1),)
+No:322	word=咬牙	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(641,)
+LV(高夫(1),)
+RV(坚持(1),)
+No:323	word=坚持	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(642,)
+LV(咬牙(1),)
+RV(着(1),)
+No:324	word=时常	pos=d	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.40
+Inverted List(646,1052,)
+LV(他(1),还(1),)
+RV(想起(1),因为(1),)
+No:325	word=想起	pos=v	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=4.96
+Inverted List(647,1530,1556,)
+LV(高振中(1),会(1),时常(1),)
+RV(父亲(1),和(1),已经(1),)
+No:326	word=日子	pos=n	freq=2	LV=1	RV=2	is_stopword=0	unit_count=1	weight=2.15
+Inverted List(654,1545,)
+LV(的(2),)
+RV(，(1),里(1),)
+No:327	word=我	pos=rr	freq=10	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(657,881,1263,1496,1574,1889,1914,1937,1951,)
+LV()
+RV()
+No:328	word=要是	pos=c	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(664,1258,)
+LV()
+RV()
+No:329	word=逃	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(665,)
+LV(要是(1),)
+RV(了(1),)
+No:330	word=以后	pos=f	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(668,)
+LV()
+RV()
+No:331	word=哪儿	pos=rys	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(669,)
+LV()
+RV()
+No:332	word=脸	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(671,1283,)
+LV(有(1),一(1),)
+RV(回去(1),平静(1),)
+No:333	word=回去	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(672,)
+LV(脸(1),)
+RV(见(1),)
+No:334	word=见	pos=v	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(673,1535,)
+LV()
+RV()
+No:335	word=虽然	pos=c	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(677,)
+LV()
+RV()
+No:336	word=没有	pos=v	freq=7	LV=8	RV=7	is_stopword=0	unit_count=1	weight=9.74
+Inverted List(678,714,724,1427,1890,1895,1905,)
+LV(。(1),也(1),“(1),甚至(1),我(1),虽然(1),一直(1),更(1),)
+RV(父亲(1),以(1),掉队(1),沉溺(1),国(1),赫赫(1),像(1),)
+No:337	word=音讯	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(681,)
+LV(的(1),)
+RV(，(1),)
+No:338	word=但	pos=c	freq=5	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(683,850,1362,1818,1929,)
+LV()
+RV()
+No:339	word=始终	pos=d	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=1.98
+Inverted List(685,1363,1372,)
+LV(，(1),高夫(1),但(1),)
+RV(在(1),相信(1),未能(1),)
+No:340	word=相信	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(686,)
+LV(始终(1),)
+RV(，(1),)
+No:341	word=定	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(690,)
+LV(一(1),)
+RV(在(1),)
+No:342	word=绝不	pos=d	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=0.86
+Inverted List(698,1306,)
+LV(也(1),他(1),)
+RV(能(2),)
+No:343	word=失望	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(702,)
+LV(父亲(1),)
+RV(！(1),)
+No:344	word=正是	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(705,1659,)
+LV(末##末(1),那(1),)
+RV(这个(1),他(1),)
+No:345	word=信念	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(707,)
+LV(这个(1),)
+RV(，(1),)
+No:346	word=支撑	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(709,)
+LV(，(1),)
+RV(着(1),)
+No:347	word=一直	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(713,)
+LV(，(1),)
+RV(没有(1),)
+No:348	word=掉队	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(715,)
+LV(没有(1),)
+RV(。(1),)
+No:349	word=即使	pos=c	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(717,)
+LV()
+RV()
+No:350	word=看见	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(718,1624,)
+LV(能(1),即使(1),)
+RV(战友(1),家门(1),)
+No:351	word=牺牲	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(720,)
+LV(战友(1),)
+RV(，(1),)
+No:352	word=沉溺	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(725,)
+LV(没有(1),)
+RV(于(1),)
+No:353	word=于	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(726,)
+LV()
+RV()
+No:354	word=悲伤	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(727,)
+LV(于(1),)
+RV(，(1),)
+No:355	word=加快	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(731,)
+LV(是(1),)
+RV(脚步(1),)
+No:356	word=脚步	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(732,1605,)
+LV(的(1),加快(1),)
+RV(，(1),越(1),)
+No:357	word=目的	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(735,)
+LV(向(1),)
+RV(地(1),)
+No:358	word=前进	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(737,)
+LV(地(1),)
+RV(。(1),)
+No:359	word=整整	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(740,)
+LV(末##末(1),)
+RV(走(1),)
+No:360	word=三	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(743,)
+LV(了(1),)
+RV(个(1),)
+No:361	word=月	pos=n	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(745,969,)
+LV()
+RV()
+No:362	word=部队	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(747,)
+LV(，(1),)
+RV(终于(1),)
+No:363	word=抵达	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(749,)
+LV(终于(1),)
+RV(河南洛阳(1),)
+No:364	word=此时	pos=r	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(752,)
+LV()
+RV()
+No:365	word=20	pos=m	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=0.86
+Inverted List(762,1015,)
+LV(的(1),地下(1),)
+RV(多(2),)
+No:366	word=剩下	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(768,)
+LV(只(1),)
+RV(不(1),)
+No:367	word=10	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(771,)
+LV(到(1),)
+RV(人(1),)
+No:368	word=由于	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(774,)
+LV()
+RV()
+No:369	word=人员	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(775,)
+LV(由于(1),)
+RV(缺损(1),)
+No:370	word=缺损	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(776,)
+LV(人员(1),)
+RV(严重(1),)
+No:371	word=严重	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(777,)
+LV(缺损(1),)
+RV(，(1),)
+No:372	word=合并	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(786,)
+LV(战区(1),)
+RV(。(1),)
+No:373	word=曾	pos=d	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(788,1155,1760,1938,)
+LV()
+RV()
+No:374	word=过	pos=uguo	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(793,1901,1976,)
+LV()
+RV()
+No:375	word=勤务兵	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(794,)
+LV(过(1),)
+RV(的(1),)
+No:376	word=话务员	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(804,)
+LV(司令部(1),)
+RV(，(1),)
+No:377	word=由	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(806,)
+LV()
+RV()
+No:378	word=升	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(810,)
+LV(兵(1),)
+RV(为(1),)
+No:379	word=下士	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(812,)
+LV(为(1),)
+RV(。(1),)
+No:380	word=次	pos=qv	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(820,1170,1762,)
+LV()
+RV()
+No:381	word=操作	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(821,)
+LV(次(1),)
+RV(交换机(1),)
+No:382	word=交换机	pos=n	freq=9	LV=6	RV=6	is_stopword=0	unit_count=1	weight=8.33
+Inverted List(822,910,1010,1100,1151,1245,1309,1374,1390,)
+LV(，(2),在(3),好(1),操作(1),碰到(1),扔下(1),)
+RV(，(2),。(2),一(1),被(1),边(1),旁(2),)
+No:383	word=纷	pos=ag	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(824,)
+LV(。(1),)
+RV(杂(1),)
+No:384	word=杂	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(825,)
+LV(纷(1),)
+RV(的(1),)
+No:385	word=电话线	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(827,)
+LV(的(1),)
+RV(能(1),)
+No:386	word=排列	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(829,)
+LV(能(1),)
+RV(组合(1),)
+No:387	word=组合	pos=vd	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(830,)
+LV(排列(1),)
+RV(成(1),)
+No:388	word=成	pos=v	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(831,947,1419,)
+LV()
+RV()
+No:389	word=70	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(832,)
+LV(成(1),)
+RV(条(1),)
+No:390	word=条	pos=q	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(833,915,)
+LV()
+RV()
+No:391	word=线路	pos=n	freq=7	LV=5	RV=5	is_stopword=0	unit_count=1	weight=7.22
+Inverted List(834,840,872,916,942,964,982,)
+LV(，(1),条(2),拔(2),一条条(1),错(1),)
+RV(的(1),，(3),上(1),在(1),…(1),)
+No:392	word=识字	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(838,)
+LV(不(1),)
+RV(，(1),)
+No:393	word=字符	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(843,)
+LV(的(1),)
+RV(看(1),)
+No:394	word=看	pos=v	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(844,931,)
+LV()
+RV()
+No:395	word=眼	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(847,939,)
+LV(都(1),双(1),)
+RV(，(1),晕(1),)
+No:396	word=晕	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(848,)
+LV(眼(1),)
+RV(。(1),)
+No:397	word=心里	pos=s	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.05
+Inverted List(852,1120,)
+LV(的(1),他(1),)
+RV(，(1),只(1),)
+No:398	word=兴奋	pos=v	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=4.96
+Inverted List(854,1485,1525,)
+LV(末##末(1),，(1),大家(1),)
+RV(之(1),地(1),多于(1),)
+No:399	word=多于	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(855,)
+LV(兴奋(1),)
+RV(惶恐(1),)
+No:400	word=惶恐	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(856,)
+LV(多于(1),)
+RV(，(1),)
+No:401	word=瞬息万变	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(861,)
+LV(，(1),)
+RV(的(1),)
+No:402	word=战情	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(863,)
+LV(的(1),)
+RV(，(1),)
+No:403	word=将	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(865,1198,)
+LV()
+RV()
+No:404	word=通过	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(866,)
+LV()
+RV()
+No:405	word=自己	pos=rr	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(867,1437,1613,1852,)
+LV()
+RV()
+No:406	word=双手	pos=n	freq=4	LV=3	RV=4	is_stopword=0	unit_count=1	weight=5.14
+Inverted List(869,1073,1236,1521,)
+LV(的(1),，(2),伸出(1),)
+RV(，(1),插(1),拍打(1),握拳(1),)
+No:407	word=插	pos=v	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=0.72
+Inverted List(870,962,)
+LV(着(1),双手(1),)
+RV(拔(2),)
+No:408	word=拔	pos=v	freq=2	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(871,963,)
+LV(插(2),)
+RV(线路(2),)
+No:409	word=传递	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(874,)
+LV(，(1),)
+RV(出(1),)
+No:410	word=出	pos=vf	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(875,1330,)
+LV()
+RV()
+No:411	word=去	pos=vf	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(876,1984,)
+LV()
+RV()
+No:412	word=就是	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(880,)
+LV(这(1),)
+RV(我(1),)
+No:413	word=抗日	pos=vn	freq=5	LV=4	RV=3	is_stopword=0	unit_count=1	weight=5.06
+Inverted List(883,1369,1395,1883,1911,)
+LV(的(3),，(1),为(1),‘(1),)
+RV(战场(2),尽力(1),英雄(2),)
+No:414	word=战场	pos=n	freq=3	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.42
+Inverted List(884,1356,1370,)
+LV(上(1),抗日(2),)
+RV(，(2),。(1),)
+No:415	word=时至今日	pos=dl	freq=1	LV=2	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(887,)
+LV(。(1),”(1),)
+RV(，(1),)
+No:416	word=眼中	pos=s	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.05
+Inverted List(891,1923,)
+LV(的(1),老人(1),)
+RV(，(1),依稀(1),)
+No:417	word=当年	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.14
+Inverted List(895,)
+LV(有(1),)
+RV(的(1),)
+No:418	word=豪情	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(897,)
+LV(的(1),)
+RV(。(1),)
+No:419	word=除了	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(900,)
+LV()
+RV()
+No:420	word=吃饭	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(901,)
+LV(除了(1),)
+RV(睡觉(1),)
+No:421	word=睡觉	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(902,)
+LV(吃饭(1),)
+RV(，(1),)
+No:422	word=基本	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(906,)
+LV(夫(1),)
+RV(都(1),)
+No:423	word=坐	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(908,)
+LV(都(1),)
+RV(在(1),)
+No:424	word=边	pos=k	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(911,)
+LV(交换机(1),)
+RV(，(1),)
+No:425	word=把	pos=pba	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(913,1409,)
+LV()
+RV()
+No:426	word=位置	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(918,)
+LV(的(1),)
+RV(、(1),)
+No:427	word=联系	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(920,)
+LV(、(1),)
+RV(哪个(1),)
+No:428	word=哪个	pos=ry	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(921,)
+LV()
+RV()
+No:429	word=部门	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(922,)
+LV(哪个(1),)
+RV(，(1),)
+No:430	word=刻	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(925,)
+LV(都(1),)
+RV(在(1),)
+No:431	word=脑子	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(927,)
+LV(在(1),)
+RV(里(1),)
+No:432	word=一会儿	pos=mq	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(932,)
+LV(看(1),)
+RV(，(1),)
+No:433	word=闭	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(936,974,)
+LV(夫(1),会(1),)
+RV(上(1),着(1),)
+No:434	word=双	pos=m	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=0.35
+Inverted List(938,953,)
+LV(上(1),；(1),)
+RV(眼(1),手(1),)
+No:435	word=一条条	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.92
+Inverted List(941,)
+LV(，(1),)
+RV(线路(1),)
+No:436	word=脑海	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(944,)
+LV(在(1),)
+RV(里(1),)
+No:437	word=串连	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(946,)
+LV(里(1),)
+RV(成(1),)
+No:438	word=图	pos=n	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(948,)
+LV()
+RV()
+No:439	word=变化	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(951,)
+LV(不断(1),)
+RV(；(1),)
+No:440	word=；	pos=wf	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(952,)
+LV()
+RV()
+No:441	word=手	pos=n	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(954,1358,)
+LV()
+RV()
+No:442	word=时	pos=ng	freq=4	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(955,957,1280,1551,)
+LV()
+RV()
+No:443	word=抬	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(956,)
+LV(时(1),)
+RV(时(1),)
+No:444	word=落	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(958,1222,)
+LV(时(1),簌簌(1),)
+RV(，(1),土(1),)
+No:445	word=模拟	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(960,)
+LV(，(1),)
+RV(着(1),)
+No:446	word=…	pos=ws	freq=8	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(965,966,1679,1680,1704,1705,1728,1729,)
+LV()
+RV()
+No:447	word=眼睛	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(976,1080,)
+LV(着(1),大(1),)
+RV(，(1),也(1),)
+No:448	word=接	pos=v	freq=4	LV=3	RV=4	is_stopword=0	unit_count=1	weight=1.71
+Inverted List(980,985,1131,1136,)
+LV(他(1),会(1),漏(2),)
+RV(一(1),一个(1),电话(1),错(1),)
+No:449	word=错	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(981,)
+LV(接(1),)
+RV(线路(1),)
+No:450	word=通	pos=qv	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(987,)
+LV()
+RV()
+No:451	word=需要	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(991,)
+LV(只(1),)
+RV(3(1),)
+No:452	word=3	pos=m	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=1.98
+Inverted List(992,1716,1761,)
+LV(的(1),曾(1),需要(1),)
+RV(个(1),次(1),秒(1),)
+No:453	word=秒	pos=qt	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(993,)
+LV()
+RV()
+No:454	word=钟	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(994,)
+LV(秒(1),)
+RV(。(1),)
+No:455	word=作为	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(997,)
+LV()
+RV()
+No:456	word=战时	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.12
+Inverted List(998,)
+LV(作为(1),)
+RV(最(1),)
+No:457	word=重要	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1000,)
+LV(最(1),)
+RV(的(1),)
+No:458	word=通讯	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1002,)
+LV(的(1),)
+RV(工具(1),)
+No:459	word=工具	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1003,)
+LV(通讯(1),)
+RV(，(1),)
+No:460	word=为了	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1005,)
+LV()
+RV()
+No:461	word=隐蔽	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1008,)
+LV(和(1),)
+RV(，(1),)
+No:462	word=放置	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1012,)
+LV(被(1),)
+RV(在(1),)
+No:463	word=地下	pos=s	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1014,)
+LV(在(1),)
+RV(20(1),)
+No:464	word=防空洞	pos=n	freq=6	LV=4	RV=4	is_stopword=0	unit_count=1	weight=5.99
+Inverted List(1019,1038,1188,1210,1270,1327,)
+LV(末##末(1),的(1),在(3),开(1),)
+RV(，(1),中(1),里(3),洞口(1),)
+No:465	word=24	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1022,)
+LV(，(1),)
+RV(小时(1),)
+No:466	word=小时	pos=n	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=4.96
+Inverted List(1023,1035,1319,)
+LV(个(1),多(1),24(1),)
+RV(。(1),后(1),有人(1),)
+No:467	word=有人	pos=r	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1024,)
+LV()
+RV()
+No:468	word=值	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1025,)
+LV(有人(1),)
+RV(守(1),)
+No:469	word=守	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1026,)
+LV(值(1),)
+RV(，(1),)
+No:470	word=班	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1030,)
+LV()
+RV()
+No:471	word=岗	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1031,)
+LV(班(1),)
+RV(至少(1),)
+No:472	word=至少	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1032,)
+LV(岗(1),)
+RV(7(1),)
+No:473	word=7	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1033,)
+LV(至少(1),)
+RV(个(1),)
+No:474	word=阴冷	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1040,)
+LV(里(1),)
+RV(、(1),)
+No:475	word=潮湿	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1042,)
+LV(、(1),)
+RV(，(1),)
+No:476	word=冻	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1046,)
+LV(经常(1),)
+RV(得(1),)
+No:477	word=瑟瑟	pos=z	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1048,)
+LV(得(1),)
+RV(发抖(1),)
+No:478	word=发抖	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1049,)
+LV(瑟瑟(1),)
+RV(，(1),)
+No:479	word=因为	pos=p	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1053,1134,1839,)
+LV()
+RV()
+No:480	word=缺氧	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1054,)
+LV(因为(1),)
+RV(，(1),)
+No:481	word=头晕	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1056,)
+LV(，(1),)
+RV(、(1),)
+No:482	word=恶心	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1058,)
+LV(、(1),)
+RV(。(1),)
+No:483	word=实在	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1060,)
+LV(。(1),)
+RV(难(1),)
+No:484	word=挨	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1062,)
+LV(难(1),)
+RV(，(1),)
+No:485	word=紧紧	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1066,)
+LV(就(1),)
+RV(单衣(1),)
+No:486	word=单衣	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1067,)
+LV(紧紧(1),)
+RV(，(1),)
+No:487	word=使劲	pos=vd	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1069,)
+LV(，(1),)
+RV(跺(1),)
+No:488	word=跺	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1070,)
+LV(使劲(1),)
+RV(跺脚(1),)
+No:489	word=跺脚	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1071,)
+LV(跺(1),)
+RV(，(1),)
+No:490	word=拍打	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1074,)
+LV(双手(1),)
+RV(脸颊(1),)
+No:491	word=脸颊	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1075,)
+LV(拍打(1),)
+RV(，(1),)
+No:492	word=努力	pos=ad	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1077,)
+LV(，(1),)
+RV(瞪(1),)
+No:493	word=瞪	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1078,)
+LV(努力(1),)
+RV(大(1),)
+No:494	word=大	pos=a	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1079,1498,1786,)
+LV()
+RV()
+No:495	word=一刻	pos=mq	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1082,)
+LV(，(1),)
+RV(也(1),)
+No:496	word=离开	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(1085,1735,)
+LV(儿子(1),不(1),)
+RV(游击队(1),岗位(1),)
+No:497	word=晚班	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1089,)
+LV(赶上(1),)
+RV(，(1),)
+No:498	word=打盹	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1093,)
+LV(夫(1),)
+RV(儿(1),)
+No:499	word=儿	pos=ng	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1094,)
+LV(打盹(1),)
+RV(都(1),)
+No:500	word=竖	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1096,)
+LV(都(1),)
+RV(着(1),)
+No:501	word=耳朵	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1098,)
+LV(着(1),)
+RV(，(1),)
+No:502	word=响	pos=q	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1102,1191,)
+LV()
+RV()
+No:503	word=准	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(1103,)
+LV(响(1),)
+RV(醒(1),)
+No:504	word=醒	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1104,)
+LV(准(1),)
+RV(。(1),)
+No:505	word=偷懒	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1109,)
+LV(战友(1),)
+RV(，(1),)
+No:506	word=接班	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1111,)
+LV(，(1),)
+RV(迟到(1),)
+No:507	word=迟到	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1112,)
+LV(接班(1),)
+RV(，(1),)
+No:508	word=从不	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1115,)
+LV(高夫(1),)
+RV(抱怨(1),)
+No:509	word=抱怨	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1116,)
+LV(从不(1),)
+RV(，(1),)
+No:510	word=绷	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1122,)
+LV(只(1),)
+RV(着(1),)
+No:511	word=根	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1125,)
+LV()
+RV()
+No:512	word=弦	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1126,)
+LV(根(1),)
+RV(——(1),)
+No:513	word=漏	pos=vd	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=0.72
+Inverted List(1130,1135,)
+LV(能(1),因为(1),)
+RV(接(2),)
+No:514	word=可能	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1141,)
+LV(就(1),)
+RV(关系(1),)
+No:515	word=关系	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.61
+Inverted List(1142,)
+LV(可能(1),)
+RV(到(1),)
+No:516	word=成千上万	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1144,)
+LV(到(1),)
+RV(人(1),)
+No:517	word=性命	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1147,)
+LV(的(1),)
+RV(。(1),)
+No:518	word=旁	pos=f	freq=2	LV=1	RV=2	is_stopword=0	unit_count=1	weight=0.22
+Inverted List(1152,1375,)
+LV(交换机(2),)
+RV(，(1),。(1),)
+No:519	word=死神	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1157,)
+LV(和(1),)
+RV(擦(1),)
+No:520	word=擦	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1158,)
+LV(死神(1),)
+RV(肩(1),)
+No:521	word=肩	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1159,)
+LV(擦(1),)
+RV(。(1),)
+No:522	word=1943年	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.85
+Inverted List(1162,)
+LV(末##末(1),)
+RV(，(1),)
+No:523	word=加密	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1165,)
+LV(日军(1),)
+RV(了(1),)
+No:524	word=空袭	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1167,)
+LV(了(1),)
+RV(的(1),)
+No:525	word=频	pos=ag	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(1169,)
+LV(的(1),)
+RV(次(1),)
+No:526	word=投掷	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1176,)
+LV(司令部(1),)
+RV(炸弹(1),)
+No:527	word=炸弹	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(1177,1186,)
+LV(的(1),投掷(1),)
+RV(。(1),在(1),)
+No:528	word=颗	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1183,)
+LV()
+RV()
+No:529	word=洞口	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(1189,1199,)
+LV(将(1),防空洞(1),)
+RV(炸(1),封(1),)
+No:530	word=炸	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1190,)
+LV(洞口(1),)
+RV(响(1),)
+No:531	word=飞	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1193,)
+LV(，(1),)
+RV(起(1),)
+No:532	word=起	pos=vf	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1194,)
+LV()
+RV()
+No:533	word=土	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(1196,1223,)
+LV(的(1),落(1),)
+RV(，(1),石(1),)
+No:534	word=石	pos=ng	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1197,)
+LV(土(1),)
+RV(将(1),)
+No:535	word=封	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1200,)
+LV()
+RV()
+No:536	word=死	pos=a	freq=4	LV=4	RV=4	is_stopword=0	unit_count=1	weight=1.04
+Inverted List(1201,1268,1302,1907,)
+LV(以(1),封(1),闷(1),今天(1),)
+RV(了(1),。(1),在(1),报国(1),)
+No:537	word=值班	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1212,)
+LV(里(1),)
+RV(，(1),)
+No:538	word=觉得	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1216,)
+LV(只(1),)
+RV(一阵(1),)
+No:539	word=一阵	pos=mq	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1217,)
+LV(觉得(1),)
+RV(地动山摇(1),)
+No:540	word=地动山摇	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1218,)
+LV(一阵(1),)
+RV(，(1),)
+No:541	word=头顶	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1220,)
+LV(，(1),)
+RV(簌簌(1),)
+No:542	word=簌簌	pos=o	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1221,)
+LV()
+RV()
+No:543	word=随后	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1225,)
+LV(，(1),)
+RV(就(1),)
+No:544	word=漆黑	pos=z	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1228,)
+LV(是(1),)
+RV(一(1),)
+No:545	word=片	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1230,)
+LV()
+RV()
+No:546	word=黑暗	pos=an	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1232,)
+LV(。(1),)
+RV(中(1),)
+No:547	word=伸出	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1235,)
+LV(高夫(1),)
+RV(双手(1),)
+No:548	word=四	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(1238,)
+LV(，(1),)
+RV(下(1),)
+No:549	word=摸索	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1240,)
+LV(下(1),)
+RV(，(1),)
+No:550	word=手指	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1243,)
+LV(直到(1),)
+RV(碰到(1),)
+No:551	word=碰到	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1244,)
+LV(手指(1),)
+RV(交换机(1),)
+No:552	word=确认	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1247,)
+LV(，(1),)
+RV(完好无损(1),)
+No:553	word=完好无损	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1248,)
+LV(确认(1),)
+RV(，(1),)
+No:554	word=才	pos=d	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1251,)
+LV()
+RV()
+No:555	word=稍	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.21
+Inverted List(1253,)
+LV(心中(1),)
+RV(安(1),)
+No:556	word=安	pos=ag	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(1254,)
+LV(稍(1),)
+RV(。(1),)
+No:557	word=发现	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1261,)
+LV(被(1),)
+RV(，(1),)
+No:558	word=闷	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1267,)
+LV(被(1),)
+RV(死(1),)
+No:559	word=段	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1279,)
+LV()
+RV()
+No:560	word=平静	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1284,)
+LV(脸(1),)
+RV(，(1),)
+No:561	word=仿佛	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1286,)
+LV(，(1),)
+RV(说(1),)
+No:562	word=生死	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(1291,1537,)
+LV(是(1),、(1),)
+RV(，(1),未(1),)
+No:563	word=算是	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1300,)
+LV(就(1),)
+RV(今天(1),)
+No:564	word=今天	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.17
+Inverted List(1301,)
+LV(算是(1),)
+RV(死(1),)
+No:565	word=扔下	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1308,)
+LV(能(1),)
+RV(交换机(1),)
+No:566	word=所	pos=usuo	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1313,)
+LV()
+RV()
+No:567	word=幸	pos=vg	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1314,)
+LV(所(1),)
+RV(，(1),)
+No:568	word=两	pos=m	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=0.35
+Inverted List(1316,1966,)
+LV(，(1),已经(1),)
+RV(岁(1),个(1),)
+No:569	word=挖	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1325,)
+LV(终于(1),)
+RV(开(1),)
+No:570	word=开	pos=v	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1326,)
+LV()
+RV()
+No:571	word=救	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1329,)
+LV(，(1),)
+RV(出(1),)
+No:572	word=残暴	pos=an	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1337,)
+LV(的(1),)
+RV(刺激(1),)
+No:573	word=刺激	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1338,)
+LV(残暴(1),)
+RV(着(1),)
+No:574	word=血性	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1342,)
+LV(的(1),)
+RV(，(1),)
+No:575	word=22	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1345,)
+LV(这个(1),)
+RV(岁(1),)
+No:576	word=小伙子	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1348,)
+LV(的(1),)
+RV(，(1),)
+No:577	word=每天	pos=r	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1350,)
+LV()
+RV()
+No:578	word=梦想	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1352,)
+LV(都(1),)
+RV(着(1),)
+No:579	word=刃	pos=ng	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1359,)
+LV(手(1),)
+RV(日寇(1),)
+No:580	word=未能	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1364,)
+LV(始终(1),)
+RV(如愿(1),)
+No:581	word=如愿	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1365,)
+LV(未能(1),)
+RV(，(1),)
+No:582	word=不过	pos=c	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1377,)
+LV()
+RV()
+No:583	word=明白	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1379,)
+LV(他(1),)
+RV(，(1),)
+No:584	word=服从	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1381,)
+LV(，(1),)
+RV(命令(1),)
+No:585	word=军人	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1384,)
+LV(是(1),)
+RV(的(1),)
+No:586	word=天职	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1386,)
+LV(的(1),)
+RV(，(1),)
+No:587	word=守护	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1388,)
+LV(，(1),)
+RV(好(1),)
+No:588	word=一样	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1392,)
+LV(，(1),)
+RV(是(1),)
+No:589	word=尽力	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1396,)
+LV(抗日(1),)
+RV(。(1),)
+No:590	word=年	pos=qt	freq=6	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1401,1533,1588,1664,1816,1978,)
+LV()
+RV()
+No:591	word=改	pos=v	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=1.17
+Inverted List(1404,1418,)
+LV(高夫(1),字(1),)
+RV(了(1),成(1),)
+No:592	word=名字	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1406,)
+LV(了(1),)
+RV(，(1),)
+No:593	word=小	pos=a	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1411,)
+LV()
+RV()
+No:594	word=字	pos=n	freq=3	LV=3	RV=2	is_stopword=0	unit_count=1	weight=1.29
+Inverted List(1417,1718,)
+LV(”(1),个(1),夫(1),)
+RV(：(1),改(1),)
+No:595	word=振	pos=vg	freq=3	LV=4	RV=1	is_stopword=0	unit_count=1	weight=0.90
+Inverted List(1422,1448,1683,)
+LV(了(1),“(2),高(1),为(1),)
+RV(中(3),)
+No:596	word=国	pos=n	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1428,)
+LV()
+RV()
+No:597	word=哪	pos=ry	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1430,)
+LV()
+RV()
+No:598	word=不仅	pos=c	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1438,)
+LV()
+RV()
+No:599	word=家里	pos=s	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1440,)
+LV(是(1),)
+RV(的(1),)
+No:600	word=更	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1444,1904,)
+LV()
+RV()
+No:601	word=出力	pos=vi	freq=1	LV=2	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1451,)
+LV(”(1),中(1),)
+RV(，(1),)
+No:602	word=期盼	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1455,)
+LV(也(1),)
+RV(着(1),)
+No:603	word=破碎	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1457,)
+LV(着(1),)
+RV(的(1),)
+No:604	word=中国	pos=ns	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=2.48
+Inverted List(1459,1506,1986,)
+LV(的(1),咱们(1),参观(1),)
+RV(，(1),胜利(1),人民(1),)
+No:605	word=重新	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1462,)
+LV(能(1),)
+RV(振作(1),)
+No:606	word=振作	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1463,)
+LV(重新(1),)
+RV(起来(1),)
+No:607	word=起来	pos=vf	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1464,)
+LV(振作(1),)
+RV(。(1),)
+No:608	word=1945年8月	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.73
+Inverted List(1472,)
+LV(！(1),)
+RV(，(1),)
+No:609	word=开始	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1478,)
+LV(消息(1),)
+RV(在(1),)
+No:610	word=军营	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1480,)
+LV(在(1),)
+RV(中(1),)
+No:611	word=流传	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1482,)
+LV(中(1),)
+RV(，(1),)
+No:612	word=大家	pos=rr	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1484,)
+LV()
+RV()
+No:613	word=谈论	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1487,)
+LV(地(1),)
+RV(着(1),)
+No:614	word=激动	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1492,)
+LV(也(1),)
+RV(万分(1),)
+No:615	word=万分	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1493,)
+LV(激动(1),)
+RV(，(1),)
+No:616	word=反复	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1497,)
+LV(我(1),)
+RV(大(1),)
+No:617	word=喊	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1499,)
+LV(大(1),)
+RV(着(1),)
+No:618	word=句	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1502,)
+LV()
+RV()
+No:619	word=咱们	pos=rr	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1505,)
+LV()
+RV()
+No:620	word=时候	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1511,)
+LV(是(1),)
+RV(收复(1),)
+No:621	word=提高	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1518,)
+LV(老人(1),)
+RV(音调(1),)
+No:622	word=音调	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1519,)
+LV(提高(1),)
+RV(，(1),)
+No:623	word=握拳	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1522,)
+LV(双手(1),)
+RV(。(1),)
+No:624	word=余	pos=ng	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1527,)
+LV()
+RV()
+No:625	word=已经	pos=d	freq=3	LV=3	RV=3	is_stopword=0	unit_count=1	weight=1.98
+Inverted List(1531,1622,1965,)
+LV(末##末(1),想起(1),重孙(1),)
+RV(能(1),两(1),4(1),)
+No:626	word=4	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1532,)
+LV(已经(1),)
+RV(年(1),)
+No:627	word=未	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1534,1538,)
+LV()
+RV()
+No:628	word=卜	pos=vg	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1539,)
+LV(未(1),)
+RV(的(1),)
+No:629	word=分别	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1543,)
+LV(。(1),)
+RV(的(1),)
+No:630	word=夜深人静	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1550,)
+LV(到(1),)
+RV(时(1),)
+No:631	word=泪如泉涌	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1559,)
+LV(，(1),)
+RV(。(1),)
+No:632	word=哪里	pos=rys	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1564,)
+LV()
+RV()
+No:633	word=？	pos=ww	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1565,1573,1581,)
+LV()
+RV()
+No:634	word=活	pos=v	freq=4	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1571,1677,1722,1726,)
+LV(还(4),)
+RV(着(4),)
+No:635	word=1949年1月	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1584,)
+LV(末##末(1),)
+RV(，(1),)
+No:636	word=8	pos=m	freq=2	LV=2	RV=1	is_stopword=0	unit_count=1	weight=0.86
+Inverted List(1587,1663,)
+LV(离家(1),了(1),)
+RV(年(2),)
+No:637	word=回到	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1593,)
+LV(又(1),)
+RV(了(1),)
+No:638	word=城	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1596,)
+LV(内黄县(1),)
+RV(。(1),)
+No:639	word=离	pos=p	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1598,)
+LV()
+RV()
+No:640	word=越	pos=d	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1600,1606,)
+LV()
+RV()
+No:641	word=近	pos=a	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1601,1638,)
+LV()
+RV()
+No:642	word=慢	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(1607,)
+LV(越(1),)
+RV(，(1),)
+No:643	word=等待	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1612,)
+LV(知道(1),)
+RV(自己(1),)
+No:644	word=团圆	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1616,)
+LV(是(1),)
+RV(，(1),)
+No:645	word=噩耗	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1619,)
+LV(还是(1),)
+RV(。(1),)
+No:646	word=家门	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1625,)
+LV(看见(1),)
+RV(了(1),)
+No:647	word=站	pos=vi	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1629,)
+LV()
+RV()
+No:648	word=住	pos=vi	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1630,)
+LV()
+RV()
+No:649	word=敢	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1635,)
+LV(不(1),)
+RV(再(1),)
+No:650	word=那么	pos=rz	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1643,)
+LV()
+RV()
+No:651	word=远远地	pos=z	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1644,)
+LV(那么(1),)
+RV(望(1),)
+No:652	word=望	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1645,)
+LV(远远地(1),)
+RV(着(1),)
+No:653	word=突然	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1649,)
+LV(末##末(1),)
+RV(，(1),)
+No:654	word=位	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1652,)
+LV()
+RV()
+No:655	word=出现	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1654,)
+LV(老人(1),)
+RV(在(1),)
+No:656	word=门前	pos=s	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1656,)
+LV(在(1),)
+RV(，(1),)
+No:657	word=那	pos=rzv	freq=3	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1658,1840,1863,)
+LV()
+RV()
+No:658	word=牵挂	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1661,)
+LV(他(1),)
+RV(了(1),)
+No:659	word=身影	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1666,)
+LV(的(1),)
+RV(，(1),)
+No:660	word=心脏	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1685,)
+LV(中(1),)
+RV(狂(1),)
+No:661	word=狂	pos=dg	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.21
+Inverted List(1686,)
+LV(心脏(1),)
+RV(跳(1),)
+No:662	word=跳	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1687,)
+LV(狂(1),)
+RV(，(1),)
+No:663	word=极	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.21
+Inverted List(1690,)
+LV(喜(1),)
+RV(而(1),)
+No:664	word=而	pos=cc	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1691,)
+LV()
+RV()
+No:665	word=泣	pos=vg	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1692,)
+LV(而(1),)
+RV(。(1),)
+No:666	word=高喊	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1695,)
+LV(他(1),)
+RV(一(1),)
+No:667	word=声	pos=qv	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1697,)
+LV()
+RV()
+No:668	word=飞奔	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1702,)
+LV(，(1),)
+RV(上前(1),)
+No:669	word=上前	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1703,)
+LV(飞奔(1),)
+RV(…(1),)
+No:670	word=父子	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(1706,2000,)
+LV(家(1),…(1),)
+RV(兵(1),俩(1),)
+No:671	word=俩	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(1707,)
+LV(父子(1),)
+RV(抱头痛哭(1),)
+No:672	word=抱头痛哭	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1708,)
+LV(俩(1),)
+RV(，(1),)
+No:673	word=异口同声	pos=dl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1710,)
+LV(，(1),)
+RV(地(1),)
+No:674	word=喃喃	pos=o	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1712,)
+LV()
+RV()
+No:675	word=相同	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1714,)
+LV(着(1),)
+RV(的(1),)
+No:676	word=原来	pos=b	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1732,)
+LV(末##末(1),)
+RV(，(1),)
+No:677	word=不久	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1738,)
+LV(后(1),)
+RV(，(1),)
+No:678	word=29	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1744,)
+LV(了(1),)
+RV(军(1),)
+No:679	word=军	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1745,)
+LV(29(1),)
+RV(大刀(1),)
+No:680	word=大刀	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1746,)
+LV(军(1),)
+RV(队(1),)
+No:681	word=队	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1747,)
+LV(大刀(1),)
+RV(，(1),)
+No:682	word=上阵	pos=vi	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(1749,1899,)
+LV(，(1),那样(1),)
+RV(杀敌(1),杀(1),)
+No:683	word=杀敌	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1750,)
+LV(上阵(1),)
+RV(，(1),)
+No:684	word=1947年	pos=t	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.57
+Inverted List(1752,)
+LV(，(1),)
+RV(复员(1),)
+No:685	word=复员	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1753,)
+LV(1947年(1),)
+RV(回乡(1),)
+No:686	word=回乡	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1754,)
+LV(复员(1),)
+RV(。(1),)
+No:687	word=战斗	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1756,)
+LV(。(1),)
+RV(中(1),)
+No:688	word=负	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1764,)
+LV(身(1),)
+RV(重伤(1),)
+No:689	word=重伤	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1765,)
+LV(负(1),)
+RV(，(1),)
+No:690	word=死里逃生	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1767,)
+LV(，(1),)
+RV(。(1),)
+No:691	word=解开	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1770,)
+LV(父亲(1),)
+RV(衣衫(1),)
+No:692	word=衣衫	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1771,)
+LV(解开(1),)
+RV(，(1),)
+No:693	word=胸	pos=ng	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1774,)
+LV(前(1),)
+RV(后背(1),)
+No:694	word=后背	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1775,)
+LV(胸(1),)
+RV(，(1),)
+No:695	word=数十	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.92
+Inverted List(1778,)
+LV(有(1),)
+RV(处(1),)
+No:696	word=处	pos=q	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1779,1793,)
+LV()
+RV()
+No:697	word=伤痕	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1780,)
+LV(处(1),)
+RV(，(1),)
+No:698	word=肩膀	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1782,)
+LV(，(1),)
+RV(、(1),)
+No:699	word=肋骨	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1784,)
+LV(、(1),)
+RV(和(1),)
+No:700	word=腿	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1787,)
+LV(大(1),)
+RV(上(1),)
+No:701	word=各	pos=rz	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1790,)
+LV()
+RV()
+No:702	word=十几	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1794,)
+LV(处(1),)
+RV(厘米(1),)
+No:703	word=厘米	pos=q	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1795,)
+LV()
+RV()
+No:704	word=刀	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1797,)
+LV(的(1),)
+RV(疤(1),)
+No:705	word=疤	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1798,)
+LV(刀(1),)
+RV(。(1),)
+No:706	word=轻轻	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1801,)
+LV(高振中(1),)
+RV(摸(1),)
+No:707	word=摸	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1802,)
+LV(轻轻(1),)
+RV(着(1),)
+No:708	word=那些	pos=rz	freq=2	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1804,1821,)
+LV()
+RV()
+No:709	word=伤疤	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(1805,1824,)
+LV(的(1),那些(1),)
+RV(，(1),仍然(1),)
+No:710	word=泪流满面	pos=al	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1807,)
+LV(，(1),)
+RV(。(1),)
+No:711	word=如今	pos=t	freq=2	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(1810,1956,)
+LV(末##末(2),)
+RV(，(2),)
+No:712	word=早已	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1813,)
+LV(父亲(1),)
+RV(去世(1),)
+No:713	word=去世	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1814,)
+LV(早已(1),)
+RV(多(1),)
+No:714	word=身上	pos=s	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1820,)
+LV(他(1),)
+RV(那些(1),)
+No:715	word=狰狞	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1822,)
+LV(那些(1),)
+RV(的(1),)
+No:716	word=仍然	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1825,)
+LV(伤疤(1),)
+RV(印(1),)
+No:717	word=印	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1826,)
+LV(仍然(1),)
+RV(在(1),)
+No:718	word=心头	pos=s	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1830,)
+LV(的(1),)
+RV(，(1),)
+No:719	word=引	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1835,)
+LV(他(1),)
+RV(以为(1),)
+No:720	word=以为	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1836,)
+LV(引(1),)
+RV(傲(1),)
+No:721	word=傲	pos=ag	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.27
+Inverted List(1837,)
+LV(以为(1),)
+RV(，(1),)
+No:722	word=家族	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1842,)
+LV(是(1),)
+RV(的(1),)
+No:723	word=勋章	pos=n	freq=3	LV=3	RV=4	is_stopword=0	unit_count=1	weight=5.17
+Inverted List(1845,1854,1873,)
+LV(的(2),，(1),“(1),)
+RV(，(1),。(1),上(1),”(1),)
+No:724	word=郑重	pos=a	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1857,)
+LV(他(1),)
+RV(地(1),)
+No:725	word=戴	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1859,)
+LV(地(1),)
+RV(在(1),)
+No:726	word=公益	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1866,)
+LV(一个(1),)
+RV(组织(1),)
+No:727	word=组织	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1867,)
+LV(公益(1),)
+RV(送给(1),)
+No:728	word=送给	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1868,)
+LV(组织(1),)
+RV(老人(1),)
+No:729	word=礼物	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1871,)
+LV(的(1),)
+RV(，(1),)
+No:730	word=写	pos=v	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1875,)
+LV()
+RV()
+No:731	word=献给	pos=v	freq=1	LV=2	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1878,)
+LV(“(1),着(1),)
+RV(为(1),)
+No:732	word=中华民族	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1880,)
+LV(为(1),)
+RV(浴血奋战(1),)
+No:733	word=浴血奋战	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1881,)
+LV(中华民族(1),)
+RV(的(1),)
+No:734	word=英雄	pos=n	freq=2	LV=1	RV=4	is_stopword=0	unit_count=1	weight=2.71
+Inverted List(1884,1912,)
+LV(抗日(2),)
+RV(。(1),”(1),我(1),’(1),)
+No:735	word=赫赫	pos=z	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.48
+Inverted List(1891,)
+LV(没有(1),)
+RV(战功(1),)
+No:736	word=战功	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1892,)
+LV(赫赫(1),)
+RV(，(1),)
+No:737	word=像	pos=v	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1896,)
+LV()
+RV()
+No:738	word=那样	pos=rzv	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1898,)
+LV()
+RV()
+No:739	word=杀	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1900,)
+LV(上阵(1),)
+RV(过(1),)
+No:740	word=敌	pos=ng	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(1902,)
+LV(过(1),)
+RV(，(1),)
+No:741	word=报国	pos=vi	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1908,)
+LV(死(1),)
+RV(，(1),)
+No:742	word=‘	pos=wyz	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1910,)
+LV()
+RV()
+No:743	word=’	pos=wyy	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1913,)
+LV()
+RV()
+No:744	word=不敢当	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1915,)
+LV(我(1),)
+RV(。(1),)
+No:745	word=依稀	pos=d	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.64
+Inverted List(1924,)
+LV(眼中(1),)
+RV(泛起(1),)
+No:746	word=泛起	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1925,)
+LV(依稀(1),)
+RV(泪光(1),)
+No:747	word=泪光	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1926,)
+LV(泛起(1),)
+RV(，(1),)
+No:748	word=抗击	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1931,)
+LV(在(1),)
+RV(侵略(1),)
+No:749	word=侵略	pos=vn	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1932,)
+LV(抗击(1),)
+RV(的(1),)
+No:750	word=战火	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1934,)
+LV(的(1),)
+RV(中(1),)
+No:751	word=坚守	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1942,)
+LV(名(1),)
+RV(岗位(1),)
+No:752	word=足够	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1949,)
+LV(已(1),)
+RV(令(1),)
+No:753	word=令	pos=v	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1950,)
+LV()
+RV()
+No:754	word=骄傲	pos=an	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.80
+Inverted List(1952,)
+LV(我(1),)
+RV(。(1),)
+No:755	word=四世同堂	pos=vl	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1960,)
+LV(已(1),)
+RV(，(1),)
+No:756	word=重孙	pos=n	freq=2	LV=2	RV=2	is_stopword=0	unit_count=1	weight=3.51
+Inverted List(1964,1983,)
+LV(的(1),着(1),)
+RV(去(1),已经(1),)
+No:757	word=半	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(1968,)
+LV(岁(1),)
+RV(了(1),)
+No:758	word=盼望	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1972,)
+LV(老人(1),)
+RV(着(1),)
+No:759	word=几	pos=m	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.16
+Inverted List(1977,)
+LV(过(1),)
+RV(年(1),)
+No:760	word=参观	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1985,)
+LV(去(1),)
+RV(中国(1),)
+No:761	word=人民	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.61
+Inverted List(1987,)
+LV(中国(1),)
+RV(抗日战争(1),)
+No:762	word=抗日战争	pos=nz	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1988,)
+LV(人民(1),)
+RV(纪念馆(1),)
+No:763	word=纪念馆	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1989,)
+LV(抗日战争(1),)
+RV(，(1),)
+No:764	word=讲讲	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1993,)
+LV(他(1),)
+RV(那场(1),)
+No:765	word=那场	pos=r	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(1994,)
+LV()
+RV()
+No:766	word=战争	pos=n	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.60
+Inverted List(1995,)
+LV(那场(1),)
+RV(中(1),)
+No:767	word=（	pos=wkz	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(2004,)
+LV()
+RV()
+No:768	word=文	pos=v	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(2005,)
+LV(（(1),)
+RV(/(1),)
+No:769	word=/	pos=w	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(2006,)
+LV()
+RV()
+No:770	word=石滢	pos=nr2	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=1.92
+Inverted List(2007,)
+LV(/(1),)
+RV(琪(1),)
+No:771	word=琪	pos=ng	freq=1	LV=1	RV=1	is_stopword=0	unit_count=1	weight=0.53
+Inverted List(2008,)
+LV(石滢(1),)
+RV(）(1),)
+No:772	word=）	pos=wky	freq=1	LV=0	RV=0	is_stopword=1	unit_count=1	weight=-1.00
+Inverted List(2009,)
+LV()
+RV()
+No:773	word=黄河屯	pos=n_new	freq=2	LV=2	RV=2	is_stopword=0	unit_count=2	weight=7.76
+Inverted List(108,147,)
+LV(在(1),随着(1),)
+RV(村落(1),村(1),)
+No:774	word=冀察	pos=n_new	freq=3	LV=3	RV=1	is_stopword=0	unit_count=2	weight=-1.00
+Inverted List(272,390,779,)
+LV(，(1),加入(1),到(1),)
+RV(战区(3),)
+No:775	word=察战区	pos=n_new	freq=3	LV=1	RV=1	is_stopword=0	unit_count=2	weight=-1.00
+Inverted List(273,391,780,)
+LV(冀(3),)
+RV(司令部(3),)
+No:776	word=战区司令部	pos=n_new	freq=5	LV=3	RV=5	is_stopword=0	unit_count=2	weight=-1.00
+Inverted List(274,392,781,802,1174,)
+LV(察(3),第一(1),向(1),)
+RV(，(1),。(1),与(1),话务员(1),投掷(1),)
+No:777	word=电话排	pos=n_new	freq=3	LV=3	RV=3	is_stopword=0	unit_count=2	weight=10.37
+Inverted List(418,754,790,)
+LV(，(1),在(1),为(1),)
+RV(当(1),勤务员(1),里(1),)
+No:778	word=20 多	pos=n_new	freq=2	LV=2	RV=2	is_stopword=0	unit_count=2	weight=7.76
+Inverted List(762,1015,)
+LV(的(1),地下(1),)
+RV(个(1),米(1),)
+No:779	word=拔线路	pos=n_new	freq=2	LV=1	RV=2	is_stopword=0	unit_count=2	weight=-1.00
+Inverted List(871,963,)
+LV(插(2),)
+RV(，(1),…(1),)
+No:780	word=抗日战场	pos=n_new	freq=2	LV=1	RV=2	is_stopword=0	unit_count=2	weight=-1.00
+Inverted List(883,1369,)
+LV(的(2),)
+RV(，(1),。(1),)
+No:781	word=抗日英雄	pos=n_new	freq=2	LV=3	RV=4	is_stopword=0	unit_count=2	weight=10.69
+Inverted List(1883,1911,)
+LV(的(1),，(1),‘(1),)
+RV(。(1),”(1),我(1),’(1),)
+No:782	word=漏接	pos=n_new	freq=2	LV=2	RV=2	is_stopword=0	unit_count=2	weight=7.76
+Inverted List(1130,1135,)
+LV(能(1),因为(1),)
+RV(一个(1),电话(1),)
+No:783	word=交换机旁	pos=n_new	freq=2	LV=1	RV=2	is_stopword=0	unit_count=2	weight=-1.00
+Inverted List(1151,1374,)
+LV(在(2),)
+RV(，(1),。(1),)
+No:784	word=冀察战区	pos=n_new	freq=3	LV=3	RV=1	is_stopword=0	unit_count=3	weight=-1.00
+Inverted List(272,390,779,)
+LV(，(1),加入(1),到(1),)
+RV(司令部(3),)
+No:785	word=察战区司令部	pos=n_new	freq=3	LV=1	RV=3	is_stopword=0	unit_count=3	weight=-1.00
+Inverted List(273,391,780,)
+LV(冀(3),)
+RV(，(1),。(1),与(1),)
+No:786	word=冀察战区司令部	pos=n_new	freq=3	LV=3	RV=3	is_stopword=0	unit_count=4	weight=5.30
+Inverted List(272,390,779,)
+LV(，(1),加入(1),到(1),)
+RV(，(1),。(1),与(1),)
+)
+ Sentence Information:
+No:1	line19岁那年的离家逃难，虽已过去了74年，高振中依然记忆深刻。
+weight=0.00
+wordid_list_size=0()
+No:2	line 豫北平原，黄河故道上有一座县城，名曰内黄县，这里是商鞅故里，也是项羽“破釜沉舟”之地。
+weight=0.00
+wordid_list_size=0()
+No:3	line1922年12月13日，县城附近的一户姓高的人家弄璋之喜，父亲给儿子取名——高夫，希望孩子能成为高家的顶梁柱。
+weight=0.00
+wordid_list_size=0()
+No:4	line 这个叫高夫的男婴，就是高振中。
+weight=0.00
+wordid_list_size=0()
+No:5	line 1941年，洪水淹了县城，19岁的高夫跟着家人离家避难，在黄河屯村落脚。
+weight=0.00
+wordid_list_size=0()
+No:6	line这并不是个安全的所在，40多公里外的安阳市区已被日军占领。
+weight=0.00
+wordid_list_size=0()
+No:7	line 后有洪水，前有日寇，高夫一家随着黄河屯村的村民再次转移，走走停停，硬是走了数百公里，进入河北武安，藏进山中。
+weight=0.00
+wordid_list_size=0()
+No:8	line 躲，并非长久之计。
+weight=0.00
+wordid_list_size=0()
+No:9	line一起逃难的村民一合计，成立了游击队，保护妇孺。
+weight=0.00
+wordid_list_size=0()
+No:10	line高夫的父亲也带着儿子加入了游击队，“不打跑日本人，我们永远都要提心吊胆、东躲西藏。”
+weight=0.00
+wordid_list_size=0()
+No:11	line父亲的话，至今仍回响在高振中的耳边。
+weight=0.00
+wordid_list_size=0()
+No:12	line那时，他心中只有一个心愿：要当正规军，赶跑鬼子，再不用躲躲藏藏。
+weight=0.00
+wordid_list_size=0()
+No:13	line 那年秋天，机会来了。
+weight=0.00
+wordid_list_size=0()
+No:14	line 高夫与其他16名年轻人被选中加入冀察战区司令部。
+weight=0.00
+wordid_list_size=0()
+No:15	line“抗战一天不胜利，失地就一天不能收复。”
+weight=0.00
+wordid_list_size=0()
+No:16	line长官的话，让年轻的高夫热血沸腾。
+weight=0.00
+wordid_list_size=0()
+No:17	line“终于当上正规军了！”
+weight=0.00
+wordid_list_size=0()
+No:18	line他想马上告诉父亲这个好消息，可那天，父亲正在山里要道上站岗。
+weight=0.00
+wordid_list_size=0()
+No:19	line军令如山，说走就走，高夫他们当天就要开拔前往河北邢台。
+weight=0.00
+wordid_list_size=0()
+No:20	line直到出发，高夫也没能和父亲道别。
+weight=0.00
+wordid_list_size=0()
+No:21	line走下山梁，高夫还在频频回头，他不知道，这一别，是否还能再见到父亲。
+weight=0.00
+wordid_list_size=0()
+No:22	line 走到冀察战区司令部，天色已晚，高夫等人匆匆喝了点儿小米粥，就被分配了岗位。
+weight=0.00
+wordid_list_size=0()
+No:23	line高夫被任命为电话排勤务员，领到了正式军装。
+weight=0.00
+wordid_list_size=0()
+No:24	line老人至今还记得第一身军装的颜色，“军装是黄色的，左胸前有个白色的符号，那个符号代表着一等兵。”
+weight=0.00
+wordid_list_size=0()
+No:25	line说到这儿，老人挺了挺干瘦的胸膛。
+weight=0.00
+wordid_list_size=0()
+No:26	line 当时日军步步紧逼，司令部仅有一个手枪排，无法与其正面交锋，只能不断转移。
+weight=0.00
+wordid_list_size=0()
+No:27	line1942年1月初，司令部接到命令，要从河北邢台向河南洛阳转移。
+weight=0.00
+wordid_list_size=0()
+No:28	line 高夫和战友们日夜兼程地赶路，以躲避日军的围追堵截。
+weight=0.00
+wordid_list_size=0()
+No:29	line正值深冬，又赶上下雪，高夫脚上的布鞋早就磨破了，脚趾踩在雪地里，每走一步都钻心地疼。
+weight=0.00
+wordid_list_size=0()
+No:30	line“最难熬的还是饿。”
+weight=0.00
+wordid_list_size=0()
+No:31	line老人回忆，行军途中，司令部物资短缺，经常三五天都吃不上一顿饭。
+weight=0.00
+wordid_list_size=0()
+No:32	line那时的高夫，身高不到一米七，很瘦，常常饿得胃疼，有时甚至会在行军途中饿得晕倒。
+weight=0.00
+wordid_list_size=0()
+No:33	line 很多士兵不堪其苦，偷偷离队，躲到附近的村里当了逃兵。
+weight=0.00
+wordid_list_size=0()
+No:34	line高夫咬牙坚持着，他时常想起和父亲在游击队中的日子，“我可不能当逃兵，要是逃了，以后哪儿有脸回去见父亲。”
+weight=0.00
+wordid_list_size=0()
+No:35	line虽然没有父亲的音讯，但高夫始终相信，父亲一定在家等着他，他绝不能让父亲失望！
+weight=0.00
+wordid_list_size=0()
+No:36	line 正是这个信念，支撑着高夫，一直没有掉队。
+weight=0.00
+wordid_list_size=0()
+No:37	line即使看见战友牺牲，高夫也没有沉溺于悲伤，只是加快脚步，向目的地前进。
+weight=0.00
+wordid_list_size=0()
+No:38	line 整整走了三个月，部队终于抵达河南洛阳，此时，电话排里和高夫一起出发的20多个战友，只剩下不到10人。
+weight=0.00
+wordid_list_size=0()
+No:39	line由于人员缺损严重，冀察战区司令部与第一战区合并。
+weight=0.00
+wordid_list_size=0()
+No:40	line曾在电话排当过勤务兵的高夫，被任命为第一战区司令部话务员，由一等兵升为下士。
+weight=0.00
+wordid_list_size=0()
+No:41	line 这是高夫第一次操作交换机。
+weight=0.00
+wordid_list_size=0()
+No:42	line纷杂的电话线能排列组合成70条线路，高夫不识字，线路上的字符看着都眼晕。
+weight=0.00
+wordid_list_size=0()
+No:43	line但他心里，兴奋多于惶恐，他知道，瞬息万变的战情，将通过自己的双手插拔线路，传递出去。
+weight=0.00
+wordid_list_size=0()
+No:44	line“这就是我的抗日战场。”
+weight=0.00
+wordid_list_size=0()
+No:45	line时至今日，老人的眼中，仍有当年的豪情。
+weight=0.00
+wordid_list_size=0()
+No:46	line 除了吃饭睡觉，高夫基本都坐在交换机边，把每条线路的位置、联系哪个部门，都刻在脑子里。
+weight=0.00
+wordid_list_size=0()
+No:47	line他看一会儿，就会闭上双眼，一条条线路在脑海里串连成图，不断变化；
+weight=0.00
+wordid_list_size=0()
+No:48	line双手时抬时落，模拟着插拔线路…
+weight=0.00
+wordid_list_size=0()
+No:49	line一个多月后，高夫闭着眼睛也不会接错线路，他接一通电话，只需要3秒钟。
+weight=0.00
+wordid_list_size=0()
+No:50	line 作为战时最重要的通讯工具，为了安全和隐蔽，交换机被放置在地下20多米的防空洞中，24小时有人值守，每一班岗至少7个小时。
+weight=0.00
+wordid_list_size=0()
+No:51	line 防空洞里阴冷、潮湿，高夫经常冻得瑟瑟发抖，还时常因为缺氧，头晕、恶心。
+weight=0.00
+wordid_list_size=0()
+No:52	line实在难挨，高夫就紧紧单衣，使劲跺跺脚，双手拍打脸颊，努力瞪大眼睛，一刻也不离开岗位。
+weight=0.00
+wordid_list_size=0()
+No:53	line赶上晚班，高夫打盹儿都竖着耳朵，交换机一响准醒。
+weight=0.00
+wordid_list_size=0()
+No:54	line有的战友偷懒，接班迟到，高夫从不抱怨，他的心里只绷着一根弦——不能漏接电话。
+weight=0.00
+wordid_list_size=0()
+No:55	line因为漏接一个电话，就可能关系到成千上万人的性命。
+weight=0.00
+wordid_list_size=0()
+No:56	line 在交换机旁，高夫曾和死神擦肩。
+weight=0.00
+wordid_list_size=0()
+No:57	line 1943年，日军加密了空袭的频次，不断向战区司令部投掷炸弹。
+weight=0.00
+wordid_list_size=0()
+No:58	line一天，一颗日军的炸弹在防空洞洞口炸响，飞起的土石将洞口封死。
+weight=0.00
+wordid_list_size=0()
+No:59	line 当时正赶上高夫在防空洞里值班，他只觉得一阵地动山摇，头顶簌簌落土，随后就是漆黑一片。
+weight=0.00
+wordid_list_size=0()
+No:60	line黑暗中高夫伸出双手，四下摸索，直到手指碰到交换机，确认完好无损，他才心中稍安。
+weight=0.00
+wordid_list_size=0()
+No:61	line “要是没被发现，我就会被闷死在防空洞里了。”
+weight=0.00
+wordid_list_size=0()
+No:62	line老人说到这段时，一脸平静，仿佛说得不是生死，“当时就想着，就算是今天死了，也绝不能扔下交换机。”
+weight=0.00
+wordid_list_size=0()
+No:63	line 所幸，两个多小时后，战友们终于挖开防空洞，救出了高夫。
+weight=0.00
+wordid_list_size=0()
+No:64	line 日军的残暴刺激着高夫的血性，这个22岁的小伙子，每天都梦想着能上战场，手刃日寇，但始终未能如愿，他的抗日战场，始终在交换机旁。
+weight=0.00
+wordid_list_size=0()
+No:65	line不过他明白，服从命令是军人的天职，守护好交换机，一样是为抗日尽力。
+weight=0.00
+wordid_list_size=0()
+No:66	line 这一年，高夫改了名字，他把代表小家的“夫”字改成了“振中”。
+weight=0.00
+wordid_list_size=0()
+No:67	line“没有国，哪有家！”
+weight=0.00
+wordid_list_size=0()
+No:68	line高振中希望自己不仅是家里的顶梁柱，更能为“振中”出力，他也期盼着破碎的中国，能重新振作起来。
+weight=0.00
+wordid_list_size=0()
+No:69	line 胜利终于来了！
+weight=0.00
+wordid_list_size=0()
+No:70	line1945年8月，抗战胜利的消息开始在军营中流传，大家兴奋地谈论着，高振中也激动万分，“我反复大喊着一句话：咱们中国胜利了，是时候收复失地了！”
+weight=0.00
+wordid_list_size=0()
+No:71	line老人提高音调，双手握拳。
+weight=0.00
+wordid_list_size=0()
+No:72	line 兴奋之余，高振中想起已经4年未见、生死未卜的父亲。
+weight=0.00
+wordid_list_size=0()
+No:73	line分别的日子里，每到夜深人静时，高振中就会想起父亲，泪如泉涌。
+weight=0.00
+wordid_list_size=0()
+No:74	line“他在哪里？
+weight=0.00
+wordid_list_size=0()
+No:75	line他是不是还活着？
+weight=0.00
+wordid_list_size=0()
+No:76	line我还能不能见到他？”
+weight=0.00
+wordid_list_size=0()
+No:77	line 1949年1月，离家8年的高振中终于又回到了内黄县城。
+weight=0.00
+wordid_list_size=0()
+No:78	line离家越近，他的脚步越慢，他不知道等待自己的是团圆，还是噩耗。
+weight=0.00
+wordid_list_size=0()
+No:79	line 已经能看见家门了，高振中站住了，他不敢再走近一步，就那么远远地望着。
+weight=0.00
+wordid_list_size=0()
+No:80	line 突然，一位老人出现在门前，那正是他牵挂了8年的身影，“是父亲，是父亲，他还活着…”
+weight=0.00
+wordid_list_size=0()
+No:81	line高振中心脏狂跳，喜极而泣。
+weight=0.00
+wordid_list_size=0()
+No:82	line他高喊一声“父亲”，飞奔上前…
+weight=0.00
+wordid_list_size=0()
+No:83	line父子俩抱头痛哭，异口同声地喃喃着相同的3个字：“还活着，还活着…”
+weight=0.00
+wordid_list_size=0()
+No:84	line 原来，儿子离开游击队后不久，父亲也加入了29军大刀队，上阵杀敌，1947年复员回乡。
+weight=0.00
+wordid_list_size=0()
+No:85	line战斗中，父亲曾3次身负重伤，死里逃生。
+weight=0.00
+wordid_list_size=0()
+No:86	line父亲解开衣衫，前胸后背，有数十处伤痕，肩膀、肋骨和大腿上，各有一处十几厘米的刀疤。
+weight=0.00
+wordid_list_size=0()
+No:87	line高振中轻轻摸着那些伤疤，泪流满面。
+weight=0.00
+wordid_list_size=0()
+No:88	line 如今，父亲早已去世多年，但他身上那些狰狞的伤疤仍然印在高振中的心头，也让他引以为傲，因为那是家族的“勋章”。
+weight=0.00
+wordid_list_size=0()
+No:89	line 高振中也有自己的勋章，他郑重地戴在胸前，那是一个公益组织送给老人的礼物，勋章上写着“献给为中华民族浴血奋战的抗日英雄”。
+weight=0.00
+wordid_list_size=0()
+No:90	line “我没有赫赫战功，甚至没有像父亲那样上阵杀过敌，更没有以死报国，‘抗日英雄’我不敢当。”
+weight=0.00
+wordid_list_size=0()
+No:91	line说到这儿，老人眼中依稀泛起泪光，“但在抗击侵略的战火中，我曾是一名坚守岗位的士兵，这已足够令我骄傲。”
+weight=0.00
+wordid_list_size=0()
+No:92	line 如今，老人已四世同堂，他的重孙已经两岁半了。
+weight=0.00
+wordid_list_size=0()
+No:93	line老人盼望着，再过几年，能带着重孙去参观中国人民抗日战争纪念馆，给他讲讲那场战争中的高家父子兵。
+weight=0.00
+wordid_list_size=0()
+No:94	line （文/石滢琪）
+weight=0.00
+wordid_list_size=0()

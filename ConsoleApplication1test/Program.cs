@@ -9,14 +9,15 @@ using System.Text.RegularExpressions;
 using redmomery.DAL;
 using redmomery.Model;
 using redmomery.librarys;
-using Newtonsoft.Json;
+using redmomery.command;
+using redmomery.Common;
 using System.Net;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Runtime.InteropServices;
-using Microsoft.SqlServer.Types;
-
+using NLRedmomery;
+using System.Net.Mail;  
 //using PanGu;
 //using PanGu.Dict;
 //using PanGu.Framework;
@@ -30,20 +31,74 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
-            #region  前期废弃的代码
-            //BBs_laobing m = new BBs_laobing();
-            //Commands c1 = new Commands();
-            //string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["con"].ToString().Trim();
-            //Console.WriteLine(connectionString);
-            //c1.testgeogecoding();
-            //// m.updata();
-            //Console.WriteLine("全部修改成功");
-            #endregion
-            //现在正在使用的代码
-           staticbydata.staticdistributionbycity();
+
+            List<trajectory> list = new List<trajectory>();
+            trajectoryDAL dal = new trajectoryDAL();
+            list= dal.getByLBID((141).ToString());
+            //dal.AddNew(model);
+            //dal.Update(model);
+            for (int i = 0; i < list.Count; i++)
+            {
+                trajectory model=list[i];
+                LBTRACK mo = new LBTRACK();
+                mo.ID = int.Parse(model.ID.ToString());
+                mo.T_time = model.T_time;
+                mo.Timetext = model.Timetext;
+                mo.Local = model.Local;
+                mo.context = model.context;
+                mo.x = model.x;
+                mo.y = model.y;
+                mo.LBID = model.LBID;//.....
+                mo.isCurrent = model.isCurrent;
+                LB_INFO lb = new LB_INFO();
+                LB_INFODAL lbdal = new LB_INFODAL();
+                lb = lbdal.get(mo.LBID);
+                mo.name = lb.LBname;
+                LBTRACKDAL tdal = new LBTRACKDAL();
+                tdal.AddNew(mo);
+            }
+            Console.WriteLine("程序结束");
             Console.Read();
-          
+
         }
+
+        public static  double levelscore(baiduGeocodingaddress ba)
+        {
+            double mitemp = 0;
+            switch (ba.result.level)
+            {
+                case "国家": mitemp = 0.2; break;
+                case "省": mitemp = 0.4; break;
+                case "城市": mitemp = 0.6; break;
+                case "区县": mitemp = 0.8; break;
+                case "村庄": mitemp = 1; break;
+                default: mitemp = 0; break;
+            }
+            return mitemp;
+        }
+        public static float distancestatic(baiduGeocodingaddress ba, baiducoordinate Gcenter)
+        {
+            float distance = float.MaxValue;
+            distance = (ba.result.location.lng - Gcenter.lng) * (ba.result.location.lng - Gcenter.lng) + (ba.result.location.lat - Gcenter.lat) * (ba.result.location.lat - Gcenter.lat);
+            return distance;
+        }
+       
+        //中间临时建立的对象，这里需要对此进行进一步的划分 
+    }
+
+
+
+
+
+
+
+    public class LbyL
+    {
+        public string name;//这个是暂时的字段，以后可以删除
+        public string year;
+        public string local;
+        public string text;
+
     }
     public class TimeDict
     {
@@ -76,7 +131,7 @@ namespace ConsoleApplication1test
             newt1.pass_TIME = DateTime.ParseExact("9999/12/31", "yyyy/MM/dd", null);
             newt1.F_TIME = DateTime.Now;
             newt1.Authonrity = 10;
-            newt1.MD5 = redmomery.Common.MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newt1));
+            newt1.MD5 = redmomery.Common.MD5Helper.EncryptString(newt1.Authonrity + newt1.F_TIME.ToString() + newt1.M_ID.ToString() + newt1.Context + newt1.TITLE);
             try
             {
                 int count = titledal.addNew(newt1);
@@ -108,18 +163,18 @@ namespace ConsoleApplication1test
         public static string getAdressnameByXy(string lng, string lat)
         {
             string result = string.Empty;
-            string url = "http://api.map.baidu.com/geocoder/v2/?location="+lat+","+lng+"&output=json&pois=1&ak=" + "WqQgeC4x8uBKhnrkUZVs0kDbgtl7eUMM";
+            string url = "http://api.map.baidu.com/geocoder/v2/?location=" + lat + "," + lng + "&output=json&pois=1&ak=" + "WqQgeC4x8uBKhnrkUZVs0kDbgtl7eUMM";
             WebClient client = new WebClient();
             string html = UTF8Encoding.UTF8.GetString(client.DownloadData(url));
             result = html;
             return result;
         }
 
-  
+
         //下面这个方法用来生成百度地图城市编码的city名字表，注意为json格式
         public void createjsonbycityid()
-        { 
-          
+        {
+
         }
         //开始进行模型修改
         public void testgeogecoding()
@@ -154,20 +209,17 @@ namespace ConsoleApplication1test
                 result[i].T_ID = -1;
                 if (result[i].X.ToString() != "" && result[i].Y.ToString() != "")
                 {
-                    string locationpoint = "Point(" + result[i].X.ToString() + " " + result[i].Y.ToString() + ")";
-                    SqlString parstring = new SqlString(locationpoint);
-                    SqlChars pars = new SqlChars(parstring);
-                    SqlGeography localpoint = SqlGeography.STPointFromText(pars, 4326);
-                    result[i].Location = localpoint;
+                    result[i].Location = lt.localtiontoWKT(result[i]);
                 }
                 Console.Write((i + 1).ToString() + "/");
             }
             //现在开始逐行更改
             int count = 0;
+            Console.WriteLine("正在提交数据");
             for (int i = 0; i < result.Count; i++)
             {
-                // count += lt.update(result[i] as LB_INFO)?1:-1;
-
+                count += lt.update(result[i] as LB_INFO) ? 1 : -1;
+                Console.Write((i + 1).ToString() + "/");
             }
             Console.WriteLine();
             Console.WriteLine("\n\r有{0}行受到了影响,共计{1}", count, result.Count.ToString());
@@ -255,6 +307,7 @@ namespace ConsoleApplication1test
             {
                 lb1.X = float.Parse(xy[0]);
                 lb1.Y = float.Parse(xy[1]);
+                //  baiduGeocodingXY ba = redmomery.command.Geocodingcommand.getGeocodingByXYobject(lb1.X.ToString(), lb1.Y.ToString());
             }
             return lb1;
         }
@@ -265,11 +318,11 @@ namespace ConsoleApplication1test
             string url = "http://api.map.baidu.com/geocoder/v2/?";
             string address = "address=";
             string output = "&output=json";
-            string callback = "&callback=showLocation";
             address += nedadresss;
-            url = url + address + output + ak + callback;
+            url = url + address + output + ak;
             WebClient client = new WebClient();
             string html = UTF8Encoding.UTF8.GetString(client.DownloadData(url));
+            baiduGeocodingaddress ba = redmomery.Common.SerializerHelper.DeserializeToObject<baiduGeocodingaddress>(html);
             string[] xy = parsegeocoding(html);
             return xy;
         }

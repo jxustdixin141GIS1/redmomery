@@ -1,0 +1,14 @@
+D:\题库系统\github\team\redmomery\redmomery.librarys\obj\x64\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.librarys.dll.config
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.librarys.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.librarys.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\NLRedmomery.exe
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.command.exe
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.DAL.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.Model.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.Model.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\NLRedmomery.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.command.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\x64\Debug\redmomery.DAL.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\obj\x64\Debug\redmomery.librarys.dll
+D:\题库系统\github\team\redmomery\redmomery.librarys\obj\x64\Debug\redmomery.librarys.pdb

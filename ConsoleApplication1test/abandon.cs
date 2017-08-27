@@ -8,68 +8,66 @@ using System.Text;
 using System.Text.RegularExpressions;
 using redmomery.DAL;
 using redmomery.Model;
-using Newtonsoft.Json;
 using System.Net;
 using System.Data.Spatial;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Runtime.InteropServices;
-using Microsoft.SqlServer.Types;
 namespace ConsoleApplication1test
 {
    public class abandon
     {
-       public static void parseJsonstrin(string example)
-       {
-           //开始进行程序的解析,这里采用堆栈的方案处理
-           example = example.Replace("\"", "");
-           example = example.Replace(" ", "");
-           List<redmomery.Model.objectkeyname> list = new List<objectkeyname>();
-           List<object> temp = new List<object>();
-           //首先提取括号中的内容
-           string blift = "{", bright = "}", mmid = ":", bmid = ","; ;
-           for (int i = 0; i < example.Length; )
-           {
-               if (example[i].ToString() == "{")
-               {
-                   temp.Add(example[i]);
-                   i++;
-                   continue;
-               }
-               if (example[i].ToString() == ",")
-               {
-                   i++;
-                   continue;
-               }
-               if (example[i].ToString() == ":")
-               {
-                   i++;
-                   continue;
-               }
-               if (example[i].ToString() == "}")
-               {
-                   i++;
-                   continue;
-               }
-               //若是读取的不是{},:就代表这是字符串字段
-               //开始进行字符判别，
+       //public static void parseJsonstrin(string example)
+       //{
+       //    //开始进行程序的解析,这里采用堆栈的方案处理
+       //    example = example.Replace("\"", "");
+       //    example = example.Replace(" ", "");
+       //    List<redmomery.Model.objectkeyname> list = new List<objectkeyname>();
+       //    List<object> temp = new List<object>();
+       //    //首先提取括号中的内容
+       //    string blift = "{", bright = "}", mmid = ":", bmid = ","; ;
+       //    for (int i = 0; i < example.Length; )
+       //    {
+       //        if (example[i].ToString() == "{")
+       //        {
+       //            temp.Add(example[i]);
+       //            i++;
+       //            continue;
+       //        }
+       //        if (example[i].ToString() == ",")
+       //        {
+       //            i++;
+       //            continue;
+       //        }
+       //        if (example[i].ToString() == ":")
+       //        {
+       //            i++;
+       //            continue;
+       //        }
+       //        if (example[i].ToString() == "}")
+       //        {
+       //            i++;
+       //            continue;
+       //        }
+       //        //若是读取的不是{},:就代表这是字符串字段
+       //        //开始进行字符判别，
 
-               if (example[i - 1].ToString() != ":")//若不是：就代表这是名称
-               {
-                   //开始提取名称进行压入栈中
-                   int namend = example.IndexOf(':', i);
-                   string tempstring = string.Empty; if (namend == -1) { i++; continue; }
-                   tempstring = example.Substring(i, namend - i);
-                   temp.Add(tempstring);
-               }
-               if (example[i - 1].ToString() == ":")
-               {
-                   //表示这是一个键值，若是键值的话，就需要判别是不是复合键值
+       //        if (example[i - 1].ToString() != ":")//若不是：就代表这是名称
+       //        {
+       //            //开始提取名称进行压入栈中
+       //            int namend = example.IndexOf(':', i);
+       //            string tempstring = string.Empty; if (namend == -1) { i++; continue; }
+       //            tempstring = example.Substring(i, namend - i);
+       //            temp.Add(tempstring);
+       //        }
+       //        if (example[i - 1].ToString() == ":")
+       //        {
+       //            //表示这是一个键值，若是键值的话，就需要判别是不是复合键值
 
-               }
-               i++;
-           }
-       }
+       //        }
+       //        i++;
+       //    }
+       //}
     }
    //public class PanGuC
    //{

@@ -1,3 +1,8 @@
 
 redMomery.v12.suo
 redMomery/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.exe
+*.exe
+*.exe
+ConsoleApplication1test/bin/Debug/redmomery.command.exe
+ConsoleApplication1test/bin/Debug/redmomery.command.pdb

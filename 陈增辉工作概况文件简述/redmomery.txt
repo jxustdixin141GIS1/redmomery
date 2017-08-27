@@ -1,0 +1,17 @@
+这个文件说明的为从8月18日以来的所有功能方法的简单介绍
+
+redmomery MVC
+1、statisticController
+    1、readcityLB(): 用来访问数据库中的对应的老兵城市分布统计数据
+    2、readcityInfo():用来访问数据库中的对应的
+
+
+
+2、treamentdata.js
+   1、getCityLBInfo()   获取老兵的数据
+   2、
+
+ DAL：
+    1、staticinfotableDAL类的
+    2、AddCityLBByLB ：主要是将这个lb加入到数据库中
+    

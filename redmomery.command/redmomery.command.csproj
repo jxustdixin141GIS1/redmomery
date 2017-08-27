@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CD72D7C1-227A-40D4-8B3A-B7C16F697A10}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>redmomery.command</RootNamespace>
     <AssemblyName>redmomery.command</AssemblyName>
@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +35,24 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CustomRuleExample, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -52,13 +71,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\30453\Desktop\PanGu_Release_V2.3.1.0\Release\DictManage.exe</HintPath>
     </Reference>
-    <Reference Include="Lucene.Net, Version=2.9.2.1, Culture=neutral, PublicKeyToken=402f1553d5c332e7, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Common\bin\Debug\Lucene.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\资源-用于内网传输的\Json100r1\Bin\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\资源-用于内网传输的\Json100r3\Bin\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PanGu">
       <HintPath>..\..\..\红色记忆\C16\C16开发源码\JxustGIS.FindChild\JxustGIS.FindChild.Common\bin\Debug\PanGu.dll</HintPath>
@@ -82,6 +97,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -95,11 +111,20 @@
     <Compile Include="EmailHelper.cs" />
     <Compile Include="NIPIR_C3.cs" />
     <Compile Include="Geocodingcommand.cs" />
-    <Compile Include="MailPage.cs" />
     <Compile Include="MD5Helper.cs" />
-    <Compile Include="PanGuHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SerializerHelper.cs" />
+    <Compile Include="UtilSp.ClassLib\Base64Sp.cs" />
+    <Compile Include="UtilSp.ClassLib\FileSp.cs" />
+    <Compile Include="UtilSp.ClassLib\IpPortSp.cs" />
+    <Compile Include="UtilSp.ClassLib\MailSp.cs" />
+    <Compile Include="UtilSp.ClassLib\RegexSp.cs" />
+    <Compile Include="UtilSp.ClassLib\SmtpSp.cs" />
     <Compile Include="ValidateCode.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +159,12 @@
     <Content Include="Service References\Release\PosDisplayCtrl.pdb" />
     <Content Include="Service References\Release\说明.txt" />
     <Content Include="Service References\许可协议-简体中文参考版.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
