@@ -26,6 +26,7 @@ namespace redMomery.Controllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult Login()
         { 
            //专门由于用户主持的
@@ -52,6 +53,7 @@ namespace redMomery.Controllers
                  return Json(result);
             }
         }
+        [HttpPost]
         public ActionResult RegisterUser()
         {
             string resultss = "";

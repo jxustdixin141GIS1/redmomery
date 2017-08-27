@@ -1930,6 +1930,7 @@
     <Content Include="Views\User\activation.cshtml" />
     <Content Include="Views\User\activafault.cshtml" />
     <Content Include="Views\User\loginuser.cshtml" />
+    <Content Include="Views\ChatrealTime\PublicCampaing.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

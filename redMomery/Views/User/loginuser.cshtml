@@ -3,14 +3,34 @@
 <head>
     <meta charset="utf-8">
     <title>登录</title>
-    <link rel="stylesheet" href="css/reset.css" />
+   <!--<link rel="stylesheet" href="css/reset.css" />--> 
     <title>服务发布页面</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.js"></script>
     <script>
+        var userinfo = null;
         function loginc() {
             var userform = $("#loginC")[0];
-            var formdata
+            var formdata = new FormData(userform);
+            $.ajax({
+                url: '/User/RegisterUser',
+                type: 'POST',
+                data: formdata,
+                async: false,
+                cache: false,
+                contenttype: false,
+                processdata: false,
+                success: function (returndata) {
+                    alert("成功");
+                },
+                error: function (returndata) {
+                    alert("失败");
+                },
+                complete: function (data) {
+                    alert(data.responsetext);
+                }
+            });
         }
 
     </script>
@@ -27,7 +47,7 @@
                     <div class="login_title">
                         登录
                     </div>
-                    <form action="" method="post" id="loginC">
+                    <form action="/User/Login" method="post" id="loginC" enctype="multipart/form-data">
 
                         <div class="form_text_ipt">
                             <input id="username" name="username" type="text" placeholder="用户名">
@@ -44,7 +64,7 @@
                             </div>
                         </div>
                         <div class="form_btn">
-                            <button type="button" onclick="loginc()">登录</button>
+                            <input type="submit" onclick="loginc()" value="登录" />
                         </div>
                         <div class="form_reg_btn">
                             <span>还没有帐号？</span><a href="register.html">马上注册</a>

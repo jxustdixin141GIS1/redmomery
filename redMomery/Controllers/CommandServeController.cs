@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Services;
 using redmomery.DAL;
 using redmomery.Model;
+using redmomery.command;
 namespace redMomery.Controllers
 {
     public class CommandServeController : Controller
@@ -18,17 +19,16 @@ namespace redMomery.Controllers
             return View();
             
         }
-        [WebMethod]
         public ActionResult GetXYByAddess(string address)
         {
-            string[] xy = redmomery.command.Geocodingcommand.getGecodingByAddress(address);
-            List<string> result = new List<string>();
-            result.Add("X:" + xy[0]);
-            result.Add("Y：" + xy[1]);
+            baiduGeocodingaddress result = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(address);
             return Json(result);
         }
-
-        [WebMethod]
+        public ActionResult GetAddessByXY(string lng, string lat)
+        {
+            baiduGeocodingXY addess = redmomery.command.Geocodingcommand.getGeocodingByXYobject(lng, lat);
+            return Json(addess);
+        }
         public ActionResult Readmodel(string LBID)
         {
             if (LBID == null) return null;
@@ -47,7 +47,6 @@ namespace redMomery.Controllers
 
             return Json(temp);
         }
-        [WebMethod]
         public  ActionResult Login(string Name,string password)
         {
             //登录功能

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using redmomery.librarys;
+using redmomery.Model;
 namespace redMomery.Controllers
 {
     public class ChatrealTimeController : Controller
@@ -21,16 +22,25 @@ namespace redMomery.Controllers
         }
         public ActionResult PublicCampaing()
         {
-
             return View();
         }
         #endregion
         #region  服务方法
         public ActionResult PostCampaign()
         {
+            string local = HttpContext.Request["local"].ToString();
+            string title = HttpContext.Request["Contentitle"].ToString();
+            string content = HttpContext.Request["content"].ToString();
+            USER_INFO user = Session["user"] as USER_INFO;
+            meetingtable mt=  ChartOnlinelib.Usertakeon(user,local,content,title);
+            chartgrouptable cg = (new redmomery.DAL.chartgrouptableDAL()).Get(mt.GID);
+            //下面为群组分享链接
+            return Json(mt);
             
-            return View();
-            
+        }
+        public ActionResult getMymeeting()
+        { 
+          
         }
         #endregion
     }

@@ -35,7 +35,7 @@ namespace redmomery.DAL
 		}
         public USER_INFO get(string name, string password)
         {
-            DataTable dt = SqlHelper.ExecuteDataTable("select * from USER_INFO where (USER_NETNAME=@USER_NETNAME and USER_PSWD=@USER_PSWD", new SqlParameter("@USER_NETNAME", name), new SqlParameter("@USER_PSWD",password));
+            DataTable dt = SqlHelper.ExecuteDataTable("select * from USER_INFO where (USER_NETNAME=@USER_NETNAME and USER_PSWD=@USER_PSWD)", new SqlParameter("@USER_NETNAME", name), new SqlParameter("@USER_PSWD",password));
             if (dt.Rows.Count > 1)
             {
                 throw new Exception("more than 1 row was found");
