@@ -32,28 +32,31 @@ namespace ConsoleApplication1test
         static void Main(string[] args)
         {
 
-            trajectory model = new trajectory();
+            List<trajectory> list = new List<trajectory>();
             trajectoryDAL dal = new trajectoryDAL();
-            model = dal.Get(1);
-            dal.AddNew(model);
-          dal.Update(model);
-            LBTRACK mo = new LBTRACK();
-            mo.ID = int.Parse(model.ID.ToString());
-            mo.T_time = model.T_time;
-            mo.Timetext = model.Timetext;
-            mo.Local = model.Local;
-            mo.context = model.context;
-            mo.x = model.x;
-            mo.y = model.y;
-            mo.LBID = model.LBID;//.....
-            mo.isCurrent = model.isCurrent;
-            LB_INFO lb = new LB_INFO();
-            LB_INFODAL lbdal = new LB_INFODAL();
-            lb = lbdal.get(mo.LBID);
-            mo.name = lb.LBname;
-            LBTRACKDAL tdal=new LBTRACKDAL();
-            tdal.AddNew(mo);
-
+            list= dal.getByLBID((141).ToString());
+            //dal.AddNew(model);
+            //dal.Update(model);
+            for (int i = 0; i < list.Count; i++)
+            {
+                trajectory model=list[i];
+                LBTRACK mo = new LBTRACK();
+                mo.ID = int.Parse(model.ID.ToString());
+                mo.T_time = model.T_time;
+                mo.Timetext = model.Timetext;
+                mo.Local = model.Local;
+                mo.context = model.context;
+                mo.x = model.x;
+                mo.y = model.y;
+                mo.LBID = model.LBID;//.....
+                mo.isCurrent = model.isCurrent;
+                LB_INFO lb = new LB_INFO();
+                LB_INFODAL lbdal = new LB_INFODAL();
+                lb = lbdal.get(mo.LBID);
+                mo.name = lb.LBname;
+                LBTRACKDAL tdal = new LBTRACKDAL();
+                tdal.AddNew(mo);
+            }
             Console.WriteLine("程序结束");
             Console.Read();
 

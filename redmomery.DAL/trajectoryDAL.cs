@@ -14,23 +14,20 @@ namespace redmomery.DAL
            int rows = SqlHelper.ExecuteNonQuery("DELETE FROM trajectory WHERE LBID= @LBID", new SqlParameter("@LBID", LBID));
            return rows > 0;
        }
-       public trajectory getByLBID(string LBID)
+       public List<trajectory> getByLBID(string LBID)
        { 
         
-			DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM trajectory WHERE LBID=@LBID", new SqlParameter("@LBID", id));
-			if (dt.Rows.Count > 1)
-			{
-				throw new Exception("more than 1 row was found");
-			}
-			if (dt.Rows.Count <= 0)
-			{
-				return null;
-			}
-			DataRow row = dt.Rows[0];
+			DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM trajectory WHERE LBID=@LBID", new SqlParameter("@LBID", LBID));
+            List<trajectory> list = new List<trajectory>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow row = dt.Rows[i];
 			trajectory model = ToModel(row);
-			return model;
+            list.Add(model);
+
+            }
+			return list;
 		}
 
        }
-    }
 }

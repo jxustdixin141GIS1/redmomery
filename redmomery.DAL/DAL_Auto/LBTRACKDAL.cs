@@ -13,7 +13,8 @@ namespace redmomery.DAL
 		public int AddNew(LBTRACK model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO LBTRACK(T_time,Timetext,Local,context,x,y,LBID,isCurrent,name) VALUES (@T_time,@Timetext,@Local,@context,@x,@y,@LBID,@isCurrent,@name);SELECT @@identity"
+				"INSERT INTO LBTRACK(ID,T_time,Timetext,Local,context,x,y,LBID,isCurrent,name) VALUES (@ID,@T_time,@Timetext,@Local,@context,@x,@y,@LBID,@isCurrent,@name);SELECT @@identity"
+                ,new SqlParameter("@ID",model.ID)
 				,new SqlParameter("@T_time", model.T_time)
 				,new SqlParameter("@Timetext", model.Timetext)
 				,new SqlParameter("@Local", model.Local)
@@ -24,7 +25,7 @@ namespace redmomery.DAL
 				,new SqlParameter("@isCurrent", model.isCurrent)
 				,new SqlParameter("@name", model.name)
 			);
-			return Convert.ToInt32(obj);
+			return Convert.ToInt32(obj.ToString()==""?model.ID.ToString():obj.ToString());
 		}
 
 		public bool Delete(int id)

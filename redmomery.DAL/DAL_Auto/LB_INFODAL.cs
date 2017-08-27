@@ -91,7 +91,7 @@ namespace redmomery.DAL
 			model.LBexperience = (string)row["LBexperience"];
             model.LBlife = (object)row["LBlife"].ToString() == "" ? "" : row["LBlife"].ToString();
 			model.LBPhoto = (string)row["LBPhoto"];
-			model.LBdelete = (int)row["LBdelete"];
+            model.LBdelete = (int)(row["LBdelete"].ToString() == "" ? -1 : int.Parse(row["LBdelete"].ToString()));
 			model.X = (object)row["X"];
 			model.Y = (object)row["Y"];
 			model.Location = (object)row["Location"];
