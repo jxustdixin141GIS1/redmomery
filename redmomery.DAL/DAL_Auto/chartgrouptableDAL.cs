@@ -13,9 +13,10 @@ namespace redmomery.DAL
 		public int AddNew(chartgrouptable model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO chartgrouptable(UID,Ctime,description,vnum) VALUES (@UID,@Ctime,@description,@vnum);SELECT @@identity"
+				"INSERT INTO chartgrouptable(UID,Ctime,groupName,description,vnum) VALUES (@UID,@Ctime,@groupName,@description,@vnum);SELECT @@identity"
 				,new SqlParameter("@UID", model.UID)
 				,new SqlParameter("@Ctime", model.Ctime)
+				,new SqlParameter("@groupName", model.groupName)
 				,new SqlParameter("@description", model.description)
 				,new SqlParameter("@vnum", model.vnum)
 			);
@@ -30,11 +31,12 @@ namespace redmomery.DAL
 
 		public bool Update(chartgrouptable model)
 		{
-			string sql = "UPDATE chartgrouptable SET UID=@UID,Ctime=@Ctime,description=@description,vnum=@vnum WHERE ID=@ID";
+			string sql = "UPDATE chartgrouptable SET UID=@UID,Ctime=@Ctime,groupName=@groupName,description=@description,vnum=@vnum WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@UID", model.UID)
 				, new SqlParameter("@Ctime", model.Ctime)
+				, new SqlParameter("@groupName", model.groupName)
 				, new SqlParameter("@description", model.description)
 				, new SqlParameter("@vnum", model.vnum)
 			);
@@ -63,6 +65,7 @@ namespace redmomery.DAL
 			model.ID = (int)row["ID"];
 			model.UID = (int)row["UID"];
 			model.Ctime = (DateTime)row["Ctime"];
+			model.groupName = (string)row["groupName"];
 			model.description = (string)row["description"];
 			model.vnum = (int)row["vnum"];
 			return model;

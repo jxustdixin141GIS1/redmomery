@@ -13,10 +13,11 @@ namespace redmomery.DAL
 		public int AddNew(travetable model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO travetable(Utime,UID,meetID,context,local,Vtime,lng,lat,point,isOK,nOK,nY) VALUES (@Utime,@UID,@meetID,@context,@local,@Vtime,@lng,@lat,@point,@isOK,@nOK,@nY);SELECT @@identity"
+				"INSERT INTO travetable(Utime,UID,meetID,meetsubject,context,local,Vtime,lng,lat,point,isOK,nOK,nY) VALUES (@Utime,@UID,@meetID,@meetsubject,@context,@local,@Vtime,@lng,@lat,@point,@isOK,@nOK,@nY);SELECT @@identity"
 				,new SqlParameter("@Utime", model.Utime)
 				,new SqlParameter("@UID", model.UID)
 				,new SqlParameter("@meetID", model.meetID)
+				,new SqlParameter("@meetsubject", model.meetsubject)
 				,new SqlParameter("@context", model.context)
 				,new SqlParameter("@local", model.local)
 				,new SqlParameter("@Vtime", model.Vtime)
@@ -38,12 +39,13 @@ namespace redmomery.DAL
 
 		public bool Update(travetable model)
 		{
-			string sql = "UPDATE travetable SET Utime=@Utime,UID=@UID,meetID=@meetID,context=@context,local=@local,Vtime=@Vtime,lng=@lng,lat=@lat,point=@point,isOK=@isOK,nOK=@nOK,nY=@nY WHERE ID=@ID";
+			string sql = "UPDATE travetable SET Utime=@Utime,UID=@UID,meetID=@meetID,meetsubject=@meetsubject,context=@context,local=@local,Vtime=@Vtime,lng=@lng,lat=@lat,point=@point,isOK=@isOK,nOK=@nOK,nY=@nY WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@Utime", model.Utime)
 				, new SqlParameter("@UID", model.UID)
 				, new SqlParameter("@meetID", model.meetID)
+				, new SqlParameter("@meetsubject", model.meetsubject)
 				, new SqlParameter("@context", model.context)
 				, new SqlParameter("@local", model.local)
 				, new SqlParameter("@Vtime", model.Vtime)
@@ -80,6 +82,7 @@ namespace redmomery.DAL
 			model.Utime = (DateTime)row["Utime"];
 			model.UID = (int)row["UID"];
 			model.meetID = (int)row["meetID"];
+			model.meetsubject = (string)row["meetsubject"];
 			model.context = (string)row["context"];
 			model.local = (string)row["local"];
 			model.Vtime = (string)row["Vtime"];

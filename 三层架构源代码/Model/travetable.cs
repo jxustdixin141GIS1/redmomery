@@ -11,6 +11,7 @@ namespace redmomery.Model
 		public DateTime Utime { get; set; }
 		public int UID { get; set; }
 		public int meetID { get; set; }
+		public string meetsubject { get; set; }
 		public string context { get; set; }
 		public string local { get; set; }
 		public string Vtime { get; set; }

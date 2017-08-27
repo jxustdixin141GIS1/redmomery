@@ -12,6 +12,7 @@ namespace redmomery.Model
 		public int GID { get; set; }
 		public DateTime Ttime { get; set; }
 		public string local { get; set; }
+		public string contentTitle { get; set; }
 		public string context { get; set; }
 		public int vnum { get; set; }
 		public int isCheck { get; set; }

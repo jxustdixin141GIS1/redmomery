@@ -13,11 +13,12 @@ namespace redmomery.DAL
 		public int AddNew(meetingtable model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO meetingtable(UID,GID,Ttime,local,context,vnum,isCheck,lng,lat) VALUES (@UID,@GID,@Ttime,@local,@context,@vnum,@isCheck,@lng,@lat);SELECT @@identity"
+				"INSERT INTO meetingtable(UID,GID,Ttime,local,contentTitle,context,vnum,isCheck,lng,lat) VALUES (@UID,@GID,@Ttime,@local,@contentTitle,@context,@vnum,@isCheck,@lng,@lat);SELECT @@identity"
 				,new SqlParameter("@UID", model.UID)
 				,new SqlParameter("@GID", model.GID)
 				,new SqlParameter("@Ttime", model.Ttime)
 				,new SqlParameter("@local", model.local)
+				,new SqlParameter("@contentTitle", model.contentTitle)
 				,new SqlParameter("@context", model.context)
 				,new SqlParameter("@vnum", model.vnum)
 				,new SqlParameter("@isCheck", model.isCheck)
@@ -35,13 +36,14 @@ namespace redmomery.DAL
 
 		public bool Update(meetingtable model)
 		{
-			string sql = "UPDATE meetingtable SET UID=@UID,GID=@GID,Ttime=@Ttime,local=@local,context=@context,vnum=@vnum,isCheck=@isCheck,lng=@lng,lat=@lat WHERE ID=@ID";
+			string sql = "UPDATE meetingtable SET UID=@UID,GID=@GID,Ttime=@Ttime,local=@local,contentTitle=@contentTitle,context=@context,vnum=@vnum,isCheck=@isCheck,lng=@lng,lat=@lat WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@UID", model.UID)
 				, new SqlParameter("@GID", model.GID)
 				, new SqlParameter("@Ttime", model.Ttime)
 				, new SqlParameter("@local", model.local)
+				, new SqlParameter("@contentTitle", model.contentTitle)
 				, new SqlParameter("@context", model.context)
 				, new SqlParameter("@vnum", model.vnum)
 				, new SqlParameter("@isCheck", model.isCheck)
@@ -75,6 +77,7 @@ namespace redmomery.DAL
 			model.GID = (int)row["GID"];
 			model.Ttime = (DateTime)row["Ttime"];
 			model.local = (string)row["local"];
+			model.contentTitle = (string)row["contentTitle"];
 			model.context = (string)row["context"];
 			model.vnum = (int)row["vnum"];
 			model.isCheck = (int)row["isCheck"];

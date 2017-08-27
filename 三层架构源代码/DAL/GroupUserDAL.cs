@@ -13,10 +13,11 @@ namespace redmomery.DAL
 		public int AddNew(GroupUser model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO GroupUser(UID,GroupID,groupname) VALUES (@UID,@GroupID,@groupname);SELECT @@identity"
+				"INSERT INTO GroupUser(UID,GroupID,groupname,state) VALUES (@UID,@GroupID,@groupname,@state);SELECT @@identity"
 				,new SqlParameter("@UID", model.UID)
 				,new SqlParameter("@GroupID", model.GroupID)
 				,new SqlParameter("@groupname", model.groupname)
+				,new SqlParameter("@state", model.state)
 			);
 			return Convert.ToInt32(obj);
 		}
@@ -29,11 +30,12 @@ namespace redmomery.DAL
 
 		public bool Update(GroupUser model)
 		{
-			string sql = "UPDATE GroupUser SET UID=@UID,GroupID=@GroupID,groupname=@groupname WHERE UID=@UID";
+			string sql = "UPDATE GroupUser SET UID=@UID,GroupID=@GroupID,groupname=@groupname,state=@state WHERE UID=@UID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@UID", model.UID)
 				, new SqlParameter("@GroupID", model.GroupID)
 				, new SqlParameter("@groupname", model.groupname)
+				, new SqlParameter("@state", model.state)
 			);
 			return rows > 0;
 		}
@@ -60,6 +62,7 @@ namespace redmomery.DAL
 			model.UID = (int)row["UID"];
 			model.GroupID = (int)row["GroupID"];
 			model.groupname = (string)row["groupname"];
+			model.state = (int)row["state"];
 			return model;
 		}
 

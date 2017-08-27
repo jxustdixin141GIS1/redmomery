@@ -10,7 +10,7 @@ namespace redmomery.DAL
 {
 	partial class SqlHelper
 	{
-		
+		public static readonly string connstr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
 
 		public static int ExecuteNonQuery(string cmdText, params SqlParameter[] parameters)
 		{

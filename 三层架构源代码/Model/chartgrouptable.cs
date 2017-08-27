@@ -10,6 +10,7 @@ namespace redmomery.Model
 		public int ID { get; set; }
 		public int UID { get; set; }
 		public DateTime Ctime { get; set; }
+		public string groupName { get; set; }
 		public string description { get; set; }
 		public int vnum { get; set; }
 	}

@@ -59,7 +59,12 @@
        6、数据库中CT中的表格为is_delete,0表示通过 1 表示热评 2表示待审核 3 表示删除
 
 在线聊天功能：
-    1、用户注册服务开始创建
+    1、用户注册服务开始创建-------
+    2、活动的创建------------
+    3、活动与对应的群组的关联
+    4、创建群组
+    5、提供路由旅游线路的关联服务
+    6、
 
 
 
@@ -456,6 +461,7 @@ function getlnglatbycityName(cityname)
      		  GID：聊天群组ID
               TTime：发布时间
               local：聚会地点
+              contentTitle：聚会名
               context：聚会内容
               vnum：发布人参与人数
               ischecking：是否经过验证，表示这个活动是不是真实有效的  0 表示有效  越大越危险
@@ -481,17 +487,20 @@ function getlnglatbycityName(cityname)
            字段：ID:标识
                 UID：创建人ID
                 Ctime：创建时间
+                GroupName：群名
                 description：群组描述
                 vnum：群组人数
     群组人员列表：GroupUser  //这个东西建议存放在服务器中----1=========3
                  UID：用户ID
                  GroupID：聊天群组ID
                  groupname：在聊天组里的名称
+                 state： 状态 0：群主  1：管理员  2 ：普通用户
 
        好友列表：GoodUser===============3
                 LUID：用户ID（发起人）
                 RUID：用户ID（接收方）
                 groundname：好友分组
+                state：0 普通好友  1 特别好友 2 黑名单
 
        好友申请表：invGoodUser==================3
                  LUID：用户ID，申请人
