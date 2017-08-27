@@ -4,8 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using UtilSp.ClassLib;
-namespace redmomery.Common
+namespace redmomery.command
 {
     public class EmailHelper
     {

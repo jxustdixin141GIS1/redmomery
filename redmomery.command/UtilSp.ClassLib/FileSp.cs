@@ -9,7 +9,7 @@ using System.Text;
 using System.IO;
 //using System.Windows.Forms;
 
-namespace UtilSp.ClassLib
+namespace redmomery.command
 {
     //public class FileSp
     //{

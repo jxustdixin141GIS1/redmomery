@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace UtilSp.ClassLib
+namespace redmomery.command
 {
     public class MailSp
     {

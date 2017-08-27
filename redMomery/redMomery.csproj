@@ -1848,7 +1848,7 @@
     <Content Include="Views\upload\Index.cshtml" />
     <Content Include="Views\CommandServe\GetXYByAddess.cshtml" />
     <Content Include="Views\BBS\LBComment.cshtml" />
-    <Content Include="Views\upload\summitForm.cshtml" />
+    <Content Include="Views\User\summitForm.cshtml" />
     <Content Include="Views\LBbx\LBupload.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1926,6 +1926,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Web.config.pubxml" />
+    <Content Include="Views\User\register.cshtml" />
+    <Content Include="Views\User\activation.cshtml" />
+    <Content Include="Views\User\activafault.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

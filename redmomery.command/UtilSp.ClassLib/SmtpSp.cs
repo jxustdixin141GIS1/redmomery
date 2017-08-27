@@ -5,7 +5,7 @@ using System.Text;
 using System.Net.Sockets;
 using System.IO;
 
-namespace UtilSp.ClassLib
+namespace redmomery.command
 {
     public class SmtpSp
     {
@@ -257,62 +257,63 @@ namespace UtilSp.ClassLib
                 if (!socket_pro.Connected)
                 {
                     socket_pro.Close();
-                    exception_pro = new Exception(Tip.ConnectFail);
+                    redmomery.command.createlog.createlogs(Tip.ConnectFail);
+
                     return false;
                 }
 
                 if (!isServerReady())
                 {
-                    exception_pro = new Exception(Tip.ServerReadyFail + analyReceiveError());
+                    redmomery.command.createlog.createlogs(Tip.ServerReadyFail + analyReceiveError());
                     socket_pro.Close();
                     return false;
                 }
 
                 if (!verify())
                 {
-                    exception_pro = new Exception(Tip.VerifyFail + analyReceiveError());
+                    redmomery.command.createlog.createlogs(Tip.VerifyFail + analyReceiveError());
                     socket_pro.Close();
                     return false;
                 }
 
                 if (!authLogin())
                 {
-                    exception_pro = new Exception(Tip.AuthLoginFail + analyReceiveError());
+                    redmomery.command.createlog.createlogs(Tip.AuthLoginFail + analyReceiveError());
                     socket_pro.Close();
                     return false;
                 }
 
                 if (!userNameLogin(mailInfo.userName_pro))
                 {
-                    exception_pro = new Exception(Tip.UserNameLoginFail + analyReceiveError());
+                    redmomery.command.createlog.createlogs(Tip.UserNameLoginFail + analyReceiveError());
                     socket_pro.Close();
                     return false;
                 }
 
                 if (!passowrdLogin(mailInfo.password_pro))
                 {
-                    exception_pro = new Exception(Tip.PasswordLoginFail + analyReceiveError());
+                    redmomery.command.createlog.createlogs(Tip.PasswordLoginFail + analyReceiveError());
                     socket_pro.Close();
                     return false;
                 }
 
                 if (!mailFrom(mailInfo.senderAddress_pro))
                 {
-                    exception_pro = new Exception(Tip.MailFromFail + analyReceiveError());
+                    redmomery.command.createlog.createlogs(Tip.MailFromFail + analyReceiveError());
                     socket_pro.Close();
                     return false;
                 }
 
                 if (!rcptTo(mailInfo.receiverAddresses_pro))
                 {
-                    exception_pro = new Exception(Tip.RcptToFail + analyReceiveError());
+                    redmomery.command.createlog.createlogs(Tip.RcptToFail + analyReceiveError());
                     socket_pro.Close();
                     return false;
                 }
 
                 if (!sendMail(mailInfo))
                 {
-                    exception_pro = new Exception(Tip.SendMailFail + analyReceiveError());
+                    redmomery.command.createlog.createlogs(Tip.SendMailFail + analyReceiveError());
                     socket_pro.Close();
                     return false;
                 }
@@ -323,6 +324,7 @@ namespace UtilSp.ClassLib
             catch (System.Exception ex)
             {
                 exception_pro = ex;
+                redmomery.command.createlog.createlogs(ex.Message.ToString()+";"+ex.Source.ToString()+";");
                 return false;
             }
         }
@@ -348,7 +350,7 @@ namespace UtilSp.ClassLib
             byte[] receiveData = new byte[10240];
             int receiveLen = socket_pro.Receive(receiveData);
             receiveInfo_pro = encoding_smtp_pro.GetString(receiveData, 0, receiveLen);
-           Console.WriteLine(receiveInfo_pro);
+            redmomery.command.createlog.createlogs(receiveInfo_pro);
             return receiveInfo_pro;
         }
 

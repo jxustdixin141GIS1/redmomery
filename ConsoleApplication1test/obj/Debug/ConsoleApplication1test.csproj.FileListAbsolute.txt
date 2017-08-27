@@ -9,10 +9,11 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\NLRedmom
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.HighLight.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PosDisplayCtrl.dll
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.command.exe
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.command.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.DAL.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.librarys.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.Model.dll
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Newtonsoft.Json.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.Model.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\NLRedmomery.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\redmomery.command.pdb
@@ -25,11 +26,10 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.pd
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.xml
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.HighLight.pdb
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PosDisplayCtrl.pdb
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Newtonsoft.Json.pdb
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Newtonsoft.Json.xml
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.Properties.Resources.resources
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.csproj.GenerateResource.Cache
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.pdb
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Newtonsoft.Json.dll
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Newtonsoft.Json.pdb
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Newtonsoft.Json.xml

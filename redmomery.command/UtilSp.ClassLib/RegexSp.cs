@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace UtilSp.ClassLib
+namespace redmomery.command
 {
     public class RegexSp
     {

@@ -1,5 +1,5 @@
-D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\redmomery.command.exe.config
-D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\redmomery.command.exe
+D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\redmomery.command.dll.config
+D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\redmomery.command.dll
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\redmomery.command.pdb
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\CustomRuleExample.dll
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\Demo.exe
@@ -18,8 +18,8 @@ D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.pdb
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.xml
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PanGu.HighLight.pdb
 D:\题库系统\github\team\redmomery\redmomery.command\bin\Debug\PosDisplayCtrl.pdb
-D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.exe
-D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.pdb
+D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.Properties.Resources.resources
 D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.csproj.GenerateResource.Cache
-D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.csprojResolveAssemblyReference.cache
+D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.dll
+D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.pdb

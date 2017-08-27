@@ -1,12 +1,13 @@
 D:\题库系统\github\team\redmomery\redMomery\bin\redMomery.dll.config
 D:\题库系统\github\team\redmomery\redMomery\bin\redMomery.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\redMomery.pdb
+D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Core.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Html.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Html.Parser.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Html.Parser.Regulars.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Microsoft.Web.Infrastructure.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
-D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.command.exe
+D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.command.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.DAL.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.librarys.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.Model.dll
@@ -17,12 +18,13 @@ D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.Razor.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.Deployment.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.Razor.dll
+D:\题库系统\github\team\redmomery\redMomery\bin\Newtonsoft.Json.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\NLRedmomery.exe
-D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Core.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.Model.pdb
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.command.pdb
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.DAL.pdb
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.librarys.pdb
+D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Core.xml
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Html.xml
 D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Html.Parser.xml
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.Helpers.xml
@@ -31,8 +33,9 @@ D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.Razor.xml
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.xml
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.Deployment.xml
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.Razor.xml
+D:\题库系统\github\team\redmomery\redMomery\bin\Newtonsoft.Json.pdb
+D:\题库系统\github\team\redmomery\redMomery\bin\Newtonsoft.Json.xml
 D:\题库系统\github\team\redmomery\redMomery\bin\NLRedmomery.pdb
-D:\题库系统\github\team\redmomery\redMomery\bin\Ivony.Core.xml
 D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.Helpers.resources.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.Mvc.resources.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.Razor.resources.dll
@@ -42,6 +45,3 @@ D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.WebPages.
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.dll
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.pdb
-D:\题库系统\github\team\redmomery\redMomery\bin\Newtonsoft.Json.dll
-D:\题库系统\github\team\redmomery\redMomery\bin\Newtonsoft.Json.pdb
-D:\题库系统\github\team\redmomery\redMomery\bin\Newtonsoft.Json.xml

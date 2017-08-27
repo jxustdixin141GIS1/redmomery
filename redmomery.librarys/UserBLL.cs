@@ -8,7 +8,6 @@ using redmomery.Model;
 using redmomery.DAL;
 using redmomery.command;
 using redmomery.Common;
-
 namespace redmomery.librarys
 {
    public  class UserBLL
@@ -24,6 +23,7 @@ namespace redmomery.librarys
         public static USER_INFO RegisterUser(string activehf,string name, string sex, string job, string birthday, string address, string photo, string Email, string Netname, string pwd, string Img = "~/resource/image/head/41afadb7665e2cf76660dc9870f75bdf.jpg")
         {
             USER_INFO lb = CreateUserInfo(name,sex,job,birthday,address,photo,Email,Netname,pwd,Img);
+            
             //通过对应激活MD5值进行激活，并调用对应的Email组件，进行发送验证邮箱
             try
             {
@@ -51,7 +51,7 @@ namespace redmomery.librarys
     }
     partial   class Userlib
     {
-        private static USER_INFO CreateUserInfo(string name, string sex, string job, string birthday, string address, string photo, string Email, string Netname, string pwd, string Img = "~/resource/image/head/41afadb7665e2cf76660dc9870f75bdf.jpg")
+        public  static USER_INFO CreateUserInfo(string name, string sex, string job, string birthday, string address, string photo, string Email, string Netname, string pwd, string Img = "~/resource/image/head/41afadb7665e2cf76660dc9870f75bdf.jpg")
         {
             USER_INFO newuser = new USER_INFO();
             newuser.USER_NAME = name;
@@ -69,7 +69,7 @@ namespace redmomery.librarys
             newuser.MD5 = MD5Helper.EncryptString(Common.SerializerHelper.SerializeToString(newuser));
             return newuser;
         }
-        private static bool sendregist(string usermail, string MD5_hf, string username)
+        public  static bool sendregist(string usermail, string MD5_hf, string username)
         {
             PageMail pagemail = new PageMail();
             pagemail.ishtml = true;
@@ -139,7 +139,6 @@ namespace redmomery.librarys
 </html>";
             #endregion            ;
             ;
-
             pagemail.reciveaddres.Add(usermail);
             pagemail.subject = "尊敬的用户，这是来源于红色记忆网站的注册邮件，若非本人操作请忽略";
             pagemail.content = body;
