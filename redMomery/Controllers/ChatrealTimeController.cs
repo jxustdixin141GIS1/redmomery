@@ -10,7 +10,7 @@ namespace redMomery.Controllers
     {
         //
         // GET: /ChatrealTime/
-
+        #region 网页
         public ActionResult Index()
         {
             return View();
@@ -19,6 +19,19 @@ namespace redMomery.Controllers
         {
             return View();
         }
+        public ActionResult PublicCampaing()
+        {
 
+            return View();
+        }
+        #endregion
+        #region  服务方法
+        public ActionResult PostCampaign()
+        {
+            
+            return View();
+            
+        }
+        #endregion
     }
 }

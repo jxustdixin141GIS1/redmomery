@@ -1929,6 +1929,7 @@
     <Content Include="Views\User\register.cshtml" />
     <Content Include="Views\User\activation.cshtml" />
     <Content Include="Views\User\activafault.cshtml" />
+    <Content Include="Views\User\loginuser.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

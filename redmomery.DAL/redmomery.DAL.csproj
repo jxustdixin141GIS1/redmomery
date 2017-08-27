@@ -88,6 +88,7 @@
     <Compile Include="DAL_Auto\GoodUserDAL.cs" />
     <Compile Include="DAL_Auto\GroupUserDAL.cs" />
     <Compile Include="DAL_Auto\invGoodUserDAL.cs" />
+    <Compile Include="DAL_Auto\LBTRACKDAL.cs" />
     <Compile Include="DAL_Auto\LB_INFODAL.cs" />
     <Compile Include="DAL_Auto\meetingtableDAL.cs" />
     <Compile Include="DAL_Auto\moduleBBS_TableDAL.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="GoodUserDAL.cs" />
     <Compile Include="GroupUserDAL.cs" />
     <Compile Include="invGoodUserDAL.cs" />
+    <Compile Include="LBTRACKDAL.cs" />
     <Compile Include="LB_INFODAL.cs" />
     <Compile Include="meetingtableDAL.cs" />
     <Compile Include="moduleBBS_TableDAL.cs" />

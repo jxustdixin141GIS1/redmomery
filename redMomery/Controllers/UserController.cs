@@ -12,7 +12,7 @@ namespace redMomery.Controllers
     public class UserController : Controller//这个服务主要用来进行用户的注册功能测试
     {
         //
-        // GET: /User/RegisterUser
+        // GET: /User/Login
 
         public ActionResult Index()
         {
@@ -22,7 +22,36 @@ namespace redMomery.Controllers
         {
             return View();
         }
-        [HttpPost]
+        public ActionResult loginuser()
+        {
+            return View();
+        }
+        public ActionResult Login()
+        { 
+           //专门由于用户主持的
+            string result = "";
+            string username = HttpContext.Request["username"].ToString();
+            string psw = HttpContext.Request["password"].ToString();
+            USER_INFODAL dal=new USER_INFODAL();
+            USER_INFO user=dal.get(username,psw);
+            if (user != null)
+            {
+                Session["user"] = user;
+                ViewData.Add("userimg", "~/" + user.USER_IMG);
+                ViewData.Add("username", user.USER_NETNAME);
+                USER_INFO pageuser = new USER_INFO();
+                pageuser.USER_NETNAME = user.USER_NETNAME;
+                pageuser.USER_SEX = user.USER_SEX;
+                pageuser.USER_IMG = user.USER_IMG;
+                pageuser.USER_ID = user.USER_ID;
+                return Json(pageuser);
+            }
+            else
+             {
+                 result = "登录失败请检查密码";
+                 return Json(result);
+            }
+        }
         public ActionResult RegisterUser()
         {
             string resultss = "";
@@ -101,7 +130,7 @@ namespace redMomery.Controllers
             }
             else
             {
-                activafault();
+                Response.Redirect("/User/activafault");
             }
             return null;
         }

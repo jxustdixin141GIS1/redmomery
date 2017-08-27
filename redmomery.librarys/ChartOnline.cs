@@ -34,7 +34,7 @@ namespace redmomery.librarys
                return  null;
             }
         }
-
+      //当用户
     }
     partial class ChartOnlinelib
     { 

@@ -77,6 +77,7 @@
     <Compile Include="auto\GoodUser.cs" />
     <Compile Include="auto\GroupUser.cs" />
     <Compile Include="auto\invGoodUser.cs" />
+    <Compile Include="auto\LBTRACK.cs" />
     <Compile Include="auto\LB_INFO.cs" />
     <Compile Include="auto\meetingtable.cs" />
     <Compile Include="auto\multimessagepooltable.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="GoodUser.cs" />
     <Compile Include="GroupUser.cs" />
     <Compile Include="invGoodUser.cs" />
+    <Compile Include="LBTRACK.cs" />
     <Compile Include="LB_INFO.cs" />
     <Compile Include="meetingtable.cs" />
     <Compile Include="moduleBBS_Table.cs" />
