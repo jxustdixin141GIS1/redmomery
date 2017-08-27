@@ -18,7 +18,7 @@ namespace redmomery.librarys
 }
 namespace redmomery.librarys
 {
-    public class Userlib
+    public partial  class Userlib
     {
       
         public static USER_INFO RegisterUser(string activehf,string name, string sex, string job, string birthday, string address, string photo, string Email, string Netname, string pwd, string Img = "~/resource/image/head/41afadb7665e2cf76660dc9870f75bdf.jpg")
@@ -49,7 +49,7 @@ namespace redmomery.librarys
         }
       
     }
-    partial class Userlib
+    partial   class Userlib
     {
         private static USER_INFO CreateUserInfo(string name, string sex, string job, string birthday, string address, string photo, string Email, string Netname, string pwd, string Img = "~/resource/image/head/41afadb7665e2cf76660dc9870f75bdf.jpg")
         {
