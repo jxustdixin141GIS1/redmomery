@@ -179,6 +179,7 @@
     <Content Include="resource\css\jquery.treemenu.css" />
     <Content Include="resource\css\LB1.css" />
     <Content Include="resource\css\LBZL.css" />
+    <Content Include="resource\css\login.css" />
     <Content Include="resource\css\style.css" />
     <Content Include="resource\css\style_comment.css" />
     <Content Include="resource\css\ZCZX.css" />
@@ -1820,6 +1821,7 @@
     <Content Include="resource\js\LB1.js" />
     <Content Include="resource\js\LBZL.js" />
     <Content Include="resource\js\loadbyname.js" />
+    <Content Include="resource\js\login.js" />
     <Content Include="resource\js\modernizr.custom.js" />
     <Content Include="resource\js\LBUpload.js" />
     <Content Include="resource\js\tribune.js" />

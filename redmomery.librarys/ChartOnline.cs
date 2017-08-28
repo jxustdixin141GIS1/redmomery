@@ -166,25 +166,70 @@ namespace redmomery.librarys
             //2、开始按照对应的管理进行查询管理的活动申请情况
             for (int i = 0; Utlsit!=null&&i < Utlsit.Count; i++)
             {
-                ViewmanageMeetApply newmanager = new ViewmanageMeetApply();
-                meetingtable managermeet = mdal.Get(Utlsit[i].MeetID);
-                //2.1 开始转存活动信息
-                newmanager.MID = managermeet.ID;
-                newmanager.GID = managermeet.GID;
-                newmanager.local = managermeet.local;
-                newmanager.meetTime = managermeet.meetTime;
-                newmanager.contentTitle = managermeet.contentTitle;
-                newmanager.context = managermeet.context;
-                newmanager.vnum = managermeet.vnum;
+               meetingtable managermeet = mdal.Get(Utlsit[i].MeetID);
+                //2.1 开始转存活动信息            
                 //获取待审核用户的信息
-                  //开始获取这个活动没有处理的需求信息
-               
+                  //开始获取这个活动没有处理的需求信息,开始按照对应的活动的ID进行查询
+                List<UATIMeettable> ualist=uadal.getByMID(Utlsit[i].MeetID) as List<UATIMeettable>;
+                for (int j = 0; j < ualist.Count; j++)
+                {
+                    UATIMeettable uamodel = ualist[j];
+                   
+                    if (ualist[j].state == 2)//只对待处理的进行处理
+                    {
+                        USER_INFO Uuser = udal.get(uamodel.UID);
+                        ViewmanageMeetApply newmanager = new ViewmanageMeetApply();
+                        newmanager.MID = managermeet.ID;
+                        newmanager.GID = managermeet.GID;
+                        newmanager.local = managermeet.local;
+                        newmanager.meetTime = managermeet.meetTime;
+                        newmanager.contentTitle = managermeet.contentTitle;
+                        newmanager.context = managermeet.context;
+                        newmanager.vnum = managermeet.vnum;
+                        //开始进行转存待处理用户的个人信息
+                        newmanager.USER_ID = Uuser.USER_ID;
+                        newmanager.USER_NETNAME = Uuser.USER_NETNAME;
+                        newmanager.dataTime = uamodel.dataTime;
+                        newmanager.contentApply = uamodel.contentApply;
+                        //处理情况
+                        newmanager.state = uamodel.state;
+                        newmanager.dealUID = uamodel.dealUID;
+                      //添加到对应的输出列表中
+                        result.Add(newmanager);
+                    }
+                }
 
             }
 
             return result;
         }
-        
+      //对于当前用户进行处理的意见
+        //public static ViewmanageMeetApply dealwithUp(int dealUID,int MeetID,int state,int UserID)
+        //{ 
+        //    UATIMeettableDAL dal=new UATIMeettableDAL();
+        //    List<UATIMeettable> uamodels = dal.getByUIDMID(dealUID,MeetID);
+            
+        //    for (int i = 0; i < uamodels.Count; i++)
+        //    {
+        //        if (uamodels[i].state == 2)
+        //        {
+        //            uamodels[i].state = state;
+        //            dal.Update(uamodels[i]);
+        //            if (state ==0)//表示同意
+        //            { 
+        //              //将这个用户和对应的活动组绑定，以及和对应的聊天组绑定
+        //                UTIMeetTable utmodel = new UTIMeetTable();
+        //                utmodel.UID = uamodels[i].dealUID;
+        //                utmodel.MeetID = uamodels[i].meetID;
+        //                utmodel.state = 1;
+        //                UTIMeetTableDAL utdal = new UTIMeetTableDAL();
+        //                //在进行数据更新前需要进行数据的比较
+
+        //                int counti = utdal.AddNew(utmodel);
+        //            }
+        //        }
+        //    }
+        //}
     }
     partial class ChartOnlinelib
     {
@@ -275,6 +320,10 @@ namespace redmomery.librarys
             GroupUser gu = dal.getGroupUserBy(UID.ToString(),GID.ToString());
             return gu;
         }
+        //private static UTIMeetTable checkExsitUT(int uid, int meetid)
+        //{
+        //    UTIMeetTableDAL dal = new UTIMeetTableDAL();
+        //}
         #endregion
     }
 

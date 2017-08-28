@@ -2,75 +2,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>用户注册页面实例</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.js"></script>
-    <script>
-        function uploadimage() {
-            var imginfo = $(" input[name='userphoto' ]")[0];
-            var imgdiv=$("#imagepreview")[0];
-            var imgpre=imgdiv.getElementsByTagName("img")[0];
-            imgpre.src=window.URL.createObjectURL(imginfo.files.item(0));
-            imgdiv.style.display="block" ;
-            $('form').on('submit', function (e) {
-            e.preventdefault();
-            });
-            }
-            function uploadlb() {
-            var lbform=$("#userregister")[0];
-            var formdata=new formdata(lbform);
-            $.ajax({
-            url :'/User/RegisterUser' ,
-            type :'POST' ,
-            data :formdata,
-            async :false,
-            cache :false,
-            contenttype :false,
-            processdata: false,
-            success :function (returndata) {
-            alert("成功");
-            },
-            error :function (returndata) {
-            alert("失败");
-            },
-            complete :function (data) {
-            alert(data.responsetext);
-            }
-            });
-            }
-            function createtemp() {
-            var form1=document.createElement("from");
-            form1.id="form1" ;
-            form1.name="form1" ;
-            var files=$("input[name ='userphoto' ]")[0];
-            form1.appendchild(files);
-            }
-    </script>
+    <title>用户注册页面</title>
+    <link rel="stylesheet" href="../resource/css/login.css" />
+    <script type="text/javascript" src="../resource/js/jquery.min.js" ></script>
+	<script type="text/javascript" src="../resource/js/login.js" ></script>
 </head>
 <body>
-    <form action="/User/RegisterUser" method="post" enctype="multipart/form-data" id="userregister" class="form-horizontal">
-        <div>
-            <label> 真实姓名 ：</label><input id="usernamec" name="usernamec" type="text" /><br />
-            <label> 性别 ：</label><input id="sexc" name="sexc" type="text" /><br />
-            <label> 身份 ：</label><input id="jobc" name="jobc" type="text" /><br />
-            <label>出生日期 ：</label><input type="date" name="userbirthday" class="form-control" placeholder="出生日期" autocomplete="off" /><br />
-            <label> 地址 ：</label><input id="addressec" name="addressec" type="text" /><br />
-            <label> 电话 ：</label><input id="photoc" name="photoc" type="text" /><br />
-            <label> Email ：</label><input id="Emailc" name="Emailc" type="text" /><br />
-            <label> 昵称 ：</label><input id="Netnamec" name="Netnamec" type="text" /><br />
-            <label> 密码 ：</label><input id="passwordc" name="passwordc" type="text" /><br />
-            <label> 验证密码 ：</label><input id="passwordcc" name="passwordcc" type="text" /><br />
-        </div>
-        <div class="form-group">
-            <label for="lbphoto" class="col-sm-3 control-label">上传照片</label>
-            <input type="file" name="userphoto" style="margin-left:1.3cm" onchange="uploadimage()" />
-        </div>
-        <div id="imagepreview" style="display:none">
-            <img src="" style="height:100px;width:100px;" />
-           
-            <!--<input type="submit" onclick="uploadimg()" />-->
-        </div>
-        <input id="Submit1" type="submit" value="submit"  onclick="uploadlB()"/>
-    </form>
+   <div class="wrap login_wrap">
+			<div class="content">
+				
+				<div class="logo"></div>
+				
+				<div class="login_box" style="margin-top: 15px;">	
+					
+					<div class="login_form">
+						<div class="login_title">
+							注册
+						</div>
+						<form action="" method="post">
+							
+							<div class="con4">
+		                        <canvas id="cvs" width="100" height="100"></canvas>
+		                        <span class="btn upload">上传头像<input type="file" name="userphoto" class="upload_pic" id="upload" /></span>
+	                        </div>
+							<div class="form_text_ipt">
+								<input name="usernamec" type="text" placeholder="用户姓名">
+							</div>
+							<div class="form_text_ipt">
+								<input name="sexc" type="text" placeholder="用户性别">
+							</div>
+							<div class="form_text_ipt">
+								<input name="jobc" type="text" placeholder="用户身份">
+							</div>
+							<div class="form_text_ipt">
+								<input name="userbirthday" type="date" placeholder="用户生日">
+							</div>
+							<div class="form_text_ipt">
+								<input name="addressec" type="text" placeholder="用户地址">
+							</div>
+							<div class="form_text_ipt">
+								<input name="photoc" type="text" placeholder="用户电话">
+							</div>
+							<div class="form_text_ipt">
+								<input name="Emailc" type="text" placeholder="电子邮件">
+							</div>
+							<div class="form_text_ipt">
+								<input name="Netnamec" type="text" placeholder="昵称">
+							</div>
+							<div class="form_text_ipt">
+								<input name="passwordc" type="password" placeholder="密码">
+							</div>
+							<div class="form_text_ipt">
+								<input name="passwordcc" type="password" placeholder="重复密码">
+							</div>
+							<br />
+							
+							<div class="form_btn">
+								<button type="button">注册</button>
+							</div>
+							<div class="form_reg_btn">
+								<span>已有帐号？</span><a href="DL.html">马上登录</a>
+							</div>
+						</form><br /><br />
+			
+					</div>
+				</div><br />
+			</div>
+		</div>
 </body>
 </html>

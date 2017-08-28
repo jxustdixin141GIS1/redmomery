@@ -411,7 +411,7 @@
 
               function setUpQuery() {
                   var queryTask = new QueryTask
-                      ("http://192.168.0.116:6080/arcgis/rest/services/LBDatanew/MapServer/0");
+                      ("http://172.16.100.64:6080/arcgis/rest/services/LBDatanew/MapServer/0");
 
                   //设定查询条件
                   var query = new Query();
@@ -597,7 +597,7 @@
                   map.graphics.clear();
               }
               findTask = new FindTask
-               ("http://192.168.0.116:6080/arcgis/rest/services/LBDatanew/MapServer");
+               ("http://172.16.100.64:6080/arcgis/rest/services/LBDatanew/MapServer");
 
               map.on("load", function () {
                   //构建寻找参数
