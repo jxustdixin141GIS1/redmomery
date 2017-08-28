@@ -13,6 +13,7 @@ namespace redmomery.librarys.model
         public string local { get; set; }
         public string contentTitle { get; set; }
         public string context { get; set; }
+        public DateTime meetTime { get; set; }
         public int vnum { get; set; }
         public int isCheck { get; set; }
         public object lng { get; set; }

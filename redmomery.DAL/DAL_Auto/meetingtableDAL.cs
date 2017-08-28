@@ -13,13 +13,14 @@ namespace redmomery.DAL
 		public int AddNew(meetingtable model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO meetingtable(UID,GID,Ttime,local,contentTitle,context,vnum,isCheck,lng,lat) VALUES (@UID,@GID,@Ttime,@local,@contentTitle,@context,@vnum,@isCheck,@lng,@lat);SELECT @@identity"
+				"INSERT INTO meetingtable(UID,GID,Ttime,local,contentTitle,context,meetTime,vnum,isCheck,lng,lat) VALUES (@UID,@GID,@Ttime,@local,@contentTitle,@context,@meetTime,@vnum,@isCheck,@lng,@lat);SELECT @@identity"
 				,new SqlParameter("@UID", model.UID)
 				,new SqlParameter("@GID", model.GID)
 				,new SqlParameter("@Ttime", model.Ttime)
 				,new SqlParameter("@local", model.local)
 				,new SqlParameter("@contentTitle", model.contentTitle)
 				,new SqlParameter("@context", model.context)
+				,new SqlParameter("@meetTime", model.meetTime)
 				,new SqlParameter("@vnum", model.vnum)
 				,new SqlParameter("@isCheck", model.isCheck)
 				,new SqlParameter("@lng", model.lng)
@@ -36,7 +37,7 @@ namespace redmomery.DAL
 
 		public bool Update(meetingtable model)
 		{
-			string sql = "UPDATE meetingtable SET UID=@UID,GID=@GID,Ttime=@Ttime,local=@local,contentTitle=@contentTitle,context=@context,vnum=@vnum,isCheck=@isCheck,lng=@lng,lat=@lat WHERE ID=@ID";
+			string sql = "UPDATE meetingtable SET UID=@UID,GID=@GID,Ttime=@Ttime,local=@local,contentTitle=@contentTitle,context=@context,meetTime=@meetTime,vnum=@vnum,isCheck=@isCheck,lng=@lng,lat=@lat WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@UID", model.UID)
@@ -45,6 +46,7 @@ namespace redmomery.DAL
 				, new SqlParameter("@local", model.local)
 				, new SqlParameter("@contentTitle", model.contentTitle)
 				, new SqlParameter("@context", model.context)
+				, new SqlParameter("@meetTime", model.meetTime)
 				, new SqlParameter("@vnum", model.vnum)
 				, new SqlParameter("@isCheck", model.isCheck)
 				, new SqlParameter("@lng", model.lng)
@@ -79,6 +81,7 @@ namespace redmomery.DAL
 			model.local = (string)row["local"];
 			model.contentTitle = (string)row["contentTitle"];
 			model.context = (string)row["context"];
+			model.meetTime = (DateTime)row["meetTime"];
 			model.vnum = (int)row["vnum"];
 			model.isCheck = (int)row["isCheck"];
 			model.lng = (object)row["lng"];

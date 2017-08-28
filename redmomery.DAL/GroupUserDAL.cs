@@ -12,7 +12,7 @@ namespace redmomery.DAL
     {
         public GroupUser getGroupUserBy(string UID, string GroupID)
         {
-            DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM GroupUser WHERE (UID = @UIDand GroupID =@GroupID )", new SqlParameter("@UID", UID), new SqlParameter("@GroupID",GroupID));
+            DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM GroupUser WHERE (UID = @UID and GroupID =@GroupID )", new SqlParameter("@UID", UID), new SqlParameter("@GroupID",GroupID));
             if (dt.Rows.Count > 1)
             {
                 throw new Exception("more than 1 row was found");

@@ -59,10 +59,10 @@
        6、数据库中CT中的表格为is_delete,0表示通过 1 表示热评 2表示待审核 3 表示删除
 
 在线聊天功能：
-    1、用户注册服务开始创建-------
-    2、活动的创建------------
-    3、活动与对应的群组的关联
-    4、创建群组
+    1、用户注册服务开始创建-------1
+    2、活动的创建-----------------------1
+    3、活动与对应的群组的关联---------------1
+    4、创建群组----------------------------1
     5、提供路由旅游线路的关联服务
     6、
 
@@ -463,6 +463,7 @@ function getlnglatbycityName(cityname)
               local：聚会地点
               contentTitle：聚会名
               context：聚会内容
+              contentTime：聚会参与时间
               vnum：发布人参与人数
               ischecking：是否经过验证，表示这个活动是不是真实有效的  0 表示有效  越大越危险
               lng: lng
@@ -489,7 +490,20 @@ function getlnglatbycityName(cityname)
                 MeetID：活动ID
                 state：0 表示创建人
                        1 表示普通参与用户
+                       2 表示为管理员
                        3 表示这条记录有误
+    活动申请参与表：UATIMeettable：用户申请参与某项活动
+                       ID：记录标识  //注意这个列以后可以直接去除掉
+                      UID：申请用户ID
+                    meetID：想要参与的活动ID
+                 dataTime：申请日期
+                  contentApply：留言内容
+                    state：0 表示同意
+                           1 表示拒绝
+                           2 表示待处理
+                           3 申请次数过多
+                  dealUID：处理人
+         注意：这里需要，凡是同意，都会从这个表格中移出去
 
     聊天群组表：chartgrouptable-----1=====3
            字段：ID:标识
@@ -516,7 +530,7 @@ function getlnglatbycityName(cityname)
                  ctime：创建留言的时间
                  message：留言
                  ISINV：留言类型，申请加为好友0 ，简单留言 1 ，其他待定
-
+            注意：这个表格中记录存在就表示，当前的处于待处理状态
     个人聊天记录池：singlemessagepooltable====================3
            字段：
                  FUID：发布者用户ID
@@ -560,3 +574,4 @@ function getlnglatbycityName(cityname)
 
 27、程序更改
         smtpSp.cs 文件540行
+   针对没有标识列的表格，这里需要对表格进行检查。

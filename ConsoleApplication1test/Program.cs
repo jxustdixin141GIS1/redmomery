@@ -31,15 +31,33 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
+            List<track> list = (new trackDAL()).ListAll() as List<track>;
+            for (int i = 0; i < list.Count; i++)
+            {
+                string[] date = list[i].Timetext.Split('-','-');
+                string datatime = date[0] + "年" + date[1] + "月" + date[2] + "日";
+                list[i].Timetext = datatime;
+            }
+            trackDAL dal = new trackDAL();
+            for (int i = 0; i < list.Count; i++)
+            {
+                track newt = list[i];
+                dal.Update(newt);
+            }
+            Console.WriteLine("程序结束");
+            Console.Read();
 
+        }
+        public void f()
+        {
             List<trajectory> list = new List<trajectory>();
             trajectoryDAL dal = new trajectoryDAL();
-            list= dal.getByLBID((141).ToString());
+            list = dal.getByLBID((141).ToString());
             //dal.AddNew(model);
             //dal.Update(model);
             for (int i = 0; i < list.Count; i++)
             {
-                trajectory model=list[i];
+                trajectory model = list[i];
                 LBTRACK mo = new LBTRACK();
                 mo.ID = int.Parse(model.ID.ToString());
                 mo.T_time = model.T_time;
@@ -57,11 +75,7 @@ namespace ConsoleApplication1test
                 LBTRACKDAL tdal = new LBTRACKDAL();
                 tdal.AddNew(mo);
             }
-            Console.WriteLine("程序结束");
-            Console.Read();
-
         }
-
         public static  double levelscore(baiduGeocodingaddress ba)
         {
             double mitemp = 0;

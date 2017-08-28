@@ -13,14 +13,15 @@ namespace redmomery.DAL
 		public int AddNew(track model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO track(EID,date,address,experience,x,y,heroID) VALUES (@EID,@date,@address,@experience,@x,@y,@heroID);SELECT @@identity"
+				"INSERT INTO track(EID,Timetext,Local,context,x,y,heroID,name) VALUES (@EID,@Timetext,@Local,@context,@x,@y,@heroID,@name);SELECT @@identity"
 				,new SqlParameter("@EID", model.EID)
-				,new SqlParameter("@date", model.date)
-				,new SqlParameter("@address", model.address)
-				,new SqlParameter("@experience", model.experience)
+				,new SqlParameter("@Timetext", model.Timetext)
+				,new SqlParameter("@Local", model.Local)
+				,new SqlParameter("@context", model.context)
 				,new SqlParameter("@x", model.x)
 				,new SqlParameter("@y", model.y)
 				,new SqlParameter("@heroID", model.heroID)
+				,new SqlParameter("@name", model.name)
 			);
 			return Convert.ToInt32(obj);
 		}
@@ -33,15 +34,16 @@ namespace redmomery.DAL
 
 		public bool Update(track model)
 		{
-			string sql = "UPDATE track SET EID=@EID,date=@date,address=@address,experience=@experience,x=@x,y=@y,heroID=@heroID WHERE EID=@EID";
+			string sql = "UPDATE track SET EID=@EID,Timetext=@Timetext,Local=@Local,context=@context,x=@x,y=@y,heroID=@heroID,name=@name WHERE EID=@EID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@EID", model.EID)
-				, new SqlParameter("@date", model.date)
-				, new SqlParameter("@address", model.address)
-				, new SqlParameter("@experience", model.experience)
+				, new SqlParameter("@Timetext", model.Timetext)
+				, new SqlParameter("@Local", model.Local)
+				, new SqlParameter("@context", model.context)
 				, new SqlParameter("@x", model.x)
 				, new SqlParameter("@y", model.y)
 				, new SqlParameter("@heroID", model.heroID)
+				, new SqlParameter("@name", model.name)
 			);
 			return rows > 0;
 		}
@@ -66,12 +68,13 @@ namespace redmomery.DAL
 		{
 			track model = new track();
 			model.EID = (int)row["EID"];
-			model.date = (object)row["date"];
-			model.address = (string)row["address"];
-			model.experience = (string)row["experience"];
+			model.Timetext = (string)row["Timetext"];
+			model.Local = (string)row["Local"];
+			model.context = (string)row["context"];
 			model.x = (object)row["x"];
 			model.y = (object)row["y"];
-			model.heroID = (int)row["heroID"];
+			model.heroID = (string)row["heroID"];
+			model.name = (string)row["name"];
 			return model;
 		}
 

@@ -5,14 +5,15 @@ using System.Text;
 
 namespace redmomery.Model
 {
- public 	partial class track
+	partial class track
 	{
 		public int EID { get; set; }
-		public object date { get; set; }
-		public string address { get; set; }
-		public string experience { get; set; }
+		public string Timetext { get; set; }
+		public string Local { get; set; }
+		public string context { get; set; }
 		public object x { get; set; }
 		public object y { get; set; }
-		public int heroID { get; set; }
+		public string heroID { get; set; }
+		public string name { get; set; }
 	}
 }

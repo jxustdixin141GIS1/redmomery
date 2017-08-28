@@ -12,8 +12,8 @@ namespace redmomery.DAL
 	{
 		public int AddNew(GroupUser model)
 		{
-			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO GroupUser(UID,GroupID,groupname,state) VALUES (@UID,@GroupID,@groupname,@state);SELECT @@identity"
+            object obj = SqlHelper.ExecuteNonQuery(
+				"INSERT INTO GroupUser(UID,GroupID,groupname,state) VALUES (@UID,@GroupID,@groupname,@state)"
 				,new SqlParameter("@UID", model.UID)
 				,new SqlParameter("@GroupID", model.GroupID)
 				,new SqlParameter("@groupname", model.groupname)

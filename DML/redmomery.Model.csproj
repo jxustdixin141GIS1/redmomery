@@ -86,6 +86,7 @@
     <Compile Include="auto\track.cs" />
     <Compile Include="auto\trajectory.cs" />
     <Compile Include="auto\travetable.cs" />
+    <Compile Include="auto\UATIMeettable.cs" />
     <Compile Include="auto\USER_INFO.cs" />
     <Compile Include="auto\UTIMeetTable.cs" />
     <Compile Include="BBSCONTENTS.cs" />
@@ -119,8 +120,10 @@
     <Compile Include="staticinfotable.cs" />
     <Compile Include="sysdiagrams.cs" />
     <Compile Include="systemmodel\objectkeyname.cs" />
+    <Compile Include="track.cs" />
     <Compile Include="trajectory.cs" />
     <Compile Include="travetable.cs" />
+    <Compile Include="UATIMeettable.cs" />
     <Compile Include="USER_INFO.cs" />
     <Compile Include="UTIMeetTable.cs" />
     <Compile Include="View_CC_U.cs" />

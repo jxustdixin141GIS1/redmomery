@@ -9,6 +9,7 @@ using redmomery.DAL;
 using redmomery.command;
 using redmomery.Common;
 using redmomery.librarys.model;
+using redmomery.librarys.libModel;
 namespace redmomery.librarys
 {
     public class ChartOnline
@@ -22,11 +23,11 @@ namespace redmomery.librarys
     public partial class ChartOnlinelib
     {
        //当用户创建一个活动信息时 ,创建成功就返回活动信息，失败就返回空对象
-        public static meetingtable Usertakeon(USER_INFO user,string local,string content,string suject)
+        public static meetingtable Usertakeon(USER_INFO user,string local,string content,string suject,DateTime meetTime)
         {
-             meetingtable mt=CreateMeet(user.USER_ID.ToString(),local,content,suject );
-            chartgrouptable cg=CreateGroup(user,suject,suject);
-            if (BingCgAndMt(cg, mt))
+            chartgrouptable cg = CreateGroup(user, suject, suject);
+            meetingtable mt=CreateMeet(user.USER_ID.ToString(),local,content,suject,meetTime,cg );
+            if (mt!=null)
             {
                 return mt;
             }
@@ -35,6 +36,7 @@ namespace redmomery.librarys
                return  null;
             }
         }
+        //获取指定用户的参与的活动列表
         public static List<ViewUTIMeet> GetmeetList(USER_INFO user)
         {
             //获取用户和列表之间的关系
@@ -62,6 +64,7 @@ namespace redmomery.librarys
                 newView.vnum = meet.vnum;
                 newView.contentTitle = meet.contentTitle;
                 newView.context = meet.context;
+                newView.meetTime = meet.meetTime;
                 newView.isCheck = meet.isCheck;
                 newView.lng = meet.lng;
                 newView.lat = meet.lat;
@@ -82,14 +85,115 @@ namespace redmomery.librarys
             }
             return result;
         }
+      //用户申请参加活动模块
+        public static UATIMeettable applyTImeet(int meetID,int UID,string contentapply)
+        {
+            UATIMeettableDAL dal = new UATIMeettableDAL();
+            List<UATIMeettable> newUTIs = dal.getByUIDMID(UID, meetID);
+            if (newUTIs == null)
+            {
+                //表示这个用户没有提交过申请
+                UATIMeettable newUTl = new UATIMeettable();
+                newUTl.UID = UID;
+                newUTl.meetID = meetID;
+                newUTl.dataTime = DateTime.Now;
+                newUTl.contentApply = contentapply;
+                newUTl.state = 2;//表示待处理
+                newUTl.dealUID = -1;//表示这个是系统的一个机器人，为了维护数据库的唯一性
+                int cout = dal.AddNew(newUTl);
+                if (cout > 0)
+                {
+                    newUTIs = dal.getByUIDMID(UID, meetID);
+                    if (newUTIs.Count > 0)
+                    {
+                        return newUTIs[0];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;//表示失败
+                }
+            }
+            else
+            { 
+               //表示已经找到了，统计被拒绝的次数
+                int count = 0;
+                for (int i = 0; i < newUTIs.Count; i++)
+                {
+                    if (newUTIs[i].state == 1)
+                    {
+                        count++;
+                    }
+                }
+                if (count >5)
+                {
+                    UATIMeettable newUTI = new UATIMeettable();
+                    newUTI.state = 3;
+                    return newUTI;
+                }
+                else
+                {
+                    UATIMeettable newUai = new UATIMeettable();
+                    newUai.dealUID = -1;
+                    newUai.dataTime = DateTime.Now;
+                    newUai.contentApply = contentapply;
+                    newUai.meetID = meetID;
+                    newUai.UID = UID;
+                    newUai.state = 2;
+                  int i= dal.AddNew(newUai);
+                  return i > 0 ? newUai : null;
+                }
+
+            }
+         
+        }
+      //获取当前用户能够管理的活动空间的申请
+        public static List<redmomery.librarys.libModel.ViewmanageMeetApply> getlistManageapply(USER_INFO user)
+        {
+            List<ViewmanageMeetApply> result = new List<ViewmanageMeetApply>();//作为结果进行输出
+            //准备的对象
+            UTIMeetTableDAL utmdal = new UTIMeetTableDAL();
+            meetingtableDAL mdal = new meetingtableDAL();
+            USER_INFODAL udal = new USER_INFODAL();
+            UATIMeettableDAL uadal = new UATIMeettableDAL();
+             //1、获取当前信息为管理员的数据库表格
+         
+            List<UTIMeetTable> Utlsit = utmdal.getmanageByUID(user.USER_ID);
+            //2、开始按照对应的管理进行查询管理的活动申请情况
+            for (int i = 0; Utlsit!=null&&i < Utlsit.Count; i++)
+            {
+                ViewmanageMeetApply newmanager = new ViewmanageMeetApply();
+                meetingtable managermeet = mdal.Get(Utlsit[i].MeetID);
+                //2.1 开始转存活动信息
+                newmanager.MID = managermeet.ID;
+                newmanager.GID = managermeet.GID;
+                newmanager.local = managermeet.local;
+                newmanager.meetTime = managermeet.meetTime;
+                newmanager.contentTitle = managermeet.contentTitle;
+                newmanager.context = managermeet.context;
+                newmanager.vnum = managermeet.vnum;
+                //获取待审核用户的信息
+                  //开始获取这个活动没有处理的需求信息
+               
+
+            }
+
+            return result;
+        }
+        
     }
     partial class ChartOnlinelib
-    { 
-       //创建群组 ,返回群组的编号
+    {
+        #region 创建聊天群主，
+        //创建群组 ,返回群组的编号
         public static chartgrouptable CreateGroup(USER_INFO user,string description,string groupName)
         {
            chartgrouptableDAL dal=new chartgrouptableDAL();
-            chartgrouptable cg = new chartgrouptable();
+           chartgrouptable cg = new chartgrouptable();
             cg.Ctime = DateTime.Now;
             cg.groupName = groupName;
             cg.description = description;
@@ -106,16 +210,19 @@ namespace redmomery.librarys
                 gu.state = 0;
                 gu.GroupID = cg.ID;
                 gu.groupname = user.USER_NETNAME;
-                int ind= gdal.AddNew(gu);
-                if (ind >= 0)
+                if (checkExsit(gu.UID, gu.GroupID) == null)//用来检测是否已经存在
                 {
-                    cg.vnum = 1;
+                    int ind = gdal.AddNew(gu);
+                    if (ind >= 0)
+                    {
+                        cg.vnum = 1;
+                    }
                 }
             }
             return cg;
         }
         //创建活动对象 返回活动对象
-        public static meetingtable CreateMeet(string UID, string local, string content,string suject)
+        public static meetingtable CreateMeet(string UID, string local, string content,string suject,DateTime meetTime, chartgrouptable cg)
         {
             meetingtable newmeet = new meetingtable();
             newmeet.UID = int.Parse(UID);
@@ -124,6 +231,8 @@ namespace redmomery.librarys
             newmeet.context = content;
             newmeet.contentTitle = suject;
             newmeet.isCheck = 0;
+            newmeet.meetTime = meetTime;
+            newmeet.GID = cg.ID;
             baiduGeocodingaddress xy = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(newmeet.local);
             if (xy.status == 0 && xy.result != null & xy.result.location != null)
             {
@@ -148,7 +257,8 @@ namespace redmomery.librarys
                   newmeet.vnum = 1;
               }
               mdal.Update(newmeet);
-            }
+              newmeet = mdal.Get(newmeet.ID);
+            }      
             return newmeet;
         }
         //绑定活动和群组
@@ -159,7 +269,13 @@ namespace redmomery.librarys
           bool isok=dal.Update(mt);
           return isok;
         }
-     
+        private static GroupUser checkExsit(int UID, int GID)
+        {
+            GroupUserDAL dal = new GroupUserDAL();
+            GroupUser gu = dal.getGroupUserBy(UID.ToString(),GID.ToString());
+            return gu;
+        }
+        #endregion
     }
 
 }

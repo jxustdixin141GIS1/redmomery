@@ -69,6 +69,7 @@
     <Compile Include="ChartOnline.cs" />
     <Compile Include="Echowalllib.cs" />
     <Compile Include="LbTextParse.cs" />
+    <Compile Include="libModel\ViewmanageMeetApply.cs" />
     <Compile Include="libModel\ViewUTIMeet.cs" />
     <Compile Include="modelrecomment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

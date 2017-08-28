@@ -33,8 +33,9 @@ namespace redMomery.Controllers
             string local = HttpContext.Request["local"].ToString();
             string title = HttpContext.Request["Contentitle"].ToString();
             string content = HttpContext.Request["content"].ToString();
+            DateTime contentTime =DateTime.Parse( HttpContext.Request["contentTime"].ToString());
             USER_INFO user = Session["user"] as USER_INFO;
-            meetingtable mt=  ChartOnlinelib.Usertakeon(user,local,content,title);
+            meetingtable mt=  ChartOnlinelib.Usertakeon(user,local,content,title,contentTime);
             chartgrouptable cg = (new redmomery.DAL.chartgrouptableDAL()).Get(mt.GID);
             //下面为群组分享链接
             return Json(mt);        

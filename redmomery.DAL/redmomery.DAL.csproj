@@ -103,6 +103,7 @@
     <Compile Include="DAL_Auto\trackDAL.cs" />
     <Compile Include="DAL_Auto\trajectoryDAL.cs" />
     <Compile Include="DAL_Auto\travetableDAL.cs" />
+    <Compile Include="DAL_Auto\UATIMeettableDAL.cs" />
     <Compile Include="DAL_Auto\USER_INFODAL.cs" />
     <Compile Include="DAL_Auto\UTIMeetTableDAL.cs" />
     <Compile Include="DAL_Auto\View_CC_UDAL.cs" />
@@ -131,8 +132,10 @@
     <Compile Include="SqlHelper.cs" />
     <Compile Include="staticinfotableDAL.cs" />
     <Compile Include="sysdiagramsDAL.cs" />
+    <Compile Include="trackDAL.cs" />
     <Compile Include="trajectoryDAL.cs" />
     <Compile Include="travetableDAL.cs" />
+    <Compile Include="UATIMeettableDAL.cs" />
     <Compile Include="USER_INFODAL.cs" />
     <Compile Include="UTIMeetTableDAL.cs" />
     <Compile Include="View_CC_UDAL.cs" />

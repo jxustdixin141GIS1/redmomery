@@ -20,5 +20,15 @@ namespace redmomery.DAL
            }
            return list;
        }
+       public List<UTIMeetTable> getmanageByUID(int UID)
+       {
+           List<UTIMeetTable> list = new List<UTIMeetTable>();
+           DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM UTIMeetTable where UID=@UID  and ( state = 0 or state = 2 )", new SqlParameter("@UID", UID));
+           foreach (DataRow row in dt.Rows)
+           {
+               list.Add(ToModel(row));
+           }
+           return list;
+       }
     }
 }
