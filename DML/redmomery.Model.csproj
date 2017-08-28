@@ -87,6 +87,7 @@
     <Compile Include="auto\trajectory.cs" />
     <Compile Include="auto\travetable.cs" />
     <Compile Include="auto\USER_INFO.cs" />
+    <Compile Include="auto\UTIMeetTable.cs" />
     <Compile Include="BBSCONTENTS.cs" />
     <Compile Include="BBSTITLE_TABLE.cs" />
     <Compile Include="CCBBS_TABLE.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="trajectory.cs" />
     <Compile Include="travetable.cs" />
     <Compile Include="USER_INFO.cs" />
+    <Compile Include="UTIMeetTable.cs" />
     <Compile Include="View_CC_U.cs" />
     <Compile Include="View_CT_U.cs" />
     <Compile Include="View_C_CL.cs" />

@@ -484,6 +484,13 @@ function getlnglatbycityName(cityname)
                  nOk：同意的人数
                  nY:点赞数
 
+    活动参与表： UTIMeetTable
+                UID：用户ID
+                MeetID：活动ID
+                state：0 表示创建人
+                       1 表示普通参与用户
+                       3 表示这条记录有误
+
     聊天群组表：chartgrouptable-----1=====3
            字段：ID:标识
                 UID：创建人ID

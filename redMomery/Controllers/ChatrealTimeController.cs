@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using redmomery.librarys;
 using redmomery.Model;
+using redmomery.DAL;
+using redMomery.Models;
 namespace redMomery.Controllers
 {
     public class ChatrealTimeController : Controller
@@ -35,13 +37,17 @@ namespace redMomery.Controllers
             meetingtable mt=  ChartOnlinelib.Usertakeon(user,local,content,title);
             chartgrouptable cg = (new redmomery.DAL.chartgrouptableDAL()).Get(mt.GID);
             //下面为群组分享链接
-            return Json(mt);
-            
+            return Json(mt);        
         }
-        public ActionResult getMymeeting()//拿到当前用书的列表
-        { 
-          
+        //查询到我自己创建的群组
+        public ActionResult getMymeeting() 
+        {
+            //获取用户和列表之间的关系
+            USER_INFO user = Session["user"] as USER_INFO;
+            List<redmomery.librarys.model.ViewUTIMeet> result = ChartOnlinelib.GetmeetList(user);
+            return Json(result);
         }
+        
         #endregion
     }
 }

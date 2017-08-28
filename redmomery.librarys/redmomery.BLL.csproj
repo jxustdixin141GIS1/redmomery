@@ -69,6 +69,7 @@
     <Compile Include="ChartOnline.cs" />
     <Compile Include="Echowalllib.cs" />
     <Compile Include="LbTextParse.cs" />
+    <Compile Include="libModel\ViewUTIMeet.cs" />
     <Compile Include="modelrecomment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="staticbydata.cs" />
@@ -98,6 +99,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
