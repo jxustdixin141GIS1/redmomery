@@ -38,7 +38,7 @@ namespace redMomery.Controllers
             return Json(mt);
             
         }
-        public ActionResult getMymeeting()
+        public ActionResult getMymeeting()//拿到当前用书的列表
         { 
           
         }

@@ -100,6 +100,7 @@
     <Compile Include="DAL_Auto\SqlHelper.cs" />
     <Compile Include="DAL_Auto\staticinfotableDAL.cs" />
     <Compile Include="DAL_Auto\sysdiagramsDAL.cs" />
+    <Compile Include="DAL_Auto\trackDAL.cs" />
     <Compile Include="DAL_Auto\trajectoryDAL.cs" />
     <Compile Include="DAL_Auto\travetableDAL.cs" />
     <Compile Include="DAL_Auto\USER_INFODAL.cs" />

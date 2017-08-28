@@ -83,6 +83,7 @@
     <Compile Include="auto\multimessagepooltable.cs" />
     <Compile Include="auto\singlemessagepooltable.cs" />
     <Compile Include="auto\staticinfotable.cs" />
+    <Compile Include="auto\track.cs" />
     <Compile Include="auto\trajectory.cs" />
     <Compile Include="auto\travetable.cs" />
     <Compile Include="auto\USER_INFO.cs" />
