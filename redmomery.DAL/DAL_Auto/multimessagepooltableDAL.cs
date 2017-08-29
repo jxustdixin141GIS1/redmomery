@@ -12,8 +12,8 @@ namespace redmomery.DAL
 	{
 		public int AddNew(multimessagepooltable model)
 		{
-			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO multimessagepooltable(FUID,TGID,Ftime,context,Rnum,Snum,MD5) VALUES (@FUID,@TGID,@Ftime,@context,@Rnum,@Snum,@MD5);SELECT @@identity"
+            object obj = SqlHelper.ExecuteNonQuery(
+				"INSERT INTO multimessagepooltable(FUID,TGID,Ftime,context,Rnum,Snum,MD5) VALUES (@FUID,@TGID,@Ftime,@context,@Rnum,@Snum,@MD5);"
 				,new SqlParameter("@FUID", model.FUID)
 				,new SqlParameter("@TGID", model.TGID)
 				,new SqlParameter("@Ftime", model.Ftime)

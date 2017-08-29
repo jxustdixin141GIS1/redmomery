@@ -1,0 +1,337 @@
+﻿@{
+    ViewBag.Title = "LBZL";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>提供老兵线索</title>
+       
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.16/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.16/esri/css/esri.css" />
+    <link rel="stylesheet" type="text/css" href="~/resource/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/resource/bootstrap-3.3.7-dist/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/resource/css/LBZL.css" />
+
+    <script type="text/javascript" src="https://js.arcgis.com/3.16/init.js"></script>
+    <script type="text/javascript" src="~/resource/bootstrap-3.3.7-dist/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="~/resource/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/resource/bootstrap-3.3.7-dist/js/Tabullet.js"></script>
+    <script type="text/javascript" src="~/resource/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="~/resource/js/LBZL.js"></script>
+
+</head>
+
+<body class="claro" style="height: 100%">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" style="background-image:url(../resource/image/dhbj2.png);">
+        <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+         </button>
+          <a class="navbar-brand" href="#" style="padding:0px 15px">
+        <img alt="抗战追忆系统" src="../resource/image/duibiao1.png" width="50px" height="50px" />
+          </a>
+          <a class="navbar-brand" href="#" style=" font-weight:bold; font-family:华文行楷; font-size:28px; color:#fff201;">
+                抗战追忆系统</a>
+        </div> <!-- end .navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <input type="hidden" value="1" id="ViewBageType"/>
+        <ul class="nav navbar-nav">
+        <li><a href="~/Home/index" style="font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">首页</a></li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">老兵不朽 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+					<li><a href="~/LB/LB" style="font-weight:bold; font-family:楷体; font-size:18px;" >老兵地图</a></li>
+                    <li><a href="#" style="font-weight:bold; font-family:楷体; font-size:18px;" >老兵热度图</a></li>
+                    <li><a href="#" style="font-weight:bold; font-family:楷体; font-size:18px;" >提供线索</a>
+                    </li>
+				</ul>
+        </li>
+        <li><a href="~/ZCZX/ZCZX" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">战场再现</a></li>
+        <li><a href="#" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">抗战纪念</a></li>
+        <li><a href="#" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">论坛</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right"> 
+            <li><a data-toggle="modal" href="#mymodal-link1" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201"><span class="glyphicon glyphicon-user"></span> 注册</a></li> 
+            <li><a data-toggle="modal" href="#mymodal-link" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> 
+        </ul>
+        </div><!-- end .navbar-collapse -->
+     </div><!-- end .container-fluid -->
+ </nav>
+
+
+        <div id="mapDiv" class="MapClass" data-dojo-props="region:'center'" data-dojo-type="dijit/layout/ContentPane">
+             <div style="position:absolute; right:20px; top:90px; z-Index:20;">
+                <div id="titlePane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'  测量工具', closable:false, open:false">
+                    <div id="measurementDiv"></div>
+                </div>
+            </div>
+
+            <div id="HomeButton"></div>
+           
+            <div style="position:absolute; right:20px; top:60px; z-Index:20;">
+                <div data-dojo-type="dijit/TitlePane"
+                     data-dojo-props="title:'  选择底图', closable:false, open:false">
+
+                    <div data-dojo-type="dijit/layout/ContentPane" style="width:380px; height:280px; overflow:auto;">
+                        <div id="basemapGallery"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h6 id="divxy"></h6>
+        </div>
+         
+  <div id="ziliao">
+      <img src="../resource/image/beijingzhlb.jpg" style="width:550px; height:200px;"> 
+        <div id="jiben">
+        <br/>
+        <p style="text-align:center; font-size:22px; font-family:楷体；; color:#F60;"><strong>填写老兵个人信息</strong></p>
+        <p style="padding-left:10px"><i class="fa fa-address-card fa-2x" style="color:#F60" aria-hidden="true"></i>&nbsp;&nbsp;<strong style="font-size:18px; color:#F60;">基本信息</strong></p>
+        
+        <form action="" method="post" id="lbziliao" class="form-horizontal">
+
+		<div class="form-group">
+         <label for="lbname" class="col-sm-3 control-label">老兵姓名</label>
+        <div class="col-sm-7">
+			<input type="text" name="lbname" class="form-control" placeholder="请输入姓名" autocomplete="off"/>
+		</div>
+        </div>
+        
+        <div class="form-group">
+        <label for="lbsex" class="col-sm-3 control-label">性别</label>
+        <div class="col-sm-7">
+			<input type="text" name="lbsex" class="form-control" placeholder="性别" autocomplete="off"/>
+		</div>
+        </div>
+        
+         <div class="form-group">
+         <label for="lbbirthday" class="col-sm-3 control-label">出生日期</label>	
+         <div class="col-sm-7">
+        <input type="date" name="lbbirthday" class="form-control" placeholder="出生日期" autocomplete="off"/>
+        </div>
+        </div>
+        
+		<div class="form-group">
+        <label for="lbwork" class="col-sm-3 control-label">部队职务</label>	
+        <div class="col-sm-7">
+			<input type="text" name="lbwork" class="form-control" placeholder="部队职务" autocomplete="off"/>
+		</div>
+        </div>
+        
+        <div class="form-group">
+         <label for="lbaddress" class="col-sm-3 control-label">现居住地</label>
+        <div class="col-sm-7">
+			<input type="text" name="lbaddress" class="form-control" placeholder="现居住地" autocomplete="off"/>
+		</div>
+        </div>
+        
+        <div class="form-group">
+         <label for="designation " class="col-sm-3 control-label">部队番号</label>
+        <div class="col-sm-7">
+			<input type="text" name="designation" class="form-control" placeholder="部队番号" autocomplete="off"/>
+		</div>
+        </div>
+        
+      <div class="form-group">
+      <label for="lbphoto" class="col-sm-3 control-label">上传照片</label>
+          <div class="col-sm-7">
+      <input type="file" name="lbphoto"/>
+          </div>
+      </div>
+      
+      <div class="form-group">
+      <label for="video" class="col-sm-3 control-label">老兵视频</label>
+          <div class="col-sm-7">
+      <input type="file" name="lbvideo"/>
+          </div>
+      </div>
+      
+      <label for="life" class="col-sm-3 control-label">生活现状</label><br/>
+      <textarea class="form-control" rows="5" style="width:500px"></textarea>
+      
+       <label for="gushi" class="col-sm-3 control-label">老兵故事</label><br/>
+      <textarea class="form-control" rows="7" style="width:500px"></textarea><br/>
+      <div style="text-align:center">
+      <button type="button" class="btn btn-success" style="font-size:20px;">上传基本信息</button>
+      </div>
+
+     </form> <br/>   
+     </div><br/> 
+     <div>
+     <p style="text-align:center; font-size:22px; font-family:楷体；; color:#F60;"><strong>添加老兵个人轨迹</strong></p>
+     
+     <div>
+            <table class="table table-hover" id="table">
+                <thead>
+                    <tr data-tabullet-map="id">
+                        <th width="30" data-tabullet-map="_index" data-tabullet-readonly="true">No</th>
+                        <th data-tabullet-map="time">时间</th>
+                        <th data-tabullet-map="address">地点</th>
+                        <th rowspan="5" data-tabullet-map="address">故事</th>
+                        <th width="30" data-tabullet-type="edit"></th>
+                        <th width="30" data-tabullet-type="delete"></th>
+
+                </thead>
+            </table>
+        </div>
+        
+        <div style="text-align:center">
+          <button type="button" class="btn btn-success" style="font-size:20px;">上传所有轨迹</button>
+        </div>
+
+     </div>
+         
+  </div>
+  
+      <!-- 登陆 -->
+<div class="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mymodal-link">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="text-align:center"><strong>老兵抗战追忆系统登陆</strong></h4>
+            </div>
+            <div class="modal-body">
+       <form action="#" method="post" id="loginForm" class="form-horizontal">
+
+		<div class="form-group">
+        <label for="username" class="col-sm-3 control-label">用户名</label>
+        <div class="col-sm-7">
+			<input type="text" id="username" name="username" class="form-control" placeholder="请输入用户名" autocomplete="off"/>
+            </div>
+		</div>
+        
+		<div class="form-group">
+        <label for="username" class="col-sm-3 control-label">密码</label>
+        <div class="col-sm-7">
+			<input type="password" id="password" name="password" class="form-control" placeholder="密码" oncontextmenu="return false" onpaste="return false" />
+        </div>
+		</div> 
+        
+        <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">验证码</label>
+        <div class="col-sm-7">
+            <input type="text" name="captchaChecked" id="captchaChecked" class="form-control" placeholder="验证码" autocomplete="off"/>
+        </div>
+          <div>
+            <img src="#" class="captcha_img" id="captchaImg" alt="点击刷新验证码">
+          </div>
+        </div>
+
+    <div class="form-group">
+		<div class="col-sm-offset-3 col-sm-10">
+			<div class="checkbox">
+				<label>
+					<input id="remember" name="remember" type="checkbox"> 记住账号信息
+				</label>
+			</div>
+		</div>
+	</div>
+            
+        <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-3">
+		<button class="btn btn-success" id="Button1" type="submit">登 陆</button>  
+        </div>    
+    <div class="col-sm-3">
+	<a data-toggle="modal" href="#mymodal-link1">
+		<button type="button" class="btn btn-success" data-dismiss="modal" data-target="#register">注册</button>
+	</a>
+    </div>
+    </div>
+    	</form>
+            </div><!-- /.modal-body -->
+        </div> <!--/.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    <!--登陆结束-->
+    
+    <!-- 注册--> 
+<div class="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mymodal-link1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="text-align:center"><strong>老兵抗战追忆系统注册</strong></h4>
+            </div>
+            <div class="modal-body">
+            <form action="" method="post" id="registerForm" class="form-horizontal">
+
+		<div class="form-group">
+         <label for="username" class="col-sm-3 control-label">姓名</label>
+        <div class="col-sm-7">
+			<input type="text" name="realname" class="form-control" placeholder="请输入姓名" autocomplete="off"/>
+		</div>
+        </div>
+        
+        <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">性别</label>
+        <div class="col-sm-7">
+			<input type="text" name="sex" class="form-control" placeholder="性别" autocomplete="off"/>
+		</div>
+        </div>
+        
+        <div class="form-group">	
+         <label for="username" class="col-sm-3 control-label">年龄</label>		
+			 <div id="BJ" class="col-sm-7">
+                 <input type="text" name="age" class="form-control" placeholder="年龄" autocomplete="off"/>
+                  </div>
+		</div>
+        
+         <div class="form-group">
+         <label for="username" class="col-sm-3 control-label">出生日期</label>	
+         <div class="col-sm-7">
+        <input type="date" name="birthday" class="form-control"
+       placeholder="出生日期" autocomplete="off"/>
+        </div>
+        </div>
+        
+		<div class="form-group">
+        <label for="username" class="col-sm-3 control-label">密码</label>	
+        <div class="col-sm-7">
+			<input type="password" name="password" class="form-control" placeholder="输入密码" oncontextmenu="return false" onpaste="return false" />
+		</div>
+        </div>
+        
+		<div class="form-group">
+        <label for="username" class="col-sm-3 control-label">再次输入密码</label>	
+        <div class="col-sm-7">
+			<input type="password" name="confirm_password" class="form-control" placeholder="再次输入密码" oncontextmenu="return false" onpaste="return false" />
+		</div>
+        </div>
+        
+        <div class="form-group">
+        <label for="username" class="col-sm-3 control-label">用户邮箱</label>	
+        <div class="col-sm-7">
+			<input type="email" name="email" class="form-control" placeholder="输入邮箱地址" oncontextmenu="return false" onpaste="return false" />
+		</div>
+        </div>
+        
+         <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-3">
+		<button class="btn btn-success" id="submit" type="submit">注 册</button>
+    </div>
+    <div class="col-sm-3">
+    <a data-toggle="modal" href="#mymodal-link">
+		<button type="button" class="btn btn-success" data-dismiss="modal" data-target="#login">已经有账号？</button>
+	</a> 
+    </div>
+    </div>
+    </form>         
+ </div> <!--/.modal-body -->
+        </div> <!--/.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div> <!--/.modal -->
+    <!--注册结束-->
+        
+
+</body>
+</html>

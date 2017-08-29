@@ -14,10 +14,34 @@ namespace redmomery.librarys
 {
     public class ChartOnline
     {
-        
-
+        public List<multimessagepooltable> getmeesage(int GID)
+        {
+            multimessagepooltableDAL dal = new multimessagepooltableDAL();
+            List<multimessagepooltable> list = dal.getByGID(GID);
+            return list;
+        }
+        public bool PostMessageG(USER_INFO user, int TGID, string context)
+        {
+            multimessagepooltable newmessage = new multimessagepooltable();
+            newmessage.context = context;
+            newmessage.FUID = user.USER_ID;
+            newmessage.TGID = TGID;
+            newmessage.Rnum = 10;//可以选择
+            newmessage.Ftime = DateTime.Now;
+            multimessagepooltableDAL dal = new multimessagepooltableDAL();
+          int count=  dal.AddNew(newmessage);
+          return (count > 0);
+        }
+        public List<GroupUser> GetUserG(int GID)
+        {
+            List<GroupUser> list = new List<GroupUser>();
+            return list;
+        }
     }
 }
+//在线交流部分开始进行书写
+
+
 namespace redmomery.librarys
 {
     public partial class ChartOnlinelib
@@ -88,6 +112,7 @@ namespace redmomery.librarys
       //用户申请参加活动模块
         public static UATIMeettable applyTImeet(int meetID,int UID,string contentapply)
         {
+            
             UATIMeettableDAL dal = new UATIMeettableDAL();
             List<UATIMeettable> newUTIs = dal.getByUIDMID(UID, meetID);
             if (newUTIs == null)
@@ -204,32 +229,60 @@ namespace redmomery.librarys
             return result;
         }
       //对于当前用户进行处理的意见
-        //public static ViewmanageMeetApply dealwithUp(int dealUID,int MeetID,int state,int UserID)
-        //{ 
-        //    UATIMeettableDAL dal=new UATIMeettableDAL();
-        //    List<UATIMeettable> uamodels = dal.getByUIDMID(dealUID,MeetID);
-            
-        //    for (int i = 0; i < uamodels.Count; i++)
-        //    {
-        //        if (uamodels[i].state == 2)
-        //        {
-        //            uamodels[i].state = state;
-        //            dal.Update(uamodels[i]);
-        //            if (state ==0)//表示同意
-        //            { 
-        //              //将这个用户和对应的活动组绑定，以及和对应的聊天组绑定
-        //                UTIMeetTable utmodel = new UTIMeetTable();
-        //                utmodel.UID = uamodels[i].dealUID;
-        //                utmodel.MeetID = uamodels[i].meetID;
-        //                utmodel.state = 1;
-        //                UTIMeetTableDAL utdal = new UTIMeetTableDAL();
-        //                //在进行数据更新前需要进行数据的比较
+        public static bool dealwithUp(int dealUID, int MeetID, int state, int UserID)
+        {
+           
+            UATIMeettableDAL dal = new UATIMeettableDAL();
+            List<UATIMeettable> uamodels = dal.getByUIDMID(dealUID, MeetID);
 
-        //                int counti = utdal.AddNew(utmodel);
-        //            }
-        //        }
-        //    }
-        //}
+            for (int i = 0; i < uamodels.Count; i++)
+            {
+                if (uamodels[i].state == 2)
+                {
+                    uamodels[i].state = state;
+                    dal.Update(uamodels[i]);
+                    if (state == 0)//表示同意
+                    {
+                        //将这个用户和对应的活动组绑定，以及和对应的聊天组绑定
+                        UTIMeetTable utmodel = new UTIMeetTable();
+                        utmodel.UID = uamodels[i].dealUID;
+                        utmodel.MeetID = uamodels[i].meetID;
+                        utmodel.state = 1;
+                        UTIMeetTableDAL utdal = new UTIMeetTableDAL();
+                        //在进行数据更新前需要进行数据的比较首先判断用户有没有绑定到群组
+                        UTIMeetTable checkUT = utdal.Get(utmodel.UID, utmodel.MeetID);
+                        if (checkUT == null)
+                        {
+                            int count = utdal.AddNew(utmodel);
+                        }
+                        else
+                        {
+                            //不进行任何处理
+                        }
+                        //添加完成之后，就删除所有的数据库中的内容
+                        dal.Delete(dealUID,MeetID);
+                        return true;
+                    }
+                    else
+                    { 
+                      //同时进行状态处理
+                        List<UATIMeettable> listss = dal.getByUIDMID(dealUID,MeetID);
+                        if (listss.Count >= 5)
+                        {
+                            dal.Delete(dealUID, MeetID); 
+                        for (int ii = 0; ii < 5; ii++)
+                        {
+                            listss[i].state = 1;
+                            dal.AddNew(listss[ii]);
+                        }
+                        return true;
+                      }
+                    }
+                }
+            }
+
+            return false;
+        }
     }
     partial class ChartOnlinelib
     {
@@ -320,10 +373,7 @@ namespace redmomery.librarys
             GroupUser gu = dal.getGroupUserBy(UID.ToString(),GID.ToString());
             return gu;
         }
-        //private static UTIMeetTable checkExsitUT(int uid, int meetid)
-        //{
-        //    UTIMeetTableDAL dal = new UTIMeetTableDAL();
-        //}
+       
         #endregion
     }
 

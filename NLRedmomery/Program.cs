@@ -18,7 +18,7 @@ namespace NLRedmomery
 
             NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
             //string s2 = "ICTCLAS在国内973专家组组织的评测中活动获得了第一名，在第一届国际中文处理研究机构SigHan组织的评测中都获得了多项第一名。陈增辉";
-            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\调试\新建文本文档.txt");
+            string s1 = redmomery.command.createlog.readTextFrompath(@"D:\qq缓存\新建文本文档(2).txt");
             int count = nlpir.GetParagraphProcessAWordCount(s1);
             result_t[] results = nlpir.ParagraphProcessAW(count);
           //  int i = 1;

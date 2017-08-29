@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>侧边展示</title>
+    <!----------------------------论坛部分css------------------------------------>
+    <link href="resource/css/comment.css" rel="stylesheet" />
+    <link href="resource/css/style_comment.css" rel="stylesheet" />
+    <style>
+        #BBScomment img{ width:100%; height:100%; max-width:100%; max-height:100%;}
+    </style>
+    <!----------------------------论坛部分结束---------------------------------------->
+    <!----------------------------类库文件，配置文件,全局变量文件加载------------------------------------------>
+    <script src="resource/config.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="resource/js/pagevariable.js"></script>
+    <!----------------------------类库文件，配置文件,全局变量文件加载结束------------------------------------------>
+    <!----------------------------页面的函数文件------------------------------------------>
+    <script src="resource/Commandjs.js"></script>
+    <script src="resource/js/loadbyname.js"></script>
+    <script src="resource/js/upimagepreview.js"></script>
+    <!----------------------------写在页面的js函数------------------------------------------>
+    <script>
+        function LoadLB() {
+            var ques = $("#LBname")[0].value;
+            LoadLBbyname(ques,false);
+        }
+        function getaddess() {
+            var address = $("#cadd")[0].value;
+        }
+        function Loadtitle() {
+            var ques = $("#LBTIltleID")[0].value;
+            LoadTitleByID(ques, false);
+
+        }
+        function LoadtitlebyLB() {
+            LoadTitleByID(LB_INFO.T_ID, false);
+        }
+        function LoadLBByTID() {
+            LoadLBsByTID(CurrentTitle.T_ID, false);
+        }
+        function LoadCLByTID()
+        {
+            LoadCommentByTID(CurrentTitle.T_ID,false);
+        }
+    </script>
+
+    <!----------------------------写在页面的js函数结束------------------------------------------>
+    <!---------------------------论坛页面js------------------------------------------->
+     
+    <!---------------------------论坛结束-------------------------------------------------->
+    <!----------------------------页面的函数文件结束------------------------------------------>
+</head>
+
+<body>
+    <p>前请输入老兵姓名：</p>
+        <input type="text" name="LBname" id="LBname" />
+        <input type="button" name="" onclick="LoadLB()" value="加载老兵">
+         <input type="button" id="cadd" onclick="getaddess()" value="山东省临沂市莒南县壮岗镇">
+    <input type="button" id="cadd" onclick="LoadtitlebyLB()" value="加载当前老兵的帖子">
+        <br />
+    <input type="text" name="LBTIltleID" id="LBTIltleID" />
+    <input type="button" name="" onclick="Loadtitle()" value="加载帖子"/>
+    <input type="button" name=" " onclick="LoadLBByTID()" value="加载当前帖子的老兵" />
+    <input type="button" name=" " onclick="LoadCLByTID()" value="加载对应帖子的评论" />
+        <div id="C_LB">
+            <div id="LB_story"></div><br />
+            <div id="lB_TILTE"></div>
+
+          <!---------------评论区域代码----------------------------->
+            <div id="BBScomment">
+                <div class="commentAll">
+                    <!--评论区域 begin-->
+                    <div class="reviewArea clearfix">
+                        <textarea class="content comment-input" placeholder="Please enter a comment&hellip;" onkeyup="keyUP(this)"></textarea>
+                        <a href="javascript:;" class="plBtn">评论</a>
+                    </div>
+                    <!--评论区域 end-->
+                    <!--回复区域 begin-->
+                    <div class="comment-show">
+
+                    </div>
+                    <!--回复区域 end-->
+                </div>
+               <!----------------------------评论区操作-------------------------------------------------------------->
+                <script src="resource/js/jquery.flexText.js"></script>
+                <script src="resource/js/tribune.js"></script>
+               <!---------------------------评论区操作结束------------------------------------------------------------------>
+            </div>
+        </div>
+</body>
+
+
+
+</html>

@@ -15,5 +15,6 @@ namespace redmomery.Model
 		public object y { get; set; }
 		public string heroID { get; set; }
 		public string name { get; set; }
+		public int img { get; set; }
 	}
 }

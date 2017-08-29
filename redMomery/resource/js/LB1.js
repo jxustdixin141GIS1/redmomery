@@ -203,7 +203,7 @@
               function setUpQuery() {
 
                   var queryTask = new QueryTask
-                      ("http://172.16.100.6:6080/arcgis/rest/services/LBDatanew/MapServer/0");
+                      ("http://192.168.43.35:6080/arcgis/rest/services/LBDatanew/MapServer/0");
 
                   //设定查询条件
                   var query = new Query();
@@ -323,8 +323,10 @@
                                   ex = results1[0].LBexperience;
                                   var divs2 = $("#wz2")[0];
                                   divs2.innerHTML = "<p >" + "<span style='font-size:16px; font-family:楷体;font-weight:bold'>" + ex + "</span>" + "</p>" +
-                                                    "<p >" + "<img src= '../resource/image/lbinfo/" + sLBPhoto + "' width=100%   />" + "</p>";
-
+                                                    "<p >" + "<img src= '../resource/image/lbinfo/" + results1[0].LBPhoto + "' width=100%   />" + "</p>";
+                                  //下面应该进行启动程序------
+                                  LoadLBsByTID(results1[0].T_ID, false);
+                                  LoadCommentByTID(results1[0].T_ID, false);
                               }
                           });
                           ;
@@ -394,7 +396,7 @@
                   map.graphics.clear();
               }
               findTask = new FindTask
-               ("http://172.16.100.6:6080/arcgis/rest/services/LBDatanew/MapServer");
+               ("http://192.168.43.35:6080/arcgis/rest/services/LBDatanew/MapServer");
 
               map.on("load", function () {
                   //构建寻找参数
@@ -478,7 +480,7 @@
 
 
               dojo.connect(button14, "click", function () {
-                  var serviceURL = "http://172.16.100.6:6080/arcgis/rest/services/LBDatanew/FeatureServer/0";
+                  var serviceURL = "http://192.168.43.35:6080/arcgis/rest/services/LBDatanew/FeatureServer/0";
 
                   heatmapFeatureLayer = new FeatureLayer(serviceURL, {
                       opacity: 0.6,
@@ -631,52 +633,52 @@
             }
         })
 
-        //老兵信息框拉伸
-        $(function () {
-            //绑定需要拖拽改变大小的元素对象 
-            bindResize(document.getElementById('AllInfoWin'));
-        });
+        ////老兵信息框拉伸
+        //$(function () {
+        //    //绑定需要拖拽改变大小的元素对象 
+        //    bindResize(document.getElementById('AllInfoWin'));
+        //});
 
-        function bindResize(el) {
-            //初始化参数 
-            var els = el.style,
-            //鼠标的 X 和 Y 轴坐标 
-            x = 0;
-            $(el).mousedown(function (e) {
-                //按下元素后，计算当前鼠标与对象计算后的坐标 
-                x = e.clientX - el.offsetWidth
-                el.setCapture ? (
-                //捕捉焦点 
-                el.setCapture(),
-                //设置事件 
-                el.onmousemove = function (ev) {
-                    mouseMove(ev || event)
-                },
-                el.onmouseup = mouseUp
-                ) : (
-                //绑定事件 
-                $(document).bind("mousemove", mouseMove).bind("mouseup", mouseUp)
-                )
-                //防止默认事件发生 
-                e.preventDefault()
-            });
-            //移动事件 
-            function mouseMove(e) {
-                els.width = e.clientX - x + 'px'
-            }
-            //停止事件 
-            function mouseUp() {
-                el.releaseCapture ? (
-                //释放焦点 
-                el.releaseCapture(),
-                //移除事件 
-                el.onmousemove = el.onmouseup = null
-                ) : (
-                //卸载事件 
-                $(document).unbind("mousemove", mouseMove).unbind("mouseup", mouseUp)
-                )
-            }
-        }
+        //function bindResize(el) {
+        //    //初始化参数 
+        //    var els = el.style,
+        //    //鼠标的 X 和 Y 轴坐标 
+        //    x = 0;
+        //    $(el).mousedown(function (e) {
+        //        //按下元素后，计算当前鼠标与对象计算后的坐标 
+        //        x = e.clientX - el.offsetWidth
+        //        el.setCapture ? (
+        //        //捕捉焦点 
+        //        el.setCapture(),
+        //        //设置事件 
+        //        el.onmousemove = function (ev) {
+        //            mouseMove(ev || event)
+        //        },
+        //        el.onmouseup = mouseUp
+        //        ) : (
+        //        //绑定事件 
+        //        $(document).bind("mousemove", mouseMove).bind("mouseup", mouseUp)
+        //        )
+        //        //防止默认事件发生 
+        //        e.preventDefault()
+        //    });
+        //    //移动事件 
+        //    function mouseMove(e) {
+        //        els.width = e.clientX - x + 'px'
+        //    }
+        //    //停止事件 
+        //    function mouseUp() {
+        //        el.releaseCapture ? (
+        //        //释放焦点 
+        //        el.releaseCapture(),
+        //        //移除事件 
+        //        el.onmousemove = el.onmouseup = null
+        //        ) : (
+        //        //卸载事件 
+        //        $(document).unbind("mousemove", mouseMove).unbind("mouseup", mouseUp)
+        //        )
+        //    }
+        //}
 
         //点赞
         $(document).ready(function () {

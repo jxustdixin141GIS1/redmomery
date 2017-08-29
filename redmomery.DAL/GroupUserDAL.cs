@@ -25,5 +25,15 @@ namespace redmomery.DAL
             GroupUser model = ToModel(row);
             return model;
         }
+        public List<GroupUser> getGusers(string GID)
+        {
+            List<GroupUser> list = new List<GroupUser>();
+            DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM GroupUser   where  GroupID =@GroupID", new SqlParameter("@GroupID", GID));
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(ToModel(row));
+            }
+            return list;
+        }
     }
 }

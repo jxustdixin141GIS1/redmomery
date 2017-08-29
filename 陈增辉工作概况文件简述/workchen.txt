@@ -493,16 +493,16 @@ function getlnglatbycityName(cityname)
                        2 表示为管理员
                        3 表示这条记录有误
     活动申请参与表：UATIMeettable：用户申请参与某项活动
-                       ID：记录标识  //注意这个列以后可以直接去除掉
-                      UID：申请用户ID
-                    meetID：想要参与的活动ID
-                 dataTime：申请日期
-                  contentApply：留言内容
-                    state：0 表示同意
+                   ID：记录标识  //注意这个列以后可以直接去除掉
+                   UID：申请用户ID
+                   meetID：想要参与的活动ID
+                   dataTime：申请日期
+                   contentApply：留言内容
+                   state：0 表示同意
                            1 表示拒绝
                            2 表示待处理
                            3 申请次数过多
-                  dealUID：处理人
+                   dealUID：处理人
          注意：这里需要，凡是同意，都会从这个表格中移出去
 
     聊天群组表：chartgrouptable-----1=====3
@@ -575,3 +575,8 @@ function getlnglatbycityName(cityname)
 27、程序更改
         smtpSp.cs 文件540行
    针对没有标识列的表格，这里需要对表格进行检查。
+28、遇到问题，
+   如何处理群组聊天记录的同步与加载问题。
+   由于聊天记录的比较复杂不能进行数据的过多存贮，所以这里能不能采用时间记录的方式进行处理，
+   需要解决的问题，如何将数据库的中的时间进行比较，还有如何查询到制定的问题目录中的问题，
+   如何比较时间大小问题，可以进行时间的比较

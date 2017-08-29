@@ -3,14 +3,12 @@
 function LoadLBbyname(LBname, isappend) {
 
     var name = LBname;
-    var url = configUrl + "/redmomeryserver.asmx/getLBINfo"
+    var url = "/LBbx/getLBINfo";
     $.ajax({
         type: "post",
         dataType: "json",
         url: url,
         data: { LBname: name },
-
-
         success: function (data) {
             var data1 = data.response;
             var g = JSON.parse(data1)
@@ -33,7 +31,6 @@ function LoadLBbyname(LBname, isappend) {
                 LB_INFO = lb;
                 showLB(LB_INFO, isappend);
             }
-            
             LBList = temp;
             //了数据转换完成
         }
@@ -42,12 +39,12 @@ function LoadLBbyname(LBname, isappend) {
 function LoadLBsByTID(TID, isappend)
 {
     var name = TID;
-    var url = configUrl + "/redmomeryserver.asmx/GetLBByTID"
+    var url = "/LBbx/GetLBByTID";
     $.ajax({
         type: "post",
         dataType: "json",
         url: url,
-        data: { T_ID: name },
+        data: { T_ID: TID },
         success: function (data) {
             var data1 = data.response;
             var g = JSON.parse(data1)
@@ -80,7 +77,7 @@ function LoadLBsByTID(TID, isappend)
 function LoadTitleByID(T_ID,isappend)
 {
     var name = T_ID;
-    var url = configUrl + "/redmomeryserver.asmx/getTitle"
+    var url = "/LBbx/GetLBByTID";
     $.ajax({
         type: "post",
         dataType: "json",
@@ -117,7 +114,7 @@ function LoadTitleByID(T_ID,isappend)
 function LoadCommentByTID(T_ID, isappend)
 {
     var name = T_ID;
-    var url = configUrl + "/redmomeryserver.asmx/getComentbyTitleId"
+    var url = "/LBbx/getComentbyTitleId";
     $.ajax({
         type: "post",
         dataType: "json",
@@ -238,7 +235,7 @@ function showCommment(C)
 function postComment(TID,Commentcontext)
 {
     var name = TID;
-    var url = configUrl + "/redmomeryserver.asmx/addCommentByTID"
+    var url = "/LBbx//addCommentByTID"
     $.ajax({
         type: "post",
         dataType: "json",
@@ -266,7 +263,7 @@ function postComment(TID,Commentcontext)
 function deletecommet(CID, objtemp)
 {
     var name = CID;
-    var url = configUrl + "/redmomeryserver.asmx/deleteCommentByCID"
+    var url =  "/LBbx//deleteCommentByCID"
     $.ajax({
         type: "post",
         dataType: "json",

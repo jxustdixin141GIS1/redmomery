@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "LBsexstatistics";
+}
+
+<html style="height: 100%">
+<head>
+    <title>老兵的性别比例图</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script src="~/resource/staticfile/various.js"></script>
+    <script src="~/resource/staticfile/Treatmentdata.js"></script>
+</head>
+<body>
+    <div id="container" style="height: 100%"></div>
+
+    <script type="text/javascript">
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        myChart.showLoading();
+        GetLbsexlist();
+    </script>
+</body>
+</html>

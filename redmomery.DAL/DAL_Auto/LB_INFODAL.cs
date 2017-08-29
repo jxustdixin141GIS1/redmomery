@@ -87,14 +87,14 @@ namespace redmomery.DAL
 			model.LBsex = (string)row["LBsex"];
 			model.LBbirthday = (string)row["LBbirthday"];
 			model.LBdomicile = (string)row["LBdomicile"];
-			model.designation = (string)row["designation"];
-			model.LBexperience = (string)row["LBexperience"];
-            model.LBlife = (object)row["LBlife"].ToString() == "" ? "" : row["LBlife"].ToString();
-			model.LBPhoto = (string)row["LBPhoto"];
-            model.LBdelete = (int)(row["LBdelete"].ToString() == "" ? -1 : int.Parse(row["LBdelete"].ToString()));
-			model.X = (object)row["X"];
-			model.Y = (object)row["Y"];
-			model.Location = (object)row["Location"];
+            model.designation = (string)(row["designation"] == null ? "" : row["designation"].ToString());
+			model.LBexperience = (string)(row["LBexperience"]==null?"":row["LBexperience"].ToString());
+			model.LBlife = (object)(row["LBlife"]==null?"":row["LBlife"].ToString());
+            model.LBPhoto = (string)(row["LBPhoto"] == null ? "" : row["LBPhoto"].ToString());
+            model.LBdelete = (int)(row["LBdelete"] == null ? 0 : int.Parse(row["LBdelete"].ToString()));
+			model.X = (object)(row["X"]==null?-100.0:row["X"].ToString()==""?-100.0:float.Parse(row["X"].ToString()));
+            model.Y = (object)(row["Y"] == null ? -100.0 : row["Y"].ToString() == "" ? -100.0 : float.Parse(row["Y"].ToString()));
+			model.Location = (object)(row["Location"]==null?"":row["Location"].ToString());
 			return model;
 		}
 

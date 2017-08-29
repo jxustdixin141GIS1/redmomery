@@ -1747,6 +1747,7 @@
     <Content Include="resource\js\images\btnbg.png" />
     <Content Include="resource\js\images\jdt.png" />
     <Content Include="resource\js\jquery-1.12.0.min.js" />
+    <Content Include="resource\js\jquery-3.1.1.js" />
     <Content Include="resource\js\jquery-ui-1.8.22.custom.min.js" />
     <Content Include="resource\js\jquery.cookie.js" />
     <Content Include="resource\js\jquery.dlmenu.js" />
@@ -1933,6 +1934,8 @@
     <Content Include="Views\User\activafault.cshtml" />
     <Content Include="Views\User\loginuser.cshtml" />
     <Content Include="Views\ChatrealTime\PublicCampaing.cshtml" />
+    <Content Include="Views\LBbx\testGetLB.cshtml" />
+    <Content Include="Views\ChatrealTime\groupchart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

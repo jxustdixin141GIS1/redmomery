@@ -14,14 +14,6 @@ namespace redmomery.DAL
         {
             List<LB_INFO> list = new List<LB_INFO>();
             DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM LB_INFO WHERE T_ID=@ID", new SqlParameter("@ID", T_ID));
-            if (dt.Rows.Count > 1)
-            {
-                throw new Exception("more than 1 row was found");
-            }
-            if (dt.Rows.Count <= 0)
-            {
-                return null;
-            }
             foreach (DataRow row in dt.Rows)
             {
                 list.Add(ToModel(row));

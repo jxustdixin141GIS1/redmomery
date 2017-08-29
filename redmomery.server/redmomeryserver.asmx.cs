@@ -324,8 +324,6 @@ namespace testtemp
         {
             return redmomery.Common.SerializerHelper.SerializeToString(LbTextParse.parseLbstored(int.Parse(lbId), LBtext));  
         }
-        
-        
     }
 
 }

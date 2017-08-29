@@ -30,9 +30,6 @@ namespace redmomery.DAL
            }
            return list;
        }
-       //public UTIMeetTable getByUIDByUIDMID(int uid, int mid)
-       //{ 
-        
-       //}
+     
     }
 }

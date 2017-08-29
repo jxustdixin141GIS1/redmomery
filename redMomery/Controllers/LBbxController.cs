@@ -84,6 +84,10 @@ namespace redMomery.Controllers
             HttpContext.Response.Write(redmomery.Common.SerializerHelper.SerializeToString(LB));
             HttpContext.Response.End();
         }
+        public ActionResult testGetLB()
+        {
+            return View();
+        }
         public ActionResult LBupload()
         {
             return View();
@@ -91,10 +95,90 @@ namespace redMomery.Controllers
         [WebMethod]
         public ActionResult GetLBByLBID(string sLBID)
         {
+            List<LB_INFO> result = new List<LB_INFO>();
+            LB_INFO LB = (new LB_INFODAL()).get(int.Parse(sLBID));
+            result.Add(LB);
+            return Json(result);
+        }
+        [WebMethod]
+        public ActionResult GetLBByTID(string T_ID)
+        {
             List<string> json = new List<string>();
             List<LB_INFO> result = new List<LB_INFO>();
-            result.Add((new LB_INFODAL()).get(int.Parse(sLBID)));
+            result.AddRange(BBSBLL.GetLB_INFOByTID(int.Parse(T_ID)));
+            for (int i = 0; i < result.Count; i++)
+            {
+                json.Add(redmomery.Common.SerializerHelper.SerializeToString(result[i]));
+            }
             return Json(result);
+        }
+        [WebMethod]
+        public ActionResult getTitle(string T_ID)
+        {
+            List<string> result = new List<string>();
+            //T_ID若是为-1,表示错误
+            View_T_U b_title = BBSBLL.getTitleViewID(int.Parse(T_ID));
+            result.Add(redmomery.Common.SerializerHelper.SerializeToString(b_title));
+            return Json(result);
+        }
+        /// <summary>
+        /// 这个用来得到的回复的帖子列表
+        /// </summary>
+        /// <param name="T_ID"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public ActionResult getComentbyTitleId(string T_ID)
+        {
+            List<string> result = new List<string>();
+            List<View_CT_U> CTs = BBSBLL.GetCLgetTID(int.Parse(T_ID));
+            for (int i = 0; i < CTs.Count; i++)
+            {
+                result.Add(redmomery.Common.SerializerHelper.SerializeToString(CTs[i]));
+            }
+            return Json(result);
+        }
+        [WebMethod]
+        public ActionResult addCommentByTID(string TID, string context)
+        {
+            //这里就假装当前连接的用户ID为
+            int UID = 1;
+            CTBBS_TABLE newc = new CTBBS_TABLE();
+            newc.F_TIME = DateTime.Now;
+            newc.Context = context;
+            newc.n_c = 0;
+            newc.n_y = 0;
+            newc.U_ID = UID;
+            newc.is_delete = 0;
+            newc.T_ID = int.Parse(TID);
+            int CID = BBSBLL.PostCommentByTID(newc);
+            List<string> result = new List<string>();
+            View_CT_UDAL dal = new View_CT_UDAL();
+            View_CT_U newct = new View_CT_U();
+            newct = dal.Get(CID);
+            result.Add(redmomery.Common.SerializerHelper.SerializeToString(newct));
+            return Json(result);
+        }
+        [WebMethod]
+        public ActionResult deleteCommentByCID(string CID)
+        {
+
+            List<string> result = new List<string>();
+            bool isdelte = BBSBLL.DeleteCommentByCID(int.Parse(CID));
+            result.Add(isdelte.ToString());
+            return Json(result);
+        }
+        LB_INFODAL lbdal = new LB_INFODAL();
+        [WebMethod]
+        public ActionResult getLBINfo(string LBname)
+        {
+            List<string> json = new List<string>();
+            List<LB_INFO> result = new List<LB_INFO>();
+            result = (List<LB_INFO>)lbdal.GetByName(LBname);
+            for (int i = 0; i < result.Count; i++)
+            {
+                json.Add(redmomery.Common.SerializerHelper.SerializeToString(result[i]));
+            }
+            return Json( json);
         }
     }
 }

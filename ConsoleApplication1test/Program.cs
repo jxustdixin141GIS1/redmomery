@@ -31,22 +31,50 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
-            List<track> list = (new trackDAL()).ListAll() as List<track>;
+            //List<GroupUser> gu = (new GroupUserDAL()).getGusers((3).ToString());
+            //Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(gu));
+            //Console.WriteLine();
+            //Console.WriteLine("测试用户发送消息");
+            //multimessagepooltable newmeessage = new multimessagepooltable();
+            //newmeessage.FUID = 2;
+            //newmeessage.TGID = 3;
+            //newmeessage.context = "这个是专门用来测试对应的网络在线聊天功能的";
+            //newmeessage.Ftime = DateTime.Now;
+            //newmeessage.MD5 = MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newmeessage));
+            //multimessagepooltableDAL dals = new multimessagepooltableDAL();
+            //dals.AddNew(newmeessage);
+           // List<LB_INFO> lists = (new LB_INFODAL()).Listall() as List<LB_INFO>;
+
+            //Console.WriteLine(long.MaxValue.ToString().Length);
+            //Console.WriteLine((DateTime.Now.ToString()).Length);
+            string LBtext = redmomery.command.createlog.readTextFrompath(@"D:\qq缓存\新建文本文档(2).txt");
+            List<trajectory> list = LbTextParse.parseLbstored(61, LBtext);
+            List<track> tlist = new List<track>();
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < list.Count; i++)
             {
-                string[] date = list[i].Timetext.Split('-','-');
-                string datatime = date[0] + "年" + date[1] + "月" + date[2] + "日";
-                list[i].Timetext = datatime;
+                track newt = new track();
+                newt.EID = 111 + i;
+                newt.Timetext = list[i].Timetext;
+                newt.name = "邓小平";
+                newt.heroID = "3邓小平";
+                newt.Local = list[i].Local;
+                newt.x = list[i].x;
+                newt.y = list[i].y;
+                newt.context = list[i].context;
+                newt.img = 112 + i;
+                tlist.Add(newt);
             }
+            //批量上传
             trackDAL dal = new trackDAL();
-            for (int i = 0; i < list.Count; i++)
+            int count = 0;
+            for (int i = 0; i < tlist.Count; i++)
             {
-                track newt = list[i];
-                dal.Update(newt);
+                count += dal.AddNew(tlist[i]);
+                Console.Write(i.ToString());
             }
             Console.WriteLine("程序结束");
             Console.Read();
-
         }
         public void f()
         {

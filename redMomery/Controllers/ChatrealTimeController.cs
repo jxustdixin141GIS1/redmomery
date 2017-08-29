@@ -26,6 +26,10 @@ namespace redMomery.Controllers
         {
             return View();
         }
+        public ActionResult groupchart()
+        {
+            return View();
+        }
         #endregion
         #region  服务方法
         public ActionResult PostCampaign()
