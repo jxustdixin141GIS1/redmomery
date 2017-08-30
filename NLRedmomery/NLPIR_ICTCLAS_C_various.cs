@@ -22,6 +22,7 @@ namespace NLRedmomery
         private const string NewWordFinder = libpath + @"\NewWordFinder.dll";
         private const string DElib = libpath + @"\DocExtractor.dll";
         public const string userDir = libpath + @"\output\NewTermlist.txt";
+        public const string userDirs = libpath + @"\output\userC.txt";
         #endregion
 
     }

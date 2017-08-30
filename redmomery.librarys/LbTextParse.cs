@@ -7,9 +7,10 @@ using NLRedmomery;
 using redmomery.Model;
 using redmomery.Common;
 using redmomery.command;
+//本模型只适合与顺序记叙文，并且因为采用的是百度的地理编码，所以对于外文的识别不怎么样。
 namespace redmomery.librarys
 {
-   public  class LbTextParse
+    public class LbTextParse
     {
         public static List<trajectory> parseLbstored(LB_INFO lb)
         {
@@ -56,9 +57,9 @@ namespace redmomery.librarys
             }
             return list;
         }
-        public static List<trajectory> parseLbstored(int lbID,string lbtext)
+        public static List<trajectory> parseLbstored(int lbID, string lbtext)
         {
-            
+
             List<trajectory> list = new List<trajectory>();
             List<Text_trcajectory> temp = LBText.parseText(lbtext);
             for (int j = 0; j < temp.Count; j++)
@@ -103,20 +104,89 @@ namespace redmomery.librarys
             return list;
         }
     }
-    class LBText
+    public class LBText
     {
-     public static List<Text_trcajectory> parseText(string text)
-      {
-          object temp = LBText.parsetext(text);
-          temp = LBText.timeExtract((List<Text_result>)temp);
-          temp = LBText.ConvertToRes((List<T_LocalText>)temp);
-          //开始进行组合
-          List<Res_T_LocalText> init = temp as List<Res_T_LocalText>;
-          //下面主要处理地名
-          List<Text_trcajectory> result = LBText.convertdeallocal(init);
-          return result;
-      }
-     private   static List<string> Extractbookname(string s1)
+        //常用变量
+        private const string NLpath = @"D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\";
+
+        public const string userDirs = NLpath + @"\output\userC.txt";
+        public static List<Text_trcajectory> parseText(string text)
+        {
+            List<Text_trcajectory> result = new List<Text_trcajectory>();
+            object temp = LBText.parsetext(text);
+            temp = LBText.mergeresult((List<Text_result>)temp);
+       
+            return result;
+        }
+        //数据预处理
+        public static List<string> ReadNameForm(string path)
+        {
+            string s = redmomery.command.createlog.readTextFrompath(path);
+            string[] slist = s.Split(',','，');
+            List<string> result = new List<string>();
+            result.AddRange(slist);
+            return result;
+        }
+        public static List<Text_result> parsetext(string text)
+        {
+            List<string> bookname = Extractbookname(text);
+            List<Text_result> resl = new List<Text_result>();
+            Text_result[] results = null;
+            NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
+            //这个主要是用来处理其中的书名
+            for (int i = 0; i < bookname.Count; i++)
+            {
+                nlpir.AddUserWord(bookname[i] + "\t" + "n");
+            }
+            List<string> Exin = ReadNameForm(userDirs);
+            for (int i = 0; i < Exin.Count; i++)
+            {
+                nlpir.AddUserWord(Exin[i] + "\t" + "n");
+            }
+            int count = nlpir.GetParagraphProcessAWordCount(text);
+            result_t[] res = nlpir.ParagraphProcessAW(count);
+            byte[] bytes = System.Text.Encoding.Default.GetBytes(text);
+            //对于一些名词的提取
+            
+            //下面将对应的数据进行转换
+            results = new Text_result[count];
+            for (int i = 0; i < results.Length; i++)
+            {
+                results[i] = new Text_result();
+                results[i].text = Encoding.Default.GetString(bytes, res[i].start, res[i].length);
+                results[i].res = res[i];
+            }
+            resl.AddRange(results);
+            return resl;
+        }
+        #region 规则
+        //规则一：当两个时间在一起时，可以认为同一个时间词
+        public static List<Text_result> mergeresult(List<Text_result> temp)
+        {
+            List<Text_result> result = new List<Text_result>();
+            //采用队列的方案
+            for (int i = 0; i < temp.Count; i++)
+            {
+                Text_result ttemp = temp[i];
+                //当读到为时间属性是，就去比较队列前一项
+                if (temp[i].res.sPos == "t")
+                {
+                    if (result.Count > 0 && result[result.Count - 1].res.sPos == "t")
+                    {
+                        //取出当前队列的前一项
+                        Text_result rtemp = result[result.Count - 1];
+                        result.RemoveAt(result.Count - 1);
+                        rtemp.text += ttemp.text;//将两个内容一起比较
+                        result.Add(rtemp);
+                        continue;
+                    }
+                }
+                result.Add(ttemp);
+            }
+            return result;
+        }
+        //规则二：提取书名
+        public static List<string> Extractbookname(string s1)
         {
             List<string> bookname = new List<string>();
             for (int i = 0; i < s1.Length; i++)
@@ -136,307 +206,344 @@ namespace redmomery.librarys
             return bookname;
 
         }
-     private static List<Text_result> parsetext(string text)
+        //规则三：一般一句话的开始，就是"" 或者 "\n" “\r” 。也就是说当遇到 \n \r 的时候，可以直接进行提取这一段
+        public static List<Time_result> ChangeCp(List<Text_result> initlist)
         {
-            List<string> bookname = Extractbookname(text);
-            List<Text_result> resl = new List<Text_result>();
-            Text_result[] results = null;
-            NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
-
-            for (int i = 0; i < bookname.Count; i++)
-            {
-                nlpir.AddUserWord(bookname[i] + "\t" + "n");
-            }
-            int count = nlpir.GetParagraphProcessAWordCount(text);
-            result_t[] res = nlpir.ParagraphProcessAW(count);
-            byte[] bytes = System.Text.Encoding.Default.GetBytes(text);
-            //下面将对应的数据进行转换
-            results = new Text_result[count];
-            for (int i = 0; i < results.Length; i++)
-            {
-                results[i] = new Text_result();
-                results[i].text = Encoding.Default.GetString(bytes, res[i].start, res[i].length);
-                results[i].res = res[i];
-            }
-            resl.AddRange(results);
-            return resl;
-        }
-     private static List<T_LocalText> timeExtract(List<Text_result> initlist)
-        {
-            List<T_LocalText> t_linit1 = new List<T_LocalText>();
-            //数据的格式改变
-            //1、更改部分词语的词性
-            string[] tmid = redmomery.command.createlog.readTextFrompath(@"D:\题库系统\github\team\redmomery\NLRedmomery\bin\时间中词.txt").Split(',', '，');
+            List<Time_result> result = new List<Time_result>();
+            
+            List<Text_result> line = new List<Text_result>();//临时队列，用来进行提取数据
             for (int i = 0; i < initlist.Count; i++)
             {
-                for (int j = 0; j < tmid.Length; j++)
-                {
-                    if (initlist[i].text == tmid[j])
+                Text_result temp = initlist[i];
+                if (temp.text == "\n" || temp.text == "\r")//当遇到着几种情况时直接就将放在列表中的数据提取出来
+                { 
+                  //这就情况下就需要进行对于处于列表中的时间词检索出来  
+                    line.Add(temp);
+                    Time_result newtime = new Time_result();
+                    for (int j = 0; j < line.Count; j++)
                     {
-                        //如何在这两个词中有一个是时间词，则表示这两个都是时间词
-                        if (initlist[i - 1].res.sPos == "t" || initlist[i + 1].res.sPos == "t")
+                        if (line[j].res.sPos == "t")
                         {
-                            initlist[i - 1].res.sPos = "t";
-                            initlist[i + 1].res.sPos = "t";
-                        }
-                    }
-                    if (initlist[i].res.sPos == "t")
-                    {
-                        bool text = (initlist[i].text.IndexOf("后") >= 0) || (initlist[i].text.IndexOf("同") >= 0);
-                        if (text)
-                        {
-                            initlist[i].res.sPos = initlist[i].res.sPos == "t" ? "tc" : initlist[i].res.sPos;
-                        }
-                    }
-                }
-            }
-            //开始将程序进行提取,使用堆栈的方式
-            List<Text_result> temp = new List<Text_result>();
-            for (int i = 0; i < initlist.Count; i++)
-            {
-                temp.Add(initlist[i]);
-                if (i == initlist.Count - 1)
-                {
-                    Text_result[] ttemp = new Text_result[temp.Count];
-                    for (int j = 0; j < ttemp.Length; j++)
-                    {
-                        ttemp[j] = temp[j];
-                    }
-                    T_LocalText nt = new T_LocalText();
-                    nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
-                    for (int j = 0; j < ttemp.Length; j++)
-                    {
-                        nt.res.Add(ttemp[j]);
-                    }
-                    nt.local = ExtractLocal(nt.res);
-                    nt.iscurrent = 1;
-                    t_linit1.Add(nt);
-                    temp = new List<Text_result>();//在从新添加对应的程序
-                    break;
-                }
-                else
-                {
-                    if (initlist[i].text == "。" || initlist[i].text == "\r\n")
-                    {
-                        if (initlist[i + 1].res.sPos == "t" || i + 1 == initlist.Count - 1)//表示一种结束
-                        {
-                            Text_result[] ttemp = new Text_result[temp.Count];
-                            for (int j = 0; j < ttemp.Length; j++)
-                            {
-                                ttemp[j] = temp[j];
-                            }
-                            T_LocalText nt = new T_LocalText();
-                            nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
-                            for (int j = 0; j < ttemp.Length; j++)
-                            {
-                                nt.res.Add(ttemp[j]);
-                            }
-                            nt.local = ExtractLocal(nt.res);
-                            nt.iscurrent = 1;
-                            t_linit1.Add(nt);
-                            temp = new List<Text_result>();//在从新添加对应的程序
-                        }
-                        else
-                        { //若是碰到类似与 从 表示之后的程序为
-                            if (initlist[i + 1].text == "从" && initlist[i + 2].res.sPos == "t")
-                            {
-                                Text_result[] ttemp = new Text_result[temp.Count];
-                                for (int j = 0; j < ttemp.Length; j++)
-                                {
-                                    ttemp[j] = temp[j];
-                                }
-                                T_LocalText nt = new T_LocalText();
-                                nt.Time = ttemp[0].res.sPos == "t" ? ttemp[0] : null;
-                                for (int j = 0; j < ttemp.Length; j++)
-                                {
-                                    nt.res.Add(ttemp[j]);
-                                }
-                                nt.local = ExtractLocal(nt.res);
-                                nt.iscurrent = 1;
-                                t_linit1.Add(nt);
-                                temp = new List<Text_result>();//在从新添加对应的程序
-
-                            }
-                        }
-                    }
-                    else
-                    {
-
-                    }
-                }
-            }
-
-            //下面开始进行二次时间的确定,从文本中抽取
-            if (t_linit1.Count > 1)//若是只有一个数据就不要确定了
-            {
-                if (t_linit1[0].Time == null)
-                {
-
-                    T_LocalText ttemp = t_linit1[0];
-                    t_linit1[0].Time = t_linit1[1].Time;
-                    for (int j = 0; j < ttemp.res.Count; j++)
-                    {
-                        if (ttemp.res[j].res.sPos == "t")
-                        {
-                            t_linit1[0].Time = ttemp.res[j];
-                            t_linit1[0].iscurrent = 2;
+                            newtime.time = line[j];//这里假设第一个时间就是我们需要的，起码可以满足大部分的提取需求,这里我就不想还有该率判断
                             break;
                         }
                     }
-                    t_linit1[0].iscurrent = 2;
-                }
-            }
-            for (int i = 0; i < t_linit1.Count; i++)
-            {
-                T_LocalText ttemp = t_linit1[i];
-                if (ttemp.Time != null)
-                {
+                    newtime.timelist = line;
+                    line = new List<Text_result>();
+                    result.Add(newtime);
                     continue;
                 }
-                else
+                if (temp.res.sPos == "t") //就将对对应的时间提取出来，直接将处于列表中，最近的一个 。 为根基进行提取
                 {
-                    for (int j = 0; j < ttemp.res.Count; j++)
+                    //这里需要注意，只能提取最近的一个。 时间段
+                    Time_result newtime = new Time_result();
+                    for (int j = line.Count-1; j >=0 ; j--)
                     {
-                        if (ttemp.res[j].res.sPos == "t")
+                        if (line[j].text == "。")//表示找到对应的时间词语，开始进行提取
                         {
-                            t_linit1[i].Time = ttemp.res[j];
-                            t_linit1[i].iscurrent = 2;
-                            break;
-                        }
-                    }
-                }
-                if (t_linit1[i].Time != null)
-                {
-                    t_linit1[i].Time.text = t_linit1[i].Time != null ? t_linit1[i].Time.text.Replace("春", "3月") : null;
-                    t_linit1[i].Time.text = t_linit1[i].Time != null ? t_linit1[i].Time.text.Replace("夏", "6月") : null;
-                    t_linit1[i].Time.text = t_linit1[i].Time != null ? t_linit1[i].Time.text.Replace("秋", "9月") : null;
-                    t_linit1[i].Time.text = t_linit1[i].Time != null ? t_linit1[i].Time.text.Replace("冬", "12月") : null;
-                }
-                else
-                {
-                    t_linit1[i].Time=new Text_result();
-                    t_linit1[i].Time.text = "9999-12-30-";
-                }
-            }
-
-
-            //进行时间的推算，简单来说就是，进行时间的年份推算
-            for (int i = 0; i < t_linit1.Count; i++)
-            {
-                T_LocalText ttemp = t_linit1[i];
-                if (ttemp.Time.text.IndexOf("年") >= 0)
-                {
-                    if (ttemp.Time.text.IndexOf("月") >= 0)
-                    {
-
-                    }
-                    else
-                    {
-                        if (ttemp.Time.text.IndexOf("日") >= 0)
-                        {
-
-                        }
-                        else
-                        {
-                            //没有日期的限制,需要二次处理信息，也就找到一个有着时间的时间词作为补偿
-                            for (int j = i; j >= 0; j--)
+                            List<Text_result> linetemp = line.GetRange(0,j+1);
+                            for (int t = 0; t < linetemp.Count; t++)
                             {
-                                if (t_linit1[j].Time.text.IndexOf("年") >= 0)
+                                if (linetemp[t].res.sPos == "t")
                                 {
-                                    t_linit1[i].Time = t_linit1[j].Time;
-                                    t_linit1[i].iscurrent = 3;
+                                    newtime.time = linetemp[t];
                                     break;
                                 }
                             }
-                        }
-                    }
-                }
-                else
-                {
-                    //表示没有年份
-                    for (int j = i; j >= 0; j--)
-                    {
-                        int ytemp = t_linit1[j].Time.text.IndexOf("年");
-                        if (ytemp >= 0)
-                        {
-                            t_linit1[i].Time.text = t_linit1[j].Time.text.Substring(0, ytemp + 1) + t_linit1[i].Time.text;
-                            t_linit1[i].iscurrent = 4;
+                            newtime.timelist = linetemp;
+                           //开始进行数据的处理提交
+                            line.RemoveRange(0,j+1);
                             break;
                         }
                     }
+                    //将当前的时间词语添加列表中,为下词提取做好准备
+                    line.Add(temp);
+                    result.Add(newtime);
+                    continue;
+                }
+
+                if (i == initlist.Count - 1)//当处于结尾的时候，无论就将列表中的内容全部提取出来
+                {
+                    line.Add(initlist[i]);//将最后的一个元素加入列表中
+                    Time_result newtime = new Time_result();
+                    for (int j = 0; j < line.Count; j++)
+                    {
+                        if(line[j].res.sPos=="t")
+                        {
+                            newtime.time = line[j];//这里假设第一个时间就是我们需要的，起码可以满足大部分的提取需求
+                            break;
+                        }
+                    }
+                    newtime.timelist = line;
+                    result.Add(newtime);
+                }
+                line.Add(temp);
+                continue;
+            }
+
+            return result;
+        }
+        //规则四:对于在记录中，没有对应的词语记录，需要进行删除
+        public static List<Time_result> Removevilable(List<Time_result> temp)
+        {
+            List<Time_result> result = new List<Time_result>();
+            for (int i = 0; i < temp.Count; i++)
+            {
+                if (temp[i].timelist.Count > 0)
+                {
+                    result.Add(temp[i]);
                 }
             }
-            //进行地点的词语匹配，这里就是假定指定的对象不会发生移动
-            for (int i = 0; i < t_linit1.Count; i++)
+            return result;
+        }
+        //规则五：对于时间记录中，没有年，只有月份的情况或者日期的情况，就将上一条记录中的日期顺延到此日期节点上
+        public static List<Time_result> reckonTime(List<Time_result> temp)
+        {
+            List<Time_result> result = new List<Time_result>();
+            for (int i = 0; i < temp.Count; i++)
             {
-                if (t_linit1[i].local.Count == 0)
+                Time_result ttemp = temp[i];
+                if (i == 0)//后面可能还有对应这条判断，那个只不过是为了预防产生错误异常，进行必要的处理，可以不予理会
+                {   //注意这里，只是为了预防第一条记录没有时间，就没有了推算的起始点，所以这里注意，只是给了一个时间，并没有修改原文中的内容
+                    if (ttemp.time == null || ttemp.time.text == null || ttemp.time.text == "")
+                    {
+                        //如果这一条记录中没有时间对象，就给其附上时间，将后一条记录的时间，赋值给他,
+                        for (int j = 0; j < temp.Count; j++)
+                        {
+                            if (temp[j].time != null && temp[j].time.text != null && temp[j].time.text != "")
+                            {
+                                ttemp.time = temp[j].time;
+                            }
+                        }
+                    }
+                    result.Add(ttemp);
+                    continue;
+                }
+                //首先判断有没有年份
+                int y = ttemp.time.text.IndexOf("年")>=0?100:0;
+                int m = ttemp.time.text.IndexOf("月")>=0?10:0;
+                int d = ttemp.time.text.IndexOf("日") >= 0 ? 1 : 0;
+                int ymd = y + m + d;
+               //若是第一条数据没有时间，就以往后第一条时间作为处理
+                switch (ymd)
                 {
+                    case 111://这种情况就是三者皆有，就不要处理，直接进栈
+                        result.Add(ttemp);
+                        continue;
+                    case 110: //这种情况表明也是有时间的，也是直接进栈
+                        result.Add(ttemp);
+                        continue;
+                    case 101://这种情况并他有年 和日期 (这种东西的出现，简直反人类，也不要处理，直接就扔进列表中，将其中的日期删除)
+                        int yy = ttemp.time.text.IndexOf("年");
+                        ttemp.time.text = ttemp.time.text.Substring(0,yy+1);
+                        result.Add(ttemp);
+                        continue;
+                    case 100://表明这个是只有年份，不予处理
+                        result.Add(ttemp);
+                        continue;
+                    case 11: //这种表明没有年份，需要进行处理，将前一条记录中的时间进行提取年份
+                         //如果是第二条记录，也不要处理
+                        if (result.Count == 0)
+                        {
+                            result.Add(ttemp);
+                            continue;
+                        }
+                        string yt = result[result.Count - 1].time.text.Substring(0,result[result.Count-1].time.text.IndexOf("年")+1);
+                        ttemp.time.text=ttemp.time.text.Insert(0,yt);
+                        //这里还要注意，需要将插入的词语，放到时间序列中
+                        Text_result ytt = new Text_result();
+                        ytt.text = yt;
+                        ytt.res.sPos = "t";
+                        ttemp.timelist.Insert(0,ytt);
+                        result.Add(ttemp);
+                        continue;
+                    case 10://这种情况表明只有月份，没有年份，处理同上
+                         if (result.Count == 0)
+                        {
+                            result.Add(ttemp);
+                            continue;
+                        }
+                        string yt1 = result[result.Count - 1].time.text.Substring(0,result[result.Count-1].time.text.IndexOf("年")+1);
+                        ttemp.time.text=ttemp.time.text.Insert(0,yt1);
+                        //这里还要注意，需要将插入的词语，放到时间序列中
+                        Text_result ytt1 = new Text_result();
+                        ytt1.text = yt1;
+                        ytt1.res.sPos = "t";
+                        ttemp.timelist.Insert(0,ytt1);
+                        result.Add(ttemp);
+                        continue;
+                    case 1://这种情况，表示只有日期没有年月，这里，也进行处理，需要更具前一条数据进行处理，若是前一条数据没有
+                           if (result.Count == 0)
+                        {
+                            result.Add(ttemp);
+                            continue;
+                        }
+                           if (result[result.Count - 1].time.text.IndexOf("月") < 0)
+                           { 
+                             //这里就直接进行合并吧，
+                               if (i == 0)
+                               {
+                                   result.Add(ttemp);
+                                   continue;
+                               }
+                               else//如果不是第一条记录这里就需要处理
+                               {
+                                   result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
+                                   continue;
+                               }
+                             
+                           }
+                        string yt2 = result[result.Count - 1].time.text.Substring(0,result[result.Count-1].time.text.IndexOf("月")+1);
+                        ttemp.time.text=ttemp.time.text.Insert(0,yt2);
+                        //这里还要注意，需要将插入的词语，放到时间序列中
+                        Text_result ytt2 = new Text_result();
+                        ytt2.text = yt2;
+                        ytt2.res.sPos = "t";
+                        ttemp.timelist.Insert(0,ytt2);
+                        result.Add(ttemp);
+                        continue;
+
+                    default:
+                        {
+                           //若是三者都没有，那就只能进行合并到上一条数据中
+                            if (i == 0)
+                            {
+                                result.Add(ttemp);
+                                continue;
+                            }
+                            else//如果不是第一条记录这里就需要处理
+                            {
+                                result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
+                                continue;
+                            }
+                         
+                        }
+                }
+               
+                
+            }
+            return result;
+        }
+        //规则六：对于没有具体的时间，比如，一些特殊的时间词 比如：会后，今后之类的，需要将它并到上一条记录中（这条规则在第规则四之前使用）
+        public static List<Time_result> ExtractTime(List<Time_result> temp)
+        {
+            //这里同样采用队列的方式进行处理比较简单和方便
+            List<Time_result> result = new List<Time_result>();
+            for (int i = 0; i < temp.Count; i++)
+            {
+                Time_result ttemp = temp[i];
+
+                if (ttemp.time == null || ttemp.time.text==null||ttemp.time.text == "")
+                { 
+                  //这种情况表示其需要时间的限制,直接将其并到上一条记录中
                     if (i == 0)
                     {
-                        for (int j = 0; j < t_linit1.Count; j++)
-                        {
-                            if (t_linit1[j].local.Count > 0)
-                            {
-                                t_linit1[i].local = t_linit1[j].local;
-                                t_linit1[i].iscurrent = 5;
-                            }
-                        }
+                        result.Add(ttemp);
+                       
+                        continue;
                     }
-                    else
+                    else//如果不是第一条记录这里就需要处理
                     {
-                        if (t_linit1[i].local.Count == 0)
-                        {
-                            for (int j = 0; j < i; j++)
-                            {
-                                if (t_linit1[j].local.Count > 0)
-                                {
-                                    t_linit1[i].local = t_linit1[j].local;
-                                    t_linit1[i].iscurrent = 5;
-                                }
-                            }
-                        }
+                        result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
+                       
+                        continue;
                     }
                 }
-            }
-            //下面进行方法的二次处理将文本提取出来
-
-            return t_linit1;
-        }
-     private static List<Text_result> ExtractLocal(List<Text_result> inittext)
-        {
-            List<Text_result> result = new List<Text_result>();
-            for (int i = 0; i < inittext.Count; i++)
-            {
-                if (inittext[i].res.sPos == "ns" || inittext[i].res.sPos == "nsf")
+                if (ttemp.time.text.IndexOf("年") >= 0 || ttemp.time.text.IndexOf("月") >= 0 || ttemp.time.text.IndexOf("日") >= 0)
                 {
-                    result.Add(inittext[i]);
+                    //三者任有一，不予处理直接添加队列中
+                        result.Add(ttemp);
+                       
+                        continue;
+                }
+                if (ttemp.time.text.IndexOf("年") < 0 && ttemp.time.text.IndexOf("月") < 0 && ttemp.time.text.IndexOf("日") < 0)
+                { 
+                   //这三个时间都没有,需要处理，处理方法，直接将其和上一一条记录进行合并
+                    //如果是第一条记录，就不要处理(虽然概率很小，但是这个是属于极大的问题处理)
+                    if (i == 0)
+                    {
+                        result.Add(ttemp);
+                     
+                        continue;
+                    }
+                    else//如果不是第一条记录这里就需要处理
+                    {
+                        result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
+                      
+                        continue;
+                    }
                 }
             }
             return result;
         }
-     private static List<Res_T_LocalText> ConvertToRes(List<T_LocalText> t_linit1)
+        //规则七：对于其中地名开始进行提取,遍历地名,但是不对地名进行处理
+        public static List<T_LocalText>  ExtractLocalName(List<Time_result> temp)
+        {
+            List<T_LocalText> result = new List<T_LocalText>();
+            for (int i = 0; i < temp.Count; i++)
+            {
+                T_LocalText ltemp = new T_LocalText();
+                Time_result ttemp = temp[i];
+                ltemp.Time = ttemp.time;
+                ltemp.iscurrent = 2;
+                ltemp.res = ttemp.timelist;
+                for (int jq = 0; jq < ttemp.timelist.Count; jq++)
+                {
+                    if (ttemp.timelist[jq].res.sPos == "ns" || ttemp.timelist[jq].res.sPos == "nsf")
+                    {
+                        ltemp.local.Add(ttemp.timelist[jq]);
+                    }
+                }
+                result.Add(ltemp);
+            }
+            return result;
+        }
+        //规则八：对于这一步开始将记录中的分词元祖转化为字符串，
+        public static List<Res_T_LocalText> ExtractContent(List<T_LocalText> temp)
         {
             List<Res_T_LocalText> result = new List<Res_T_LocalText>();
-            for (int i = 0; i < t_linit1.Count; i++)
+            for (int i = 0; i < temp.Count; i++)
             {
-                Res_T_LocalText newres = new Res_T_LocalText();
-                newres.time = t_linit1[i].Time.text;
-                for (int j = 0; j < t_linit1[i].local.Count; j++)
+                T_LocalText ttemp = temp[i];
+                Res_T_LocalText restemp = new Res_T_LocalText();
+                restemp.iscurrent = 5;
+                restemp.time = ttemp.Time.text;
+                //开始将地名提取和赋值
+                for (int j = 0; j < temp[i].local.Count; j++)
                 {
-                    newres.local.Add(t_linit1[i].local[j].text);
+                    if (temp[i].local[j] != null && temp[i].local[j].text != null )
+                    {
+                        restemp.local.Add(temp[i].local[j].text);
+                    }
                 }
-                StringBuilder sb = new StringBuilder();
-                for (int j = 0; j < t_linit1[i].res.Count; j++)
+                //下面开始进行内容的整合
+                restemp.context=string.Empty;
+                for (int j = 0; j < temp[i].res.Count; j++)
                 {
-                    sb.Append(t_linit1[i].res[j].text);
+                    restemp.context += temp[i].res[j].text;
                 }
-                newres.context = sb.ToString();
-                newres.iscurrent = t_linit1[i].iscurrent;
-                result.Add(newres);
+                result.Add(restemp);
             }
             return result;
         }
-     private static List<Text_trcajectory> convertdeallocal(List<Res_T_LocalText> timeinit1)
+       //规则九:这一规则是基于一个建设前提建立的：即，当用户没有明确的指出地点的变更的时候，就意味着对象没有进行地点位移，所以这条规则，就是将所有的地点为空的记录，全部并到前一条记录中
+        public static List<Res_T_LocalText> mergeLocal(List<Res_T_LocalText> temp)
+        {
+            List<Res_T_LocalText> result = new List<Res_T_LocalText>();
+            for (int i = 0; i < temp.Count; i++)
+            {
+                
+            }
+            return result;
+        }
+
+        #endregion
+
+
+
+      
+    
+        public static List<Text_trcajectory> convertdeallocal(List<Res_T_LocalText> timeinit1)
         {
 
             List<Res_t_localtext> res_t = new List<Res_t_localtext>();
@@ -577,13 +684,13 @@ namespace redmomery.librarys
                             newtra.xy = res_t[i].locals[0].local.result.location;
                     }
                     newtra.iscurent = res_t[i].iscurrent + 1;
-                    result.Add(newtra); 
+                    result.Add(newtra);
                 }
             }
             return result;
         }
 
-     private static double levelscore(baiduGeocodingaddress ba)
+        public static double levelscore(baiduGeocodingaddress ba)
         {
             double mitemp = 0;
             switch (ba.result.level)
@@ -597,16 +704,34 @@ namespace redmomery.librarys
             }
             return mitemp;
         }
-     private static float distancestatic(baiduGeocodingaddress ba, baiducoordinate Gcenter)
+        public static float distancestatic(baiduGeocodingaddress ba, baiducoordinate Gcenter)
         {
             float distance = float.MaxValue;
             distance = (ba.result.location.lng - Gcenter.lng) * (ba.result.location.lng - Gcenter.lng) + (ba.result.location.lat - Gcenter.lat) * (ba.result.location.lat - Gcenter.lat);
             return distance;
         }
-       
+
+
+
+
+
+
+        //调试用过得方法
+        public static void outmid(List<Text_result> temp)
+        {
+            for (int i = 0; i < temp.Count; i++)
+            {
+                Console.Write(temp[i].text);
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+        }
     }
 
 }
+
+
+
 namespace redmomery.librarys
 {
     public class Text_trcajectory
@@ -620,38 +745,38 @@ namespace redmomery.librarys
 }
 namespace redmomery.librarys
 {
-    class Time_result
+    public class Time_result
     {
         public Text_result time = new Text_result();//若为null开头非时间词
         public List<Text_result> timelist = new List<Text_result>();//表示表示这个时间段，所对应的时间词切分结果
     }
-    class T_LocalText//提取时间，和地点词  第二次处理
+    public class T_LocalText//提取时间，和地点词  第二次处理
     {
         public Text_result Time;//表示时间
         public List<Text_result> local = new List<Text_result>();//表示地点
         public List<Text_result> res = new List<Text_result>();
         public int iscurrent = 0;
     }
-     class Res_T_LocalText //提取时间和内容 去除对应对的分词属性之后结果 第三次处理
+    public class Res_T_LocalText //提取时间和内容 去除对应对的分词属性之后结果 第三次处理
     {
         public string time;//时间
         public List<string> local = new List<string>();//地点 
         public string context;//内容
         public int iscurrent = 0;
     }
-    class Res_t_localtext //给地点 进行坐标处理之后的第四次处理
+    public class Res_t_localtext //给地点 进行坐标处理之后的第四次处理
     {
         public string Time;
         public List<Res_t_locals> locals = new List<Res_t_locals>();
         public string context;
         public int iscurrent = 0;
     }
-    class Res_t_locals //地点赋值时间
+    public class Res_t_locals //地点赋值时间
     {
         public string addressname;
         public baiduGeocodingaddress local;
     }
-    class Text_result//分词第一次处理
+    public class Text_result//分词第一次处理
     {
         public string text;
         public result_t res;

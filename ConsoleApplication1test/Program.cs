@@ -47,32 +47,57 @@ namespace ConsoleApplication1test
 
             //Console.WriteLine(long.MaxValue.ToString().Length);
             //Console.WriteLine((DateTime.Now.ToString()).Length);
-            string LBtext = redmomery.command.createlog.readTextFrompath(@"D:\qq缓存\新建文本文档(2).txt");
-            List<trajectory> list = LbTextParse.parseLbstored(61, LBtext);
-            List<track> tlist = new List<track>();
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < list.Count; i++)
-            {
-                track newt = new track();
-                newt.EID = 111 + i;
-                newt.Timetext = list[i].Timetext;
-                newt.name = "邓小平";
-                newt.heroID = "3邓小平";
-                newt.Local = list[i].Local;
-                newt.x = list[i].x;
-                newt.y = list[i].y;
-                newt.context = list[i].context;
-                newt.img = 112 + i;
-                tlist.Add(newt);
-            }
-            //批量上传
-            trackDAL dal = new trackDAL();
-            int count = 0;
-            for (int i = 0; i < tlist.Count; i++)
-            {
-                count += dal.AddNew(tlist[i]);
-                Console.Write(i.ToString());
-            }
+          string LBtext = redmomery.command.createlog.readTextFrompath(@"D:\qq缓存\新建文本文档(2).txt");
+         
+
+           object temp = LBText.parsetext(LBtext);
+           List<Text_result> initlist = LBText.mergeresult((List < Text_result >) temp);
+           temp = LBText.ChangeCp(initlist);
+           temp = LBText.Removevilable((List < Time_result > )temp);
+           List<Time_result> show = temp as List<Time_result>;
+           List<Time_result> show6 = LBText.ExtractTime(show); show = show6;
+           List<Time_result> show4 = LBText.Removevilable(show); show = show4;
+           List<Time_result> show5 = LBText.reckonTime(show); show = show5;
+           List<T_LocalText> show7 = LBText.ExtractLocalName(show);
+           List<Res_T_LocalText> show8 = LBText.ExtractContent(show7);
+           for (int i = 0; i < show8.Count; i++)
+           {
+               Console.WriteLine("时间："+(show[i].time==null?"null":show[i].time.text));
+               Console.Write("地点：");
+               for (int j = 0; j < show8[i].local.Count; j++)
+               {
+                   Console.Write(show8[i].local[j]+"  ");
+               }
+               Console.WriteLine();
+               Console.Write("内容："+show8[i].context);               
+               Console.WriteLine();
+               Console.WriteLine();
+           }
+
+            //List<track> tlist = new List<track>();
+            //StringBuilder sb = new StringBuilder();
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    track newt = new track();
+            //    newt.EID = 111 + i;
+            //    newt.Timetext = list[i].Timetext;
+            //    newt.name = "邓小平";
+            //    newt.heroID = "3邓小平";
+            //    newt.Local = list[i].Local;
+            //    newt.x = list[i].x;
+            //    newt.y = list[i].y;
+            //    newt.context = list[i].context;
+            //    newt.img = 112 + i;
+            //    tlist.Add(newt);
+            //}
+            ////批量上传
+            //trackDAL dal = new trackDAL();
+            //int count = 0;
+            //for (int i = 0; i < tlist.Count; i++)
+            //{
+            //    count += dal.AddNew(tlist[i]);
+            //    Console.Write(i.ToString());
+            //}
             Console.WriteLine("程序结束");
             Console.Read();
         }
