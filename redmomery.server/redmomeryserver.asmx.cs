@@ -38,13 +38,9 @@ namespace testtemp
             return "Hello World";
         }
         [WebMethod]
-        public List<string> GetXYByAddess(string address)
+        public baiduGeocodingaddress GetXYByAddess(string address)
         {
-            string[] xy = redmomery.command.Geocodingcommand.getGecodingByAddress(address);
-            List<string> result = new List<string>();
-            result.Add("lng:" + xy[0]);
-            result.Add("lat:" + xy[1]);
-            return result;
+            return redmomery.command.Geocodingcommand.getGeocodingByAddressobject(address);
         }
         [WebMethod]
         public List<BBSTITLE_TABLE> CreateLBInfo()

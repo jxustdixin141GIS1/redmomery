@@ -60,17 +60,22 @@ namespace ConsoleApplication1test
            List<Time_result> show5 = LBText.reckonTime(show); show = show5;
            List<T_LocalText> show7 = LBText.ExtractLocalName(show);
            List<Res_T_LocalText> show8 = LBText.ExtractContent(show7);
-           for (int i = 0; i < show8.Count; i++)
+           List<Res_T_LocalText> show9 = LBText.mergeLocal(show8);
+           List<Text_trcajectory> show10 = LBText.uniquelocal(show9);
+           for (int i = 0; i < show10.Count; i++)
            {
-               Console.WriteLine("时间："+(show[i].time==null?"null":show[i].time.text));
-               Console.Write("地点：");
-               for (int j = 0; j < show8[i].local.Count; j++)
+               Console.WriteLine("时间："+(show10[i].time==null?"null":show10[i].time));
+               Console.WriteLine("地点："+show10[i].address);
+               if (show10[i].xy != null)
                {
-                   Console.Write(show8[i].local[j]+"  ");
+                   Console.WriteLine("x:" + show10[i].xy.lng + "  " + "y:" + show10[i].xy.lat);
                }
-               Console.WriteLine();
-               Console.Write("内容："+show8[i].context);               
-               Console.WriteLine();
+               else
+               {
+                   Console.WriteLine("x:  null"  + "  " + "y: null"  );
+               }
+               Console.WriteLine("内容："+show10[i].context);               
+               Console.WriteLine("危险级："+show10[i].iscurent);
                Console.WriteLine();
            }
 

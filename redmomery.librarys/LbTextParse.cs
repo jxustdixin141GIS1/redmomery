@@ -14,54 +14,25 @@ namespace redmomery.librarys
     {
         public static List<trajectory> parseLbstored(LB_INFO lb)
         {
-            List<trajectory> list = new List<trajectory>();
-            List<Text_trcajectory> temp = LBText.parseText(lb.LBexperience.ToString());
-            for (int j = 0; j < temp.Count; j++)
-            {
-                trajectory newtra = new trajectory();
-                newtra.LBID = lb.ID;
-                newtra.Local = temp[j].address == null ? "null" : temp[j].address;
-                string temps = temp[j].time.IndexOf("年") >= 0 ?
-                temp[j].time.Replace("9999-12-30-", "").Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString() :
-                temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
-                DateTime dt = new DateTime();
-                try
-                {
-                    dt = DateTime.ParseExact(temps, "yyyy-MM-dd-", null);
-                }
-                catch
-                {
-                    try
-                    {
-                        dt = DateTime.ParseExact(temps, "yyyy-MM-", null);
-                    }
-                    catch
-                    {
-                        try
-                        {
-                            dt = DateTime.ParseExact(temps, "yyyy-", null);
-                        }
-                        catch
-                        {
-                            dt = DateTime.ParseExact("9999-12-30-", "yyyy-MM-dd-", null);
-                        }
-                    }
-                }
-                newtra.T_time = dt;
-                newtra.Timetext = temp[j].time;
-                newtra.x = temp[j].xy.lng.ToString();
-                newtra.y = temp[j].xy.lat.ToString();
-                newtra.isCurrent = temp[j].iscurent;
-                newtra.context = temp[j].context;
-                list.Add(newtra);
-            }
-            return list;
+            return parseLbstored(lb.ID,lb.LBexperience);
         }
         public static List<trajectory> parseLbstored(int lbID, string lbtext)
         {
 
             List<trajectory> list = new List<trajectory>();
-            List<Text_trcajectory> temp = LBText.parseText(lbtext);
+            List<Text_result> temp1 = LBText.parsetext(lbtext);
+            List<Text_result> initlist = LBText.mergeresult((List<Text_result>)temp1);
+            List<Time_result> temp2 = LBText.ChangeCp(initlist);
+            List<Time_result> temp3 = LBText.Removevilable((List<Time_result>)temp2);
+            List<Time_result> show = temp3 as List<Time_result>;
+            List<Time_result> show6 = LBText.ExtractTime(show); show = show6;
+            List<Time_result> show4 = LBText.Removevilable(show); show = show4;
+            List<Time_result> show5 = LBText.reckonTime(show); show = show5;
+            List<T_LocalText> show7 = LBText.ExtractLocalName(show);
+            List<Res_T_LocalText> show8 = LBText.ExtractContent(show7);
+            List<Res_T_LocalText> show9 = LBText.mergeLocal(show8);
+            List<Text_trcajectory> show10 = LBText.uniquelocal(show9);
+            List<Text_trcajectory> temp = show10;
             for (int j = 0; j < temp.Count; j++)
             {
                 trajectory newtra = new trajectory();
@@ -108,7 +79,6 @@ namespace redmomery.librarys
     {
         //常用变量
         private const string NLpath = @"D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\";
-
         public const string userDirs = NLpath + @"\output\userC.txt";
         public static List<Text_trcajectory> parseText(string text)
         {
@@ -159,7 +129,7 @@ namespace redmomery.librarys
             resl.AddRange(results);
             return resl;
         }
-        #region 规则
+        #region 规则  -----------------这几条规则是按照时间为主线进行编写的，因此这里更加侧重事件发生的时间，对于地点就进行了模糊化处理
         //规则一：当两个时间在一起时，可以认为同一个时间词
         public static List<Text_result> mergeresult(List<Text_result> temp)
         {
@@ -532,164 +502,79 @@ namespace redmomery.librarys
             List<Res_T_LocalText> result = new List<Res_T_LocalText>();
             for (int i = 0; i < temp.Count; i++)
             {
+                Res_T_LocalText ttemp=temp[i];
                 
+                if (temp[i].local.Count == 0)
+                {
+                    if (i == 0)//如果这是第一条数据，这里需要特殊处理
+                    { 
+                      //首先以后面的第一条地名数据作为本记录到地名
+                        for (int j = 0; j < temp.Count; j++)
+                        {
+                            if (temp[i].local.Count > 0)
+                            {
+                                ttemp.local = temp[i].local;
+                            }
+                        }
+                        result.Add(ttemp);
+                        continue; 
+                    }
+
+                  //表示这个里面没有地名数据，那将这个对应的数据合并到前一条数据上
+                    result[result.Count - 1].context += ttemp.context;
+                    continue;
+                }
+                result.Add(ttemp);
             }
-            return result;
+                return result;
         }
-
-        #endregion
-
-
-
-      
-    
-        public static List<Text_trcajectory> convertdeallocal(List<Res_T_LocalText> timeinit1)
+        //规则十：目的是为了保证的地名的唯一性，注意这一步，需要云平台的地理编码进行配合，所以运算速度可能会变慢。
+        public static List<Text_trcajectory> uniquelocal(List<Res_T_LocalText> temp)
         {
-
-            List<Res_t_localtext> res_t = new List<Res_t_localtext>();
-            for (int i = 0; i < timeinit1.Count; i++)
-            {
-                Res_t_localtext newres = new Res_t_localtext();
-                newres.Time = timeinit1[i].time;
-                for (int j = 0; j < timeinit1[i].local.Count; j++)
-                {
-                    //处理代码
-                    baiduGeocodingaddress ba = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(timeinit1[i].local[j]);
-                    if (ba.status == 0 && ba.result != null)
-                    {
-                        Res_t_locals newloc = new Res_t_locals();
-                        newloc.addressname = timeinit1[i].local[j];
-                        newloc.local = ba;
-                        newres.locals.Add(newloc);
-                    }
-                }
-                newres.context = timeinit1[i].context;
-                newres.iscurrent = timeinit1[i].iscurrent;
-                res_t.Add(newres);
-            }
-            double Gx = 0, Gy = 0, G = 0;
-            for (int i = 0; i < res_t.Count; i++)
-            {
-                for (int j = 0; j < res_t[i].locals.Count; j++)
-                {
-                    baiduGeocodingaddress ba = res_t[i].locals[j].local;
-                    if (ba.status == 0 && ba.result != null)
-                    {
-                        double mi = 0;
-                        switch (ba.result.level)
-                        {
-                            case "国家": mi = 0.2; break;
-                            case "省": mi = 0.4; break;
-                            case "城市": mi = 0.6; break;
-                            case "区县": mi = 0.8; break;
-                            case "村庄": mi = 1; break;
-                            default: mi = 0; break;
-                        }
-
-                        Gx = Gx + ba.result.location.lng * mi;
-                        Gy = Gy + ba.result.location.lat * mi;
-                        G = mi + G;
-                    }
-                }
-            }
-            //计算坐标重心
-            //统计国别
-
-            Gy = Gy / G;
-            Gx = Gx / G;
-            baiducoordinate Gcenter = new baiducoordinate();
-            Gcenter.lng = float.Parse(Gx.ToString());
-            Gcenter.lat = float.Parse(Gy.ToString());
             List<Text_trcajectory> result = new List<Text_trcajectory>();
-            //下面开始删除地名点  坐标如下 级别最高为准  距离最近为准  级别越高 坐标越准
-            for (int i = 0; i < res_t.Count; i++)
+          //小规则1：地名等级比较小为准，对于一些特殊的地名，比如日本，法国，巴黎，这里由于是国内，所以无法识别
+            for (int i = 0; i < temp.Count; i++)
             {
-                //首先进行级别判断 找到级别最高的
-                if (res_t[i].locals.Count > 0)
+                Text_trcajectory restemp = new Text_trcajectory();
+                restemp.time=temp[i].time;
+                restemp.context = temp[i].context;
+                Res_t_locals res = new Res_t_locals();
+                for (int j = 0; j < temp[i].local.Count; j++)
                 {
-                    Res_t_locals localtemp = res_t[i].locals[0];
-                    List<Res_t_locals> reslocalstemp = new List<Res_t_locals>();
-                    for (int j = 0; j < res_t[i].locals.Count; j++)
+                    baiduGeocodingaddress obj = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(temp[i].local[j]);
+                    if (obj.status != 0&&obj.result==null)
                     {
-                        reslocalstemp.Add(res_t[i].locals[j]);
+                        restemp.iscurent = 6;//极度危险
                     }
-                    for (int j = 0; j < res_t[i].locals.Count; j++)
+                    
+                    if (j == 0)
                     {
-                        baiduGeocodingaddress ba = res_t[i].locals[j].local;
-
-                        if (levelscore(localtemp.local) > levelscore(ba))
-                        {
-                            reslocalstemp.Remove(res_t[i].locals[j]);
-                        }
-                        else if (levelscore(localtemp.local) == levelscore(ba))
-                        {
-                            localtemp = res_t[i].locals[j];
-                        }
-                        else
-                        {
-
-                            reslocalstemp.Remove(localtemp);
-                            localtemp = res_t[i].locals[j];
-                        }
+                        res.addressname = temp[i].local[j];
+                        res.local = obj;//这里若是为空，不用管
+                        continue;
                     }
-                    res_t[i].locals = reslocalstemp;
-                    reslocalstemp = new List<Res_t_locals>();
-                    for (int j = 0; j < res_t[i].locals.Count; j++)
+                    //如果不是第一条数据，就需要进行比较
+                    if (res.local != null && res.local.result != null&&res.local.result.level!=null)
                     {
-                        reslocalstemp.Add(res_t[i].locals[j]);
-                    }
-                    //下面开始计算距离最近为准
-                    Res_t_locals localtemps = new Res_t_locals();
-                    for (int j = 0; j < res_t[i].locals.Count; j++)
-                    {
-                        baiduGeocodingaddress ba = res_t[i].locals[j].local;
-
-                        if (distancestatic(localtemp.local, Gcenter) > distancestatic(ba, Gcenter))
+                        if (obj.result != null)
                         {
-                            reslocalstemp.Remove(res_t[i].locals[j]);
-                        }
-                        else if (distancestatic(localtemp.local, Gcenter) == distancestatic(ba, Gcenter))
-                        {
-                            localtemp = res_t[i].locals[j];
-                        }
-                        else
-                        {
-                            reslocalstemp.Remove(localtemp);
-                            localtemp = res_t[i].locals[j];
+                            if (levelscore(res.local) < levelscore(obj))
+                            {
+                                res.addressname = temp[i].local[j];
+                                res.local = obj;
+                                restemp.iscurent = 4;
+                            }
                         }
                     }
 
-                    res_t[i].locals = reslocalstemp;
-                    Text_trcajectory newtra = new Text_trcajectory();
-                    newtra.time = res_t[i].Time;
-                    newtra.context = res_t[i].context;
-                    if (res_t[i].locals.Count > 0)
-                    {
-                        newtra.address = res_t[i].locals[0].addressname;
-                        if (res_t[i].locals[0].local.result != null)
-                            newtra.xy = res_t[i].locals[0].local.result.location;
-                    }
-                    newtra.iscurent = res_t[i].iscurrent + 1;
-                    result.Add(newtra);//添加数据
                 }
-                else
-                {
-                    Text_trcajectory newtra = new Text_trcajectory();
-                    newtra.time = res_t[i].Time;
-                    newtra.context = res_t[i].context;
-                    if (res_t[i].locals.Count > 0)
-                    {
-                        newtra.address = res_t[i].locals[0].addressname;
-                        if (res_t[i].locals[0].local.result != null)
-                            newtra.xy = res_t[i].locals[0].local.result.location;
-                    }
-                    newtra.iscurent = res_t[i].iscurrent + 1;
-                    result.Add(newtra);
-                }
+                restemp.address = res.addressname;
+                restemp.xy = res.local.result == null ? null : res.local.result.location == null ? null : res.local.result.location;
+                result.Add(restemp);
             }
             return result;
         }
-
+        #endregion 
         public static double levelscore(baiduGeocodingaddress ba)
         {
             double mitemp = 0;
@@ -710,11 +595,6 @@ namespace redmomery.librarys
             distance = (ba.result.location.lng - Gcenter.lng) * (ba.result.location.lng - Gcenter.lng) + (ba.result.location.lat - Gcenter.lat) * (ba.result.location.lat - Gcenter.lat);
             return distance;
         }
-
-
-
-
-
 
         //调试用过得方法
         public static void outmid(List<Text_result> temp)
@@ -771,7 +651,7 @@ namespace redmomery.librarys
         public string context;
         public int iscurrent = 0;
     }
-    public class Res_t_locals //地点赋值时间
+    public class Res_t_locals //地点赋值
     {
         public string addressname;
         public baiduGeocodingaddress local;
