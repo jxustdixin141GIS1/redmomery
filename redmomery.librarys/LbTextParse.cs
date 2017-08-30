@@ -66,8 +66,8 @@ namespace redmomery.librarys
                 }
                 newtra.T_time = dt;
                 newtra.Timetext = temp[j].time;
-                newtra.x = temp[j].xy.lng.ToString();
-                newtra.y = temp[j].xy.lat.ToString();
+                newtra.x = temp[j].xy!=null?temp[j].xy.lng.ToString():"";
+                newtra.y = temp[j].xy!=null?temp[j].xy.lat.ToString():"";
                 newtra.isCurrent = temp[j].iscurent;
                 newtra.context = temp[j].context;
                 list.Add(newtra);
