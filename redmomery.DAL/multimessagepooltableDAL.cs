@@ -19,5 +19,20 @@ namespace redmomery.DAL
             }
             return list;
         }
+        /// <summary>
+        /// 这个方法只要的目的就是为了获取当前指定时间内的数据库资源化
+        /// </summary>
+        /// <param name="GID"></param>
+        /// <returns></returns>
+        public List<multimessagepooltable> getBytime(int GID,DateTime dtime)
+         { 
+            List<multimessagepooltable> list = new List<multimessagepooltable>();
+            DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM multimessagepooltable where (TGID = @TGID  and  Ftime >= @Ftime  )", new SqlParameter("@TGID", GID), new SqlParameter("@Ftime",dtime));
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(ToModel(row));
+            }
+            return list;
+        }
     }
 }

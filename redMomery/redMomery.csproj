@@ -1737,6 +1737,7 @@
     <Content Include="resource\js\anniucaidan.js" />
     <Content Include="resource\js\bigmodal.js" />
     <Content Include="resource\js\bigvideo.js" />
+    <Content Include="resource\js\charOnline.js" />
     <Content Include="resource\js\Commandjs.js" />
     <Content Include="resource\js\config.js" />
     <Content Include="resource\js\cta.js" />

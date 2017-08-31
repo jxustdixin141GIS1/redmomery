@@ -43,6 +43,11 @@ namespace testtemp
             return redmomery.command.Geocodingcommand.getGeocodingByAddressobject(address);
         }
         [WebMethod]
+        public baiduGeocodingXY GetAddressByXY(string lng,string lat)
+        {
+            return redmomery.command.Geocodingcommand.getGeocodingByXYobject(lng,lat);
+        }
+        [WebMethod] 
         public List<BBSTITLE_TABLE> CreateLBInfo()
         {
             List<BBSTITLE_TABLE> result = new List<BBSTITLE_TABLE>();

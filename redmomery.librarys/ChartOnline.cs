@@ -12,35 +12,82 @@ using redmomery.librarys.model;
 using redmomery.librarys.libModel;
 namespace redmomery.librarys
 {
-    public class ChartOnline
+   
+    public class ChartOnlineGroup
     {
-        public List<multimessagepooltable> getmeesage(int GID)
+        //得到群消息,始终获取指定消息时间之前的信息
+        public List<multimessagepooltable> getmeesage(int GID,DateTime dtime)
         {
             multimessagepooltableDAL dal = new multimessagepooltableDAL();
-            List<multimessagepooltable> list = dal.getByGID(GID);
+            List<multimessagepooltable> list = dal.getBytime(GID,dtime);
             return list;
         }
+        //提交群组消息
         public bool PostMessageG(USER_INFO user, int TGID, string context)
         {
             multimessagepooltable newmessage = new multimessagepooltable();
             newmessage.context = context;
             newmessage.FUID = user.USER_ID;
             newmessage.TGID = TGID;
-            newmessage.Rnum = 10;//可以选择
+            newmessage.Snum= 10;//可以选择
             newmessage.Ftime = DateTime.Now;
+            //下面就是更新当前记录的应读人数
+            chartgrouptable dt = (new chartgrouptableDAL()).Get(TGID);
+            newmessage.Snum = dt.vnum;//
             multimessagepooltableDAL dal = new multimessagepooltableDAL();
           int count=  dal.AddNew(newmessage);
           return (count > 0);
         }
-        public List<GroupUser> GetUserG(int GID)
+        //得当当前用户的聊天群列表,按照指定的族群进行访问
+        public List<pageGroupUser> GetUserG(int GID)
         {
+            List<pageGroupUser> result = new List<pageGroupUser>();
             List<GroupUser> list = new List<GroupUser>();
-            return list;
+            GroupUserDAL gdal = new GroupUserDAL();
+            USER_INFODAL udal = new USER_INFODAL();
+            list = gdal.getGusers(GID.ToString()  );
+            for (int i = 0; i < list.Count; i++)
+            {
+                GroupUser gutemp = list[i];
+                USER_INFO utemp = udal.get(gutemp.UID);
+                pageGroupUser newpage = new pageGroupUser();
+                newpage.GID = gutemp.GroupID;
+                newpage.UID = utemp.USER_ID;
+                newpage.Netmame = utemp.USER_NETNAME;
+                newpage.userIMg = utemp.USER_IMG;
+                result.Add(newpage);
+
+            }
+            return result;
+        }
+        //得到当前用户的群组列表
+        public List<ViewGroup> GetGroup(string UID)
+        {
+            List<ViewGroup> result = new List<ViewGroup>();
+            List<GroupUser> list = new List<GroupUser>();
+            GroupUserDAL gdal = new GroupUserDAL();
+        
+            return result;
         }
     }
 }
 //在线交流部分开始进行书写
-
+//模型类
+namespace redmomery.librarys
+{ 
+  public class pageGroupUser
+  {
+      public int GID;
+      public int UID;
+      public string Netmame;
+      public string userIMg;
+  }
+  public class ViewGroup
+  {
+      public int GID;
+      public string Gname;
+  }
+}
 
 namespace redmomery.librarys
 {

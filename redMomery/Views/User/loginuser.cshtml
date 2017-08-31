@@ -7,6 +7,29 @@
     <script type="text/javascript" src="../resource/js/jquery.min.js" ></script>
     <script type="text/javascript" src="../resource/js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../resource/js/login.js" ></script>
+    <script>    
+        function Login() {
+            var form = document.getElementById("loginform");
+            var formdata = new FormData(form);
+            $.ajax({
+                url: "/User/Login",
+                type: "post",
+                data: formdata,
+                processData: false,
+                contentType:false,
+                success: function (e)
+                {
+                    console.log(e);
+                },
+                error:function(e)
+                { console.log(e) },
+                complete: function (e)
+                {
+                    console.log(e);
+                }
+                });
+        }
+    </script>
 </head>
 <body>
     <div class="wrap login_wrap">
@@ -20,26 +43,26 @@
 						<div class="login_title">
 							登录
 						</div>
-						<form action="" method="post">
-							
-							<div class="form_text_ipt">
-								<input id="username" name="username" type="text" placeholder="用户名">
-							</div>
-							<div class="form_text_ipt">
-								<input id="password" name="password" type="password" placeholder="密码">
-							</div>
-							<div class="form_check_ipt">
-								<div class="left check_left">
-									<label><input id="remember" name="remember" type="checkbox">记住账号信息</label>
-								</div>
-							</div>
-							<div class="form_btn">
-								<button type="button">登录</button>
-							</div>
-							<div class="form_reg_btn">
-								<span>还没有帐号？</span><a href="ZHUCE.html">马上注册</a>
-							</div>
-						</form><br /><br />
+                        <form action="/User/Login" method="post" id="loginform">
+
+                            <div class="form_text_ipt">
+                                <input id="username" name="username" type="text" placeholder="用户名">
+                            </div>
+                            <div class="form_text_ipt">
+                                <input id="password" name="password" type="password" placeholder="密码">
+                            </div>
+                            <div class="form_check_ipt">
+                                <div class="left check_left">
+                                    <label><input id="remember" name="remember" type="checkbox">记住账号信息</label>
+                                </div>
+                            </div>
+                            <div class="form_btn">
+                                <button type="button" onclick="Login()">登录</button>
+                            </div>
+                            <div class="form_reg_btn">
+                                <span>还没有帐号？</span><a href="ZHUCE.html">马上注册</a>
+                            </div>
+                        </form><br /><br />
 					</div>
 				</div>
 			</div>

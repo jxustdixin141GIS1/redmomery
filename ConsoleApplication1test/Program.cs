@@ -31,78 +31,107 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
-            //List<GroupUser> gu = (new GroupUserDAL()).getGusers((3).ToString());
-            //Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(gu));
-            //Console.WriteLine();
-            //Console.WriteLine("测试用户发送消息");
-            //multimessagepooltable newmeessage = new multimessagepooltable();
-            //newmeessage.FUID = 2;
-            //newmeessage.TGID = 3;
-            //newmeessage.context = "这个是专门用来测试对应的网络在线聊天功能的";
-            //newmeessage.Ftime = DateTime.Now;
-            //newmeessage.MD5 = MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newmeessage));
-            //multimessagepooltableDAL dals = new multimessagepooltableDAL();
-            //dals.AddNew(newmeessage);
+            ////这一部分用来处理大部分的时间概念
+            //List<trajectory> t = new List<trajectory>();
+            //trajectoryDAL dal = new trajectoryDAL();
+            //DateTime dt = DateTime.Parse("1943/03/21");
+
+            //Console.WriteLine(dt.ToString());
+            //Console.WriteLine(DateTime.Now .ToString());
+            //t = dal.getBytime(dt);
+            //for (int i = 0; i < t.Count; i++)
+            //{
+            //    Console.WriteLine(SerializerHelper.SerializeToString(t[i]));   
+            //}
+            DateTime temp = DateTime.Now;
+            for (int i = 0; i < 10; i++)
+            {
+                List<GroupUser> gu = (new GroupUserDAL()).getGusers((3).ToString());
+                Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(gu));
+                Console.WriteLine();
+                Console.WriteLine("测试用户发送消息");
+                multimessagepooltable newmeessage = new multimessagepooltable();
+                newmeessage.FUID = 2;
+                newmeessage.TGID = 3;
+                if (i == 5)
+                {
+                    temp = DateTime.Now;
+                }
+                newmeessage.context = "这个是专门用来测试对应的网络在线聊天功能的" + DateTime.Now.ToString().ToString();
+                newmeessage.Ftime = DateTime.Now;
+                newmeessage.MD5 = MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newmeessage));
+                multimessagepooltableDAL dals = new multimessagepooltableDAL();
+                dals.AddNew(newmeessage);
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine("开始读取聊天记录");
+            List<multimessagepooltable> list = new List<multimessagepooltable>();
+            multimessagepooltableDAL dal = new multimessagepooltableDAL();
+            Console.WriteLine(temp.ToString());
+            list = dal.getBytime(3,temp);
+            Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(list));
+
+
            // List<LB_INFO> lists = (new LB_INFODAL()).Listall() as List<LB_INFO>;
 
             //Console.WriteLine(long.MaxValue.ToString().Length);
             //Console.WriteLine((DateTime.Now.ToString()).Length);
-          string LBtext = redmomery.command.createlog.readTextFrompath(@"D:\qq缓存\新建文本文档(2).txt");
-         
+          //string LBtext = redmomery.command.createlog.readTextFrompath(@"D:\qq缓存\新建文本文档.txt");
 
-           //object temp = LBText.parsetext(LBtext);
-           //List<Text_result> initlist = LBText.mergeresult((List < Text_result >) temp);
-           //temp = LBText.ChangeCp(initlist);
-           //temp = LBText.Removevilable((List < Time_result > )temp);
-           //List<Time_result> show = temp as List<Time_result>;
-           //List<Time_result> show6 = LBText.ExtractTime(show); show = show6;
-           //List<Time_result> show4 = LBText.Removevilable(show); show = show4;
-           //List<Time_result> show5 = LBText.reckonTime(show); show = show5;
-           //List<T_LocalText> show7 = LBText.ExtractLocalName(show);
-           //List<Res_T_LocalText> show8 = LBText.ExtractContent(show7);
-           //List<Res_T_LocalText> show9 = LBText.mergeLocal(show8);
-           //List<Text_trcajectory> show10 = LBText.uniquelocal(show9);
-           //for (int i = 0; i < show10.Count; i++)
+
+
+          //List<trajectory> list = LbTextParse.parseLbstored(-1,LBtext);          //object temp = LBText.parsetext(LBtext);
+          //List<Text_result> initlist = LBText.mergeresult((List<Text_result>)temp);
+          //temp = LBText.ChangeCp(initlist);
+          //temp = LBText.Removevilable((List<Time_result>)temp);
+          //List<Time_result> show = temp as List<Time_result>;
+          //List<Time_result> show6 = LBText.ExtractTime(show); show = show6;
+          //List<Time_result> show4 = LBText.Removevilable(show); show = show4;
+          //List<Time_result> show5 = LBText.reckonTime(show); show = show5;
+          //List<T_LocalText> show7 = LBText.ExtractLocalName(show);
+          //List<Res_T_LocalText> show8 = LBText.ExtractContent(show7);
+          //List<Res_T_LocalText> show9 = LBText.mergeLocal(show8);
+          //List<Text_trcajectory> show10 = LBText.uniquelocal(show9);
+          //for (int i = 0; i < show10.Count; i++)
+          //{
+          //    Console.WriteLine("时间：" + (show10[i].time == null ? "null" : show10[i].time));
+          //    Console.WriteLine("地点：" + show10[i].address);
+          //    if (show10[i].xy != null)
+          //    {
+          //        Console.WriteLine("x:" + show10[i].xy.lng + "  " + "y:" + show10[i].xy.lat);
+          //    }
+          //    else
+          //    {
+          //        Console.WriteLine("x:  null" + "  " + "y: null");
+          //    }
+          //    Console.WriteLine("内容：" + show10[i].context);
+          //    Console.WriteLine("危险级：" + show10[i].iscurent);
+          //    Console.WriteLine();
+          //}
+           //List<track> tlist = new List<track>();
+           //StringBuilder sb = new StringBuilder();
+           //for (int i = 0; i < list.Count; i++)
            //{
-           //    Console.WriteLine("时间："+(show10[i].time==null?"null":show10[i].time));
-           //    Console.WriteLine("地点："+show10[i].address);
-           //    if (show10[i].xy != null)
-           //    {
-           //        Console.WriteLine("x:" + show10[i].xy.lng + "  " + "y:" + show10[i].xy.lat);
-           //    }
-           //    else
-           //    {
-           //        Console.WriteLine("x:  null"  + "  " + "y: null"  );
-           //    }
-           //    Console.WriteLine("内容："+show10[i].context);               
-           //    Console.WriteLine("危险级："+show10[i].iscurent);
-           //    Console.WriteLine();
+           //    track newt = new track();
+           //    newt.EID = 178 + i;
+           //    newt.Timetext = list[i].Timetext;
+           //    newt.name = "周恩来";
+           //    newt.heroID = "2周恩来";
+           //    newt.Local = list[i].Local;
+           //    newt.x = list[i].x;
+           //    newt.y = list[i].y;
+           //    newt.context = list[i].context;
+           //    newt.img = 173 + i;
+           //    tlist.Add(newt);
            //}
-          List<trajectory> list = LbTextParse.parseLbstored(-1,LBtext);
-           List<track> tlist = new List<track>();
-           StringBuilder sb = new StringBuilder();
-           for (int i = 0; i < list.Count; i++)
-           {
-               track newt = new track();
-               newt.EID = 111 + i;
-               newt.Timetext = list[i].Timetext;
-               newt.name = "邓小平";
-               newt.heroID = "3邓小平";
-               newt.Local = list[i].Local;
-               newt.x = list[i].x;
-               newt.y = list[i].y;
-               newt.context = list[i].context;
-               newt.img = 112 + i;
-               tlist.Add(newt);
-           }
-           //批量上传
-           trackDAL dal = new trackDAL();
-           int count = 0;
-           for (int i = 0; i < tlist.Count; i++)
-           {
-               count += dal.AddNew(tlist[i]);
-               Console.Write(i.ToString());
-           }
+           ////批量上传
+           //trackDAL dal = new trackDAL();
+           //int count = 0;
+           //for (int i = 0; i < tlist.Count; i++)
+           //{
+           //    count += dal.AddNew(tlist[i]);
+           //    Console.Write(i.ToString());
+           //}
             Console.WriteLine("程序结束");
             Console.Read();
         }

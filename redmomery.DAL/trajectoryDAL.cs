@@ -28,6 +28,19 @@ namespace redmomery.DAL
             }
 			return list;
 		}
+       public List<trajectory> getBytime(DateTime dtime)
+       {
+           List<trajectory>  list=new List<trajectory>();
+           string sql = "SELECT *  FROM trajectory where T_time <=  @dt ";
+           DataTable dt = SqlHelper.ExecuteDataTable(sql, new SqlParameter("@dt", dtime));
+           for (int i = 0; i < dt.Rows.Count; i++)
+           {
+               DataRow row = dt.Rows[i];
+               trajectory model = ToModel(row);
+               list.Add(model);
 
+           }
+           return list;
+       }
        }
 }

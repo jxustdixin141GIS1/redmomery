@@ -52,7 +52,19 @@ namespace redMomery.Controllers
             List<redmomery.librarys.model.ViewUTIMeet> result = ChartOnlinelib.GetmeetList(user);
             return Json(result);
         }
-        
+        //专门用来获取指定群组的用户列表
+        public ActionResult GetGroupUser(int GID)
+        {
+            ChartOnlineGroup cg = new ChartOnlineGroup();
+            List<pageGroupUser> list = cg.GetUserG(GID);
+            return Json(list);
+        }
+        //获取当前用户的所获的用户的聊天群组
+        public ActionResult Getgroup()
+        {
+            USER_INFO user = Session["user"] as USER_INFO;
+
+        }
         #endregion
     }
 }

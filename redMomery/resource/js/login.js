@@ -25,6 +25,7 @@ $(document).ready(function () {
         $('#username').val(getCookie("uname"));
         $('#password').val(getCookie("upwd"));
     }
+
 })
 //写cookies
 function setCookie(name, value) {
