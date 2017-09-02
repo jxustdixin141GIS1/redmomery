@@ -15,31 +15,82 @@ namespace redmomery.librarys
    
     public class ChartOnlineGroup
     {
-        //得到群消息,始终获取指定消息时间之前的信息
-        public List<multimessagepooltable> getmeesage(int GID,DateTime dtime)
+        #region 消息操作
+        public static List<View_Multimessage> getmeesage(int GID, DateTime dtime)
         {
-            multimessagepooltableDAL dal = new multimessagepooltableDAL();
-            List<multimessagepooltable> list = dal.getBytime(GID,dtime);
+            View_MultimessageDAL dal = new View_MultimessageDAL();
+            List<View_Multimessage> list = dal.getBytime(GID, dtime);
             return list;
         }
         //提交群组消息
-        public bool PostMessageG(USER_INFO user, int TGID, string context)
+        public static bool PostMessageG(USER_INFO user, int TGID, string context)
         {
             multimessagepooltable newmessage = new multimessagepooltable();
             newmessage.context = context;
             newmessage.FUID = user.USER_ID;
             newmessage.TGID = TGID;
-            newmessage.Snum= 10;//可以选择
+            newmessage.Snum = 10;//可以选择
             newmessage.Ftime = DateTime.Now;
+            newmessage.MD5 = MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newmessage));
             //下面就是更新当前记录的应读人数
             chartgrouptable dt = (new chartgrouptableDAL()).Get(TGID);
-            newmessage.Snum = dt.vnum;//
+            newmessage.Snum = dt.vnum;
             multimessagepooltableDAL dal = new multimessagepooltableDAL();
-          int count=  dal.AddNew(newmessage);
-          return (count > 0);
+            int count = dal.AddNew(newmessage);
+            return (count > 0);
         }
+
+        #endregion
+        //得到群消息,始终获取指定消息时间之前的信息
+
+        #region 对于加入群的用户级操作
+        //将一个用户添加到制定的聊天群中
+        public static pageGroupUser Add(USER_INFO user, int GID)
+        {
+            GroupUser newgu = new GroupUser();
+            GroupUserDAL gudal = new GroupUserDAL();
+            newgu.GroupID = GID;
+            newgu.UID = user.USER_ID;
+            newgu.state = 2;
+            newgu.groupname = user.USER_NAME;
+            GroupUser chect = gudal.getGroupUserBy(newgu.UID.ToString(),newgu.GroupID.ToString());
+            if (chect != null)
+            {
+                //表示已经有这条记录了，这里就只需要将这条记录中内容整合下就行了
+                pageGroupUser newpage = new pageGroupUser();
+                newpage.GID = newgu.GroupID;
+                newpage.Netmame = chect.groupname;
+                newpage.state = chect.state;
+                newpage.UID = chect.UID;
+                newpage.userIMg = ((new USER_INFODAL()).get(newpage.UID)).USER_IMG;//注意这种写法并不规范
+                return newpage;
+            }
+            else
+            {
+                int count = gudal.AddNew(newgu);
+                if (count > 0)
+                {
+                    pageGroupUser newpage = new pageGroupUser();
+                    newpage.GID = newgu.GroupID;
+                    newpage.Netmame = newgu.groupname;
+                    newpage.state = newgu.state;
+                    newpage.UID = newgu.UID;
+                    newpage.userIMg = ((new USER_INFODAL()).get(newgu.UID)).USER_IMG;//注意这种写法并不规范
+                    return newpage;
+                }
+                else
+                {
+                    return new pageGroupUser();
+                }
+            }
+        }
+        //用户申请加入群组
+        
+        #endregion 
+
+        #region 得到群主列表
         //得当当前用户的聊天群列表,按照指定的族群进行访问
-        public List<pageGroupUser> GetUserG(int GID)
+        public static List<pageGroupUser> GetUserG(int GID)
         {
             List<pageGroupUser> result = new List<pageGroupUser>();
             List<GroupUser> list = new List<GroupUser>();
@@ -61,14 +112,26 @@ namespace redmomery.librarys
             return result;
         }
         //得到当前用户的群组列表
-        public List<ViewGroup> GetGroup(string UID)
+        public static List<ViewGroup> GetGroup(string UID)
         {
             List<ViewGroup> result = new List<ViewGroup>();
             List<GroupUser> list = new List<GroupUser>();
             GroupUserDAL gdal = new GroupUserDAL();
-        
+            list = gdal.getUGroup(UID);
+            //获取当前用户的群组列表
+            for (int i = 0; i < list.Count; i++)
+            {
+                ViewGroup newview = new ViewGroup();
+                newview.GID = list[i].GroupID;
+                chartgrouptableDAL cgdal = new chartgrouptableDAL();
+                chartgrouptable ct = cgdal.Get(newview.GID);
+                newview.Gname = ct.groupName;
+                newview.gImg = ct.img;
+                result.Add(newview);
+            }
             return result;
         }
+        #endregion
     }
 }
 //在线交流部分开始进行书写
@@ -81,12 +144,26 @@ namespace redmomery.librarys
       public int UID;
       public string Netmame;
       public string userIMg;
+      public int state;//表名用户身份
   }
   public class ViewGroup
   {
       public int GID;
       public string Gname;
+      public string gImg;
   }
+    public class ViewMulitMessage
+    {
+        public int FUID { get; set; }
+        public int TGID { get; set; }
+        public DateTime Ftime { get; set; }
+        public string context { get; set; }
+        public int Rnum { get; set; }
+        public int Snum { get; set; }
+        public string MD5 { get; set; }
+        public string FUNetname { get; set; }
+        public string FuNetname { get; set; }
+    }
 }
 
 namespace redmomery.librarys
@@ -94,10 +171,10 @@ namespace redmomery.librarys
     public partial class ChartOnlinelib
     {
        //当用户创建一个活动信息时 ,创建成功就返回活动信息，失败就返回空对象
-        public static meetingtable Usertakeon(USER_INFO user,string local,string content,string suject,DateTime meetTime)
+        public static meetingtable Usertakeon(USER_INFO user,string local,string content,string suject,DateTime meetTime,string   image)
         {
-            chartgrouptable cg = CreateGroup(user, suject, suject);
-            meetingtable mt=CreateMeet(user.USER_ID.ToString(),local,content,suject,meetTime,cg );
+            chartgrouptable cg = CreateGroup(user, suject, suject,image);
+            meetingtable mt=CreateMeet(user.USER_ID.ToString(),local,content,suject,meetTime,cg ,image);
             if (mt!=null)
             {
                 return mt;
@@ -335,7 +412,7 @@ namespace redmomery.librarys
     {
         #region 创建聊天群主，
         //创建群组 ,返回群组的编号
-        public static chartgrouptable CreateGroup(USER_INFO user,string description,string groupName)
+        public static chartgrouptable CreateGroup(USER_INFO user,string description,string groupName,string img)
         {
            chartgrouptableDAL dal=new chartgrouptableDAL();
            chartgrouptable cg = new chartgrouptable();
@@ -344,6 +421,7 @@ namespace redmomery.librarys
             cg.description = description;
             cg.UID =user.USER_ID;
             cg.vnum = 0;
+            cg.img = img;
            int index = dal.AddNew(cg);
             //创建用户成功之后，应该讲用户绑定到对应的群组中
             cg=dal.Get(index);
@@ -367,7 +445,7 @@ namespace redmomery.librarys
             return cg;
         }
         //创建活动对象 返回活动对象
-        public static meetingtable CreateMeet(string UID, string local, string content,string suject,DateTime meetTime, chartgrouptable cg)
+        public static meetingtable CreateMeet(string UID, string local, string content,string suject,DateTime meetTime,chartgrouptable cg,string img)
         {
             meetingtable newmeet = new meetingtable();
             newmeet.UID = int.Parse(UID);
@@ -378,6 +456,7 @@ namespace redmomery.librarys
             newmeet.isCheck = 0;
             newmeet.meetTime = meetTime;
             newmeet.GID = cg.ID;
+            newmeet.img = img;
             baiduGeocodingaddress xy = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(newmeet.local);
             if (xy.status == 0 && xy.result != null & xy.result.location != null)
             {

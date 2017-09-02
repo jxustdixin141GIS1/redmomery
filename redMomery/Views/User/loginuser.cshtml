@@ -20,6 +20,13 @@
                 success: function (e)
                 {
                     console.log(e);
+                    //用户的账户信息
+                    sessionStorage.setItem("user",JSON.stringify(e));
+
+                    ////////////////////////////////////////////////////////////登录成功后需要跳转的页面
+
+
+
                 },
                 error:function(e)
                 { console.log(e) },

@@ -168,6 +168,15 @@
     <Content Include="resource\bootstrap-3.3.7-dist\js\npm.js" />
     <Content Include="Global.asax" />
     <Content Include="resource\bootstrap-3.3.7-dist\js\Tabullet.js" />
+    <Content Include="resource\chart\css\style.css" />
+    <Content Include="resource\chart\favicon.png" />
+    <Content Include="resource\chart\font\fontello.svg" />
+    <Content Include="resource\chart\images\53f442834079a.jpg" />
+    <Content Include="resource\chart\images\53f44283a4347.jpg" />
+    <Content Include="resource\chart\images\hetu.jpg" />
+    <Content Include="resource\chart\images\logo.png" />
+    <Content Include="resource\chart\images\wood.jpg" />
+    <Content Include="resource\chart\js\jquery.min.js" />
     <Content Include="resource\config.js" />
     <Content Include="resource\css\animate.css" />
     <Content Include="resource\css\animate.min.css" />
@@ -184,9 +193,11 @@
     <Content Include="resource\css\style_comment.css" />
     <Content Include="resource\css\ZCZX.css" />
     <Content Include="resource\css\zzsc.css" />
+    <Content Include="resource\favicon.png" />
     <Content Include="resource\fonts\icomoon.dev.svg" />
     <Content Include="resource\fonts\icomoon.svg" />
     <Content Include="resource\fonts\license.txt" />
+    <Content Include="resource\font\fontello.svg" />
     <Content Include="resource\images\header-img-comment_03.png" />
     <Content Include="resource\images\icon-all_01.png" />
     <Content Include="resource\image\1432101159.png" />
@@ -933,6 +944,7 @@
     <Content Include="resource\image\red.png" />
     <Content Include="resource\image\round.png" />
     <Content Include="resource\image\shiliang.jpg" />
+    <Content Include="resource\image\timg.jpg" />
     <Content Include="resource\image\timg2.jpg" />
     <Content Include="resource\image\tip.jpg" />
     <Content Include="resource\image\tubiao.gif" />
@@ -1937,6 +1949,14 @@
     <Content Include="Views\ChatrealTime\PublicCampaing.cshtml" />
     <Content Include="Views\LBbx\testGetLB.cshtml" />
     <Content Include="Views\ChatrealTime\groupchart.cshtml" />
+    <Content Include="Views\ChatrealTime\Userchargroup.cshtml" />
+    <Content Include="resource\font\fontello.eot" />
+    <Content Include="resource\font\fontello.ttf" />
+    <Content Include="resource\font\fontello.woff" />
+    <Content Include="resource\chart\font\fontello.eot" />
+    <Content Include="resource\chart\font\fontello.ttf" />
+    <Content Include="resource\chart\font\fontello.woff" />
+    <Content Include="Views\ChatrealTime\charexmap.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

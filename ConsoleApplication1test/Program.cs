@@ -31,45 +31,49 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
-            ////这一部分用来处理大部分的时间概念
-            //List<trajectory> t = new List<trajectory>();
-            //trajectoryDAL dal = new trajectoryDAL();
-            //DateTime dt = DateTime.Parse("1943/03/21");
 
-            //Console.WriteLine(dt.ToString());
-            //Console.WriteLine(DateTime.Now .ToString());
+            //获取当前用户的
+
+            #region
+            ////这一部分用来处理大部分的时间概念
+            List<trajectory> t = new List<trajectory>();
+            trajectoryDAL dal = new trajectoryDAL();
+            DateTime dt = DateTime.Parse("1943/03/21");
+
+            Console.WriteLine(dt.ToString());
+            Console.WriteLine(DateTime.Now.ToString());
             //t = dal.getBytime(dt);
             //for (int i = 0; i < t.Count; i++)
             //{
             //    Console.WriteLine(SerializerHelper.SerializeToString(t[i]));   
             //}
-            DateTime temp = DateTime.Now;
-            for (int i = 0; i < 10; i++)
-            {
-                List<GroupUser> gu = (new GroupUserDAL()).getGusers((3).ToString());
-                Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(gu));
-                Console.WriteLine();
-                Console.WriteLine("测试用户发送消息");
-                multimessagepooltable newmeessage = new multimessagepooltable();
-                newmeessage.FUID = 2;
-                newmeessage.TGID = 3;
-                if (i == 5)
-                {
-                    temp = DateTime.Now;
-                }
-                newmeessage.context = "这个是专门用来测试对应的网络在线聊天功能的" + DateTime.Now.ToString().ToString();
-                newmeessage.Ftime = DateTime.Now;
-                newmeessage.MD5 = MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newmeessage));
-                multimessagepooltableDAL dals = new multimessagepooltableDAL();
-                dals.AddNew(newmeessage);
-                Thread.Sleep(1000);
-            }
-            Console.WriteLine("开始读取聊天记录");
-            List<multimessagepooltable> list = new List<multimessagepooltable>();
-            multimessagepooltableDAL dal = new multimessagepooltableDAL();
-            Console.WriteLine(temp.ToString());
-            list = dal.getBytime(3,temp);
-            Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(list));
+            //DateTime temp = DateTime.Now;
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    List<GroupUser> gu = (new GroupUserDAL()).getGusers((3).ToString());
+            //    Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(gu));
+            //    Console.WriteLine();
+            //    Console.WriteLine("测试用户发送消息");
+            //    multimessagepooltable newmeessage = new multimessagepooltable();
+            //    newmeessage.FUID = 2;
+            //    newmeessage.TGID = 3;
+            //    if (i == 5)
+            //    {
+            //        temp = DateTime.Now;
+            //    }
+            //    newmeessage.context = "这个是专门用来测试对应的网络在线聊天功能的" + DateTime.Now.ToString().ToString();
+            //    newmeessage.Ftime = DateTime.Now;
+            //    newmeessage.MD5 = MD5Helper.EncryptString(redmomery.Common.SerializerHelper.SerializeToString(newmeessage));
+            //    multimessagepooltableDAL dals = new multimessagepooltableDAL();
+            //    dals.AddNew(newmeessage);
+            //    Thread.Sleep(1000);
+            //}
+            //Console.WriteLine("开始读取聊天记录");
+            //List<multimessagepooltable> list = new List<multimessagepooltable>();
+            //multimessagepooltableDAL dal = new multimessagepooltableDAL();
+            //Console.WriteLine(temp.ToString());
+            //list = dal.getBytime(3,temp);
+            //Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(list));
 
 
            // List<LB_INFO> lists = (new LB_INFODAL()).Listall() as List<LB_INFO>;
@@ -131,7 +135,8 @@ namespace ConsoleApplication1test
            //{
            //    count += dal.AddNew(tlist[i]);
            //    Console.Write(i.ToString());
-           //}
+            //}
+            #endregion
             Console.WriteLine("程序结束");
             Console.Read();
         }

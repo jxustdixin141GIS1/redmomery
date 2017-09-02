@@ -1,7 +1,6 @@
 D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll.config
 D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.dll
 D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.librarys.pdb
-D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\NLRedmomery.exe
 D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.command.dll
 D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.DAL.dll
 D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\redmomery.Model.dll
@@ -15,3 +14,4 @@ D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\Newtonsoft.Js
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.BLL.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.dll
 D:\题库系统\github\team\redmomery\redmomery.librarys\obj\Debug\redmomery.librarys.pdb
+D:\题库系统\github\team\redmomery\redmomery.librarys\bin\Debug\NLRedmomery.dll

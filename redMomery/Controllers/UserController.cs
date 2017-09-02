@@ -87,7 +87,7 @@ namespace redMomery.Controllers
                     string MD5 = redmomery.Common.MD5Helper.GetStreamMD5(fs);
                     string filepath = "\\resource\\file\\" + MD5 + filename;
                     filet.Name = filename;
-                    filet.url = filepath; //Server.MapPath(filepath);
+                    filet.url = "~"+filepath; //Server.MapPath(filepath);
                     filet.Keyvalues = "测试文件";
                     //开始进行存储
                     string storage = Server.MapPath(filepath);

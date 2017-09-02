@@ -15,6 +15,7 @@ namespace redmomery.Model
 		public string contentTitle { get; set; }
 		public string context { get; set; }
 		public DateTime meetTime { get; set; }
+		public string img { get; set; }
 		public int vnum { get; set; }
 		public int isCheck { get; set; }
 		public object lng { get; set; }

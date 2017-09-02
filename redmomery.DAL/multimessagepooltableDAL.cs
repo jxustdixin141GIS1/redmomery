@@ -27,7 +27,7 @@ namespace redmomery.DAL
         public List<multimessagepooltable> getBytime(int GID,DateTime dtime)
          { 
             List<multimessagepooltable> list = new List<multimessagepooltable>();
-            DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM multimessagepooltable where (TGID = @TGID  and  Ftime >= @Ftime  )", new SqlParameter("@TGID", GID), new SqlParameter("@Ftime",dtime));
+            DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM multimessagepooltable where (TGID = @TGID  and  Ftime >= @Ftime  )    order by Ftime  ", new SqlParameter("@TGID", GID), new SqlParameter("@Ftime", dtime));
             foreach (DataRow row in dt.Rows)
             {
                 list.Add(ToModel(row));

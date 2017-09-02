@@ -1,0 +1,454 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>聊天室 - editor:yinq</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link href="~/resource/chart/css/style.css" rel="stylesheet" />
+    <script src="~/resource/chart/js/jquery.min.js"></script>
+    <script>
+        //关于当前聊天的全局变量，这个变量绝对不允许删除和替换，必须要存在
+        //localstorage ,其中groupdatetime时间
+        var user=null;
+        try{
+            var user= JSON.parse(sessionStorage.getItem("user"));
+        }
+        catch(e)
+        {
+            console.log(e);
+            alert("请先登录");
+        }
+        if(user.USER_NETNAME==null)
+        {
+            alert("请先登录");
+        }
+        var groupdatetimelist = [];//用来存储当前用户参加聊天时间的最后时间
+        var currentGroup = null;//当前用户的聊天的群组
+        var CurrentTime = null;//当前用户对应的聊天记录的最新时间
+        var creGroupMessage = null;//当前的聊天记录
+        var xhhand = null;
+        creGroupMessage = { GID: -1, date: Date.now(), meslist: [] };//其中的时间每次页面刷新都会创建一个新的时间戳，
+
+        if (localStorage.getItem("groupdatetime")) {
+            //表示存在这个程序代码
+            groupdatetimelist = JSON.parse(localStorage.getItem("groupdatetime"));//这时候，系统已经知道了各个群组的更新时间
+        }
+        else {
+            //表示没有这种数据,就需要创建一个这种字段值
+            localStorage.setItem("groupdatetime", JSON.stringify(groupdatetimelist));
+        }
+        //下面为对应的方法封装，有利于以后的页面数据的调用
+        function getGroupDatetime(GID) {
+            for (var i = 0; i < groupdatetimelist.length; i++) {
+                if (groupdatetimelist[i].GID.toString() == GID.toString()) {
+                    if (groupdatetimelist[i].UID.toString() == user.USER_ID.toString()) {
+                        return groupdatetimelist[i].TIME;
+                    }
+                }
+            }
+            return "2017-08-29 10:27:29.550";//这是初始时间
+        }
+        function storageDatetime(GID, mulmessageTime)//存储聊天记录的时间问题，指定群组ID，聊天时间
+        {
+            var isexist = false;
+            for (var i = 0; i < groupdatetimelist.length; i++) {
+                if (groupdatetimelist[i].GID.toString() == GID.toString()) {
+                    if (groupdatetimelist[i].UID.toString() == user.USER_ID.toString()) {
+                        groupdatetimelist[i].TIME = mulmessageTime;
+                        isexist = true;
+                    }
+                   // return true;
+                }
+            }
+            if (!isexist) {
+                var temp = {};
+                temp.GID = GID;
+                temp.UID = user.USER_ID;
+                temp.TIME = mulmessageTime;
+                groupdatetimelist.push(temp);
+                localStorage.setItem("groupdatetime", JSON.stringify(groupdatetimelist));
+            }
+        }
+        function clearCharWindow() {
+            var dom = document.getElementById("message_box");
+            dom.innerHTML = "";
+        }
+
+        //下面开始进行聊天记录的存储。注意在页面刚刚起步的时候，将indexDNB的数据进行了整个调用，千万不要删除
+        //先进行存储记录和读取记录的初始代码初始变量的声明,
+        var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB;
+        var IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
+        var IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
+        var DBmeg = null;
+        function logerror(e) {
+            console.log(e);
+        }
+        //下面的函数用来异步的获取数据库对象,然后将数据返回出来，若是失败就不要在进行处理
+        function withDB() {
+            var request = indexedDB.open("redmomerychartmessageDB",1);
+            request.onerror = function (e) {
+                console.log(84);
+                console.log(e);
+            };
+            request.onsuccess = function () {
+                var db = request.result;
+                if (db.version === 1) {
+                    DBmeg = db;
+                    loadlist();////////////////////////////////////////             2
+                    return db;
+                }
+                else {
+                    return db;
+                }
+
+            };
+            request.onupgradeneeded = function ()//协议更改
+            {
+                var db = request.result;
+                var storagemessage = db.createObjectStore("mulMeg", { keyPath: "GID" });
+                storagemessage.createIndex("GID", 'datetime');//每一次打开页面都会自动生成一个崭新的时间戳。
+                //进行数据的初始话
+                //var transaction = db.transaction(["mulMeg"], IDBTransaction.READ_WRITE);
+                //var store = transaction.objectStore("mulMeg");
+                //var req = store.add(creGroupMessage);
+                //req.onerror = logerror;
+                //req.onsuccess = function () {
+                //    console.log("数据库第一条数据添加成功");
+                //}
+            }
+           // closedb(DBmeg);
+        }
+        function locallastmes(GID)//自动加载理我最近的时间记录中
+        {
+            var i = 0;
+            while (DBmeg == null) {
+                console.log("恭喜进入了死循环");
+                i++;
+                if (i > 500)
+                { break; }
+            }
+                    var transactions = DBmeg.transaction(["mulMeg"], "readonly");//创建一个读的事物操作
+                    var objects = transactions.objectStore("mulMeg");
+                    var request = objects.get(GID);
+                    request.onerror = function (e) {
+                        console.log(164);
+                        console.log(e);
+                    };
+                    request.onsuccess = function () {
+                        var object = request.result;//这里查询到的数据库中的崭新的记录时间
+                        if (object!=null) {//表示当前的记录不为空
+                            //只将昨天的记录加载出来,只加载最近的三次消息记录
+                            for (var i = (object.meslist.length > 5) ? (object.meslist.length - 5) : 0; i < object.meslist.length; i++) {
+                                var mestemp = object.meslist[i];
+                                appendmes(mestemp);
+                            }
+                        }
+                        else {
+                            
+                        }
+                        getmessgefromserve(GID);
+
+                    };
+        }
+        function storeCurrent(mes) {//当前文档的记录
+            var i = 0;
+                    while (DBmeg == null) {
+                        console.log("恭喜进入了死循环");
+                        i++;
+                        if (i > 500)
+                        { break;}
+                    }
+                        var transactions = DBmeg.transaction(["mulMeg"], "readwrite");//创建一个读的事物操作
+                        var objects = transactions.objectStore("mulMeg");
+                        //首先是读取记录
+                        var request = objects.get(mes.GID);//获取当前记录
+                        request.onerror = function (e) {
+                            //这里进行数据的添加
+                            console.log("数据读取失败");
+                            console.log(e);
+                            //下面进行初始化数据
+
+                        };
+                        var msgtemp = null;
+                        request.onsuccess = function () {
+                            msgtemp = request.result;
+                            //进行数据的判断
+                            if (msgtemp==null) {
+                                var mestemp = {};
+                                mestemp.GID = mes.GID;
+                                mestemp.msglist = [];
+                                mestemp.msglist.push(mes);
+                                var req = objects.add(mes);
+                                req.onerror = logerror;
+                                req.onsuccess = function () {
+                                    console.log("数据初始化成功");
+                                }
+
+                            }
+                            else {
+                                console.log("开始进行数据的加载");
+                                var isexist = false;
+                                //取出当前的时间的记录
+
+                                var index = 0;//取出准备存放到数据库中的记录
+                               
+                                    for (var j = 0; j < mes.length; j++)
+                                    {
+                                        if (msgtemp.meslist[msgtemp.meslist.length - 1].MD5 == mes.meslist[j].MD5)
+                                        {
+                                            if (j >= index)
+                                            {
+                                                index = j;
+                                            }
+                                        }
+                                    }
+                                    for (var i = index+1; i < mes.meslist.length; i++) {
+                                        //
+                                        msgtemp.meslist.push(mes.meslist[i]);
+                                    }
+                                //开始将其添加到对应的数据库中
+
+                                    var req = objects.put(msgtemp);
+                                        req.onerror = logerror;
+                                        req.onsuccess = function () {
+                                            console.log("数据添加成功");
+                                        };
+                            }
+                        };
+        }
+        function closedb(db) {
+            db.close();
+        }
+        //下面为正常页面加载模块
+        function getmessgefromserve(GIDs)
+        {
+            var datime = getGroupDatetime(GIDs);
+            $.ajax({
+                url: "/ChatrealTime/GetgroupMessage",
+                type: "post",
+                data: { GID: GIDs, dtimestring: datime },
+                success: function (e)
+                {
+                    console.log("数据获取成功");
+                    //下面开始将对应的数据进行加载，这里有个两个步骤，存储数据，加载数据
+                    var index=0;//开始加载数据的位置
+                    var messagelist = JSON.parse(e);//获取数据
+                    for (var i = creGroupMessage.meslist.length-1; i >=0 ; i--) {
+                        //下面开始进行数据的匹配
+                        for (var j = 0; j < messagelist.length; j++) {
+                            if (creGroupMessage.meslist[i].MD5 == messagelist[j].MD5)
+                            {
+                                if (index <= j)
+                                {
+                                    index = j;
+                                }
+                            }
+                        }
+                    }
+                    //下面开始进行数据的加载和处理
+                    
+                    for (var i = index + 1; i < messagelist.length; i++) {
+                        creGroupMessage.GID = messagelist[0].TGID;
+                        creGroupMessage.meslist.push(messagelist[i]);
+                        appendmes(messagelist[i]);
+                    }
+                    //下面开始存储数据
+                    storeCurrent(creGroupMessage);
+                    //开始记录当前时间的指针
+                    storageDatetime(GIDs, messagelist[messagelist.length - 1].Ftime);
+
+                    //这个用来保证信息的同步性
+                    xhhand = setTimeout("updatemessage()", 1000);
+
+
+                },
+                error: function (e)
+                {
+                    console.log(e);
+                }
+            });
+        }
+        function appendmes(mes)
+        {
+            var htmlData = '<div class="msg_item fn-clear">'
+                               + '   <div class="uface"><img src="' + mes.USER_IMG+ '" width="40" height="40"  alt=""/></div>'
+                               + '   <div class="item_right">'
+                               + '     <div class="msg own">' + mes.context + '</div>'
+                               + '     <div class="name_time">' + mes.USER_NETNAME + ' · ' + mes.Ftime + '</div>'
+                               + '   </div>'
+                               + '</div>';
+            $("#message_box").append(htmlData);
+            $('#message_box').scrollTop($("#message_box")[0].scrollHeight + 20);
+            $("#message").val('');
+        }
+        function loadlist()
+        {
+            //加载当前群组的活动列表
+            $.ajax({
+                url: "/ChatrealTime/Getgroup",
+                type: 'post',
+                success: function (e) {
+                    console.log(e);
+                    //假定当前用户的聊天记录是第一条税局
+                    if (e.length > 0) {
+                        currentGroup = e[0];    /////////////////////////////////////  关键字段，判断用户聊天群组
+                        creGroupMessage.GID = currentGroup.GID;
+                    }
+                    else {
+                        console.log("没有数据");
+                    }
+                    //下面开始加载群组消息
+                    for (var i = 0; i < e.length; i++) {
+                        var htmldata = '<li class="fn-clear selected" data-id="' + e[i].GID + '"><span><img src="' + e[i].gImg + '" width="30" height="30" alt="" /></span><em>' + e[i].Gname + '</em><small class="online" title="在线"></small></li>';
+                        var chartlist = document.getElementById("chartlist");
+                        chartlist.innerHTML += htmldata;
+                    }
+                    initpage();
+                    //加载当前的聊天记录
+                    locallastmes(currentGroup.GID);
+                
+                },
+                error: function (e) {
+                    console.log(e);
+                    alert("请先登录用户");
+                }
+            });
+        }
+        function loadtextarea()
+        {
+              var htmldata=' <textarea id="message" name="message" class="write_area" placeholder="说点啥吧..."></textarea>'
+                            +   '<input type="hidden" name="' + user.USER_NETNAME + '" id="' + user.USER_ID + '" value="河图" />'
+                            + ' <input type="hidden" name="' + currentGroup.Gname+ '" id="'+ currentGroup.GID+'" value="0">'
+                            +   '<div class="facebox fn-clear">'
+                            +      '  <div class="expression"></div>'
+                            +     '   <div class="chat_type" id="chat_type">群聊</div>'
+                            +    '    <button name="" class="sub_but">提 交</button>'
+                            + ' </div>';
+              var dom = document.getElementById("write_box");
+              dom.innerHTML = htmldata;
+        }
+        function loaduser()
+        {
+            var htmldata = '<div class="uface"><img src="'+user.USER_IMG+'" width="40" height="40" alt="" /></div>' +
+              '  <div class="uname">' +
+                   ' '+user.USER_NETNAME+'<i class="fontico down"></i>' +
+               ' </div>';
+            var dom = document.getElementById("uinfo_fn-clear");
+            dom.innerHTML = htmldata;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="chatbox">
+        <div class="chat_top fn-clear">
+            <div class="logo"><img src="~/resource/image/dhbj3.png" width="190" height="60" alt="" /></div>
+            <div class="uinfo fn-clear" id="uinfo_fn-clear">
+
+            </div>
+        </div>
+        <div class="chat_message fn-clear" id="char_messagechen">
+            <div class="chat_left">
+                <div class="message_box" id="message_box">
+                    
+                </div>
+                <div class="write_box" id="write_box">
+                  
+                </div>
+            </div>
+            <div class="chat_right">
+                <ul class="user_list" title="双击切换聊天群组" id="chartlist">
+                   
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //下面页面初始化
+       
+        $(document).ready(function (e) {
+            DBmeg = withDB();/////////////////////////////////////////              1
+           // loadlist();//加载当前用户的添加的群
+        });
+        //开始进行数据的处理了
+        function initpage()
+        {
+            // DBmeg = withDB();//加载当前的数据库
+            loaduser();
+            loadtextarea();//加载当前用户的评论窗口
+            $('#message_box').scrollTop($("#message_box")[0].scrollHeight + 20);
+            $('.uname').hover(
+                function () {
+                    $('.managerbox').stop(true, true).slideDown(100);
+                },
+                function () {
+                    $('.managerbox').stop(true, true).slideUp(100);
+                }
+            );
+            var fromname = $('#fromname').val();
+            var to_uid = currentGroup.GID; // 默认为0,表示发送给所有用户
+            var to_uname = currentGroup.Gname;
+            $('.user_list > li').dblclick(function () {//通过这个切换聊天记录
+                to_uname = $(this).find('em').text();
+                to_uid = $(this).attr('data-id');
+                console.log(typeof (to_uid));
+                if (to_uname == fromname) {
+                    alert('您不能和自己聊天!');
+                    return false;
+                }
+                if (to_uname == '所有用户') {
+                    $("#toname").val('');
+                    $('#chat_type').text('群聊');
+                } else {
+                    $("#toname").val(to_uid);
+                    $('#chat_type').text('您正和 ' + to_uname + ' 聊天');
+                }
+                $(this).addClass('selected').siblings().removeClass('selected');
+                $('#message').focus().attr("placeholder", "您对" + to_uname + "说：");
+            });
+
+            $('.sub_but').click(function (event) {
+                sendMessage(event, fromname, to_uid, to_uname);
+            });
+
+            /*按下按钮或键盘按键*/
+            $("#message").keydown(function (event) {
+                var e = window.event || event;
+                var k = e.keyCode || e.which || e.charCode;
+                //按下ctrl+enter发送消息
+                if ((event.ctrlKey && (k == 13 || k == 10))) {
+                    sendMessage(event, fromname, to_uid, to_uname);
+                }
+            });
+        
+        }
+        function updatemessage()
+        {
+            getmessgefromserve(currentGroup.GID);
+        }
+        function sendMessage(event, from_name, to_uid, to_uname) {
+            //进行数据聊天
+            var msg = $("#message").val();
+            var GID = currentGroup.GID
+            $.ajax({
+                type: 'post',
+                url: '/ChatrealTime/PostGroupMessage',
+                data: { TGID: GID, message: msg },
+                success: function (e) {
+                    console.log(e);
+                    
+                },
+                error: function (e)
+                {
+                    console.log(e);
+                }
+            });
+           
+        }
+        //下面是用来存储聊天记录的，这里采用localstorage存储 消息的最新的消息时间，用户列表实时从数据库中获取
+        //聊天记录则是存储到数据库中（客户端的数据库indexDB）
+    </script>
+</body>
+</html>

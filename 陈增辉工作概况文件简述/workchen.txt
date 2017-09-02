@@ -464,6 +464,7 @@ function getlnglatbycityName(cityname)
               contentTitle：聚会名
               context：聚会内容
               contentTime：聚会参与时间
+              img:聚会活动的时间表格
               vnum：发布人参与人数
               ischecking：是否经过验证，表示这个活动是不是真实有效的  0 表示有效  越大越危险
               lng: lng
@@ -510,6 +511,7 @@ function getlnglatbycityName(cityname)
                 UID：创建人ID
                 Ctime：创建时间
                 GroupName：群名
+                img:群组头像
                 description：群组描述
                 vnum：群组人数
     群组人员列表：GroupUser  //这个东西建议存放在服务器中----1=========3

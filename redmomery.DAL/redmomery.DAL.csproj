@@ -109,6 +109,7 @@
     <Compile Include="DAL_Auto\View_CC_UDAL.cs" />
     <Compile Include="DAL_Auto\View_CT_UDAL.cs" />
     <Compile Include="DAL_Auto\View_C_CLDAL.cs" />
+    <Compile Include="DAL_Auto\View_MultimessageDAL.cs" />
     <Compile Include="DAL_Auto\View_m_LDAL.cs" />
     <Compile Include="DAL_Auto\View_m_TLDAL.cs" />
     <Compile Include="DAL_Auto\View_T_UDAL.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="View_CC_UDAL.cs" />
     <Compile Include="View_CT_UDAL.cs" />
     <Compile Include="View_C_CLDAL.cs" />
+    <Compile Include="View_MultimessageDAL.cs" />
     <Compile Include="View_m_LDAL.cs" />
     <Compile Include="View_m_TLDAL.cs" />
     <Compile Include="View_T_UDAL.cs" />

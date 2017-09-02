@@ -77,22 +77,21 @@ namespace redmomery.DAL
 		private static USER_INFO ToModel(DataRow row)
 		{
 			USER_INFO model = new USER_INFO();
-			model.USER_ID = (int)row["USER_ID"];
-			model.USER_NAME = (string)row["USER_NAME"];
-			model.USER_SEX = (string)row["USER_SEX"];
-			model.USER_JOB = (string)row["USER_JOB"];
-			model.USER_BIRTHDAY = (string)row["USER_BIRTHDAY"];
-			model.USER_ADDRESS = (string)row["USER_ADDRESS"];
-			model.USER_PHONE = (string)row["USER_PHONE"];
-			model.USER_EMEIL = (string)row["USER_EMEIL"];
-			model.USER_NETNAME = (string)row["USER_NETNAME"];
-			model.USER_IMG = (string)row["USER_IMG"];
-			model.USER_PSWD = (string)row["USER_PSWD"];
-			model.ISPASS = (int)row["ISPASS"];
-			model.MD5 = (string)row["MD5"].ToString();
+			model.USER_ID = (int)(row["USER_ID"]==null?0:row["USER_ID"].ToString()==""?0:int.Parse(row["USER_ID"].ToString()));
+			model.USER_NAME = (string)(row["USER_NAME"]==null?"":row["USER_NAME"].ToString());
+			model.USER_SEX = (string)(row["USER_SEX"]==null?"":row["USER_SEX"].ToString());
+			model.USER_JOB = (string)(row["USER_JOB"]==null?"":row["USER_JOB"].ToString());
+			model.USER_BIRTHDAY = (string)(row["USER_BIRTHDAY"]==null?"":row["USER_BIRTHDAY"].ToString());
+			model.USER_ADDRESS = (string)(row["USER_ADDRESS"]==null?"":row["USER_ADDRESS"].ToString());
+			model.USER_PHONE = (string)(row["USER_PHONE"]==null?"":row["USER_PHONE"].ToString());
+			model.USER_EMEIL = (string)(row["USER_EMEIL"]==null?"":row["USER_EMEIL"].ToString());
+			model.USER_NETNAME = (string)(row["USER_NETNAME"]==null?"":row["USER_NETNAME"].ToString());
+			model.USER_IMG = (string)(row["USER_IMG"]==null?"":row["USER_IMG"].ToString());
+			model.USER_PSWD = (string)(row["USER_PSWD"]==null?"":row["USER_PSWD"].ToString());
+			model.ISPASS = (int)(row["ISPASS"]==null?3:row["ISPASS"].ToString()==""?3:int.Parse(row["ISPASS"].ToString()));
+			model.MD5 = (string)(row["MD5"]==null?"":row["MD5"].ToString());
 			return model;
 		}
-
 		public IEnumerable<USER_INFO> ListAll()
 		{
 			List<USER_INFO> list = new List<USER_INFO>();

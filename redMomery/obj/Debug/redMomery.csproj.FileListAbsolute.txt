@@ -19,7 +19,6 @@ D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.Deployme
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\System.Web.WebPages.Razor.dll
 D:\题库系统\github\team\redmomery\redMomery\bin\Newtonsoft.Json.dll
-D:\题库系统\github\team\redmomery\redMomery\bin\NLRedmomery.exe
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.Model.pdb
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.command.pdb
 D:\题库系统\github\team\redmomery\redMomery\bin\redmomery.DAL.pdb
@@ -45,3 +44,4 @@ D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.WebPages.
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.dll
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.pdb
+D:\题库系统\github\team\redmomery\redMomery\bin\NLRedmomery.dll

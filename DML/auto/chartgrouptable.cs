@@ -12,6 +12,7 @@ namespace redmomery.Model
 		public DateTime Ctime { get; set; }
 		public string groupName { get; set; }
 		public string description { get; set; }
+		public string img { get; set; }
 		public int vnum { get; set; }
 	}
 }

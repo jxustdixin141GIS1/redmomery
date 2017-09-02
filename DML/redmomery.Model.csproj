@@ -89,6 +89,7 @@
     <Compile Include="auto\UATIMeettable.cs" />
     <Compile Include="auto\USER_INFO.cs" />
     <Compile Include="auto\UTIMeetTable.cs" />
+    <Compile Include="auto\View_Multimessage.cs" />
     <Compile Include="BBSCONTENTS.cs" />
     <Compile Include="BBSTITLE_TABLE.cs" />
     <Compile Include="CCBBS_TABLE.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="View_CC_U.cs" />
     <Compile Include="View_CT_U.cs" />
     <Compile Include="View_C_CL.cs" />
+    <Compile Include="View_Multimessage.cs" />
     <Compile Include="View_m_L.cs" />
     <Compile Include="View_m_TL.cs" />
     <Compile Include="View_t_CL.cs" />

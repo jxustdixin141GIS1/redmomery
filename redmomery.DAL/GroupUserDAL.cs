@@ -35,5 +35,15 @@ namespace redmomery.DAL
             }
             return list;
         }
+        public List<GroupUser> getUGroup(string UID)
+        {
+            List<GroupUser> list = new List<GroupUser>();
+            DataTable dt = SqlHelper.ExecuteDataTable("SELECT * FROM GroupUser   where  UID = @UID", new SqlParameter("@UID", UID));
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(ToModel(row));
+            }
+            return list;
+        }
     }
 }

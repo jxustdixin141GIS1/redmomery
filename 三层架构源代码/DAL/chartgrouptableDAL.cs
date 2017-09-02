@@ -13,11 +13,12 @@ namespace redmomery.DAL
 		public int AddNew(chartgrouptable model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO chartgrouptable(UID,Ctime,groupName,description,vnum) VALUES (@UID,@Ctime,@groupName,@description,@vnum);SELECT @@identity"
+				"INSERT INTO chartgrouptable(UID,Ctime,groupName,description,img,vnum) VALUES (@UID,@Ctime,@groupName,@description,@img,@vnum);SELECT @@identity"
 				,new SqlParameter("@UID", model.UID)
 				,new SqlParameter("@Ctime", model.Ctime)
 				,new SqlParameter("@groupName", model.groupName)
 				,new SqlParameter("@description", model.description)
+				,new SqlParameter("@img", model.img)
 				,new SqlParameter("@vnum", model.vnum)
 			);
 			return Convert.ToInt32(obj);
@@ -31,13 +32,14 @@ namespace redmomery.DAL
 
 		public bool Update(chartgrouptable model)
 		{
-			string sql = "UPDATE chartgrouptable SET UID=@UID,Ctime=@Ctime,groupName=@groupName,description=@description,vnum=@vnum WHERE ID=@ID";
+			string sql = "UPDATE chartgrouptable SET UID=@UID,Ctime=@Ctime,groupName=@groupName,description=@description,img=@img,vnum=@vnum WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@UID", model.UID)
 				, new SqlParameter("@Ctime", model.Ctime)
 				, new SqlParameter("@groupName", model.groupName)
 				, new SqlParameter("@description", model.description)
+				, new SqlParameter("@img", model.img)
 				, new SqlParameter("@vnum", model.vnum)
 			);
 			return rows > 0;
@@ -67,6 +69,7 @@ namespace redmomery.DAL
 			model.Ctime = (DateTime)row["Ctime"];
 			model.groupName = (string)row["groupName"];
 			model.description = (string)row["description"];
+			model.img = (string)row["img"];
 			model.vnum = (int)row["vnum"];
 			return model;
 		}

@@ -1,0 +1,57 @@
+﻿<!html>
+<html>
+<head>
+    <title>获取当前用户的聊天群体，必须在登陆情况下才能够获得</title>
+    <script src="~/resource/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="~/resource/config.js"></script>
+    <script src="~/resource/js/charOnline.js"></script>
+    <script>
+        function getusergroup()
+        {
+            var showdiv = document.getElementById("usergrouplist");
+            $.ajax({
+                url: '/ChatrealTime/Getgroup',
+                type: 'post',
+                success: function (e)
+                {
+                    console.log(e);
+                    for (var i = 0; i < e.length; i++) {
+                        var hrefa = document.createElement("a");
+                        hrefa.href = "/ChatrealTime/groupchart";
+                        hrefa.onclick = function () {
+                            var s = this;
+                            console.log(s);
+                        };
+                        hrefa.nodeValue = e[i].Gname;
+                        hrefa.gid = e[i].GID;
+        
+                        showdiv.appendChild(hrefa);
+                    }
+                    //进行数据的分析
+                   
+                },
+                error: function (e)
+                {
+                    console.log(e);
+                },
+                complete: function (e)
+                {
+                    console.log(e);
+                }
+            });
+        }
+        function upchar()
+        {
+            var s = this;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="getusergroup()">获取当前用户的群组列表</button><br />
+    <div id="usergrouplist">
+
+    </div>
+
+</body>
+</html>
