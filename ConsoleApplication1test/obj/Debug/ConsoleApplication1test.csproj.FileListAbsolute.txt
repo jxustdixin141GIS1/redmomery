@@ -5,7 +5,6 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\CustomRu
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Demo.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\Demo.vshost.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\DictManage.exe
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\NLRedmomery.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PanGu.HighLight.dll
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\PosDisplayCtrl.dll
@@ -33,3 +32,4 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleA
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.csproj.GenerateResource.Cache
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.pdb
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\NLRedmomery.dll

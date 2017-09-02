@@ -31,9 +31,9 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
-
+            Commands cl1 = new Commands();
             //获取当前用户的
-
+           cl1.testgeogecoding();
             #region
             ////这一部分用来处理大部分的时间概念
             List<trajectory> t = new List<trajectory>();

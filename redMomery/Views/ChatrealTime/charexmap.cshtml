@@ -254,8 +254,10 @@
                         appendmes(messagelist[i]);
                     }
                     //下面开始存储数据
+                    if (messagelist.length>0)
                     storeCurrent(creGroupMessage);
                     //开始记录当前时间的指针
+
                     storageDatetime(GIDs, messagelist[messagelist.length - 1].Ftime);
 
                     //这个用来保证信息的同步性
