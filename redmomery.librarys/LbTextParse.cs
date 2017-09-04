@@ -38,9 +38,19 @@ namespace redmomery.librarys
                 trajectory newtra = new trajectory();
                 newtra.LBID = lbID;
                 newtra.Local = temp[j].address == null ? "null" : temp[j].address;
-                string temps = temp[j].time.IndexOf("年") >= 0 ?
-                temp[j].time.Replace("9999-12-30-", "").Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString() :
-                temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
+                string temps = "";
+                try
+                {
+                     temps = temp[j].time.IndexOf("年") >= 0 ?
+                    temp[j].time.Replace("9999-12-30-", "").Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString() :
+                    temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
+                }
+                catch
+                {
+                    temp[j].time = "未知";
+                    temps = "未知";
+
+                }
                 DateTime dt = new DateTime();
                 try
                 {
@@ -74,6 +84,35 @@ namespace redmomery.librarys
             }
             return list;
         }
+        public static List<Text_trcajectory> parseText(string lbtext)
+        {
+            List<trajectory> list = new List<trajectory>();
+            List<Text_result> temp1 = LBText.parsetext(lbtext);
+            List<Text_result> initlist = LBText.mergeresult((List<Text_result>)temp1);
+            List<Time_result> temp2 = LBText.ChangeCp(initlist);
+            List<Time_result> temp3 = LBText.Removevilable((List<Time_result>)temp2);
+            List<Time_result> show = temp3 as List<Time_result>;
+            List<Time_result> show6 = LBText.ExtractTime(show); show = show6;
+            List<Time_result> show4 = LBText.Removevilable(show); show = show4;
+            List<Time_result> show5 = LBText.reckonTime(show); show = show5;
+            List<T_LocalText> show7 = LBText.ExtractLocalName(show);
+            List<Res_T_LocalText> show8 = LBText.ExtractContent(show7);
+            List<Res_T_LocalText> show9 = LBText.mergeLocal(show8);
+            List<Text_trcajectory> show10 = LBText.uniquelocal(show9);
+            List<Text_trcajectory> temp = show10;
+            return temp;
+        }
+        public static List<Res_t_locals> getLocalFromText(string lbtext)
+        {
+            List<Res_t_locals> result = new List<Res_t_locals>();
+            List<trajectory> list = new List<trajectory>();
+            List<Text_result> temp1 = LBText.parsetext(lbtext);
+            result.AddRange(LBText.getLocalname(temp1));
+            return result;
+        }
+
+
+
     }
     public class LBText
     {
@@ -605,6 +644,25 @@ namespace redmomery.librarys
             }
             Console.WriteLine();
             Console.WriteLine();
+        }
+
+        //专门提取地名
+        public static List<Res_t_locals> getLocalname(List<Text_result> temp)
+        {
+            List<Res_t_locals> result = new List<Res_t_locals>();
+            for (int i = 0; i < temp.Count; i++)
+            {
+                if (temp[i].res.sPos == "ns" || temp[i].res.sPos == "nsf")
+                {
+                    Res_t_locals temps = new Res_t_locals();
+                    temps.addressname = temp[i].text;
+                    temps.local = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(temps.addressname);
+                    result.Add(temps);
+                }
+            }
+            return result;
+
+
         }
     }
 

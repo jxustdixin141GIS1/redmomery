@@ -107,7 +107,16 @@ namespace redmomery.librarys
             }
             else
             {
+                cityLB newcitylb = new cityLB();
+                citylb = newcitylb;
                 //表示没有需要添加数据库
+                citylb.CityName = tabletemp.cityname;
+                citylb.CityCode = tabletemp.citycode;
+                citylb.LBID = Lb.ID;
+                if ((int.Parse(citylb.CityCode.ToString()))<= 0 )
+                {
+                    return result;
+                }
                 int ID = (new cityLBDAL()).AddNew(citylb);
                 citylb = (new cityLBDAL()).Get(ID);
                 result = ID;

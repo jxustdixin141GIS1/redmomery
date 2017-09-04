@@ -13,7 +13,7 @@ namespace redmomery.DAL
 		public int AddNew(track model)
 		{
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO track(EID,Timetext,Local,context,x,y,heroID,name,img) VALUES (@EID,@Timetext,@Local,@context,@x,@y,@heroID,@name,@img);SELECT @@identity"
+				"INSERT INTO track(EID,Timetext,Local,context,x,y,heroID,name,img,location) VALUES (@EID,@Timetext,@Local,@context,@x,@y,@heroID,@name,@img,@location);SELECT @@identity"
 				,new SqlParameter("@EID", model.EID)
 				,new SqlParameter("@Timetext", model.Timetext)
 				,new SqlParameter("@Local", model.Local)
@@ -23,6 +23,7 @@ namespace redmomery.DAL
 				,new SqlParameter("@heroID", model.heroID)
 				,new SqlParameter("@name", model.name)
 				,new SqlParameter("@img", model.img)
+				,new SqlParameter("@location", model.location)
 			);
 			return Convert.ToInt32(obj);
 		}
@@ -35,7 +36,7 @@ namespace redmomery.DAL
 
 		public bool Update(track model)
 		{
-			string sql = "UPDATE track SET EID=@EID,Timetext=@Timetext,Local=@Local,context=@context,x=@x,y=@y,heroID=@heroID,name=@name,img=@img WHERE EID=@EID";
+			string sql = "UPDATE track SET EID=@EID,Timetext=@Timetext,Local=@Local,context=@context,x=@x,y=@y,heroID=@heroID,name=@name,img=@img,location=@location WHERE EID=@EID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@EID", model.EID)
 				, new SqlParameter("@Timetext", model.Timetext)
@@ -46,6 +47,7 @@ namespace redmomery.DAL
 				, new SqlParameter("@heroID", model.heroID)
 				, new SqlParameter("@name", model.name)
 				, new SqlParameter("@img", model.img)
+				, new SqlParameter("@location", model.location)
 			);
 			return rows > 0;
 		}
@@ -78,6 +80,7 @@ namespace redmomery.DAL
 			model.heroID = (string)row["heroID"];
 			model.name = (string)row["name"];
 			model.img = (int)row["img"];
+			model.location = (object)row["location"];
 			return model;
 		}
 

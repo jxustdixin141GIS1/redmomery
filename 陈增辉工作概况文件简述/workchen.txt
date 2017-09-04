@@ -455,7 +455,7 @@ function getlnglatbycityName(cityname)
                }
      }
 24、在线发表聚会服务功能，在线交流功能的数据库表格群
-    聚会功能：meetingtable-----------1==3
+    聚会功能：meetingtable-----------1==4
         字段：ID：标志
      		  UID：发布人ID
      		  GID：聊天群组ID
@@ -506,7 +506,7 @@ function getlnglatbycityName(cityname)
                    dealUID：处理人
          注意：这里需要，凡是同意，都会从这个表格中移出去
 
-    聊天群组表：chartgrouptable-----1=====3
+    聊天群组表：chartgrouptable-----1=====4
            字段：ID:标识
                 UID：创建人ID
                 Ctime：创建时间
@@ -613,3 +613,5 @@ function getlnglatbycityName(cityname)
 
    现在正是开始当前系统所有功能全部测试和汇总。
    
+29、开始利用echart制作图表
+1、制作抗日战争之前之日双方的实力对比

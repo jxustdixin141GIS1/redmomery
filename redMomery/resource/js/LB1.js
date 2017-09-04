@@ -203,7 +203,7 @@
               function setUpQuery() {
 
                   var queryTask = new QueryTask
-                      ("http://192.168.43.35:6080/arcgis/rest/services/LBDatanew/MapServer/0");
+                      ("http://user-20160610za:6443/arcgis/rest/services/part1/LBINFO/MapServer");
 
                   //设定查询条件
                   var query = new Query();
@@ -396,7 +396,7 @@
                   map.graphics.clear();
               }
               findTask = new FindTask
-               ("http://192.168.43.35:6080/arcgis/rest/services/LBDatanew/MapServer");
+               ("http://user-20160610za:6443/arcgis/rest/services/part1/LBINFO/MapServer");
 
               map.on("load", function () {
                   //构建寻找参数
@@ -480,7 +480,7 @@
 
 
               dojo.connect(button14, "click", function () {
-                  var serviceURL = "http://192.168.43.35:6080/arcgis/rest/services/LBDatanew/FeatureServer/0";
+                  var serviceURL = "http://user-20160610za:6443/arcgis/rest/services/part1/LBINFO/FeatureServer";
 
                   heatmapFeatureLayer = new FeatureLayer(serviceURL, {
                       opacity: 0.6,

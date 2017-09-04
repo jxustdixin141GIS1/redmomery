@@ -22,7 +22,8 @@
     <script type="text/javascript" src="~/resource/bootstrap-3.3.7-dist/js/Tabullet.js"></script>
     <script type="text/javascript" src="~/resource/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="~/resource/js/LBZL.js"></script>
-
+    <script src="~/resource/config.js"></script>
+    <script src="~/resource/js/LBUpload.js"></script>
 </head>
 
 <body class="claro" style="height: 100%">
@@ -37,7 +38,7 @@
         <span class="icon-bar"></span>
          </button>
           <a class="navbar-brand" href="#" style="padding:0px 15px">
-        <img alt="抗战追忆系统" src="../resource/image/duibiao1.png" width="50px" height="50px" />
+        <img alt="抗战追忆系统" src="~/resource/image/duibiao1.png" width="50px" height="50px" />
           </a>
           <a class="navbar-brand" href="#" style=" font-weight:bold; font-family:华文行楷; font-size:28px; color:#fff201;">
                 抗战追忆系统</a>
@@ -90,107 +91,102 @@
             <h6 id="divxy"></h6>
         </div>
          
-  <div id="ziliao">
-      <img src="../resource/image/beijingzhlb.jpg" style="width:550px; height:200px;"> 
+    <div id="ziliao">
+        <img src="~/resource/image/beijingzhlb.jpg" width="550px" height="200px">
         <div id="jiben">
-        <br/>
-        <p style="text-align:center; font-size:22px; font-family:楷体；; color:#F60;"><strong>填写老兵个人信息</strong></p>
-        <p style="padding-left:10px"><i class="fa fa-address-card fa-2x" style="color:#F60" aria-hidden="true"></i>&nbsp;&nbsp;<strong style="font-size:18px; color:#F60;">基本信息</strong></p>
-        
-        <form action="" method="post" id="lbziliao" class="form-horizontal">
+            <br />
+            <p style="text-align:center; font-size:22px; font-family:楷体；; color:#F60;"><strong>填写老兵个人信息</strong></p>
+            <p style="padding-left:10px"><i class="fa fa-address-card fa-2x" style="color:#F60" aria-hidden="true"></i>&nbsp;&nbsp;<strong style="font-size:18px; color:#F60;">基本信息</strong></p>
+            <form action="" enctype="multipart/form-data" method="post" id="lbziliao" class="form-horizontal">
+                <div class="form-group">
+                    <label for="lbname" class="col-sm-3 control-label">老兵姓名</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="lbname" class="form-control" placeholder="请输入姓名" autocomplete="off" />
+                    </div>
+                </div>
 
-		<div class="form-group">
-         <label for="lbname" class="col-sm-3 control-label">老兵姓名</label>
-        <div class="col-sm-7">
-			<input type="text" name="lbname" class="form-control" placeholder="请输入姓名" autocomplete="off"/>
-		</div>
-        </div>
-        
-        <div class="form-group">
-        <label for="lbsex" class="col-sm-3 control-label">性别</label>
-        <div class="col-sm-7">
-			<input type="text" name="lbsex" class="form-control" placeholder="性别" autocomplete="off"/>
-		</div>
-        </div>
-        
-         <div class="form-group">
-         <label for="lbbirthday" class="col-sm-3 control-label">出生日期</label>	
-         <div class="col-sm-7">
-        <input type="date" name="lbbirthday" class="form-control" placeholder="出生日期" autocomplete="off"/>
-        </div>
-        </div>
-        
-		<div class="form-group">
-        <label for="lbwork" class="col-sm-3 control-label">部队职务</label>	
-        <div class="col-sm-7">
-			<input type="text" name="lbwork" class="form-control" placeholder="部队职务" autocomplete="off"/>
-		</div>
-        </div>
-        
-        <div class="form-group">
-         <label for="lbaddress" class="col-sm-3 control-label">现居住地</label>
-        <div class="col-sm-7">
-			<input type="text" name="lbaddress" class="form-control" placeholder="现居住地" autocomplete="off"/>
-		</div>
-        </div>
-        
-        <div class="form-group">
-         <label for="designation " class="col-sm-3 control-label">部队番号</label>
-        <div class="col-sm-7">
-			<input type="text" name="designation" class="form-control" placeholder="部队番号" autocomplete="off"/>
-		</div>
-        </div>
-        
-      <div class="form-group">
-      <label for="lbphoto" class="col-sm-3 control-label">上传照片</label>
-          <div class="col-sm-7">
-      <input type="file" name="lbphoto"/>
-          </div>
-      </div>
-      
-      <div class="form-group">
-      <label for="video" class="col-sm-3 control-label">老兵视频</label>
-          <div class="col-sm-7">
-      <input type="file" name="lbvideo"/>
-          </div>
-      </div>
-      
-      <label for="life" class="col-sm-3 control-label">生活现状</label><br/>
-      <textarea class="form-control" rows="5" style="width:500px"></textarea>
-      
-       <label for="gushi" class="col-sm-3 control-label">老兵故事</label><br/>
-      <textarea class="form-control" rows="7" style="width:500px"></textarea><br/>
-      <div style="text-align:center">
-      <button type="button" class="btn btn-success" style="font-size:20px;">上传基本信息</button>
-      </div>
+                <div class="form-group">
+                    <label for="lbsex" class="col-sm-3 control-label">性别</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="lbsex" class="form-control" placeholder="性别" autocomplete="off" />
+                    </div>
+                </div>
 
-     </form> <br/>   
-     </div><br/> 
-     <div>
-     <p style="text-align:center; font-size:22px; font-family:楷体；; color:#F60;"><strong>添加老兵个人轨迹</strong></p>
-     
-     <div>
-            <table class="table table-hover" id="table">
-                <thead>
-                    <tr data-tabullet-map="id">
-                        <th width="30" data-tabullet-map="_index" data-tabullet-readonly="true">No</th>
-                        <th data-tabullet-map="time">时间</th>
-                        <th data-tabullet-map="address">地点</th>
-                        <th rowspan="5" data-tabullet-map="address">故事</th>
-                        <th width="30" data-tabullet-type="edit"></th>
-                        <th width="30" data-tabullet-type="delete"></th>
+                <div class="form-group">
+                    <label for="lbbirthday" class="col-sm-3 control-label">出生日期</label>
+                    <div class="col-sm-7">
+                        <input type="date" name="lbbirthday" class="form-control" placeholder="出生日期" autocomplete="off" />
+                    </div>
+                </div>
 
-                </thead>
-            </table>
-        </div>
-        
-        <div style="text-align:center">
-          <button type="button" class="btn btn-success" style="font-size:20px;">上传所有轨迹</button>
-        </div>
+                <div class="form-group">
+                    <label for="lbwork" class="col-sm-3 control-label">部队职务</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="lbwork" class="form-control" placeholder="部队职务" autocomplete="off" />
+                    </div>
+                </div>
 
-     </div>
-         
-  </div>
+                <div class="form-group">
+                    <label for="lbaddress" class="col-sm-3 control-label">现居住地</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="lbaddress" class="form-control" placeholder="现居住地" autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="designation " class="col-sm-3 control-label">部队番号</label>
+                    <div class="col-sm-7">
+                        <input type="text" name="designation" class="form-control" placeholder="部队番号" autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lbphoto" class="col-sm-3 control-label">上传照片</label>
+                    <input type="file" name="lbphoto" style="margin-left:1.3cm" onchange="uploadimage()" />
+                </div>
+                <div id="imagepreview" style="display:none">
+                    <img src="" style="height:100px;width:100px;" />
+                    <button onclick="uploadimg()">
+                        确定上传图片
+                    </button>
+                    <!--<input type="submit" onclick="uploadimg()" />-->
+                </div>
+                <div class="form-group">
+                    <label for="video" class="col-sm-3 control-label">老兵视频</label>
+                    <input type="file" name="lbvideo" style="margin-left:1.3cm" />
+                </div>
+                <label for="life" class="col-sm-3 control-label">生活现状</label><br />
+                <textarea name="lblife" class="form-control" rows="5" style="width:500px"></textarea>
+                <label for="gushi" class="col-sm-3 control-label">老兵故事</label><br />
+                <textarea name="lbstory" class="form-control" rows="7" style="width:500px"></textarea><br />
+                <div style="text-align:center">
+                    <button type="button" class="btn btn-success" style="font-size:20px;" onclick="uploadlB()">上传基本信息</button>
+                </div>
+            </form> <br />
+        </div><br />
+        <div>
+            <p style="text-align:center; font-size:22px; font-family:楷体；; color:#F60;"><strong>添加老兵个人轨迹</strong></p>
+
+            <div>
+                <table class="table table-hover" id="table">
+                    <thead>
+                        <tr data-tabullet-map="id">
+                            <th width="50" data-tabullet-map="_index" data-tabullet-readonly="true">No</th>
+                            <th data-tabullet-map="time">时间</th>
+                            <th data-tabullet-map="address">地点</th>
+                            <th data-tabullet-map="story">故事</th>
+                            <th width="50" data-tabullet-type="edit"></th>
+                            <th width="50" data-tabullet-type="delete"></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div style="text-align:center">
+                <button type="button" class="btn btn-success" style="font-size:20px;">上传所有轨迹</button>
+            </div>
+        </div>
+    </div>
   
       <!-- 登陆 -->
 <div class="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mymodal-link">

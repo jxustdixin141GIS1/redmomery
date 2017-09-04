@@ -22,4 +22,3 @@ D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.comm
 D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.csproj.GenerateResource.Cache
 D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.dll
 D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.pdb
-D:\题库系统\github\team\redmomery\redmomery.command\obj\Debug\redmomery.command.csprojResolveAssemblyReference.cache

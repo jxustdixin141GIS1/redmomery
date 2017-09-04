@@ -325,6 +325,16 @@ namespace testtemp
         {
             return redmomery.Common.SerializerHelper.SerializeToString(LbTextParse.parseLbstored(int.Parse(lbId), LBtext));  
         }
+        [WebMethod]
+        public List<Text_trcajectory> parseText(string LBText)
+        {
+            return LbTextParse.parseText(LBText);
+        }
+        [WebMethod]
+        public List<Res_t_locals> ExtractLocalname(string Text)
+        {
+            return LbTextParse.getLocalFromText(Text);
+        }
     }
 
 }

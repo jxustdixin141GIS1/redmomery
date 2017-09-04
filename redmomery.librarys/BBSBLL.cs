@@ -288,6 +288,8 @@ namespace redmomery.librarys
                     BBSTITLE_TABLEDAL dals = new BBSTITLE_TABLEDAL();
                     staticbydata.DeleteCityLBByLB(LB);
                     dals.delete(LB.ID);
+                    LB_INFODAL dalss = new LB_INFODAL();
+                    dalss.delete(LB.ID);
                     LB = null;
                 }
             }

@@ -12,6 +12,14 @@ namespace redmomery.DAL
 	{
 		public int AddNew(LB_INFO model)
 		{
+            if (model.X != null && model.X != "" && model.Y != null && model.Y != "")
+            {
+                model.Location = "Point(" + model.X + " " + model.Y + ")";
+            }
+            else
+            {
+                model.Location = "";
+            }
 			object obj = SqlHelper.ExecuteScalar(
 				"INSERT INTO LB_INFO(T_ID,LBname,LBjob,LBsex,LBbirthday,LBdomicile,designation,LBexperience,LBlife,LBPhoto,LBdelete,X,Y,Location) VALUES (@T_ID,@LBname,@LBjob,@LBsex,@LBbirthday,@LBdomicile,@designation,@LBexperience,@LBlife,@LBPhoto,@LBdelete,@X,@Y,@Location);SELECT @@identity"
 				,new SqlParameter("@T_ID", model.T_ID)

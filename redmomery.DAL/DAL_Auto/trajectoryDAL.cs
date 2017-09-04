@@ -12,8 +12,13 @@ namespace redmomery.DAL
 	{
 		public int AddNew(trajectory model)
 		{
+            if (model.x != null && model.x != "" && model.y != null && model.y != "")
+            {
+                model.location = "Point(" + model.x + " " + model.y + ")";
+            }
+
 			object obj = SqlHelper.ExecuteScalar(
-				"INSERT INTO trajectory(T_time,Timetext,Local,context,x,y,LBID,isCurrent) VALUES (@T_time,@Timetext,@Local,@context,@x,@y,@LBID,@isCurrent);SELECT @@identity"
+				"INSERT INTO trajectory(T_time,Timetext,Local,context,x,y,LBID,isCurrent,name,location) VALUES (@T_time,@Timetext,@Local,@context,@x,@y,@LBID,@isCurrent,@name,@location);SELECT @@identity"
 				,new SqlParameter("@T_time", model.T_time)
 				,new SqlParameter("@Timetext", model.Timetext)
 				,new SqlParameter("@Local", model.Local)
@@ -22,6 +27,8 @@ namespace redmomery.DAL
 				,new SqlParameter("@y", model.y)
 				,new SqlParameter("@LBID", model.LBID)
 				,new SqlParameter("@isCurrent", model.isCurrent)
+				,new SqlParameter("@name", model.name)
+				,new SqlParameter("@location", model.location)
 			);
 			return Convert.ToInt32(obj);
 		}
@@ -34,7 +41,11 @@ namespace redmomery.DAL
 
 		public bool Update(trajectory model)
 		{
-			string sql = "UPDATE trajectory SET T_time=@T_time,Timetext=@Timetext,Local=@Local,context=@context,x=@x,y=@y,LBID=@LBID,isCurrent=@isCurrent WHERE ID=@ID";
+            if (model.x != null && model.x != "" && model.y != null && model.y != "")
+            {
+                model.location = "Point(" + model.x + " " + model.y + ")";
+            }
+			string sql = "UPDATE trajectory SET T_time=@T_time,Timetext=@Timetext,Local=@Local,context=@context,x=@x,y=@y,LBID=@LBID,isCurrent=@isCurrent,name=@name,location=@location WHERE ID=@ID";
 			int rows = SqlHelper.ExecuteNonQuery(sql
 				, new SqlParameter("@ID", model.ID)
 				, new SqlParameter("@T_time", model.T_time)
@@ -45,6 +56,8 @@ namespace redmomery.DAL
 				, new SqlParameter("@y", model.y)
 				, new SqlParameter("@LBID", model.LBID)
 				, new SqlParameter("@isCurrent", model.isCurrent)
+				, new SqlParameter("@name", model.name)
+				, new SqlParameter("@location", model.location)
 			);
 			return rows > 0;
 		}
@@ -77,6 +90,8 @@ namespace redmomery.DAL
 			model.y = (string)row["y"];
 			model.LBID = (int)row["LBID"];
 			model.isCurrent = (int)row["isCurrent"];
+            model.name = (string)(row["name"] == null ? "" : row["name"].ToString());
+			model.location = (object)row["location"];
 			return model;
 		}
 
@@ -90,5 +105,10 @@ namespace redmomery.DAL
 			}
 			return list;
 		}
+
+        public string XYToWKT(string X,string Y)
+        {
+            return "POINT("+X+","+Y+")";
+        }
 	}
 }

@@ -31,17 +31,40 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
-            Commands cl1 = new Commands();
-            //获取当前用户的
-           cl1.testgeogecoding();
+            //邓小平，为人表
+
+           // List<track> list = new List<track>();
+           // trackDAL dal = new trackDAL();
+           // list = dal.ListAll() as List<track>;
+           // for (int i = 0; i < list.Count; i++)
+           // {
+           //     dal.Update(list[i]);
+           //     Console.Write(i.ToString()+"\\");
+           // }
+           // Console.WriteLine();
+           // Console.WriteLine("开始处理轨迹表");
+           // List<trajectory> tlist = new List<trajectory>();
+           // trajectoryDAL tdal = new trajectoryDAL();
+           // tlist = tdal.ListAll() as List<trajectory>;
+           // for (int i = 0; i < tlist.Count; i++)
+           // {
+           //     trajectory temp = tlist[i];
+           //     LB_INFO lb = (new LB_INFODAL()).get(temp.LBID);
+           //     temp.name = lb.LBname;
+           //     tdal.Update(temp);
+           //     Console.Write(i.ToString() + "\\");
+           // }
+           //// Commands cl1 = new Commands();
+           // //获取当前用户的
+           //cl1.testgeogecoding();
             #region
             ////这一部分用来处理大部分的时间概念
-            List<trajectory> t = new List<trajectory>();
-            trajectoryDAL dal = new trajectoryDAL();
-            DateTime dt = DateTime.Parse("1943/03/21");
+            //List<trajectory> t = new List<trajectory>();
+            //trajectoryDAL dal = new trajectoryDAL();
+            //DateTime dt = DateTime.Parse("1943/03/21");
 
-            Console.WriteLine(dt.ToString());
-            Console.WriteLine(DateTime.Now.ToString());
+            //Console.WriteLine(dt.ToString());
+            //Console.WriteLine(DateTime.Now.ToString());
             //t = dal.getBytime(dt);
             //for (int i = 0; i < t.Count; i++)
             //{
