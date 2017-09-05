@@ -14,7 +14,7 @@ namespace redmomery.librarys
     {
         public static List<trajectory> parseLbstored(LB_INFO lb)
         {
-            return parseLbstored(lb.ID,lb.LBexperience);
+            return parseLbstored(lb.ID, lb.LBexperience);
         }
         public static List<trajectory> parseLbstored(int lbID, string lbtext)
         {
@@ -41,9 +41,9 @@ namespace redmomery.librarys
                 string temps = "";
                 try
                 {
-                     temps = temp[j].time.IndexOf("年") >= 0 ?
-                    temp[j].time.Replace("9999-12-30-", "").Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString() :
-                    temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
+                    temps = temp[j].time.IndexOf("年") >= 0 ?
+                   temp[j].time.Replace("9999-12-30-", "").Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString() :
+                   temp[j].time.Replace("年", "-").Replace("月", "-").Replace("日", "-").ToString();
                 }
                 catch
                 {
@@ -76,8 +76,8 @@ namespace redmomery.librarys
                 }
                 newtra.T_time = dt;
                 newtra.Timetext = temp[j].time;
-                newtra.x = temp[j].xy!=null?temp[j].xy.lng.ToString():"";
-                newtra.y = temp[j].xy!=null?temp[j].xy.lat.ToString():"";
+                newtra.x = temp[j].xy != null ? temp[j].xy.lng.ToString() : "";
+                newtra.y = temp[j].xy != null ? temp[j].xy.lat.ToString() : "";
                 newtra.isCurrent = temp[j].iscurent;
                 newtra.context = temp[j].context;
                 list.Add(newtra);
@@ -124,14 +124,14 @@ namespace redmomery.librarys
             List<Text_trcajectory> result = new List<Text_trcajectory>();
             object temp = LBText.parsetext(text);
             temp = LBText.mergeresult((List<Text_result>)temp);
-       
+
             return result;
         }
         //数据预处理
         public static List<string> ReadNameForm(string path)
         {
             string s = redmomery.command.createlog.readTextFrompath(path);
-            string[] slist = s.Split(',','，');
+            string[] slist = s.Split(',', '，');
             List<string> result = new List<string>();
             result.AddRange(slist);
             return result;
@@ -156,7 +156,7 @@ namespace redmomery.librarys
             result_t[] res = nlpir.ParagraphProcessAW(count);
             byte[] bytes = System.Text.Encoding.Default.GetBytes(text);
             //对于一些名词的提取
-            
+
             //下面将对应的数据进行转换
             results = new Text_result[count];
             for (int i = 0; i < results.Length; i++)
@@ -219,14 +219,14 @@ namespace redmomery.librarys
         public static List<Time_result> ChangeCp(List<Text_result> initlist)
         {
             List<Time_result> result = new List<Time_result>();
-            
+
             List<Text_result> line = new List<Text_result>();//临时队列，用来进行提取数据
             for (int i = 0; i < initlist.Count; i++)
             {
                 Text_result temp = initlist[i];
                 if (temp.text == "\n" || temp.text == "\r")//当遇到着几种情况时直接就将放在列表中的数据提取出来
-                { 
-                  //这就情况下就需要进行对于处于列表中的时间词检索出来  
+                {
+                    //这就情况下就需要进行对于处于列表中的时间词检索出来  
                     line.Add(temp);
                     Time_result newtime = new Time_result();
                     for (int j = 0; j < line.Count; j++)
@@ -246,11 +246,11 @@ namespace redmomery.librarys
                 {
                     //这里需要注意，只能提取最近的一个。 时间段
                     Time_result newtime = new Time_result();
-                    for (int j = line.Count-1; j >=0 ; j--)
+                    for (int j = line.Count - 1; j >= 0; j--)
                     {
                         if (line[j].text == "。")//表示找到对应的时间词语，开始进行提取
                         {
-                            List<Text_result> linetemp = line.GetRange(0,j+1);
+                            List<Text_result> linetemp = line.GetRange(0, j + 1);
                             for (int t = 0; t < linetemp.Count; t++)
                             {
                                 if (linetemp[t].res.sPos == "t")
@@ -260,8 +260,8 @@ namespace redmomery.librarys
                                 }
                             }
                             newtime.timelist = linetemp;
-                           //开始进行数据的处理提交
-                            line.RemoveRange(0,j+1);
+                            //开始进行数据的处理提交
+                            line.RemoveRange(0, j + 1);
                             break;
                         }
                     }
@@ -277,7 +277,7 @@ namespace redmomery.librarys
                     Time_result newtime = new Time_result();
                     for (int j = 0; j < line.Count; j++)
                     {
-                        if(line[j].res.sPos=="t")
+                        if (line[j].res.sPos == "t")
                         {
                             newtime.time = line[j];//这里假设第一个时间就是我们需要的，起码可以满足大部分的提取需求
                             break;
@@ -329,11 +329,11 @@ namespace redmomery.librarys
                     continue;
                 }
                 //首先判断有没有年份
-                int y = ttemp.time.text.IndexOf("年")>=0?100:0;
-                int m = ttemp.time.text.IndexOf("月")>=0?10:0;
+                int y = ttemp.time.text.IndexOf("年") >= 0 ? 100 : 0;
+                int m = ttemp.time.text.IndexOf("月") >= 0 ? 10 : 0;
                 int d = ttemp.time.text.IndexOf("日") >= 0 ? 1 : 0;
                 int ymd = y + m + d;
-               //若是第一条数据没有时间，就以往后第一条时间作为处理
+                //若是第一条数据没有时间，就以往后第一条时间作为处理
                 switch (ymd)
                 {
                     case 111://这种情况就是三者皆有，就不要处理，直接进栈
@@ -344,77 +344,52 @@ namespace redmomery.librarys
                         continue;
                     case 101://这种情况并他有年 和日期 (这种东西的出现，简直反人类，也不要处理，直接就扔进列表中，将其中的日期删除)
                         int yy = ttemp.time.text.IndexOf("年");
-                        ttemp.time.text = ttemp.time.text.Substring(0,yy+1);
+                        ttemp.time.text = ttemp.time.text.Substring(0, yy + 1);
                         result.Add(ttemp);
                         continue;
                     case 100://表明这个是只有年份，不予处理
                         result.Add(ttemp);
                         continue;
                     case 11: //这种表明没有年份，需要进行处理，将前一条记录中的时间进行提取年份
-                         //如果是第二条记录，也不要处理
+                        //如果是第二条记录，也不要处理
                         if (result.Count == 0)
                         {
                             result.Add(ttemp);
                             continue;
                         }
-                        string yt = result[result.Count - 1].time.text.Substring(0,result[result.Count-1].time.text.IndexOf("年")+1);
-                        ttemp.time.text=ttemp.time.text.Insert(0,yt);
+                        string yt = result[result.Count - 1].time.text.Substring(0, result[result.Count - 1].time.text.IndexOf("年") + 1);
+                        ttemp.time.text = ttemp.time.text.Insert(0, yt);
                         //这里还要注意，需要将插入的词语，放到时间序列中
                         Text_result ytt = new Text_result();
                         ytt.text = yt;
                         ytt.res.sPos = "t";
-                        ttemp.timelist.Insert(0,ytt);
+                        ttemp.timelist.Insert(0, ytt);
                         result.Add(ttemp);
                         continue;
                     case 10://这种情况表明只有月份，没有年份，处理同上
-                         if (result.Count == 0)
+                        if (result.Count == 0)
                         {
                             result.Add(ttemp);
                             continue;
                         }
-                        string yt1 = result[result.Count - 1].time.text.Substring(0,result[result.Count-1].time.text.IndexOf("年")+1);
-                        ttemp.time.text=ttemp.time.text.Insert(0,yt1);
+                        string yt1 = result[result.Count - 1].time.text.Substring(0, result[result.Count - 1].time.text.IndexOf("年") + 1);
+                        ttemp.time.text = ttemp.time.text.Insert(0, yt1);
                         //这里还要注意，需要将插入的词语，放到时间序列中
                         Text_result ytt1 = new Text_result();
                         ytt1.text = yt1;
                         ytt1.res.sPos = "t";
-                        ttemp.timelist.Insert(0,ytt1);
+                        ttemp.timelist.Insert(0, ytt1);
                         result.Add(ttemp);
                         continue;
                     case 1://这种情况，表示只有日期没有年月，这里，也进行处理，需要更具前一条数据进行处理，若是前一条数据没有
-                           if (result.Count == 0)
+                        if (result.Count == 0)
                         {
                             result.Add(ttemp);
                             continue;
                         }
-                           if (result[result.Count - 1].time.text.IndexOf("月") < 0)
-                           { 
-                             //这里就直接进行合并吧，
-                               if (i == 0)
-                               {
-                                   result.Add(ttemp);
-                                   continue;
-                               }
-                               else//如果不是第一条记录这里就需要处理
-                               {
-                                   result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
-                                   continue;
-                               }
-                             
-                           }
-                        string yt2 = result[result.Count - 1].time.text.Substring(0,result[result.Count-1].time.text.IndexOf("月")+1);
-                        ttemp.time.text=ttemp.time.text.Insert(0,yt2);
-                        //这里还要注意，需要将插入的词语，放到时间序列中
-                        Text_result ytt2 = new Text_result();
-                        ytt2.text = yt2;
-                        ytt2.res.sPos = "t";
-                        ttemp.timelist.Insert(0,ytt2);
-                        result.Add(ttemp);
-                        continue;
-
-                    default:
+                        if (result[result.Count - 1].time.text.IndexOf("月") < 0)
                         {
-                           //若是三者都没有，那就只能进行合并到上一条数据中
+                            //这里就直接进行合并吧，
                             if (i == 0)
                             {
                                 result.Add(ttemp);
@@ -425,11 +400,36 @@ namespace redmomery.librarys
                                 result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
                                 continue;
                             }
-                         
+
+                        }
+                        string yt2 = result[result.Count - 1].time.text.Substring(0, result[result.Count - 1].time.text.IndexOf("月") + 1);
+                        ttemp.time.text = ttemp.time.text.Insert(0, yt2);
+                        //这里还要注意，需要将插入的词语，放到时间序列中
+                        Text_result ytt2 = new Text_result();
+                        ytt2.text = yt2;
+                        ytt2.res.sPos = "t";
+                        ttemp.timelist.Insert(0, ytt2);
+                        result.Add(ttemp);
+                        continue;
+
+                    default:
+                        {
+                            //若是三者都没有，那就只能进行合并到上一条数据中
+                            if (i == 0)
+                            {
+                                result.Add(ttemp);
+                                continue;
+                            }
+                            else//如果不是第一条记录这里就需要处理
+                            {
+                                result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
+                                continue;
+                            }
+
                         }
                 }
-               
-                
+
+
             }
             return result;
         }
@@ -442,43 +442,43 @@ namespace redmomery.librarys
             {
                 Time_result ttemp = temp[i];
 
-                if (ttemp.time == null || ttemp.time.text==null||ttemp.time.text == "")
-                { 
-                  //这种情况表示其需要时间的限制,直接将其并到上一条记录中
+                if (ttemp.time == null || ttemp.time.text == null || ttemp.time.text == "")
+                {
+                    //这种情况表示其需要时间的限制,直接将其并到上一条记录中
                     if (i == 0)
                     {
                         result.Add(ttemp);
-                       
+
                         continue;
                     }
                     else//如果不是第一条记录这里就需要处理
                     {
                         result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
-                       
+
                         continue;
                     }
                 }
                 if (ttemp.time.text.IndexOf("年") >= 0 || ttemp.time.text.IndexOf("月") >= 0 || ttemp.time.text.IndexOf("日") >= 0)
                 {
                     //三者任有一，不予处理直接添加队列中
-                        result.Add(ttemp);
-                       
-                        continue;
+                    result.Add(ttemp);
+
+                    continue;
                 }
                 if (ttemp.time.text.IndexOf("年") < 0 && ttemp.time.text.IndexOf("月") < 0 && ttemp.time.text.IndexOf("日") < 0)
-                { 
-                   //这三个时间都没有,需要处理，处理方法，直接将其和上一一条记录进行合并
+                {
+                    //这三个时间都没有,需要处理，处理方法，直接将其和上一一条记录进行合并
                     //如果是第一条记录，就不要处理(虽然概率很小，但是这个是属于极大的问题处理)
                     if (i == 0)
                     {
                         result.Add(ttemp);
-                     
+
                         continue;
                     }
                     else//如果不是第一条记录这里就需要处理
                     {
                         result[result.Count - 1].timelist.AddRange(ttemp.timelist);//当这一条记录的时间添加到末尾
-                      
+
                         continue;
                     }
                 }
@@ -486,7 +486,7 @@ namespace redmomery.librarys
             return result;
         }
         //规则七：对于其中地名开始进行提取,遍历地名,但是不对地名进行处理
-        public static List<T_LocalText>  ExtractLocalName(List<Time_result> temp)
+        public static List<T_LocalText> ExtractLocalName(List<Time_result> temp)
         {
             List<T_LocalText> result = new List<T_LocalText>();
             for (int i = 0; i < temp.Count; i++)
@@ -520,13 +520,13 @@ namespace redmomery.librarys
                 //开始将地名提取和赋值
                 for (int j = 0; j < temp[i].local.Count; j++)
                 {
-                    if (temp[i].local[j] != null && temp[i].local[j].text != null )
+                    if (temp[i].local[j] != null && temp[i].local[j].text != null)
                     {
                         restemp.local.Add(temp[i].local[j].text);
                     }
                 }
                 //下面开始进行内容的整合
-                restemp.context=string.Empty;
+                restemp.context = string.Empty;
                 for (int j = 0; j < temp[i].res.Count; j++)
                 {
                     restemp.context += temp[i].res[j].text;
@@ -535,19 +535,19 @@ namespace redmomery.librarys
             }
             return result;
         }
-       //规则九:这一规则是基于一个建设前提建立的：即，当用户没有明确的指出地点的变更的时候，就意味着对象没有进行地点位移，所以这条规则，就是将所有的地点为空的记录，全部并到前一条记录中
+        //规则九:这一规则是基于一个建设前提建立的：即，当用户没有明确的指出地点的变更的时候，就意味着对象没有进行地点位移，所以这条规则，就是将所有的地点为空的记录，全部并到前一条记录中
         public static List<Res_T_LocalText> mergeLocal(List<Res_T_LocalText> temp)
         {
             List<Res_T_LocalText> result = new List<Res_T_LocalText>();
             for (int i = 0; i < temp.Count; i++)
             {
-                Res_T_LocalText ttemp=temp[i];
-                
+                Res_T_LocalText ttemp = temp[i];
+
                 if (temp[i].local.Count == 0)
                 {
                     if (i == 0)//如果这是第一条数据，这里需要特殊处理
-                    { 
-                      //首先以后面的第一条地名数据作为本记录到地名
+                    {
+                        //首先以后面的第一条地名数据作为本记录到地名
                         for (int j = 0; j < temp.Count; j++)
                         {
                             if (temp[i].local.Count > 0)
@@ -556,36 +556,36 @@ namespace redmomery.librarys
                             }
                         }
                         result.Add(ttemp);
-                        continue; 
+                        continue;
                     }
 
-                  //表示这个里面没有地名数据，那将这个对应的数据合并到前一条数据上
+                    //表示这个里面没有地名数据，那将这个对应的数据合并到前一条数据上
                     result[result.Count - 1].context += ttemp.context;
                     continue;
                 }
                 result.Add(ttemp);
             }
-                return result;
+            return result;
         }
         //规则十：目的是为了保证的地名的唯一性，注意这一步，需要云平台的地理编码进行配合，所以运算速度可能会变慢。
         public static List<Text_trcajectory> uniquelocal(List<Res_T_LocalText> temp)
         {
             List<Text_trcajectory> result = new List<Text_trcajectory>();
-          //小规则1：地名等级比较小为准，对于一些特殊的地名，比如日本，法国，巴黎，这里由于是国内，所以无法识别
+            //小规则1：地名等级比较小为准，对于一些特殊的地名，比如日本，法国，巴黎，这里由于是国内，所以无法识别
             for (int i = 0; i < temp.Count; i++)
             {
                 Text_trcajectory restemp = new Text_trcajectory();
-                restemp.time=temp[i].time;
+                restemp.time = temp[i].time;
                 restemp.context = temp[i].context;
                 Res_t_locals res = new Res_t_locals();
                 for (int j = 0; j < temp[i].local.Count; j++)
                 {
                     baiduGeocodingaddress obj = redmomery.command.Geocodingcommand.getGeocodingByAddressobject(temp[i].local[j]);
-                    if (obj.status != 0&&obj.result==null)
+                    if (obj.status != 0 && obj.result == null)
                     {
                         restemp.iscurent = 6;//极度危险
                     }
-                    
+
                     if (j == 0)
                     {
                         res.addressname = temp[i].local[j];
@@ -593,7 +593,7 @@ namespace redmomery.librarys
                         continue;
                     }
                     //如果不是第一条数据，就需要进行比较
-                    if (res.local != null && res.local.result != null&&res.local.result.level!=null)
+                    if (res.local != null && res.local.result != null && res.local.result.level != null)
                     {
                         if (obj.result != null)
                         {
@@ -613,7 +613,7 @@ namespace redmomery.librarys
             }
             return result;
         }
-        #endregion 
+        #endregion
         public static double levelscore(baiduGeocodingaddress ba)
         {
             double mitemp = 0;
@@ -634,7 +634,6 @@ namespace redmomery.librarys
             distance = (ba.result.location.lng - Gcenter.lng) * (ba.result.location.lng - Gcenter.lng) + (ba.result.location.lat - Gcenter.lat) * (ba.result.location.lat - Gcenter.lat);
             return distance;
         }
-
         //调试用过得方法
         public static void outmid(List<Text_result> temp)
         {
@@ -645,7 +644,6 @@ namespace redmomery.librarys
             Console.WriteLine();
             Console.WriteLine();
         }
-
         //专门提取地名
         public static List<Res_t_locals> getLocalname(List<Text_result> temp)
         {
@@ -664,6 +662,42 @@ namespace redmomery.librarys
 
 
         }
+        //提取当前文章的关键词
+        public static List<KeyWordValue> getKeyWordFromText(string text)
+        {
+            List<KeyWordValue> result = new List<KeyWordValue>();
+            //由于文件的原因这里采用堆栈的方案来进行数据的解析
+            NLPIR_ICTCLAS_C nlpir = new NLPIR_ICTCLAS_C();
+            string Keyresult = nlpir.KeyExtractGetKeyWords(text, 50, true);
+            string[] keys = Keyresult.Trim().Split('#');
+            for (int i = 0; i < keys.Length; i++)
+            {
+                KeyWordValue newkeytemp = new KeyWordValue();
+                string[] temp = keys[i].Trim().Split('/', '\\');
+                if (temp.Length == 4)
+                {
+                    newkeytemp.keyWord = temp[0];
+                    newkeytemp.spos = temp[1];
+                    double value = 0;
+                    if (double.TryParse(temp[2].Trim(), out value))
+                        newkeytemp.value = value;
+                    else newkeytemp.value = value;
+
+                    double rate = 0;
+                    if (double.TryParse(temp[3], out rate))
+                    {
+                        newkeytemp.rateValue = rate;
+                    }
+                    else
+                    {
+                        newkeytemp.rateValue = rate;
+                    }
+                    result.Add(newkeytemp);
+                }
+
+            }
+            return result;
+        }
     }
 
 }
@@ -679,6 +713,13 @@ namespace redmomery.librarys
         public baiducoordinate xy = new baiducoordinate();
         public string context;
         public int iscurent;
+    }
+    public class KeyWordValue
+    {
+        public string keyWord;
+        public string spos;//词性
+        public double value;
+        public double rateValue;
     }
 }
 namespace redmomery.librarys

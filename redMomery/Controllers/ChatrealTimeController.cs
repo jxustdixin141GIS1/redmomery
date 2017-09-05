@@ -40,6 +40,10 @@ namespace redMomery.Controllers
         {
             return View();
         }
+        public ActionResult campaignlist()
+        {
+            return View();
+        }
         #endregion
         #region  服务方法
         public ActionResult PostCampaign()

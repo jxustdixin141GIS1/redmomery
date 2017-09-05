@@ -32,6 +32,10 @@ namespace redMomery.Controllers
         {
             return View();
         }
+        public ActionResult KeyWordExample()
+        {
+            return View();
+        }
         #endregion
 
 

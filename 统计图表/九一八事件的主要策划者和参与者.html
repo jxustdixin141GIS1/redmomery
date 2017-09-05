@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var nodedata= [{
+                name: '九一八事件',
+                category:5,
+                draggable: true
+               
+            }, {
+                name: '关东军',/////////////////////////////////1
+                category: 6,
+                draggable: true
+            
+            }, {
+                name: '东京参谋本部',//////////////////////////2
+                category: 6,
+                draggable: true
+                
+            }, {
+                name: '东京陆军省',/////////////////////////////3
+                category: 6,
+                draggable: true
+               
+            }, {
+                name: '朝鲜军',///////////////////////////////////////////4
+                category: 6,
+                draggable: true
+              
+            }, {
+                name: '预备役',/////////////////////////////////5
+                category: 6,
+                draggable: true
+              
+            }, 
+            {
+                name: '本繁庄',
+                category: 0,
+                draggable: true
+               
+            }, {
+                name: '板恒征四郎',
+                category: 0,
+                draggable: true
+               
+            },{
+                name: '石原莞尔',
+                category: 0,
+                draggable: true
+                
+            },{
+                name: '土肥原贤二',
+                category: 0,
+                draggable: true
+               
+            },{
+                name: '三谷清',
+                category: 0,
+                draggable: true
+              
+            },{
+                name: '花谷正',
+                category: 0,
+                draggable: true
+               
+            },{
+                name: '今田新太郎',
+                category: 0,
+                draggable: true
+               
+            },{
+                name: '岛本正一',
+                category: 0,
+                draggable: true
+               
+            },{
+                name: '川岛正',
+                category: 0,
+                draggable: true
+               
+            },{
+                name: '小野正雄',
+                category: 0,
+                draggable: true
+               
+            },{
+                name: '川上精一',
+                category: 0,
+                draggable: true
+               
+            },{
+                name: '二岛正范',
+                category: 0,
+                draggable: true
+              
+            },{
+                name: '平田幸弘',
+                category: 0,
+                draggable: true
+             
+            },{
+                name: '河本末守',
+                category: 0,
+                draggable: true
+               
+            },{ name: '金谷范三',//20
+                category: 1,
+                draggable: true
+              
+            } ,{
+                name: '二宫冶重',
+                category: 1,
+                draggable: true
+               
+            },{
+                name: '建川美次',
+                category: 1,
+                draggable: true
+                
+            },{
+                name: '梅津',
+                category: 1,
+                draggable: true
+               
+            },{
+                name: '桥本虎之助',
+                category: 1,
+                draggable: true
+               
+            },{
+                name: '桥本欣五郎',
+                category: 1,
+                draggable: true
+               
+            },{
+                name: '根本博',
+                category: 1,
+                draggable: true
+               
+            },{
+                name: '重藤千秋',
+                category: 1,
+                draggable: true
+                
+            },{
+                name: '和知鹰二',
+                category: 1,
+                draggable: true
+                
+            },{
+                name: '长勇',
+                category: 1,
+                draggable: true
+               
+            },{
+                name: '南次郎',
+                category: 2,
+                draggable: true
+               
+            },{
+                name: '杉山元',
+                category: 2,
+                draggable: true
+               
+            },{
+                name: '小矾国昭',
+                category: 2,
+                draggable: true
+               
+            },{
+                name: '永田铁山',
+                category: 2,
+                draggable: true
+               
+            },{
+                name: '冈村宁次',
+                category: 2,
+                draggable: true
+               
+            },{
+                name: '林铣十郎',
+                category: 3,
+                draggable: true
+               
+            },{
+                name: '神田正种',
+                category: 3,
+                draggable: true
+               
+            },{
+                name: '河本大作',
+                category:4,
+                draggable: true
+               
+            },{
+                name: '甘粕正彦',
+                category:4,
+                draggable: true
+               
+            },{
+                name: '和田劲',
+                category:4,
+                draggable: true
+               
+            }];
+var linenode= [{ source: 0,target: 1,value:"参与机关"},
+               { source: 0,target: 2,value:"参与机关"},
+               { source: 0,target:3,value:"参与机关"},
+               { source: 0,target:4,value:"参与机关"},
+               { source: 0,target:5,value:"参与机关"},
+               { source: 1,target:6 ,value:"下属人员"},
+               { source: 1,target:7 ,value:"下属人员"},
+               { source: 1,target:8 ,value:"下属人员"},
+               { source: 1,target:9 ,value:"下属人员"}, 
+               { source: 1,target:10,value:"下属人员"}, 
+               { source: 1,target:11,value:"下属人员"},    
+               { source: 1,target:12,value:"下属人员"},   
+               { source: 1,target:13,value:"下属人员"},   
+               { source: 1,target:14,value:"下属人员"},   
+               { source: 1,target:15,value:"下属人员"},   
+               { source: 1,target:16,value:"下属人员"},   
+               { source: 1,target:17,value:"下属人员"},    
+               { source: 1,target:18,value:"下属人员"},   
+               { source: 1,target:19,value:"下属人员"},
+               { source: 2,target:20,value:"下属人员"},
+               { source: 2,target:21,value:"下属人员"},
+               { source: 2,target:22,value:"下属人员"},
+               { source: 2,target:23,value:"下属人员"},
+               { source: 2,target:24,value:"下属人员"},
+               { source: 2,target:25,value:"下属人员"},
+               { source: 2,target:26,value:"下属人员"},
+               { source: 2,target:27,value:"下属人员"},
+               { source: 2,target:28,value:"下属人员"},
+               { source: 2,target:29,value:"下属人员"},
+               { source: 3,target:30,value:"下属人员"},
+               { source: 3,target:31,value:"下属人员"},
+               { source: 3,target:32,value:"下属人员"},
+               { source: 3,target:33,value:"下属人员"},
+               { source: 3,target:34,value:"下属人员"},
+               { source: 4,target:35,value:"下属人员"},
+               { source: 4,target:36,value:"下属人员"},
+               { source: 5,target:37,value:"下属人员"},
+               { source: 5,target:38,value:"下属人员"},
+               { source: 5,target:39,value:"下属人员"},
+            ];
+option = {
+    title: {
+        left:"center",
+        text: '九一八事变主要策划者和参与者'
+    },
+     
+    animationDurationUpdate: 1500,
+    animationEasingUpdate: 'quinticInOut',
+    label: {
+        normal: {
+            show: true,
+            textStyle: {
+                fontSize:50,
+                color:"#000000"
+            },
+        }
+    },
+    legend: {
+        x: "center",
+        top:"3%",
+        show: true,
+        data: ["事件","机关","关东军", "东京参谋本部", "东京陆军省","朝鲜军","预备役"]
+    },
+    series: [
+        {
+            type: 'graph',
+            layout: 'force',
+            symbolSize: 45,
+           
+            focusNodeAdjacency: true,
+            roam: true,
+            categories: [{
+                name: '关东军',
+                itemStyle: {
+                    normal: {
+                        color: "#009800",
+                    }
+                }
+            }, {
+                name: '东京参谋本部',
+                itemStyle: {
+                    normal: {
+                        color: "#FF00FF",
+                    }
+                }
+            }, {
+                name: '东京陆军省',
+                itemStyle: {
+                    normal: {
+                        color: "#00FF00",
+                    }
+                }
+            }, {
+                name: '朝鲜军',
+                itemStyle: {
+                    normal: {
+                        color: "#87CEFA",
+                    }
+                }
+            }, {
+                name: '预备役',
+                itemStyle: {
+                    normal: {
+                        color: "#FFD700",
+                    }
+                }
+            }, {
+                name: '事件',
+                itemStyle: {
+                    normal: {
+                        color: "#00FFFF",
+                    }
+                }
+            }, {
+                name: '机关',
+                itemStyle: {
+                    normal: {
+                        color: "#8B0000",
+                    }
+                }
+            }],
+            label: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 12
+                    },
+                }
+            },
+            force: {
+                repulsion: 1000
+            },
+            edgeSymbolSize: [4, 50],
+            edgeLabel: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 10
+                    },
+                    formatter: "{c}"
+                }
+            },
+            data:nodedata,
+            
+            links:linenode,
+            lineStyle: {
+                normal: {
+                    opacity: 0.9,
+                    width: 1,
+                    curveness: 0
+                }
+            }
+        }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

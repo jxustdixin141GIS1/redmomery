@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F89EEB73-E41D-4A13-97FA-97A851170B8B}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NLRedmomery</RootNamespace>
     <AssemblyName>NLRedmomery</AssemblyName>

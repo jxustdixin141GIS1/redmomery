@@ -44,4 +44,4 @@ D:\题库系统\github\team\redmomery\redMomery\bin\zh-Hans\System.Web.WebPages.
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.dll
 D:\题库系统\github\team\redmomery\redMomery\obj\Debug\redMomery.pdb
-D:\题库系统\github\team\redmomery\redMomery\bin\NLRedmomery.dll
+D:\题库系统\github\team\redmomery\redMomery\bin\NLRedmomery.exe

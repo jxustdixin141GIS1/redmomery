@@ -43,19 +43,20 @@ namespace NLRedmomery
                 Console.Write(Encoding.Default.GetString(bytes, r.start, r.length)+"/"+r.sPos);
                 
             }
+            Console.WriteLine();
             Console.WriteLine("下面开始测试关键词提取功能");
             string keys = nlpir.KeyExtractGetKeyWords(s1, 10, true);
-            Console.WriteLine(keys);
+            Console.WriteLine(keys); Console.WriteLine();
             Console.WriteLine("测试发现新词功能：");
             string newwords = nlpir.NWFGetNewWords(s1);
             Console.WriteLine(newwords);
-            Console.WriteLine(nlpir.NWFResult2UserDict());
+            Console.WriteLine(nlpir.NWFResult2UserDict()); Console.WriteLine();
             Console.WriteLine("下面测试批量发现新词");
             nlpir.NWFBatch_Start();
             nlpir.NWFBatch_AddMem(s1);
             nlpir.NWFBatch_Complete();
             Console.WriteLine(nlpir.NWFBatch_GetResult());
-            Console.WriteLine(nlpir.NWFResult2UserDict());
+            Console.WriteLine(nlpir.NWFResult2UserDict()); Console.WriteLine();
             Console.WriteLine("下面测试实体抽取功能");
             long handle = nlpir.DEParseDocE(s1, "mgc#ngd", true, nFuncRequired.ALL_REQUIRED);
             string res = nlpir.DEGetResult(handle);

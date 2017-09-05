@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+
+    <title>在线交流</title>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.16/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.16/esri/css/esri.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    
+    <link href="~/resource/css/ZXJL.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://js.arcgis.com/3.16/init.js"></script>
+    <script type="text/javascript" src="~/resource/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/resource/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="~/resource/js/ZXJL.js"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid" style="background-image:url(../resource/image/dhbj2.png);">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="padding:0px 15px">
+                    <img alt="抗战追忆系统" src="../resource/image/duibiao1.png" width="50px" height="50px" />
+                </a>
+                <a class="navbar-brand" href="#" style=" font-weight:bold; font-family:华文行楷; font-size:28px; color:#fff201;">
+                    血色记忆
+                </a>
+            </div> <!-- end .navbar-header -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <input type="hidden" value="1" id="ViewBageType" />
+                <ul class="nav navbar-nav">
+                    <li><a href="../HOME/shouye.html" style="font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">首页</a></li>
+                    <li><a href="../LBBX/LB1.html" style="font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">老兵不朽</a></li>
+                    <li><a href="../KZHJY/KZHJY.html" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">抗战记忆</a></li>
+                    <li><a href="../ZHCHZHT/ZHCHZHT.html" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">战场制图</a></li>
+                    <li><a href="../KZZHSH/KZZHSH.html" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">抗战展示</a></li>
+                    <li><a href="#" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201">在线交流</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../DLZHC/ZHUCE.html" target="view_window" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                    <li><a href="../DLZHC/DL.html" target="view_window" style=" font-weight:bold; font-family:楷体; font-size:18px; color:#fff201"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                </ul>
+            </div><!-- end .navbar-collapse -->
+        </div><!-- end .container-fluid -->
+    </nav>
+
+    <div class="container-fluid" id="tb">
+        <div class="row-fluid">
+            <div class="col-md-6" id="tb1">
+                <h3>参加的活动</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                组织者
+                            </th>
+                            <th>
+                                地点
+                            </th>
+                            <th>
+                                活动时间
+                            </th>
+                            <th>
+                                活动类容
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                01/04/2012
+                            </td>
+                            <td>
+                                Default
+                            </td>
+                        </tr>
+                        <tr class="success">
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                01/04/2012
+                            </td>
+                            <td>
+                                Approved
+                            </td>
+                        </tr>
+                        <tr class="error">
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                02/04/2012
+                            </td>
+                            <td>
+                                Declined
+                            </td>
+                        </tr>
+                        <tr class="warning">
+                            <td>
+                                3
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                03/04/2012
+                            </td>
+                            <td>
+                                Pending
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-md-6" id="tb2">
+                <h3>最新活动</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                组织者
+                            </th>
+                            <th>
+                                地点
+                            </th>
+                            <th>
+                                活动时间
+                            </th>
+                            <th>
+                                活动类容
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                01/04/2012
+                            </td>
+                            <td>
+                                Default
+                            </td>
+                        </tr>
+                        <tr class="success">
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                01/04/2012
+                            </td>
+                            <td>
+                                Approved
+                            </td>
+                        </tr>
+                        <tr class="error">
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                02/04/2012
+                            </td>
+                            <td>
+                                Declined
+                            </td>
+                        </tr>
+                        <tr class="warning">
+                            <td>
+                                3
+                            </td>
+                            <td>
+                                TB - Monthly
+                            </td>
+                            <td>
+                                03/04/2012
+                            </td>
+                            <td>
+                                Pending
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="mapDiv" class="MapClass" data-dojo-props="region:'center'" data-dojo-type="dijit/layout/ContentPane">
+        <div id="HomeButton"></div>
+    </div>
+
+    <!--<div id="chat"></div>-->
+
+
+</body>
+</html>

@@ -130,6 +130,7 @@
     <Compile Include="Controllers\LBbxController.cs" />
     <Compile Include="Controllers\LBController.cs" />
     <Compile Include="Controllers\LBZLController.cs" />
+    <Compile Include="Controllers\parsetextController.cs" />
     <Compile Include="Controllers\searchController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\uploadController.cs" />
@@ -192,6 +193,7 @@
     <Content Include="resource\css\style.css" />
     <Content Include="resource\css\style_comment.css" />
     <Content Include="resource\css\ZCZX.css" />
+    <Content Include="resource\css\ZXJL.css" />
     <Content Include="resource\css\zzsc.css" />
     <Content Include="resource\favicon.png" />
     <Content Include="resource\fonts\icomoon.dev.svg" />
@@ -1841,9 +1843,11 @@
     <Content Include="resource\js\tribune.js" />
     <Content Include="resource\js\video.js" />
     <Content Include="resource\js\ZCZXanniu.js" />
+    <Content Include="resource\js\ZXJL.js" />
     <Content Include="resource\staticfile\citybaiduinfo.js" />
     <Content Include="resource\js\ZCZX.js" />
     <Content Include="resource\staticfile\cityinfo.js" />
+    <Content Include="resource\staticfile\echarts-wordcloud.js" />
     <Content Include="resource\staticfile\Treatmentdata.js" />
     <Content Include="resource\staticfile\various.js" />
     <Content Include="Web.config">
@@ -1957,6 +1961,8 @@
     <Content Include="resource\chart\font\fontello.ttf" />
     <Content Include="resource\chart\font\fontello.woff" />
     <Content Include="Views\ChatrealTime\charexmap.cshtml" />
+    <Content Include="Views\Statistics\KeyWordExample.cshtml" />
+    <Content Include="Views\ChatrealTime\campaignlist.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

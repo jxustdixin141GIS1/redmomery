@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+//师团数
+
+
+option = {
+
+    // Make gradient line here
+    visualMap: [{
+        show: false,
+        type: 'continuous',
+        seriesIndex: 0,
+        min: 0,
+        max: 10
+    }, {
+        show: false,
+        type: 'continuous',
+        seriesIndex: 1,
+        dimension: 0,
+        min: 0,
+        max:260
+    }],
+
+
+    title: [{
+        left: 'center',
+        text: '1931年日军在中国东北的兵力概况表'
+    }, {
+        top: '55%',
+        left: 'center',
+        text: '1931-1939年日军军备概况表'
+    }],
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend:{
+        top:"50%",
+      data:["飞机数","战车数"]
+    },
+    xAxis: [{
+        data:["1931.1","1932.9","1933.11","1934.6","1935年末","1936年末","1937年末"]
+    }, {
+        data: ["1931.1","1932.9","1933.11","1934.6","1935年末","1936年末","1937年末"],
+        gridIndex: 1
+    }],
+    yAxis: [{
+        splitLine: {show: false}
+        
+    }, {
+        splitLine: {show: false},
+        gridIndex: 1
+    }],
+    grid: [{
+        bottom: '60%'
+    }, {
+        top: '60%'
+    }],
+    series: [{
+        name:"师团数",
+        type: 'line',
+        data: [3,6,5,5,5,5,7]
+    }, {
+        name:"飞机数",
+        type: 'line',
+        data: [0,100,130,130,220,230,150],
+        xAxisIndex: 1,
+        yAxisIndex: 1
+    }
+    ,{
+        name:"战车数",
+        type: 'line',
+        data:[0,50,100,120,150,150,150],
+        xAxisIndex: 1,
+        yAxisIndex: 1
+    }
+    ]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

@@ -203,12 +203,12 @@
               function setUpQuery() {
 
                   var queryTask = new QueryTask
-                      ("http://user-20160610za:6443/arcgis/rest/services/part1/LBINFO/MapServer");
+                      ("https://user-20160610za:6443/arcgis/rest/services/part1/LBINFO/MapServer/0");
 
                   //设定查询条件
                   var query = new Query();
                   query.returnGeometry = true;
-                  query.outFields = ["LBID", "LBname", "LBjob", "LBsex", "LBbirthday", "LBdomicile", "designation", "LBexperience", "LBlife", "LBPhoto"];
+                  query.outFields = ["*"];
                   query.outSpatialReference = { "wkid": 4326 };
                   query.where = "LBID>0";
                   //信息模板

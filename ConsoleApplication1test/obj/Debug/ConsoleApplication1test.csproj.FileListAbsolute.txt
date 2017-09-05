@@ -32,4 +32,4 @@ D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleA
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.csproj.GenerateResource.Cache
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.exe
 D:\题库系统\github\team\redmomery\ConsoleApplication1test\obj\Debug\ConsoleApplication1test.pdb
-D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\NLRedmomery.dll
+D:\题库系统\github\team\redmomery\ConsoleApplication1test\bin\Debug\NLRedmomery.exe

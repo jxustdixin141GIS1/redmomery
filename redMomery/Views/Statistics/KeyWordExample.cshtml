@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://data-visual.cn/datav/src/js/echarts/extension/echarts-wordcloud.min.js"></script>
+
+    <script>
+        //初始化变量
+        var wordKey = null;
+        var dom = null;
+        var myChart = null;
+        $(document).ready(function () {
+            dom = document.getElementById("container");
+            myChart = echarts.init(dom);
+        });
+        function loadWordKey()
+        {
+            
+            var app = {};
+            option = null;
+            var option = {
+                tooltip: {},
+                series: [{
+                    type: 'wordCloud',
+                    gridSize: 2,
+                    sizeRange: [12, 50],
+                    rotationRange: [-90, 90],
+                    shape: 'pentagon',
+                    width: 600,
+                    height: 400,
+                    drawOutOfBound: true,
+                    textStyle: {
+                        normal: {
+                            color: function () {
+                                var temp = 'rgba(' + Math.round(Math.random() * 160) + ',' + Math.round(Math.random() * 160) + ',' + Math.round(Math.random() * 160) + ',1' + ')';
+                                return temp;
+                            }
+                        },
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data: wordKey
+                   
+                }]
+            };
+
+            
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+                window.onresize =  myChart.resize;
+            }
+        }
+        function ceshi() {
+            myChart.showLoading();
+            var dom = document.getElementById("ceshi");
+            var texts = dom.value;
+            $.ajax({
+                url: "/parsetext/KeyWord",
+                type: "post",
+                data: { text: texts },
+                success: function (e)
+                {
+                    console.log(e);
+                    wordKey = e;
+                    //开始尽心处理wordKey
+                    var temp = wordKey;
+                    wordKey = [];
+                    for (var i = 0; i < temp.length; i++) {
+                        var keytemp = {};
+                        keytemp.name = temp[i].keyWord;
+                        keytemp.value = temp[i].value;
+                        keytemp.itemStyle = {}
+                        wordKey.push(keytemp);
+                    }
+                    myChart.hideLoading();
+                    loadWordKey();
+
+                    return true;
+                },
+                error: function (e) { console.log(e); }
+            });
+        }
+    </script>
+</head>
+<body style="height: 100%; margin: 0">
+    <input type="text" id="ceshi" />
+    <button onclick="ceshi()">测试词云能力</button>
+    <br />
+    <div id="container" style="height: 100%"></div>
+
+    <script type="text/javascript">
+        
+
+    </script>
+</body>
+</html>

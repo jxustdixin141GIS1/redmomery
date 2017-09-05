@@ -31,6 +31,15 @@ namespace ConsoleApplication1test
     {
         static void Main(string[] args)
         {
+            //测试词语功能
+            List<KeyWordValue> list = new List<KeyWordValue>();
+            string LBtext = redmomery.command.createlog.readTextFrompath(@"D:\qq缓存\新建文本文档.txt");
+            list = LBText.getKeyWordFromText(LBtext);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(redmomery.Common.SerializerHelper.SerializeToString(list[i]));
+            } 
+            #region
             //邓小平，为人表
 
            // List<track> list = new List<track>();
@@ -57,7 +66,7 @@ namespace ConsoleApplication1test
            //// Commands cl1 = new Commands();
            // //获取当前用户的
            //cl1.testgeogecoding();
-            #region
+         
             ////这一部分用来处理大部分的时间概念
             //List<trajectory> t = new List<trajectory>();
             //trajectoryDAL dal = new trajectoryDAL();

@@ -1,0 +1,46 @@
+﻿body{ 
+	   padding-top: 50px;
+       overflow-x: hidden;
+       overflow-y: hidden;
+} 
+html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+}
+#tb {
+    margin-top:52px;
+    padding:0;
+}
+#tb1,#tb2{
+    border:1px solid #0094ff;
+}           
+
+#mapDiv{
+            height: 100%;
+			float:left;
+			display:inline;
+			width:50%;  
+            border:1px solid #0094ff;         
+}
+ #HomeButton{
+       position:absolute;
+       margin-left:20px;
+       z-index: 50;
+       margin-top:90px;
+}
+
+
+/**, *:before, *:after {
+       box-sizing: border-box;
+}
+ul{
+       list-style: none;
+	   margin: 0;
+       padding: 0;
+}
+#chat{
+       height: 50%;
+	   float:right;
+	   width:50%;
+}*/

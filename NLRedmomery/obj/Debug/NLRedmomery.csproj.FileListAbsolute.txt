@@ -8,6 +8,6 @@ D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\Newtonsoft.Json.xml
 D:\题库系统\github\team\redmomery\NLRedmomery\obj\Debug\NLRedmomery.csprojResolveAssemblyReference.cache
 D:\题库系统\github\team\redmomery\NLRedmomery\obj\Debug\NLRedmomery.pdb
 D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\redmomery.command.dll
-D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\NLRedmomery.dll.config
-D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\NLRedmomery.dll
-D:\题库系统\github\team\redmomery\NLRedmomery\obj\Debug\NLRedmomery.dll
+D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\NLRedmomery.exe.config
+D:\题库系统\github\team\redmomery\NLRedmomery\bin\Debug\NLRedmomery.exe
+D:\题库系统\github\team\redmomery\NLRedmomery\obj\Debug\NLRedmomery.exe

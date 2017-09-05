@@ -85,11 +85,6 @@ function geocoding()
         alert("lng:" + lng.toString() + "\n\r" + "lat:" + lat.toString()+"\n\r"+"这行代码在LBUpload.js 行：85，功能扩展在以后应能自动实现地图的定位和移动");
     });
 }
-
-
-
-
-
 function createtemp()
 {
     var form1 = document.createElement("from");
@@ -99,4 +94,3 @@ function createtemp()
     form1.appendChild(files);
 
 }
-
