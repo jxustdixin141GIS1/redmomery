@@ -130,6 +130,36 @@ namespace redMomery.Controllers
             List<View_Multimessage> list = ChartOnlineGroup.getmeesage(GID, dtime);
             return Json(redmomery.Common.SerializerHelper.SerializeToString(list));
         }
+        //申请参加活动
+        public ActionResult ApplyMeetint(int MID,string contenxt)
+        {
+          USER_INFO user = Session["user"] as USER_INFO;
+          UATIMeettable newut=  ChartOnlinelib.applyTImeet(MID,user.USER_ID,contenxt);
+          if (newut != null)
+          {
+              return Json("true");
+          }
+          else
+          {
+              return Json("false");
+          }
+        }
+        //同意参加活动
+        public ActionResult dealwithApply(int UID, int MID,int state)
+        {
+            USER_INFO user = Session["user"] as USER_INFO;//处理人
+            bool isok = ChartOnlinelib.dealwithUp(user.USER_ID,MID,state,UID);
+            return Json(isok);
+        }
+        //得到当前用户的可以审核的处理,
+        public ActionResult GetApplyList()
+        {
+            USER_INFO user = Session["user"] as USER_INFO;
+            List<redmomery.librarys.libModel.ViewmanageMeetApply> list = ChartOnlinelib.getlistManageapply(user);
+            return Json(list);
+        }
         #endregion
     }
+
+   
 }

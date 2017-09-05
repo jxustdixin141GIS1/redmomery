@@ -14,7 +14,25 @@
     <script type="text/javascript" src="~/resource/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/resource/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script src="~/resource/js/ZXJL.js"></script>
+    <script>
+        var compiange = null;
+        $.ajax({//获取当前用户的
+            url: "/ChatrealTime/getMymeeting",
+            type: "post",
+            success: function (e)
+            {
+                console.log(e);
+            },
+            error: function (e)
+            {
+                console.log(e);
+            }
+        });
+        $(document).ready(function () {
 
+
+        });
+    </script>
 </head>
 <body>
 
@@ -69,11 +87,11 @@
                                 活动时间
                             </th>
                             <th>
-                                活动类容
+                                活动内容
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbodylist">
                         <tr>
                             <td>
                                 1
